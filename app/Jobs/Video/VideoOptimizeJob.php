@@ -11,6 +11,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\Middleware\WithoutOverlapping;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Facades\Storage;
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
@@ -155,6 +156,11 @@ class VideoOptimizeJob implements ShouldQueue
             $video->has_processed = true;
             $video->has_audio = (bool) $hasAudio;
             $video->status = 2;
+
+            // Generate HLS segments
+            $hlsGenerated = $this->generateHls($video, $name);
+            $video->has_hls = $hlsGenerated;
+
             $video->save();
 
             $media->cleanupTemporaryFiles();
@@ -178,6 +184,117 @@ class VideoOptimizeJob implements ShouldQueue
 
             throw $e;
         }
+    }
+
+    private function generateHls($video, string $optimizedPath): bool
+    {
+        try {
+            $tmpDir = storage_path('app/hls-tmp/'.$video->id);
+            $tmpInput = $tmpDir.'/input.mp4';
+
+            if (! is_dir($tmpDir)) {
+                mkdir($tmpDir, 0755, true);
+            }
+
+            // Download the optimized MP4 from S3
+            $stream = Storage::disk('s3')->readStream($optimizedPath);
+            if (! $stream) {
+                Log::warning('HLS: Could not read optimized video from S3', ['video_id' => $video->id]);
+
+                return false;
+            }
+            file_put_contents($tmpInput, $stream);
+
+            $dir480 = $tmpDir.'/480p';
+            $dir720 = $tmpDir.'/720p';
+            mkdir($dir480, 0755, true);
+            mkdir($dir720, 0755, true);
+
+            // 480p variant
+            $cmd480 = implode(' ', [
+                'ffmpeg', '-y', '-i', escapeshellarg($tmpInput),
+                '-vf', 'scale=-2:480', '-c:v', 'libx264', '-preset', 'fast',
+                '-crf', '28', '-c:a', 'aac', '-b:a', '96k', '-ac', '2',
+                '-f', 'hls', '-hls_time', '6', '-hls_list_size', '0',
+                '-hls_segment_filename', escapeshellarg($dir480.'/seg_%03d.ts'),
+                escapeshellarg($dir480.'/playlist.m3u8'),
+            ]);
+
+            // 720p variant
+            $cmd720 = implode(' ', [
+                'ffmpeg', '-y', '-i', escapeshellarg($tmpInput),
+                '-vf', 'scale=-2:720', '-c:v', 'libx264', '-preset', 'fast',
+                '-crf', '23', '-c:a', 'aac', '-b:a', '128k', '-ac', '2',
+                '-f', 'hls', '-hls_time', '6', '-hls_list_size', '0',
+                '-hls_segment_filename', escapeshellarg($dir720.'/seg_%03d.ts'),
+                escapeshellarg($dir720.'/playlist.m3u8'),
+            ]);
+
+            $result480 = Process::timeout(300)->run($cmd480);
+            if ($result480->failed()) {
+                Log::warning('HLS: 480p encoding failed', ['video_id' => $video->id, 'error' => $result480->errorOutput()]);
+
+                return false;
+            }
+
+            $result720 = Process::timeout(300)->run($cmd720);
+            if ($result720->failed()) {
+                Log::warning('HLS: 720p encoding failed', ['video_id' => $video->id, 'error' => $result720->errorOutput()]);
+
+                return false;
+            }
+
+            // Build master playlist
+            $basePath = pathinfo($optimizedPath, PATHINFO_DIRNAME);
+            $hlsBase = $basePath.'/hls_'.$video->id;
+
+            $master = "#EXTM3U\n";
+            $master .= "#EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=854x480\n";
+            $master .= "480p/playlist.m3u8\n";
+            $master .= "#EXT-X-STREAM-INF:BANDWIDTH=2500000,RESOLUTION=1280x720\n";
+            $master .= "720p/playlist.m3u8\n";
+
+            // Upload all HLS files to S3
+            foreach (['480p', '720p'] as $variant) {
+                $variantDir = $tmpDir.'/'.$variant;
+                foreach (glob($variantDir.'/*') as $file) {
+                    $s3Key = $hlsBase.'/'.$variant.'/'.basename($file);
+                    Storage::disk('s3')->put($s3Key, file_get_contents($file), 'public');
+                }
+            }
+
+            // Upload master playlist
+            Storage::disk('s3')->put($hlsBase.'/master.m3u8', $master, 'public');
+
+            // Clean up tmp files
+            $this->cleanupDirectory($tmpDir);
+
+            Log::info('HLS: Generated successfully', ['video_id' => $video->id, 'path' => $hlsBase]);
+
+            return true;
+        } catch (\Exception $e) {
+            Log::warning('HLS: Generation failed', ['video_id' => $video->id, 'error' => $e->getMessage()]);
+
+            if (isset($tmpDir) && is_dir($tmpDir)) {
+                $this->cleanupDirectory($tmpDir);
+            }
+
+            return false;
+        }
+    }
+
+    private function cleanupDirectory(string $dir): void
+    {
+        $files = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($dir, \FilesystemIterator::SKIP_DOTS),
+            \RecursiveIteratorIterator::CHILD_FIRST
+        );
+
+        foreach ($files as $file) {
+            $file->isDir() ? rmdir($file->getRealPath()) : unlink($file->getRealPath());
+        }
+
+        rmdir($dir);
     }
 
     public function failed(\Throwable $exception): void

@@ -58,7 +58,7 @@ return [
             'strict' => env('DB_STRICT', true),
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                (class_exists('Pdo\Mysql') ? Pdo\Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
 
@@ -78,7 +78,7 @@ return [
             'strict' => env('DB_STRICT', true),
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                (class_exists('Pdo\Mysql') ? Pdo\Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
 

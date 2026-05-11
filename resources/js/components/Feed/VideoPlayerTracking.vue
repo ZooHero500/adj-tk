@@ -27,7 +27,6 @@
                             playsinline
                             :muted="isMuted"
                         >
-                            <source :src="videoUrl" type="video/mp4" />
                         </video>
 
                         <div
@@ -430,6 +429,7 @@ const props = defineProps({
     duration: { type: Number, default: 0 },
     videoId: { type: String, required: true },
     videoUrl: { type: String, required: true },
+    hlsUrl: { type: String, default: null },
     shareUrl: { type: String, required: true },
     username: { type: String, default: 'username' },
     caption: { type: String, default: '' },
@@ -706,6 +706,13 @@ onMounted(async () => {
     }
 
     if (videoRef.value) {
+        const sources = props.hlsUrl
+            ? [
+                  { src: props.hlsUrl, type: 'application/x-mpegURL' },
+                  { src: props.videoUrl, type: 'video/mp4' }
+              ]
+            : [{ src: props.videoUrl, type: 'video/mp4' }]
+
         player = videojs(videoRef.value, {
             controls: false,
             autoplay: false,
@@ -713,6 +720,7 @@ onMounted(async () => {
             loop: true,
             fluid: true,
             muted: true,
+            sources,
             playbackRates: [0.5, 1, 1.5, 2],
             controlBar: {
                 children: [

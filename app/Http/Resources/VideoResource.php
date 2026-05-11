@@ -32,6 +32,7 @@ class VideoResource extends JsonResource
 
         $thumb = data_get($media, 'media.thumbnail', url('/videos/video-placeholder.jpg'));
         $mediaUrl = data_get($media, 'media.src_url', null);
+        $hlsUrl = data_get($media, 'media.hls_url', null);
 
         $pid = $this->getAuthenticatedProfileId($request);
         $hasLiked = $pid ? app(LikeService::class)->hasLikedVideo((string) $this->id, (string) $pid) : false;
@@ -47,7 +48,7 @@ class VideoResource extends JsonResource
             'media' => [
                 'thumbnail' => $thumb,
                 'src_url' => $mediaUrl,
-                'hls_url' => null,
+                'hls_url' => $hlsUrl,
                 'alt_text' => $this->alt_text,
                 'duration' => $this->duration,
             ],
@@ -81,10 +82,6 @@ class VideoResource extends JsonResource
             ],
             'created_at' => $this->created_at->format('c'),
         ];
-
-        if ($this->has_hls) {
-            $res['media']['hls'] = $mediaUrl.'.m3u8';
-        }
 
         return $res;
     }

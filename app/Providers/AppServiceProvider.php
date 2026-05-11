@@ -185,6 +185,8 @@ class AppServiceProvider extends ServiceProvider
 
     protected function configureSecureUrls()
     {
-        URL::forceHttps(true);
+        if (app()->environment('production')) {
+            URL::forceHttps(true);
+        }
     }
 }

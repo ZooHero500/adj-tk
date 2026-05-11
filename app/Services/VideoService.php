@@ -87,9 +87,15 @@ class VideoService
                 }
             }
 
-            $mediaUrl = Storage::disk('s3')->url($video->vid_optimized);
+            $mediaUrl = $video->vid_optimized ? Storage::disk('s3')->url($video->vid_optimized) : url('/storage/videos/video-placeholder.jpg');
             $captionText = Str::limit($video->caption ?? 'Untitled loop', 20);
             $captionText .= " • $video->likes likes • $video->comments comments";
+
+            $hlsUrl = null;
+            if ($video->has_hls && $video->vid_optimized) {
+                $basePath = pathinfo($video->vid_optimized, PATHINFO_DIRNAME);
+                $hlsUrl = Storage::disk('s3')->url($basePath.'/hls_'.$video->id.'/master.m3u8');
+            }
 
             return [
                 'id' => (string) $video->id,
@@ -113,6 +119,7 @@ class VideoService
                     'height' => $video->height ?? 1280,
                     'thumbnail' => $thumb,
                     'src_url' => $mediaUrl,
+                    'hls_url' => $hlsUrl,
                 ],
             ];
         });

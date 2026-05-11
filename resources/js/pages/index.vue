@@ -47,6 +47,7 @@ const feedData = computed(() => {
 const getVideoProps = (post, index) => ({
     'video-id': post.id,
     'video-url': post.media.src_url,
+    'hls-url': post.media.hls_url || null,
     'share-url': post.url,
     'profile-id': post.account.id,
     username: post.account.username,
