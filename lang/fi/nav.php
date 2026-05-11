@@ -30,5 +30,5 @@ return [
     'terms' => 'Ehdot',
     'toggleTheme' => 'Vaihda teema',
     'upload' => 'Lähetä',
-    'uploadLoop' => 'Lähetä Loop',
+    'uploadLoop' => 'Lähetä Video',
 ];

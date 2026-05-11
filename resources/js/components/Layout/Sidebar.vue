@@ -308,7 +308,7 @@
                             href="https://joinloops.org"
                             target="_blank"
                             :title="'v' + appVersion()"
-                            >{{ t('nav.poweredBy') }} Loops</a
+                            >{{ t('nav.poweredBy') }} PornTk</a
                         >
                     </div>
                 </div>

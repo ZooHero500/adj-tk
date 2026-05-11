@@ -17,8 +17,8 @@
             class="flex items-center justify-between px-4 border-b border-gray-100 dark:border-slate-800 h-[70px]"
         >
             <div class="flex items-center gap-2">
-                <img width="32" src="/nav-logo.png" alt="Loops Logo" class="rounded-full" />
-                <span class="text-lg font-bold text-black dark:text-white">Loops</span>
+                <img width="32" src="/nav-logo.png" alt="PornTk Logo" class="rounded-full" />
+                <span class="text-lg font-bold text-black dark:text-white">PornTk</span>
                 <span class="text-lg font-light text-black dark:text-white">Studio</span>
             </div>
             <button
@@ -64,7 +64,7 @@
             class="mb-6 mx-4 flex items-center text-sm text-gray-600 dark:text-slate-400 hover:text-gray-800 dark:hover:text-white cursor-pointer"
         >
             <i class="bx bx-arrow-back mr-2"></i>
-            Back to Loops
+            Back to PornTk
         </button>
     </aside>
 </template>

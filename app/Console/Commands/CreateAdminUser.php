@@ -34,7 +34,7 @@ class CreateAdminUser extends Command
      */
     public function handle(): int
     {
-        $this->info('Creating a new admin user for Loops...');
+        $this->info('Creating a new admin user for PornTk...');
         $this->newLine();
 
         try {

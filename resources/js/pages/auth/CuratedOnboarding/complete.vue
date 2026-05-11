@@ -42,7 +42,7 @@
                         <h2
                             class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl"
                         >
-                            Welcome to Loops
+                            Welcome to PornTk
                         </h2>
                         <p class="mt-3 text-lg text-gray-500 dark:text-gray-400">
                             Your account is ready. Redirecting you now...
@@ -75,7 +75,7 @@
                         <h1
                             class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
-                            Welcome to <span class="text-[#F02C56]">Loops</span>
+                            Welcome to <span class="text-[#F02C56]">PornTk</span>
                         </h1>
                         <p class="mt-2 text-base text-gray-500 dark:text-gray-400 sm:text-lg">
                             Setting up your account...
@@ -161,7 +161,7 @@
                         <h1
                             class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
-                            Welcome to <span class="text-[#F02C56]">Loops</span>
+                            Welcome to <span class="text-[#F02C56]">PornTk</span>
                         </h1>
                         <p class="mt-2 text-base text-gray-500 dark:text-gray-400 sm:text-lg">
                             Let's finish setting up your account.

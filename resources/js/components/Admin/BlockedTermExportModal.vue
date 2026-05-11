@@ -76,7 +76,7 @@
                     instance.
                 </span>
                 <span v-else-if="form.format === 'list'">
-                    List format provides a term only export that can be easily imported into Loops
+                    List format provides a term only export that can be easily imported into PornTk
                     again.
                 </span>
             </div>

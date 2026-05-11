@@ -44,7 +44,7 @@ class AppleAuthService
     }
 
     /**
-     * Revoke Apple tokens — call this when user deletes their Loops account.
+     * Revoke Apple tokens — call this when user deletes their PornTk account.
      */
     public function revokeToken(string $appleRefreshToken): bool
     {

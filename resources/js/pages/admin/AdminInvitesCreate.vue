@@ -12,7 +12,7 @@
                 </div>
                 <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Create Invite Link</h1>
                 <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                    Generate a new invite link for users to join Loops
+                    Generate a new invite link for users to join PornTk
                 </p>
             </div>
             <form

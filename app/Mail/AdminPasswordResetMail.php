@@ -36,7 +36,7 @@ class AdminPasswordResetMail extends Mailable implements ShouldQueue
             ?: config('app.name');
 
         return new Envelope(
-            subject: 'Your Loops password has been reset',
+            subject: 'Your PornTk password has been reset',
             from: new Address($supportEmail, $instanceName),
             tags: ['admin-action', 'password-reset'],
             metadata: [

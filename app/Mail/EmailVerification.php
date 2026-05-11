@@ -32,7 +32,7 @@ class EmailVerification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Verify Your Email on Loops',
+            subject: 'Verify Your Email on PornTk',
         );
     }
 

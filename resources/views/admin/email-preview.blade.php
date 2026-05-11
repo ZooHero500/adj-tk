@@ -75,7 +75,7 @@
             </svg>
             Back
         </a>
-        <h1>Loops Admin - {{ $title }}</h1>
+        <h1>PornTk Admin - {{ $title }}</h1>
         <span style="display: flex; align-items: center; gap: 1rem;">
             <span class="preview-badge">Admin Preview</span>
             <a href="{{$frameUrl}}" class="back-btn">View Raw</a>

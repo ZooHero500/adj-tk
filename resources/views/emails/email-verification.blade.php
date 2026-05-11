@@ -62,13 +62,13 @@
     @php($host = parse_url(config('app.url'), PHP_URL_HOST))
     <div class="container">
         <div class="header">
-            <div class="logo">Loops</div>
-            <h1 class="title">Welcome to Loops!</h1>
+            <div class="logo">PornTk</div>
+            <h1 class="title">Welcome to PornTk!</h1>
         </div>
 
         <p>Hi @<strong>{{ $user->username }}</strong>,</p>
 
-        <p>Thanks for joining <a href="https://{{$host}}">Loops</a>! To get started and secure your account, please verify your email address by clicking the button below:</p>
+        <p>Thanks for joining <a href="https://{{$host}}">PornTk</a>! To get started and secure your account, please verify your email address by clicking the button below:</p>
 
         <div style="text-align: center;">
             <a href="{{ $verificationUrl }}" class="button">Verify Email Address</a>
@@ -84,7 +84,7 @@
         </ul>
 
         <div class="footer">
-            <p>If you didn't create a Loops account on {{ $host }}, you can safely ignore this email.</p>
+            <p>If you didn't create a PornTk account on {{ $host }}, you can safely ignore this email.</p>
             <p>&copy; {{ date('Y') }} {{ $host }}. All rights reserved.</p>
         </div>
     </div>

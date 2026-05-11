@@ -30,5 +30,5 @@ return [
     'terms' => 'Умови використання',
     'toggleTheme' => 'Перемкнути тему',
     'upload' => 'Завантажити',
-    'uploadLoop' => 'Завантаження Loops',
+    'uploadLoop' => 'Завантаження PornTk',
 ];

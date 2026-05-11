@@ -19,10 +19,10 @@
                     <div
                         class="h-9 w-9 rounded-xl bg-white/15 ring-1 ring-white/20 flex items-center justify-center"
                     >
-                        <img src="/img/logo-light.svg" alt="Loops logo" class="p-1.5" />
+                        <img src="/img/logo-light.svg" alt="PornTk logo" class="p-1.5" />
                     </div>
                     <div class="leading-tight">
-                        <h1 class="text-[15px] font-semibold text-white">Loops</h1>
+                        <h1 class="text-[15px] font-semibold text-white">PornTk</h1>
                         <p class="text-[11px] text-white/70">Admin Dashboard</p>
                     </div>
                 </div>
@@ -302,7 +302,7 @@
                     >
                         <div class="flex flex-col justify-center items-center">
                             <h1 class="text-[13px] font-semibold text-white leading-tight">
-                                Loops
+                                PornTk
                             </h1>
                             <p class="text-[10px] text-white/70 leading-tight">Admin</p>
                         </div>

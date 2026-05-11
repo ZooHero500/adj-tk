@@ -194,7 +194,7 @@ class AdminSettingsController extends Controller
     protected function getSettingDescription(string $key): ?string
     {
         $descriptions = [
-            'general.instanceName' => 'The display name of this Loops instance',
+            'general.instanceName' => 'The display name of this PornTk instance',
             'general.instanceUrl' => 'The primary URL for this instance',
             'branding.primaryColor' => 'Main brand color used throughout the interface',
         ];

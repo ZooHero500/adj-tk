@@ -450,7 +450,7 @@
         <ShareVideoModal
             v-model="showShareModal"
             :url="currentVideo?.url"
-            :share-text="`Check out ${currentVideo?.account?.username}'s loop`"
+            :share-text="`Check out ${currentVideo?.account?.username}'s video`"
         />
     </div>
 </template>
@@ -628,7 +628,7 @@ const handleGuestFollow = async () => {
             <div class="hidden border-t border-gray-200 dark:border-gray-600 pt-4">
                 <p class="text-center text-sm text-gray-600 dark:text-gray-300">
                     Don't have an account yet?
-                    <span class="font-medium text-[#F02C56]">Join Loops today!</span>
+                    <span class="font-medium text-[#F02C56]">Join PornTk today!</span>
                 </p>
             </div>
         </div>
@@ -670,7 +670,7 @@ const handleGuestFollow = async () => {
     const ctaButtons = appConfig.registration
         ? [
               {
-                  text: `<div class="tracking-tight">Join Loops</div>`,
+                  text: `<div class="tracking-tight">Join PornTk</div>`,
                   type: 'danger',
                   callback: () => {
                       authStore.openAuthModal('register')

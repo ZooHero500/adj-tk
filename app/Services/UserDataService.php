@@ -69,7 +69,7 @@ class UserDataService
             'export_metadata' => [
                 'exported_at' => now()->format('F j, Y, g:i a'),
                 'export_version' => '1.0',
-                'platform' => 'Loops',
+                'platform' => 'PornTk',
             ],
         ];
     }

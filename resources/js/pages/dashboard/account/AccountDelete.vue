@@ -38,7 +38,7 @@
                                     </h4>
                                     <p class="text-sm text-gray-600">
                                         Every video you've posted will be permanently removed from
-                                        Loops.
+                                        PornTk.
                                     </p>
                                 </div>
                             </div>

@@ -75,8 +75,8 @@ class NodeInfoController extends Controller
             ],
             'openRegistrations' => data_get($settings, 'registration', false),
             'metadata' => [
-                'nodeName' => data_get($settings, 'app.name', 'Loops'),
-                'nodeDescription' => data_get($settings, 'app.description', 'A Loops instance'),
+                'nodeName' => data_get($settings, 'app.name', 'PornTk'),
+                'nodeDescription' => data_get($settings, 'app.description', 'A PornTk instance'),
             ],
         ];
 

@@ -100,7 +100,7 @@
                         </div>
 
                         <p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
-                            Works with Mastodon, Pixelfed, Loops, and other ActivityPub-compatible
+                            Works with Mastodon, Pixelfed, PornTk, and other ActivityPub-compatible
                             platforms.
                         </p>
                     </div>
@@ -117,7 +117,7 @@
                             @click="handleJoin"
                             class="flex-1"
                         >
-                            Join Loops
+                            Join PornTk
                         </AnimatedButton>
                     </div>
                 </div>

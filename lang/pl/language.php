@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'choseYourPreferredLanguage' => 'Wybierz preferowany język dla interfejsu na Loops.',
+    'choseYourPreferredLanguage' => 'Wybierz preferowany język dla interfejsu PornTk.',
     'displayLanguage' => 'Ustawienia języka',
     'language' => 'Język',
     'picker' => [

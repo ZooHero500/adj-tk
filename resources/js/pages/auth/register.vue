@@ -44,7 +44,7 @@
                     >
                         <div class="flex gap-2 items-center">
                             <UserPlusIcon class="w-5 h-5 text-white" />
-                            Join Loops.video
+                            Join PornTk
                         </div>
                     </AnimatedButton>
                 </div>
@@ -127,10 +127,10 @@ const router = useRouter()
 
 const registrationClosed = computed(() => appConfig && appConfig.registration_mode === 'closed')
 const registrationCurated = computed(() => appConfig && appConfig.registration_mode === 'curated')
-const showLoopsVideo = computed(() => appConfig && appConfig.app.url != 'https://loops.video')
+const showLoopsVideo = computed(() => appConfig && appConfig.app.url != 'https://porntk.com')
 
 const redirectToLoopsVideo = () => {
-    window.location.href = 'https://loops.video/register'
+    window.location.href = 'https://porntk.com/register'
 }
 
 onMounted(() => {

@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
             $version = app('app_version');
             $url = config('app.url');
 
-            return "Loops/{$version} (Laravel/12.x; +{$url})";
+            return "PornTk/{$version} (Laravel/12.x; +{$url})";
         });
 
         $this->app->singleton('push_relay', function () {

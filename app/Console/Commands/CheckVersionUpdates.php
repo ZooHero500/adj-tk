@@ -20,14 +20,14 @@ class CheckVersionUpdates extends Command
      *
      * @var string
      */
-    protected $description = 'Check for new Loops version updates and notify admins';
+    protected $description = 'Check for new PornTk version updates and notify admins';
 
     /**
      * Execute the console command.
      */
     public function handle(VersionCheckService $versionCheck): int
     {
-        $this->info('🔍 Checking for Loops updates...');
+        $this->info('🔍 Checking for PornTk updates...');
 
         $result = $this->option('force')
             ? $versionCheck->forceCheck()

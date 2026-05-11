@@ -1,7 +1,7 @@
 <x-mail::message>
-# 🎉 New Loops Update Available!
+# 🎉 New PornTk Update Available!
 
-A new version of Loops is ready for you to install.
+A new version of PornTk is ready for you to install.
 
 @component('mail::panel')
 ## Version Information
@@ -27,11 +27,11 @@ View Release Notes
 
 ---
 
-**Running Loops {{ $versionData['current_version'] }}**  
-You're receiving this because you're an administrator of this Loops instance.
+**Running PornTk {{ $versionData['current_version'] }}**  
+You're receiving this because you're an administrator of this PornTk instance.
 
 ---
 
 Thanks,<br>
-Loops
+PornTk
 </x-mail::message>

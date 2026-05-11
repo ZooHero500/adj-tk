@@ -5,7 +5,7 @@
     Your verification code is: {{ $verify->verify_code }}
 </p>
 
-Welcome! Please verify your email address to complete your account setup on [Loops]({{ config('app.url') }}).
+Welcome! Please verify your email address to complete your account setup on [PornTk]({{ config('app.url') }}).
 
 ## <center>Your Verification Code</center>
 

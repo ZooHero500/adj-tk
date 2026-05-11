@@ -9,7 +9,7 @@
                 You're all caught up!
             </h2>
             <p class="dark:text-white/70 text-base text-center leading-relaxed">
-                We're curating more Loops for you. Check back soon.
+                We're curating more videos for you. Check back soon.
             </p>
         </div>
 

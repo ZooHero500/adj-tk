@@ -80,7 +80,7 @@ export const useCommentDeepLink = () => {
         }
 
         const shareData = {
-            title: options.title || 'Loops Comment',
+            title: options.title || 'PornTk Comment',
             text: options.text || 'Check out this comment',
             url: link
         }

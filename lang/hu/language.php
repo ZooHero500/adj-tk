@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'choseYourPreferredLanguage' => 'Válassz nyelvet a Loops kezelőfelületéhez.',
+    'choseYourPreferredLanguage' => 'Válassz nyelvet a PornTk kezelőfelületéhez.',
     'displayLanguage' => 'Megjelenítési nyelv',
     'language' => 'Nyelv',
     'picker' => [

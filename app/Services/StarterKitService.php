@@ -304,7 +304,7 @@ class StarterKitService
     }
 
     /**
-     * Submit a starter kit to the Loops Observatory for public discovery.
+     * Submit a starter kit to the PornTk Observatory for public discovery.
      */
     public function submitToObservatory(StarterKit $starterKit): bool
     {
@@ -350,7 +350,7 @@ class StarterKitService
     }
 
     /**
-     * Notify the Loops Observatory that a starter kit has been deleted.
+     * Notify the PornTk Observatory that a starter kit has been deleted.
      */
     public function submitDeletionToObservatory(StarterKit $starterKit): bool
     {

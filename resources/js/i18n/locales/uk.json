@@ -16,7 +16,7 @@
         "inviteIsNotValid": "Invite is not valid.",
         "inviteLinkNotValid": "Invite link not valid",
         "invitedBy": "Invited by",
-        "joinLoopsWithYourInvite": "Join Loops with your invite",
+        "joinLoopsWithYourInvite": "Join PornTk with your invite",
         "needHelpAskTheAdminWhoSentYouThisInvite": "Need help? Ask the admin who sent you this invite.",
         "password": "The provided password is incorrect.",
         "passwordsDoNotMatch": "Passwords do not match.",
@@ -25,7 +25,7 @@
         "setYourPassword": "Set your password",
         "termsOfService": "Terms of Service",
         "thisInviteMayBeExpired": "This invite may be expired, revoked, or incorrect.",
-        "thisServerIsntAccepting": "This server isn’t accepting new signups right now. Please check back later or choose another Loops server.",
+        "thisServerIsntAccepting": "This server isn’t accepting new signups right now. Please check back later or choose another PornTk server.",
         "thisUsuallyTakesAMoment": "This usually takes a moment.",
         "throttle": "Too many login attempts. Please try again in {seconds} seconds.",
         "verifyYoureHuman": "Verify you're human",
@@ -35,7 +35,7 @@
         "whatsYourBirthdate": "What's your birthdate?",
         "yourAccountIsReadyYouCanSignInNow": "Your account is ready. You can sign in now.",
         "yourBirthdateWontBePublic": "Your birthdate won't be public.",
-        "youveBeenInvitedToCreateALoopsAccount": "You've been invited to create a Loops account. We'll verify your invite first, then you can choose a username and complete your signup."
+        "youveBeenInvitedToCreateALoopsAccount": "You've been invited to create a PornTk account. We'll verify your invite first, then you can choose a username and complete your signup."
     },
     "common": {
         "aHeaderUpdateIsAlreadyAwaitingApproval": "A header update is already awaiting approval",
@@ -86,10 +86,10 @@
         "browseByTag": "Browse by Tag",
         "browseKits": "Огляд наборів",
         "browseStarterKits": "Browse Starter Kits",
-        "browseStarterKitsBuiltByTheCommunityAndFillYourLoopsFeedInSeconds": "Browse Starter Kits built by the community and fill your Loops feed in seconds",
+        "browseStarterKitsBuiltByTheCommunityAndFillYourLoopsFeedInSeconds": "Browse Starter Kits built by the community and fill your PornTk feed in seconds",
         "browseTheDirectory": "Browse the directory",
         "browseTrendingTagsInstead": "Подивитися трендові теги замість",
-        "buildAKitAndHelpNewUsersFindTheirCommunityOnLoops": "Створюйте комплект і допоможіть новим користувачам знайти свою спільноту через Loops",
+        "buildAKitAndHelpNewUsersFindTheirCommunityOnLoops": "Створюйте комплект і допоможіть новим користувачам знайти свою спільноту через PornTk",
         "buildAStarterKitAndShareItWithTheWorld": "Build a Starter Kit and share it with the world",
         "byContinuingYouAgreeToOur": "Продовжуючи, ви погоджуєтесь з ",
         "cancel": "Скасувати",
@@ -120,7 +120,7 @@
         "createAccount": "Створити обліковий запис",
         "createKit": "Створити набір",
         "createYourFirstKit": "Створіть свій перший набір",
-        "createYourFirstStarterKitAndHelpNewUsersDiscoverGreatAccountsOnLoops": "Створіть свій перший початковий набір та допоможіть новим користувачам знаходити чудові облікові записи в Loops",
+        "createYourFirstStarterKitAndHelpNewUsersDiscoverGreatAccountsOnLoops": "Створіть свій перший початковий набір та допоможіть новим користувачам знаходити чудові облікові записи в PornTk",
         "created": "Створено",
         "creatingAStarterKitRequiresAMinimumOf": "Створення початкового набору потребує мінімум",
         "creators": "Creators",
@@ -350,7 +350,7 @@
         "setUpYourProfile": "Налаштуйте свій профіль",
         "share": "Поділитись",
         "shareThisAccount": "Поширити цей обліковий запис",
-        "shareThisLoop": "Поділитися цим Loop",
+        "shareThisLoop": "Поділитися цим Video",
         "shareYourFavouriteCreators": "Поділитися своїми улюбленими авторами",
         "showKit": "Показати набір",
         "showing": "Showing",
@@ -368,7 +368,7 @@
         "starterKitDisabled": "Starter Kit Disabled",
         "starterKitLimitReached": "Досягнута межа початкового набору",
         "starterKits": "Початкові набори",
-        "starterKitsAreCuratedCollectionsOfLoopsCreatorsOrganizedByTheCommunity": "Starter Kits are curated collections of Loops creators — organized by the community, for the community",
+        "starterKitsAreCuratedCollectionsOfLoopsCreatorsOrganizedByTheCommunity": "Starter Kits are curated collections of PornTk creators — organized by the community, for the community",
         "starterKitsUnavailable": "Початкові набори недоступні",
         "stats": "Статистика",
         "status": "Статус",
@@ -493,7 +493,7 @@
         "noVideosFoundForThisHashtag": "Не знайдено відео для цього хештегу"
     },
     "language": {
-        "choseYourPreferredLanguage": "Виберіть бажану мову для інтерфейсу Loops.",
+        "choseYourPreferredLanguage": "Виберіть бажану мову для інтерфейсу PornTk.",
         "displayLanguage": "Мова додатку",
         "language": "Мова",
         "picker": {
@@ -535,7 +535,7 @@
         "terms": "Умови використання",
         "toggleTheme": "Перемкнути тему",
         "upload": "Завантажити",
-        "uploadLoop": "Завантаження Loops"
+        "uploadLoop": "Завантаження Video"
     },
     "notifications": {
         "activity": "Діяльність",
@@ -785,7 +785,7 @@
         "manageUsersYouHaveBlocked": "Керувати користувачами, які ви заблокували.",
         "manageYourAccountEmail": "Керувати електронною поштою вашого облікового запису.",
         "manageYourAccountSecuritySettings": "Керування параметрами безпеки вашого облікового запису.",
-        "manageYourLoopsAccount": "Керування Loops облікового запису",
+        "manageYourLoopsAccount": "Керування PornTk облікового запису",
         "newEmailAddress": "Нова адреса електронної пошти",
         "newPassword": "Новий пароль",
         "noExportsYet": "Поки жодних експортувань",

@@ -1,7 +1,7 @@
 {!! '<?xml version="1.0" encoding="UTF-8"?>' !!}
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en">
-    <title>{{ $user->username }} — Loops</title>
-    <subtitle>Short videos from {{ '@' . $user->username }} on Loops</subtitle>
+    <title>{{ $user->username }} — PornTk</title>
+    <subtitle>Short videos from {{ '@' . $user->username }} on PornTk</subtitle>
     <link href="{{ route('user.atom', $user->profile_id) }}" rel="self" type="application/atom+xml"/>
     <link href="{{ $user->permalink() }}" rel="alternate" type="text/html"/>
     <id>{{ $user->permalink() }}</id>
@@ -10,7 +10,7 @@
         <name>{{ $user->username }}</name>
         <uri>{{ url("/@{$user->username}") }}</uri>
     </author>
-    <generator uri="{{ config('app.url') }}" version="1.0">Loops</generator>
+    <generator uri="{{ config('app.url') }}" version="1.0">PornTk</generator>
     <icon>{{ $account['avatar'] }}</icon>
     <logo>{{ url('/nav-logo.png') }}</logo>
 

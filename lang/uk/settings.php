@@ -60,7 +60,7 @@ return [
     'manageUsersYouHaveBlocked' => 'Керувати користувачами, які ви заблокували.',
     'manageYourAccountEmail' => 'Керувати електронною поштою вашого облікового запису.',
     'manageYourAccountSecuritySettings' => 'Керування параметрами безпеки вашого облікового запису.',
-    'manageYourLoopsAccount' => 'Керування Loops облікового запису',
+    'manageYourPornTkAccount' => 'Керування PornTk облікового запису',
     'newEmailAddress' => 'Нова адреса електронної пошти',
     'newPassword' => 'Новий пароль',
     'noExportsYet' => 'Поки жодних експортувань',

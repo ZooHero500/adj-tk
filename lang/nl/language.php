@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'choseYourPreferredLanguage' => 'Kies uw voorkeurstaal voor het Loops gebruikersbeeld.',
+    'choseYourPreferredLanguage' => 'Kies uw voorkeurstaal voor het PornTk gebruikersbeeld.',
     'displayLanguage' => 'Applicatie Taal',
     'language' => 'Taal',
     'picker' => [

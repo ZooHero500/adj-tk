@@ -276,8 +276,8 @@ const getIconBackgroundClass = () => {
 useHead({
     title: computed(() =>
         notification.value.title
-            ? `${notification.value.title} | Loops`
-            : 'System Notification | Loops'
+            ? `${notification.value.title} | PornTk`
+            : 'System Notification | PornTk'
     ),
     meta: computed(() => [
         { name: 'description', content: notification.value.body || 'System notification' },

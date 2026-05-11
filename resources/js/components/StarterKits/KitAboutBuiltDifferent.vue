@@ -220,22 +220,22 @@ const features = computed(() => {
 
     const communityDesc = (() => {
         if (auto_approve_enabled && min_followers_required == 0) {
-            return `Built and submitted by real people on Loops or across the fediverse. You can create a new Starter Kit instantly — no waiting, no friction.`
+            return `Built and submitted by real people on PornTk or across the fediverse. You can create a new Starter Kit instantly — no waiting, no friction.`
         }
         if (
             auto_approve_enabled &&
             auto_approve_follower_threshold > 1 &&
             min_followers_required > 1
         ) {
-            return `Built and submitted by real people on Loops or across the fediverse. Creators with ${auto_approve_follower_threshold}+ followers get instant approval — everyone else goes through a quick review. High signal by design.`
+            return `Built and submitted by real people on PornTk or across the fediverse. Creators with ${auto_approve_follower_threshold}+ followers get instant approval — everyone else goes through a quick review. High signal by design.`
         }
         if (auto_approve_enabled && auto_approve_follower_threshold > 1) {
-            return `Built and submitted by real people on Loops or across the fediverse. Creators with ${auto_approve_follower_threshold}+ followers are approved instantly — no waiting, no friction.`
+            return `Built and submitted by real people on PornTk or across the fediverse. Creators with ${auto_approve_follower_threshold}+ followers are approved instantly — no waiting, no friction.`
         }
         if (min_followers_required > 1) {
-            return `Every kit is built and submitted by established people on Loops or across the fediverse — you need at least ${min_followers_required} followers to contribute. Reviewed before going live. High signal by design, not by accident.`
+            return `Every kit is built and submitted by established people on PornTk or across the fediverse — you need at least ${min_followers_required} followers to contribute. Reviewed before going live. High signal by design, not by accident.`
         }
-        return 'Every kit is built and submitted by real people on Loops or across the fediverse — then reviewed before going live. High signal by design, not by accident.'
+        return 'Every kit is built and submitted by real people on PornTk or across the fediverse — then reviewed before going live. High signal by design, not by accident.'
     })()
 
     return [

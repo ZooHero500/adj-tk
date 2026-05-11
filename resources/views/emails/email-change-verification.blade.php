@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Verify Your Email on Loops</title>
+    <title>Verify Your Email on PornTk</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -73,8 +73,8 @@
     @php($host = parse_url(config('app.url'), PHP_URL_HOST))
     <div class="container">
         <div class="header">
-            <div class="logo">Loops</div>
-            <h1 class="title">Verify Your Email on Loops</h1>
+            <div class="logo">PornTk</div>
+            <h1 class="title">Verify Your Email on PornTk</h1>
         </div>
         
         <p>Hi <strong>{{ $user->username }}</strong>,</p>
@@ -102,7 +102,7 @@
         </ul>
         
         <div class="footer">
-            <p>This email was sent to you because a request was made to change your Loops account email address.</p>
+            <p>This email was sent to you because a request was made to change your PornTk account email address.</p>
             <p>If you have any questions, please contact our <a href="{{ url('/platform/contact') }}">support team</a>.</p>
             <p>&copy; {{ date('Y') }} {{ $host }}. All rights reserved.</p>
         </div>

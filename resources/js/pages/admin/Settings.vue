@@ -3,7 +3,7 @@
         <div class="mb-6">
             <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Settings</h1>
             <p class="mt-2 text-gray-600 dark:text-gray-400">
-                Manage your Loops instance configuration and preferences
+                Manage your PornTk instance configuration and preferences
             </p>
         </div>
 
@@ -1958,7 +1958,7 @@ const videoFormats = ['mp4', 'webm', 'mov', 'avi', 'mkv']
 
 const settings = reactive({
     general: {
-        instanceName: 'My Loops Instance',
+        instanceName: 'My PornTk Instance',
         instanceUrl: 'https://loops.example.com',
         instanceDescription:
             'A creative community for sharing short videos and connecting with others.',
@@ -2236,7 +2236,7 @@ const clearPendingFavicon = () => {
 const deleteLogo = async () => {
     const confirm = await confirmModal(
         'Confirm Delete',
-        'Are you sure you want to delete the current logo and restore the default Loops logo?',
+        'Are you sure you want to delete the current logo and restore the default PornTk logo?',
         'Delete',
         'Cancel'
     )

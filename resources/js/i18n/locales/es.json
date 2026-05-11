@@ -16,7 +16,7 @@
         "inviteIsNotValid": "Invite is not valid.",
         "inviteLinkNotValid": "Invite link not valid",
         "invitedBy": "Invited by",
-        "joinLoopsWithYourInvite": "Join Loops with your invite",
+        "joinLoopsWithYourInvite": "Join PornTk with your invite",
         "needHelpAskTheAdminWhoSentYouThisInvite": "Need help? Ask the admin who sent you this invite.",
         "password": "The provided password is incorrect.",
         "passwordsDoNotMatch": "Passwords do not match.",
@@ -25,7 +25,7 @@
         "setYourPassword": "Set your password",
         "termsOfService": "Terms of Service",
         "thisInviteMayBeExpired": "This invite may be expired, revoked, or incorrect.",
-        "thisServerIsntAccepting": "This server isn’t accepting new signups right now. Please check back later or choose another Loops server.",
+        "thisServerIsntAccepting": "This server isn’t accepting new signups right now. Please check back later or choose another PornTk server.",
         "thisUsuallyTakesAMoment": "This usually takes a moment.",
         "throttle": "Too many login attempts. Please try again in {seconds} seconds.",
         "verifyYoureHuman": "Verify you're human",
@@ -35,7 +35,7 @@
         "whatsYourBirthdate": "What's your birthdate?",
         "yourAccountIsReadyYouCanSignInNow": "Your account is ready. You can sign in now.",
         "yourBirthdateWontBePublic": "Your birthdate won't be public.",
-        "youveBeenInvitedToCreateALoopsAccount": "You've been invited to create a Loops account. We'll verify your invite first, then you can choose a username and complete your signup."
+        "youveBeenInvitedToCreateALoopsAccount": "You've been invited to create a PornTk account. We'll verify your invite first, then you can choose a username and complete your signup."
     },
     "common": {
         "aHeaderUpdateIsAlreadyAwaitingApproval": "Ya hay una actualización del encabezado pendiente de aprobación",
@@ -86,10 +86,10 @@
         "browseByTag": "Explorar por etiqueta",
         "browseKits": "Explorar Kits",
         "browseStarterKits": "Explorar kits de inicio",
-        "browseStarterKitsBuiltByTheCommunityAndFillYourLoopsFeedInSeconds": "Explora los kits de inicio creados por la comunidad y llena tu cronología de Loops en cuestión de segundos",
+        "browseStarterKitsBuiltByTheCommunityAndFillYourLoopsFeedInSeconds": "Explora los kits de inicio creados por la comunidad y llena tu cronología de PornTk en cuestión de segundos",
         "browseTheDirectory": "Explora el directorio",
         "browseTrendingTagsInstead": "Explora las etiquetas más populares",
-        "buildAKitAndHelpNewUsersFindTheirCommunityOnLoops": "Crea un kit y ayuda a los nuevos usuarios a encontrar su comunidad en Loops",
+        "buildAKitAndHelpNewUsersFindTheirCommunityOnLoops": "Crea un kit y ayuda a los nuevos usuarios a encontrar su comunidad en PornTk",
         "buildAStarterKitAndShareItWithTheWorld": "Crea un kit de inicio y compártelo con el mundo",
         "byContinuingYouAgreeToOur": "Al continuar, aceptas nuestras",
         "cancel": "Cancelar",
@@ -120,7 +120,7 @@
         "createAccount": "Crear cuenta",
         "createKit": "Crear Kit",
         "createYourFirstKit": "Crea tu primer Kit",
-        "createYourFirstStarterKitAndHelpNewUsersDiscoverGreatAccountsOnLoops": "Crea tu primer Kit de inicio y ayuda a los nuevos usuarios a descubrir cuentas interesantes en Loops",
+        "createYourFirstStarterKitAndHelpNewUsersDiscoverGreatAccountsOnLoops": "Crea tu primer Kit de inicio y ayuda a los nuevos usuarios a descubrir cuentas interesantes en PornTk",
         "created": "Creado",
         "creatingAStarterKitRequiresAMinimumOf": "Para crear un Kit de inicio se necesita como mínimo",
         "creators": "Creadores",
@@ -350,7 +350,7 @@
         "setUpYourProfile": "Configura tu perfil",
         "share": "Compartir",
         "shareThisAccount": "Compartir esta cuenta",
-        "shareThisLoop": "Compartir este Loop",
+        "shareThisLoop": "Compartir este Video",
         "shareYourFavouriteCreators": "Compartir tus creadores favoritos",
         "showKit": "Mostrar Kit",
         "showing": "Mostrando",
@@ -368,7 +368,7 @@
         "starterKitDisabled": "Starter Kit Disabled",
         "starterKitLimitReached": "Límite de Kit de inicio alcanzado",
         "starterKits": "Kits de inicio",
-        "starterKitsAreCuratedCollectionsOfLoopsCreatorsOrganizedByTheCommunity": "Los «Kits de inicio» son selecciones de creadores de Loops, organizadas por y para la comunidad",
+        "starterKitsAreCuratedCollectionsOfLoopsCreatorsOrganizedByTheCommunity": "Los «Kits de inicio» son selecciones de creadores de PornTk, organizadas por y para la comunidad",
         "starterKitsUnavailable": "Kits de inicio no disponibles",
         "stats": "Estadísticas",
         "status": "Estado",
@@ -493,7 +493,7 @@
         "noVideosFoundForThisHashtag": "No se han encontrado vídeos para esta etiqueta"
     },
     "language": {
-        "choseYourPreferredLanguage": "Elija su idioma preferido para la interfaz de Loops.",
+        "choseYourPreferredLanguage": "Elija su idioma preferido para la interfaz de PornTk.",
         "displayLanguage": "Idioma a mostrar",
         "language": "Idioma",
         "picker": {
@@ -535,7 +535,7 @@
         "terms": "Términos",
         "toggleTheme": "Cambiar tema",
         "upload": "Cargar",
-        "uploadLoop": "Cargar Loop"
+        "uploadLoop": "Cargar Video"
     },
     "notifications": {
         "activity": "Actividad",
@@ -733,7 +733,7 @@
         "added": "Añadido",
         "allowYourAccountAndVideosToBeShared": "Permitir que tu cuenta y videos sean compartidos con gente en otros servidores.",
         "analyticsTracking": "Monitoreo analítico",
-        "analyticsTrackingMessage": "Permitir a Loops monitorear tu actividad para análisis y mejora del servicio.",
+        "analyticsTrackingMessage": "Permitir a PornTk monitorear tu actividad para análisis y mejora del servicio.",
         "back": "Regresar",
         "blockedAccounts": "Cuentas bloqueadas",
         "blockingAndRestrictions": "Bloqueos y restricciones",
@@ -785,7 +785,7 @@
         "manageUsersYouHaveBlocked": "Administre los usuarios que ha bloqueado.",
         "manageYourAccountEmail": "Gestionar el correo electrónico de tu cuenta.",
         "manageYourAccountSecuritySettings": "Gestionar la configuración de seguridad de tu cuenta.",
-        "manageYourLoopsAccount": "Gestionar tu cuenta de Loops",
+        "manageYourLoopsAccount": "Gestionar tu cuenta de PornTk",
         "newEmailAddress": "Nueva dirección de correo electrónico",
         "newPassword": "Nueva contraseña",
         "noExportsYet": "Aún no hay exportaciones",

@@ -47,7 +47,7 @@ class FrontendService
     {
         $res = self::getCache();
 
-        return data_get($res, 'app.name', 'Loops');
+        return data_get($res, 'app.name', 'PornTk');
     }
 
     public static function getAppDescription()

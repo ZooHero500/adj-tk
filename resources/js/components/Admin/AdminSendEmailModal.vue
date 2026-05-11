@@ -276,22 +276,22 @@ const templates = [
         id: 'general',
         label: 'General',
         icon: InformationCircleIcon,
-        subject: 'A message from the Loops team',
-        body: 'Hi {name},\n\nWe wanted to reach out about your account on Loops.\n\n\n\nIf you have any questions, please reply to this email.\n\nThanks,\nThe Loops team'
+        subject: 'A message from the PornTk team',
+        body: 'Hi {name},\n\nWe wanted to reach out about your account on PornTk.\n\n\n\nIf you have any questions, please reply to this email.\n\nThanks,\nThe PornTk team'
     },
     {
         id: 'tos',
         label: 'Policy Warning',
         icon: ExclamationCircleIcon,
-        subject: 'Important: Loops Community Guidelines',
-        body: "Hi {name},\n\nWe're reaching out because some recent activity on your account appears to conflict with the Loops Community Guidelines.\n\nPlease take a moment to review our guidelines. Continued violations may result in further action on your account.\n\nIf you believe this was sent in error, please reply to this email.\n\nThanks,\nThe Loops team"
+        subject: 'Important: PornTk Community Guidelines',
+        body: "Hi {name},\n\nWe're reaching out because some recent activity on your account appears to conflict with the PornTk Community Guidelines.\n\nPlease take a moment to review our guidelines. Continued violations may result in further action on your account.\n\nIf you believe this was sent in error, please reply to this email.\n\nThanks,\nThe PornTk team"
     },
     {
         id: 'security',
         label: 'Security',
         icon: ShieldExclamationIcon,
-        subject: 'Security notice for your Loops account',
-        body: "Hi {name},\n\nWe detected activity on your account that we wanted to make you aware of.\n\n\n\nIf this wasn't you, please reset your password immediately and enable two-factor authentication.\n\nThanks,\nThe Loops team"
+        subject: 'Security notice for your PornTk account',
+        body: "Hi {name},\n\nWe detected activity on your account that we wanted to make you aware of.\n\n\n\nIf this wasn't you, please reset your password immediately and enable two-factor authentication.\n\nThanks,\nThe PornTk team"
     }
 ]
 

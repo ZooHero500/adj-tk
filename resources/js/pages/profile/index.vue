@@ -168,12 +168,12 @@ const displayPosts = computed(() => {
 })
 
 const metaTitle = computed(() => {
-    if (!profileStore.name) return 'Loops'
-    return `${profileStore.name} (@${profileStore.username}) | Loops`
+    if (!profileStore.name) return 'PornTk'
+    return `${profileStore.name} (@${profileStore.username}) | PornTk`
 })
 
 const metaDescription = computed(() => {
-    if (!profileStore.username) return 'Watch videos on Loops'
+    if (!profileStore.username) return 'Watch videos on PornTk'
 
     const parts = []
 

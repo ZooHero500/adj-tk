@@ -135,10 +135,10 @@ class SettingsFileService
         return [
             [
                 'key' => 'general.instanceName',
-                'value' => 'My Loops Instance',
+                'value' => 'My PornTk Instance',
                 'type' => 'string',
                 'is_public' => true,
-                'description' => 'The display name of this Loops instance',
+                'description' => 'The display name of this PornTk instance',
             ],
             [
                 'key' => 'general.instanceUrl',

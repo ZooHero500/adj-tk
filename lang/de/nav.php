@@ -30,5 +30,5 @@ return [
     'terms' => 'Nutzungsbedingungen',
     'toggleTheme' => 'Erscheinungsbild auswählen',
     'upload' => 'Hochladen',
-    'uploadLoop' => 'Loop hochladen',
+    'uploadLoop' => 'Video hochladen',
 ];

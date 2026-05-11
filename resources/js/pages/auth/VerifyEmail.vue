@@ -40,7 +40,7 @@
                         to="/"
                         class="flex justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium cursor-pointer"
                     >
-                        Continue to Loops
+                        Continue to PornTk
                     </router-link>
                 </div>
 

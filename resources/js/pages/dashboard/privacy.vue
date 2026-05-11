@@ -143,7 +143,7 @@ const visibilityOptions = [
     // {
     //     value: 3,
     //     label: 'Local Accounts Only',
-    //     description: 'Local Loops users can add you automatically'
+    //     description: 'Local PornTk users can add you automatically'
     // },
     // {
     //     value: 4,

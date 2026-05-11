@@ -30,5 +30,5 @@ return [
     'terms' => 'Términos',
     'toggleTheme' => 'Cambiar tema',
     'upload' => 'Cargar',
-    'uploadLoop' => 'Cargar Loop',
+    'uploadLoop' => 'Cargar Video',
 ];

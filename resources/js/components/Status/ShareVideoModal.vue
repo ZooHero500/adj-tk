@@ -60,7 +60,7 @@
                                 class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed"
                             >
                                 Paste this link into the search bar of any fediverse server
-                                (Mastodon, Pixelfed, Loops, etc.) to like, comment, or share
+                                (Mastodon, Pixelfed, PornTk, etc.) to like, comment, or share
                                 natively.
                             </p>
                         </div>
@@ -324,7 +324,7 @@ const canNativeShare = computed(() => {
     if (!navigator.canShare) return true
     try {
         return navigator.canShare({
-            title: 'Loops',
+            title: 'PornTk',
             text: props.shareText,
             url: props.url
         })
@@ -390,7 +390,7 @@ const copyLink = async () => {
 const nativeShare = async () => {
     try {
         await navigator.share({
-            title: 'Loops',
+            title: 'PornTk',
             text: props.shareText,
             url: props.url
         })

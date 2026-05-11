@@ -20,7 +20,7 @@
             <span
                 class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium border dark:border-white/12 border-black/10 dark:bg-white/4 bg-black/4">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#FF6347] animate-pulse"></span>
-                <span class="dark:text-white/70 text-black/60">New on Loops</span>
+                <span class="dark:text-white/70 text-black/60">New on PornTk</span>
             </span>
         </div> -->
 

@@ -284,20 +284,20 @@ const urlHint = computed(() => {
         return 'Paste this URL into any RSS or Atom feed reader to subscribe.'
     }
     if (props.type === 'profile') {
-        return `Paste this link into the search bar of any fediverse server (Mastodon, Pixelfed, Loops, etc.) to follow ${
+        return `Paste this link into the search bar of any fediverse server (Mastodon, Pixelfed, PornTk, etc.) to follow ${
             props.username ? '@' + props.username : 'this account'
         } natively.`
     }
-    return 'Paste this link into the search bar of any fediverse server (Mastodon, Pixelfed, Loops, etc.) to like, comment, or share natively.'
+    return 'Paste this link into the search bar of any fediverse server (Mastodon, Pixelfed, PornTk, etc.) to like, comment, or share natively.'
 })
 
 const shareText = computed(() => {
     if (props.type === 'profile') {
         return props.username
-            ? `Check out @${props.username} on Loops`
-            : 'Check out this account on Loops'
+            ? `Check out @${props.username} on PornTk`
+            : 'Check out this account on PornTk'
     }
-    return props.username ? `Check out @${props.username}'s loop` : 'Check out this loop'
+    return props.username ? `Check out @${props.username}'s video` : 'Check out this video'
 })
 
 const fediversePlatforms = [
@@ -399,7 +399,7 @@ const canNativeShare = computed(() => {
     if (!navigator.canShare) return true
     try {
         return navigator.canShare({
-            title: 'Loops',
+            title: 'PornTk',
             text: shareText.value,
             url: props.url
         })
@@ -465,7 +465,7 @@ const copyLink = async () => {
 const nativeShare = async () => {
     try {
         await navigator.share({
-            title: 'Loops',
+            title: 'PornTk',
             text: shareText.value,
             url: props.url
         })

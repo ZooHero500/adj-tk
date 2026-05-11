@@ -87,7 +87,7 @@
                         <h1
                             class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
-                            Join <span class="text-[#F02C56]">Loops</span>
+                            Join <span class="text-[#F02C56]">PornTk</span>
                         </h1>
                         <p class="mt-2 text-base text-gray-500 dark:text-gray-400 sm:text-lg">
                             A community-first space for short video.
@@ -119,7 +119,7 @@
                         <h1
                             class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
-                            Join <span class="text-[#F02C56]">Loops</span>
+                            Join <span class="text-[#F02C56]">PornTk</span>
                         </h1>
                         <p class="mt-2 text-base text-gray-500 dark:text-gray-400 sm:text-lg">
                             A community-first space for short video.

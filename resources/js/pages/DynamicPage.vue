@@ -170,7 +170,7 @@ const pageDescription = computed(() => {
     }
 
     if (!pageData.value.content) {
-        return `Learn more about ${pageTitle.value} on Loops`
+        return `Learn more about ${pageTitle.value} on PornTk`
     }
 
     const tempDiv = document.createElement('div')
@@ -187,7 +187,7 @@ const pageUrl = computed(() => {
 })
 
 useHead({
-    title: computed(() => `${pageTitle.value} | Loops`),
+    title: computed(() => `${pageTitle.value} | PornTk`),
     meta: computed(() => [
         { name: 'description', content: pageDescription.value },
         { property: 'og:title', content: pageTitle.value },

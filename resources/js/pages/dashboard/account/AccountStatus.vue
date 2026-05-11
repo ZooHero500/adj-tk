@@ -25,7 +25,7 @@
                                 Your account is in good standing
                             </h3>
                             <p class="text-sm text-green-700 dark:text-green-400">
-                                You currently have no restrictions and can use all Loops features.
+                                You currently have no restrictions and can use all PornTk features.
                             </p>
                         </div>
                     </div>
@@ -182,7 +182,7 @@
                 >
                     <div class="p-6">
                         <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                            To maintain a safe and positive environment, all Loops users must follow
+                            To maintain a safe and positive environment, all PornTk users must follow
                             our Community Guidelines. Violations can result in content removal,
                             account restrictions, or suspension.
                         </p>
@@ -392,7 +392,7 @@ const showRestoredModal = async () => {
                 </div>
                 <div>
                     <p class="text-sm text-gray-700 dark:text-gray-200">
-                        Your Loops account has been
+                        Your PornTk account has been
                         <span class="font-semibold text-emerald-600 dark:text-emerald-400">
                             successfully restored
                         </span>
@@ -403,7 +403,7 @@ const showRestoredModal = async () => {
                         You can now:
                     </p>
                     <ul class="mt-1 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside space-y-1">
-                        <li>Post new Loops and interact with your feed</li>
+                        <li>Post new videos and interact with your feed</li>
                         <li>Receive notifications and participate in conversations</li>
                         <li>Access your profile, posts, and previous activity</li>
                     </ul>

@@ -236,7 +236,7 @@
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[60%]">
                                 <h3 class="font-medium mb-2 dark:text-gray-300">Marketing emails</h3>
-                                <p class="text-xs text-gray-500 font-light">Promotional content, tips, and recommendations from Loops.</p>
+                                <p class="text-xs text-gray-500 font-light">Promotional content, tips, and recommendations from PornTk.</p>
                             </div>
                             <ToggleSwitch v-model="marketingEmails" />
                         </div>

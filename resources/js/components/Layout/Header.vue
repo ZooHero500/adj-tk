@@ -14,7 +14,7 @@
                 <router-link to="/" class="flex items-center gap-2">
                     <img
                         :src="appLogoUrl()"
-                        alt="Loops Logo"
+                        alt="PornTk Logo"
                         class="rounded-full size-8 md:size-10"
                     />
                     <span

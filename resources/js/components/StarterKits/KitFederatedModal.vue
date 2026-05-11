@@ -102,7 +102,7 @@
 
                         <p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
                             Not sure if your app is compatible? Search the URL in your platform's
-                            search bar to test. If it loads this kit, you're good to go. Loops and
+                            search bar to test. If it loads this kit, you're good to go. PornTk and
                             other ActivityPub platforms that support this feature will recognise it
                             automatically.
                         </p>
@@ -116,7 +116,7 @@
                             Close
                         </button>
                         <AnimatedButton @click="handleJoin" class="flex-1">
-                            Join Loops
+                            Join PornTk
                         </AnimatedButton>
                     </div>
                 </div>

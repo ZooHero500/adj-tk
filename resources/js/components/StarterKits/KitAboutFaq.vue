@@ -70,11 +70,11 @@ function toggleFaq(i) {
 const faqs = [
     {
         q: 'What is a Starter Kit?',
-        a: 'A Starter Kit is a curated collection of Loops accounts organized around a theme, niche, or community. When you follow a kit, you instantly follow every account inside it — giving you a rich, focused feed right away. Think of it like a playlist, but for creators.'
+        a: 'A Starter Kit is a curated collection of PornTk accounts organized around a theme, niche, or community. When you follow a kit, you instantly follow every account inside it — giving you a rich, focused feed right away. Think of it like a playlist, but for creators.'
     },
     {
         q: 'Who can create a Starter Kit?',
-        a: 'Any Loops user can submit a Starter Kit for review. Our admin team reviews each submission before it goes live to ensure it meets community quality standards. This keeps the directory high-signal and spam-free.'
+        a: 'Any PornTk user can submit a Starter Kit for review. Our admin team reviews each submission before it goes live to ensure it meets community quality standards. This keeps the directory high-signal and spam-free.'
     },
     {
         q: 'How do I add accounts to my kit?',
@@ -94,7 +94,7 @@ const faqs = [
     },
     {
         q: 'Can logged-out users browse Starter Kits?',
-        a: 'Yes! Anyone can browse and preview Starter Kits without a Loops account. Tapping Follow All will prompt them to sign in or join — making Starter Kits a great onboarding path for new users discovering the platform for the first time.'
+        a: 'Yes! Anyone can browse and preview Starter Kits without a PornTk account. Tapping Follow All will prompt them to sign in or join — making Starter Kits a great onboarding path for new users discovering the platform for the first time.'
     },
     {
         q: 'Can kits include accounts from other fediverse servers?',
@@ -102,7 +102,7 @@ const faqs = [
     },
     // {
     //     q: 'Can kits include accounts from other fediverse servers?',
-    //     a: 'Absolutely. Loops is built on ActivityPub, making it fully interoperable with the fediverse. Any compatible federated account can be featured in a kit, regardless of what server they call home, as long as they approve your request to be included in the kit.'
+    //     a: 'Absolutely. PornTk is built on ActivityPub, making it fully interoperable with the fediverse. Any compatible federated account can be featured in a kit, regardless of what server they call home, as long as they approve your request to be included in the kit.'
     // },
     {
         q: 'How do I get my kit featured in the directory?',

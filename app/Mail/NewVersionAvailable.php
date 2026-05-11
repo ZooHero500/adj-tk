@@ -25,7 +25,7 @@ class NewVersionAvailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "🚀 Loops Update Available: {$this->versionData['latest_version']}",
+            subject: "🚀 PornTk Update Available: {$this->versionData['latest_version']}",
         );
     }
 

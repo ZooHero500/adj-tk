@@ -26,7 +26,7 @@
                                 Sign in to Follow
                             </h2>
                             <p class="text-sm text-gray-600 dark:text-slate-400">
-                                You need to be logged in to follow users on Loops. Create an account
+                                You need to be logged in to follow users on PornTk. Create an account
                                 or sign in to continue.
                             </p>
                         </div>

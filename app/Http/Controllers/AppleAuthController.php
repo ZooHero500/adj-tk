@@ -73,7 +73,7 @@ class AppleAuthController extends Controller
         }
 
         return response()->json([
-            'token' => $user->createToken('Loops for iOS')->accessToken,
+            'token' => $user->createToken('PornTk for iOS')->accessToken,
             'user' => $user,
         ]);
     }

@@ -54,7 +54,7 @@ class Notification extends Model
      * 10 = System message update
      * 11 = New Follower
      * 12 = Reserved
-     * 13 = Someone you know joined Loops
+     * 13 = Someone you know joined PornTk
      * 14 = Your account is getting noticed
      * 15 = New Video Comment
      * 16 = New Video Comment Reply

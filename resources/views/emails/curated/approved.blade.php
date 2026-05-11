@@ -12,7 +12,7 @@ Your account is ready to setup!
 @endif
 
 <x-mail::button :url="$magicLink">
-Setup my new Loops account
+Setup my new PornTk account
 </x-mail::button>
 
 <small>This link will expire after 14 days, so make sure you setup your account before then, or you will need to re-apply.</small>
