@@ -12,20 +12,23 @@
                 </button>
             </div>
 
-            <Login v-if="isRegister" />
+            <Login v-if="isLogin" />
             <Register v-else />
 
             <div
                 class="absolute flex items-center justify-center py-5 left-0 bottom-0 border-t border-gray-100 dark:border-slate-800 w-full"
             >
-                <span class="text-[14px] text-gray-600 dark:text-slate-400"
+                <span v-if="isLogin" class="text-[14px] text-gray-600 dark:text-slate-400"
                     >Don't have an account?</span
                 >
+                <span v-else class="text-[14px] text-gray-600 dark:text-slate-400"
+                    >Already have an account?</span
+                >
                 <button
-                    @click="isRegister = !isRegister"
+                    @click="isLogin = !isLogin"
                     class="text-[14px] text-[#F02C56] font-semibold pl-1"
                 >
-                    <span v-if="isRegister">Sign up</span>
+                    <span v-if="isLogin">Sign up</span>
                     <span v-else>Log in</span>
                 </button>
             </div>
@@ -38,5 +41,5 @@ import { ref, inject } from 'vue'
 import Login from '@/components/Login.vue'
 import Register from '@/components/Register.vue'
 const appStore = inject('appStore')
-const isRegister = ref(true)
+const isLogin = ref(true)
 </script>

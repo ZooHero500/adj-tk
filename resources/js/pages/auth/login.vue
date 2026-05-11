@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { onMounted, watch, inject, ref } from 'vue'
+import { onMounted, watch, inject } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRoute, useRouter } from 'vue-router'
 import FullLayout from '@/layouts/FullLayout.vue'
@@ -30,6 +30,12 @@ onMounted(() => {
         router.push('/')
     } else {
         authStore.openAuthModal('login')
+    }
+})
+
+watch(() => authStore.authModalOpen, (open) => {
+    if (!open && !authStore.authenticated) {
+        router.push('/')
     }
 })
 </script>
