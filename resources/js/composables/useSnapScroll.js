@@ -143,7 +143,6 @@ export function useSnapScroll({
             'input',
             'textarea',
             'select',
-            'video',
             '[role="button"]',
             '[tabindex]',
             '.mobile-interaction-btn',

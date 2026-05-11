@@ -69,7 +69,7 @@
                         </div>
 
                         <button
-                            v-if="!isPaused && hasGlobalInteraction && isMuted && canInteract"
+                            v-if="!isPaused && isMuted && canInteract"
                             @click.stop="toggleMute"
                             class="absolute bottom-[106px] left-4 lg:bottom-4 lg:right-auto lg:left-4 z-10 bg-black/50 rounded-full p-2 text-white flex items-center justify-center hover:bg-black/70"
                         >
@@ -512,7 +512,7 @@ const videoAspectStyle = computed(() => {
 
 const canInteract = computed(() => !props.isSensitive || isSensitiveRevealed.value)
 
-const showPlayButton = computed(() => !hasGlobalInteraction.value || isPaused.value)
+const showPlayButton = computed(() => isPaused.value)
 
 const windowWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1024)
 const isMobile = computed(() => windowWidth.value < 1024)
@@ -605,7 +605,21 @@ const handleTouchEnd = (e) => {
 const handleVideoClick = async (e) => {
     if (e.target.closest('button, a, .mobile-interaction-btn')) return
     if (!canInteract.value) return
-    if (!hasGlobalInteraction.value || isPaused.value) {
+
+    // First interaction: record it and unmute
+    if (!hasGlobalInteraction.value) {
+        globalHandleFirstInteraction()
+        emit('interaction')
+        setGlobalMuted(false)
+        if (player) player.muted(false)
+        // If video is paused (autoplay failed), also start playback
+        if (isPaused.value) {
+            await play()
+        }
+        return
+    }
+
+    if (isPaused.value) {
         await handlePlayClick()
     } else if (isMobile.value) {
         pause()
