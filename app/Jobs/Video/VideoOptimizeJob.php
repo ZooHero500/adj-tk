@@ -246,7 +246,7 @@ class VideoOptimizeJob implements ShouldQueue
 
             // Build master playlist
             $basePath = pathinfo($optimizedPath, PATHINFO_DIRNAME);
-            $hlsBase = $basePath.'/hls_'.$video->id;
+            $hlsBase = $basePath;
 
             $master = "#EXTM3U\n";
             $master .= "#EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=854x480\n";

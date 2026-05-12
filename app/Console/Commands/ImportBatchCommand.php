@@ -152,11 +152,17 @@ class ImportBatchCommand extends Command
         }
 
         // Upload avatar if provided
-        if (! empty($data['avatar']) && file_exists($data['avatar'])) {
-            $avatarPath = 'avatars/'.Str::random(20).'.'.pathinfo($data['avatar'], PATHINFO_EXTENSION);
-            Storage::disk('s3')->put($avatarPath, file_get_contents($data['avatar']), 'public');
-            $profile->update(['avatar' => Storage::disk('s3')->url($avatarPath)]);
-            $this->filesUploaded++;
+        if (! empty($data['avatar'])) {
+            if (str_starts_with($data['avatar'], 'http')) {
+                // Already a URL (S3 mode) — use directly
+                $profile->update(['avatar' => $data['avatar']]);
+            } elseif (file_exists($data['avatar'])) {
+                // Local file — upload to S3
+                $avatarPath = 'avatars/'.Str::random(20).'.'.pathinfo($data['avatar'], PATHINFO_EXTENSION);
+                Storage::disk('s3')->put($avatarPath, file_get_contents($data['avatar']), 'public');
+                $profile->update(['avatar' => Storage::disk('s3')->url($avatarPath)]);
+                $this->filesUploaded++;
+            }
         }
 
         return $profile;
@@ -189,7 +195,7 @@ class ImportBatchCommand extends Command
 
         if (! $skipUpload && $localDir && is_dir($localDir)) {
             // Upload MP4
-            $mp4Local = $this->findFile($localDir, '*.720p.mp4') ?? $this->findFile($localDir, '*.mp4');
+            $mp4Local = $this->findFile($localDir, 'video.mp4') ?? $this->findFile($localDir, '*.mp4');
             if ($mp4Local) {
                 $mp4File = $s3Base.'/'.basename($mp4Local);
                 Storage::disk('s3')->put($mp4File, file_get_contents($mp4Local), 'public');
@@ -208,7 +214,7 @@ class ImportBatchCommand extends Command
             // Upload HLS files
             $masterM3u8 = $localDir.'/master.m3u8';
             if (file_exists($masterM3u8)) {
-                $this->uploadHlsDirectory($localDir, $s3Base.'/hls');
+                $this->uploadHlsDirectory($localDir, $s3Base);
                 $hlsUploaded = true;
             }
         } elseif ($skipUpload) {

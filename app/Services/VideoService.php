@@ -94,7 +94,7 @@ class VideoService
             $hlsUrl = null;
             if ($video->has_hls && $video->vid_optimized) {
                 $basePath = pathinfo($video->vid_optimized, PATHINFO_DIRNAME);
-                $hlsUrl = Storage::disk('s3')->url($basePath.'/hls_'.$video->id.'/master.m3u8');
+                $hlsUrl = Storage::disk('s3')->url($basePath.'/master.m3u8');
             }
 
             return [
