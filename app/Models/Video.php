@@ -211,7 +211,7 @@ class Video extends Model
      */
     protected function scopePublishedAndSafe(Builder $query): Builder
     {
-        return $query->where('status', 2)->where('is_sensitive', false);
+        return $query->where('status', 2);
     }
 
     #[Scope]

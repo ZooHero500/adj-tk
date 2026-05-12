@@ -82,7 +82,7 @@ class AdminSettingsSeeder extends Seeder
             ],
             [
                 'key' => 'general.autoModerateNSFW',
-                'value' => true,
+                'value' => false,
                 'type' => 'boolean',
                 'is_public' => false,
                 'description' => 'Automatically flag potentially NSFW content for review',
