@@ -46,7 +46,7 @@
         >
             <div class="flex-1">
                 <h3
-                    class="font-semibold text-gray-900 dark:text-white group-hover:text-[#F02C56] transition-colors mb-1"
+                    class="font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-1"
                 >
                     {{ kit.title }}
                 </h3>
@@ -79,7 +79,7 @@
                         <ArrowUpTrayIcon class="w-3.5 h-3.5" />{{ formatCount(kit.uses) }}
                     </span>
                     <button
-                        class="text-xs font-bold text-[#F02C56] hover:underline flex items-center gap-1"
+                        class="text-xs font-bold text-primary hover:underline flex items-center gap-1"
                     >
                         {{ t('common.useKit') }}
                         <ArrowRightIcon class="w-3 h-3" />

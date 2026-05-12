@@ -13,7 +13,7 @@
             class="fixed inset-y-0 left-0 z-50 w-72 sm:w-80 lg:w-72 flex flex-col min-h-dvh min-h-0 overflow-hidden bg-white dark:bg-gray-900/80 backdrop-blur shadow-xl lg:shadow-none transform transition-transform duration-200 ease-out lg:translate-x-0 lg:relative lg:sticky lg:top-0"
         >
             <div
-                class="flex items-center justify-between h-16 px-5 flex-shrink-0 bg-gradient-to-r from-[#F02C56] to-[#FF4D74] dark:from-[#8B1E3A] dark:to-[#A52F47] border-b border-white/10"
+                class="flex items-center justify-between h-16 px-5 flex-shrink-0 bg-gradient-to-r from-primary to-[#FF4D74] dark:from-[#8B1E3A] dark:to-[#A52F47] border-b border-white/10"
             >
                 <div class="flex items-center gap-3">
                     <div
@@ -67,10 +67,10 @@
                                         :class="[
                                             'w-full group relative flex items-center justify-between gap-3',
                                             'px-3 py-2.5 rounded-xl text-sm font-medium',
-                                            'transition focus:outline-none focus:ring-2 focus:ring-[#F02C56]/30',
+                                            'transition focus:outline-none focus:ring-2 focus:ring-primary/30',
                                             'ring-1 ring-transparent hover:ring-gray-200/80 dark:hover:ring-gray-800',
                                             isParentActive(item)
-                                                ? 'bg-[#F02C56]/10 text-gray-900 dark:text-white ring-[#F02C56]/20'
+                                                ? 'bg-primary/10 text-gray-900 dark:text-white ring-primary/20'
                                                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50/80 dark:hover:bg-gray-800/60'
                                         ]"
                                     >
@@ -80,7 +80,7 @@
                                                 :class="[
                                                     'mr-3 h-5 w-5 flex-shrink-0 transition',
                                                     isParentActive(item)
-                                                        ? 'text-[#F02C56] dark:text-[#FF6B8C]'
+                                                        ? 'text-primary dark:text-[#FF6B8C]'
                                                         : 'text-gray-400 group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-300'
                                                 ]"
                                             />
@@ -94,7 +94,7 @@
                                                     ? 'rotate-180'
                                                     : '',
                                                 isParentActive(item)
-                                                    ? 'text-[#F02C56] dark:text-[#FF6B8C]'
+                                                    ? 'text-primary dark:text-[#FF6B8C]'
                                                     : 'text-gray-400 dark:text-gray-500'
                                             ]"
                                         />
@@ -116,9 +116,9 @@
                                             :class="[
                                                 'group flex items-center gap-2 rounded-lg',
                                                 'px-3 py-2 text-[13px] leading-tight',
-                                                'transition focus:outline-none focus:ring-2 focus:ring-[#F02C56]/25',
+                                                'transition focus:outline-none focus:ring-2 focus:ring-primary/25',
                                                 route.path === subItem.href
-                                                    ? 'bg-[#F02C56]/10 text-[#F02C56] dark:text-[#FF6B8C] font-semibold'
+                                                    ? 'bg-primary/10 text-primary dark:text-[#FF6B8C] font-semibold'
                                                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/80 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800/60'
                                             ]"
                                         >
@@ -126,7 +126,7 @@
                                                 :class="[
                                                     'h-1.5 w-1.5 rounded-full transition',
                                                     route.path === subItem.href
-                                                        ? 'bg-[#F02C56]'
+                                                        ? 'bg-primary'
                                                         : 'bg-gray-300 group-hover:bg-gray-400 dark:bg-gray-700 dark:group-hover:bg-gray-600'
                                                 ]"
                                             ></span>
@@ -142,10 +142,10 @@
                                     :class="[
                                         'group relative flex items-center gap-3 rounded-xl',
                                         'px-3 py-2.5 text-sm font-medium',
-                                        'transition focus:outline-none focus:ring-2 focus:ring-[#F02C56]/30',
+                                        'transition focus:outline-none focus:ring-2 focus:ring-primary/30',
                                         'ring-1 ring-transparent hover:ring-gray-200/80 dark:hover:ring-gray-800',
                                         isRouteActive(item.href)
-                                            ? 'bg-[#F02C56]/10 text-gray-900 dark:text-white ring-[#F02C56]/20'
+                                            ? 'bg-primary/10 text-gray-900 dark:text-white ring-primary/20'
                                             : 'text-gray-700 hover:bg-gray-50/80 dark:text-gray-300 dark:hover:bg-gray-800/60'
                                     ]"
                                 >
@@ -154,7 +154,7 @@
                                         :class="[
                                             'h-5 w-5 flex-shrink-0 transition',
                                             isRouteActive(item.href)
-                                                ? 'text-[#F02C56] dark:text-[#FF6B8C]'
+                                                ? 'text-primary dark:text-[#FF6B8C]'
                                                 : 'text-gray-400 group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-300'
                                         ]"
                                     />
@@ -163,7 +163,7 @@
                                     <template v-if="item.href === '/admin/reports'">
                                         <span
                                             v-if="reportsCount > 0"
-                                            class="ml-auto inline-flex items-center justify-center min-w-[1.6rem] h-6 px-2 rounded-full text-[11px] font-semibold bg-[#F02C56] text-white shadow-sm ring-1 ring-black/5"
+                                            class="ml-auto inline-flex items-center justify-center min-w-[1.6rem] h-6 px-2 rounded-full text-[11px] font-semibold bg-primary text-white shadow-sm ring-1 ring-black/5"
                                         >
                                             {{ displayReportsCount }}
                                         </span>
@@ -176,7 +176,7 @@
                                     <template v-if="item.href === '/admin/starter-kits-review'">
                                         <span
                                             v-if="starterKitsUpdates > 0"
-                                            class="ml-auto inline-flex items-center justify-center min-w-[1.6rem] h-6 px-2 rounded-full text-[11px] font-semibold bg-[#F02C56] text-white shadow-sm ring-1 ring-black/5"
+                                            class="ml-auto inline-flex items-center justify-center min-w-[1.6rem] h-6 px-2 rounded-full text-[11px] font-semibold bg-primary text-white shadow-sm ring-1 ring-black/5"
                                         >
                                             {{ displayUpdatedStarterKitsCount }}
                                         </span>
@@ -189,7 +189,7 @@
                                     <template v-if="item.href === '/admin/starterkits'">
                                         <span
                                             v-if="starterKitsAwaitingApproval > 0"
-                                            class="ml-auto inline-flex items-center justify-center min-w-[1.6rem] h-6 px-2 rounded-full text-[11px] font-semibold bg-[#F02C56] text-white shadow-sm ring-1 ring-black/5"
+                                            class="ml-auto inline-flex items-center justify-center min-w-[1.6rem] h-6 px-2 rounded-full text-[11px] font-semibold bg-primary text-white shadow-sm ring-1 ring-black/5"
                                         >
                                             {{ displayAwaitingStarterKitsCount }}
                                         </span>
@@ -202,7 +202,7 @@
                                     <template v-if="item.href === '/admin/curated-onboarding'">
                                         <span
                                             v-if="onboardingAwaitingApproval > 0"
-                                            class="ml-auto inline-flex items-center justify-center min-w-[1.6rem] h-6 px-2 rounded-full text-[11px] font-semibold bg-[#F02C56] text-white shadow-sm ring-1 ring-black/5"
+                                            class="ml-auto inline-flex items-center justify-center min-w-[1.6rem] h-6 px-2 rounded-full text-[11px] font-semibold bg-primary text-white shadow-sm ring-1 ring-black/5"
                                         >
                                             {{ displayAwaitingOnboardingCount }}
                                         </span>
@@ -221,7 +221,7 @@
             <div class="flex-shrink-0 p-3 border-t border-gray-200/70 dark:border-gray-800">
                 <button
                     @click="handleToggleDarkMode"
-                    class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-800/60 transition focus:outline-none focus:ring-2 focus:ring-[#F02C56]/30"
+                    class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-800/60 transition focus:outline-none focus:ring-2 focus:ring-primary/30"
                 >
                     <component
                         :is="isDark ? SunIcon : MoonIcon"
@@ -272,7 +272,7 @@
                             <ExclamationTriangleIcon class="w-5 h-5" />
                             <span
                                 v-if="reportsCount > 0"
-                                class="absolute -top-0.5 -right-0.5 inline-flex items-center justify-center min-w-[1.125rem] h-[1.125rem] px-1 rounded-full text-[10px] font-bold leading-none bg-[#F02C56] text-white shadow-sm ring-2 ring-white dark:ring-gray-800"
+                                class="absolute -top-0.5 -right-0.5 inline-flex items-center justify-center min-w-[1.125rem] h-[1.125rem] px-1 rounded-full text-[10px] font-bold leading-none bg-primary text-white shadow-sm ring-2 ring-white dark:ring-gray-800"
                             >
                                 {{ displayReportsCount }}
                             </span>
@@ -298,7 +298,7 @@
                     </div>
 
                     <div
-                        class="flex lg:hidden absolute left-1/2 -translate-x-1/2 px-4 py-1.5 rounded bg-gradient-to-r from-[#F02C56] to-[#FF4D74] dark:from-[#8B1E3A] dark:to-[#A52F47]"
+                        class="flex lg:hidden absolute left-1/2 -translate-x-1/2 px-4 py-1.5 rounded bg-gradient-to-r from-primary to-[#FF4D74] dark:from-[#8B1E3A] dark:to-[#A52F47]"
                     >
                         <div class="flex flex-col justify-center items-center">
                             <h1 class="text-[13px] font-semibold text-white leading-tight">

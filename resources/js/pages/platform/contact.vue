@@ -1,6 +1,6 @@
 <template>
     <MainLayout>
-        <div class="isolate bg-white dark:bg-slate-950 px-6 py-24 sm:py-32 lg:px-8">
+        <div class="isolate bg-white dark:bg-neutral-950 px-6 py-24 sm:py-32 lg:px-8">
             <div class="mx-auto max-w-4xl">
                 <div class="text-center mb-16">
                     <h1
@@ -9,7 +9,7 @@
                         {{ $t('contact.getInTouch') }}
                     </h1>
                     <p
-                        class="mt-6 text-lg leading-8 text-gray-600 dark:text-slate-400 max-w-2xl mx-auto"
+                        class="mt-6 text-lg leading-8 text-gray-600 dark:text-neutral-400 max-w-2xl mx-auto"
                     >
                         {{ $t('contact.bodyMessage') }}
                     </p>
@@ -19,7 +19,7 @@
                     <div
                         class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600 dark:border-indigo-400"
                     ></div>
-                    <p class="mt-4 text-gray-600 dark:text-slate-400">
+                    <p class="mt-4 text-gray-600 dark:text-neutral-400">
                         {{ $t('contact.loadingContactInformationDotDotDot') }}
                     </p>
                 </div>
@@ -36,7 +36,7 @@
 
                 <div v-else class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
                     <div
-                        class="group relative bg-white dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-700 p-8 shadow-sm hover:shadow-lg dark:hover:shadow-slate-900/20 transition-all duration-300 flex flex-col"
+                        class="group relative bg-white dark:bg-neutral-900 rounded-2xl border border-gray-200 dark:border-neutral-700 p-8 shadow-sm hover:shadow-lg dark:hover:shadow-neutral-900/20 transition-all duration-300 flex flex-col"
                     >
                         <div class="flex items-start space-x-4 flex-1">
                             <div class="flex-shrink-0">
@@ -52,7 +52,7 @@
                                 >
                                     {{ $t('contact.adminContact') }}
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400 mb-4">
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">
                                     {{ $t('contact.adminContactMessage') }}
                                 </p>
                             </div>
@@ -70,7 +70,7 @@
                     </div>
 
                     <div
-                        class="group relative bg-white dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-700 p-8 shadow-sm hover:shadow-lg dark:hover:shadow-slate-900/20 transition-all duration-300 flex flex-col"
+                        class="group relative bg-white dark:bg-neutral-900 rounded-2xl border border-gray-200 dark:border-neutral-700 p-8 shadow-sm hover:shadow-lg dark:hover:shadow-neutral-900/20 transition-all duration-300 flex flex-col"
                     >
                         <div class="flex items-start space-x-4 flex-1">
                             <div class="flex-shrink-0">
@@ -86,7 +86,7 @@
                                 >
                                     {{ $t('contact.technicalSupport') }}
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400 mb-4">
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">
                                     {{ $t('contact.technicalSupportMessage') }}
                                 </p>
                             </div>
@@ -105,7 +105,7 @@
 
                     <div
                         v-if="contactInfo.support_forum_url"
-                        class="group relative bg-white dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-700 p-8 shadow-sm hover:shadow-lg dark:hover:shadow-slate-900/20 transition-all duration-300 flex flex-col"
+                        class="group relative bg-white dark:bg-neutral-900 rounded-2xl border border-gray-200 dark:border-neutral-700 p-8 shadow-sm hover:shadow-lg dark:hover:shadow-neutral-900/20 transition-all duration-300 flex flex-col"
                     >
                         <div class="flex items-start space-x-4 flex-1">
                             <div class="flex-shrink-0">
@@ -121,7 +121,7 @@
                                 >
                                     {{ $t('contact.communityForum') }}
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400 mb-4">
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">
                                     {{ $t('contact.communityForumMessage') }}
                                 </p>
                             </div>
@@ -142,7 +142,7 @@
 
                     <div
                         v-if="contactInfo.fediverse_account"
-                        class="group relative bg-white dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-700 p-8 shadow-sm hover:shadow-lg dark:hover:shadow-slate-900/20 transition-all duration-300 flex flex-col"
+                        class="group relative bg-white dark:bg-neutral-900 rounded-2xl border border-gray-200 dark:border-neutral-700 p-8 shadow-sm hover:shadow-lg dark:hover:shadow-neutral-900/20 transition-all duration-300 flex flex-col"
                     >
                         <div class="flex items-start space-x-4 flex-1">
                             <div class="flex-shrink-0">
@@ -158,7 +158,7 @@
                                 >
                                     {{ $t('contact.socialConnect') }}
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400 mb-4">
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">
                                     {{ $t('contact.socialConnectMessage') }}
                                 </p>
                             </div>
@@ -180,12 +180,12 @@
 
                 <div class="mt-16 text-center">
                     <div
-                        class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-8"
+                        class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-neutral-800 dark:to-neutral-700 rounded-2xl p-8"
                     >
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                             {{ $t('contact.responseTime') }}
                         </h3>
-                        <p class="text-gray-600 dark:text-slate-400">
+                        <p class="text-gray-600 dark:text-neutral-400">
                             {{ $t('contact.responseTimeMessage') }}
                         </p>
                     </div>

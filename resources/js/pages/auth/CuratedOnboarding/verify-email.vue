@@ -3,13 +3,13 @@
         <div class="verify-email relative min-h-screen overflow-hidden bg-gray-50 dark:bg-gray-950">
             <div class="pointer-events-none absolute inset-0 overflow-hidden">
                 <div
-                    class="absolute -top-1/2 -left-1/4 h-[900px] w-[900px] rounded-full bg-gradient-to-br from-[#F02C56]/40 via-[#F02C56]/10 to-transparent blur-3xl animate-drift-slow"
+                    class="absolute -top-1/2 -left-1/4 h-[900px] w-[900px] rounded-full bg-gradient-to-br from-primary/40 via-primary/10 to-transparent blur-3xl animate-drift-slow"
                 />
                 <div
-                    class="absolute -bottom-1/3 -right-1/4 h-[700px] w-[700px] rounded-full bg-gradient-to-tl from-[#F02C56]/30 via-rose-400/10 to-transparent blur-3xl animate-drift-slow-reverse"
+                    class="absolute -bottom-1/3 -right-1/4 h-[700px] w-[700px] rounded-full bg-gradient-to-tl from-primary/30 via-rose-400/10 to-transparent blur-3xl animate-drift-slow-reverse"
                 />
                 <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-rose-400/10 via-[#F02C56]/10 to-transparent blur-2xl animate-drift-slow"
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-rose-400/10 via-primary/10 to-transparent blur-2xl animate-drift-slow"
                 />
             </div>
 
@@ -69,7 +69,7 @@
                         <div class="mt-6">
                             <router-link
                                 to="/"
-                                class="inline-flex items-center gap-2 text-sm font-semibold text-[#F02C56] hover:underline"
+                                class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
                             >
                                 <svg
                                     class="h-4 w-4"
@@ -155,10 +155,10 @@
                         >
                             <span class="relative flex h-2 w-2">
                                 <span
-                                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F02C56] opacity-75"
+                                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"
                                 ></span>
                                 <span
-                                    class="relative inline-flex h-2 w-2 rounded-full bg-[#F02C56]"
+                                    class="relative inline-flex h-2 w-2 rounded-full bg-primary"
                                 ></span>
                             </span>
                             One more step
@@ -166,7 +166,7 @@
                         <h1
                             class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
-                            Verify your <span class="text-[#F02C56]">email</span>
+                            Verify your <span class="text-primary">email</span>
                         </h1>
                         <p class="mt-2 text-base text-gray-500 dark:text-gray-400 sm:text-lg">
                             We sent a verification link to
@@ -322,7 +322,7 @@
                             Having trouble?
                             <router-link
                                 to="/contact"
-                                class="text-[#F02C56] font-semibold hover:underline"
+                                class="text-primary font-semibold hover:underline"
                             >
                                 Contact support
                             </router-link>

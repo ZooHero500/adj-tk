@@ -35,7 +35,7 @@
                     {{ $t('settings.dataExport') }}
                 </h2>
                 <div class="flex flex-col gap-3 mb-6">
-                    <!-- <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <!-- <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="p-6">
                             <div class="flex items-start justify-between mb-4">
                                 <div>
@@ -51,7 +51,7 @@
                                 </button>
                             </div>
                             
-                            <div class="bg-gray-50 dark:bg-slate-900 rounded-lg p-3">
+                            <div class="bg-gray-50 dark:bg-neutral-900 rounded-lg p-3">
                                 <h4 class="font-medium text-gray-800 mb-2 dark:text-gray-300">What's included:</h4>
                                 <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
                                     <div class="flex items-center gap-2">
@@ -83,7 +83,7 @@
                         </div>
                     </div> -->
 
-                    <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="p-6">
                             <h3 class="font-medium text-gray-800 mb-4 dark:text-gray-300">
                                 {{ $t('settings.selectiveDataExport') }}
@@ -124,7 +124,7 @@
                 <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">
                     {{ $t('settings.exportHistory') }}
                 </h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm mb-6">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm mb-6">
                     <div class="p-4 border-b border-gray-200 dark:border-gray-800">
                         <h3 class="font-medium dark:text-gray-300">
                             {{ $t('settings.recentExports') }}
@@ -194,7 +194,7 @@
                 <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">
                     {{ $t('settings.dataInsights') }}
                 </h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm mb-6">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm mb-6">
                     <div class="p-6">
                         <h3 class="font-medium text-gray-800 mb-4 dark:text-gray-300">
                             {{ $t('settings.yourAccountStatistics') }}
@@ -259,7 +259,7 @@
                     {{ $t('settings.dataManagement') }}
                 </h2>
                 <div class="hidden flex flex-col gap-3 mb-6">
-                    <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[70%]">
                                 <h3 class="font-medium mb-2 dark:text-gray-300">
@@ -286,7 +286,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[80%]">
                                 <h3 class="font-medium mb-2 dark:text-gray-300">
@@ -303,7 +303,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[80%]">
                                 <h3 class="font-medium mb-2 dark:text-gray-300">
@@ -325,7 +325,7 @@
                 </div>
 
                 <!-- <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">Data deletion</h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                     <div class="p-6">
                         <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
                             <div class="flex items-start gap-3">

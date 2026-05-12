@@ -99,7 +99,7 @@ const props = defineProps({
     borderClass: {
         type: String,
         default:
-            'border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-slate-300 focus:border-[#F02C56]'
+            'border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-neutral-300 focus:border-primary'
     },
     minHeight: {
         type: String,
@@ -295,7 +295,7 @@ const renderContent = (text) => {
                 if (props.validateMentions && !validatedMentions.value.has(username)) {
                     return match
                 }
-                return `${prefix}<span class="text-[#F02C56] font-semibold">@${username}</span>`
+                return `${prefix}<span class="text-primary font-semibold">@${username}</span>`
             }
         )
 

@@ -26,7 +26,7 @@ const { account } = props
     <div class="flex items-center space-x-3">
         <Avatar :src="account.avatar" :width="40" />
         <div>
-            <div class="font-medium text-[15px] dark:text-slate-200 line-clamp-1">
+            <div class="font-medium text-[15px] dark:text-neutral-200 line-clamp-1">
                 {{ account.name }}
             </div>
             <div class="font-semibold text-gray-500 text-[12px] line-clamp-1">

@@ -1,7 +1,7 @@
 <template>
     <FullLayout>
         <div
-            class="grid min-h-full w-full place-items-center bg-white dark:bg-slate-950 px-6 py-24 sm:py-32 lg:px-8"
+            class="grid min-h-full w-full place-items-center bg-white dark:bg-neutral-950 px-6 py-24 sm:py-32 lg:px-8"
         >
             <div class="w-full max-w-md">
                 <div class="text-center mb-8">
@@ -20,7 +20,7 @@
 
                 <div
                     v-if="verificationStatus === 'success'"
-                    class="bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 shadow-lg rounded-lg p-6 text-center"
+                    class="bg-white dark:bg-neutral-900 border border-gray-100 dark:border-gray-800 shadow-lg rounded-lg p-6 text-center"
                 >
                     <div
                         class="mx-auto h-16 w-16 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-4"
@@ -45,7 +45,7 @@
 
                 <div
                     v-else-if="verificationStatus === 'error'"
-                    class="bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 shadow-lg rounded-lg p-6 text-center"
+                    class="bg-white dark:bg-neutral-900 border border-gray-100 dark:border-gray-800 shadow-lg rounded-lg p-6 text-center"
                 >
                     <div
                         class="mx-auto h-16 w-16 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center mb-4"
@@ -84,7 +84,7 @@
 
                 <div
                     v-else-if="currentStep === 1"
-                    class="bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 shadow-lg rounded-lg p-6"
+                    class="bg-white dark:bg-neutral-900 border border-gray-100 dark:border-gray-800 shadow-lg rounded-lg p-6"
                 >
                     <Transition
                         enter-active-class="duration-300 ease-out"
@@ -216,7 +216,7 @@
 
                 <div
                     v-else-if="currentStep === 2"
-                    class="bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 shadow-lg rounded-lg p-6"
+                    class="bg-white dark:bg-neutral-900 border border-gray-100 dark:border-gray-800 shadow-lg rounded-lg p-6"
                 >
                     <Transition
                         enter-active-class="duration-300 ease-out"

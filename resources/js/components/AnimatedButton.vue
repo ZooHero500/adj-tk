@@ -115,10 +115,10 @@ export default {
                 case 'primary':
                     return [
                         baseClasses,
-                        'bg-[#F02C56] dark:bg-[#F02C56]',
+                        'bg-primary dark:bg-primary',
                         'text-white',
                         'hover:bg-[#D7284A] active:bg-[#C62445]',
-                        'focus:ring-[#F02C56]',
+                        'focus:ring-primary',
                         'disabled:bg-opacity-50 disabled:opacity-50'
                     ].join(' ')
                 case 'primaryGradient':
@@ -145,12 +145,12 @@ export default {
                     return `${baseClasses} border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:ring-gray-500 dark:focus:ring-gray-400 disabled:opacity-50`
                 case 'primaryOutline':
                     return `${baseClasses}
-                        border border-[#F02C56]
-                        text-[#F02C56]
+                        border border-primary
+                        text-primary
                         bg-transparent dark:bg-transparent
-                        hover:bg-[#F02C56]/10 dark:hover:bg-[#F02C56]/20
-                        active:bg-[#F02C56]/20
-                        focus:ring-[#F02C56]
+                        hover:bg-primary/10 dark:hover:bg-primary/20
+                        active:bg-primary/20
+                        focus:ring-primary
                         disabled:opacity-50 disabled:border-opacity-50 disabled:text-opacity-50`
                 case 'ghost':
                     return `${baseClasses} text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:ring-gray-500 dark:focus:ring-gray-400 disabled:opacity-50`

@@ -72,7 +72,7 @@
 
                         <button
                             @click="$refs.fileInput.click()"
-                            class="bg-[#F02C56] hover:bg-[#F02C56]/80 text-white px-8 py-3 rounded-md font-medium transition-colors"
+                            class="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-md font-medium transition-colors"
                         >
                             {{ $t('studio.selectVideo') }}
                         </button>
@@ -772,7 +772,7 @@
                                     class="w-full py-3 rounded-md font-medium transition-colors flex items-center justify-center"
                                     :class="
                                         canSubmit && !isSubmitting
-                                            ? 'bg-[#F02C56] border border-[#F02C56] hover:bg-[#F02C56]/80 text-white'
+                                            ? 'bg-primary border border-primary hover:bg-primary/80 text-white'
                                             : 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed'
                                     "
                                 >
@@ -839,7 +839,7 @@
                         <div class="w-80 mx-auto">
                             <div class="bg-gray-700 rounded-full h-3 overflow-hidden">
                                 <div
-                                    class="bg-gradient-to-r from-[#ed5b7bff] to-[#F02C56] h-full transition-all duration-300 ease-out"
+                                    class="bg-gradient-to-r from-[#ed5b7bff] to-primary h-full transition-all duration-300 ease-out"
                                     :style="{ width: `${uploadProgress}%` }"
                                 ></div>
                             </div>
@@ -876,7 +876,7 @@
                         <div class="w-80 mx-auto">
                             <div class="bg-gray-700 rounded-full h-3 overflow-hidden">
                                 <div
-                                    class="bg-gradient-to-r from-[#ed5b7bff] to-[#F02C56] h-full transition-all duration-300 ease-out"
+                                    class="bg-gradient-to-r from-[#ed5b7bff] to-primary h-full transition-all duration-300 ease-out"
                                     :style="{ width: `${transcodeProgress}%` }"
                                 ></div>
                             </div>

@@ -65,7 +65,7 @@
                                 >
                                     <span
                                         v-if="activePrefix"
-                                        class="flex-shrink-0 px-2 py-1 text-xs font-bold rounded-md bg-[#F02C56]/10 text-[#F02C56] border border-[#F02C56]/20"
+                                        class="flex-shrink-0 px-2 py-1 text-xs font-bold rounded-md bg-primary/10 text-primary border border-primary/20"
                                     >
                                         {{ activePrefixLabel }}
                                     </span>
@@ -168,7 +168,7 @@
                                                 v-if="
                                                     flatResults.indexOf(command) === selectedIndex
                                                 "
-                                                class="w-4 h-4 text-[#F02C56]"
+                                                class="w-4 h-4 text-primary"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"
@@ -218,7 +218,7 @@
                                         </span>
                                     </template>
                                     <template v-else-if="activePrefix">
-                                        <span class="text-[#F02C56] font-medium">{{
+                                        <span class="text-primary font-medium">{{
                                             contextualHint
                                         }}</span>
                                     </template>
@@ -313,11 +313,11 @@ const prefixes = {
                     title: `Search videos for "${clean}"`,
                     description: 'Jump to video search results',
                     icon: VideoCameraIcon,
-                    iconBg: 'bg-[#F02C56]/10 dark:bg-[#F02C56]/20',
-                    iconColor: 'text-[#F02C56]',
+                    iconBg: 'bg-primary/10 dark:bg-primary/20',
+                    iconColor: 'text-primary',
                     action: () => router.push(`/admin/videos?q=${encodeURIComponent(clean)}`),
                     badge: 'Video',
-                    badgeClass: 'bg-[#F02C56]/10 text-[#F02C56]'
+                    badgeClass: 'bg-primary/10 text-primary'
                 }
             ]
         }
@@ -392,11 +392,11 @@ const prefixes = {
                     title: `Videos matching "${clean}"`,
                     description: 'Search video content',
                     icon: VideoCameraIcon,
-                    iconBg: 'bg-[#F02C56]/10 dark:bg-[#F02C56]/20',
-                    iconColor: 'text-[#F02C56]',
+                    iconBg: 'bg-primary/10 dark:bg-primary/20',
+                    iconColor: 'text-primary',
                     action: () => router.push(`/admin/videos?q=${encodeURIComponent(clean)}`),
                     badge: 'Video',
-                    badgeClass: 'bg-[#F02C56]/10 text-[#F02C56]'
+                    badgeClass: 'bg-primary/10 text-primary'
                 },
                 {
                     id: `fts-hashtags-${clean}`,
@@ -432,11 +432,11 @@ const slashCommands = [
         title: '/mod',
         description: 'Jump to moderation queue',
         icon: ShieldCheckIcon,
-        iconBg: 'bg-[#F02C56]/10 dark:bg-[#F02C56]/20',
-        iconColor: 'text-[#F02C56]',
+        iconBg: 'bg-primary/10 dark:bg-primary/20',
+        iconColor: 'text-primary',
         action: () => router.push('/admin/reports'),
         badge: 'Command',
-        badgeClass: 'bg-[#F02C56]/10 text-[#F02C56]',
+        badgeClass: 'bg-primary/10 text-primary',
         keywords: ['moderation', 'reports', 'abuse', 'flags']
     },
     {
@@ -444,11 +444,11 @@ const slashCommands = [
         title: '/list',
         description: 'List all admin pages',
         icon: CommandLineIcon,
-        iconBg: 'bg-[#F02C56]/10 dark:bg-[#F02C56]/20',
-        iconColor: 'text-[#F02C56]',
+        iconBg: 'bg-primary/10 dark:bg-primary/20',
+        iconColor: 'text-primary',
         action: () => {},
         badge: 'Command',
-        badgeClass: 'bg-[#F02C56]/10 text-[#F02C56]',
+        badgeClass: 'bg-primary/10 text-primary',
         keywords: ['all', 'pages', 'commands'],
         expandsAll: true
     },
@@ -457,11 +457,11 @@ const slashCommands = [
         title: '/settings',
         description: 'Open admin settings',
         icon: Cog6ToothIcon,
-        iconBg: 'bg-[#F02C56]/10 dark:bg-[#F02C56]/20',
-        iconColor: 'text-[#F02C56]',
+        iconBg: 'bg-primary/10 dark:bg-primary/20',
+        iconColor: 'text-primary',
         action: () => router.push('/admin/settings'),
         badge: 'Command',
-        badgeClass: 'bg-[#F02C56]/10 text-[#F02C56]',
+        badgeClass: 'bg-primary/10 text-primary',
         keywords: ['config', 'configuration', 'preferences']
     },
     {
@@ -469,11 +469,11 @@ const slashCommands = [
         title: '/federation',
         description: 'View federation overview',
         icon: ServerStackIcon,
-        iconBg: 'bg-[#F02C56]/10 dark:bg-[#F02C56]/20',
-        iconColor: 'text-[#F02C56]',
+        iconBg: 'bg-primary/10 dark:bg-primary/20',
+        iconColor: 'text-primary',
         action: () => router.push('/admin/instances'),
         badge: 'Command',
-        badgeClass: 'bg-[#F02C56]/10 text-[#F02C56]',
+        badgeClass: 'bg-primary/10 text-primary',
         keywords: ['instances', 'fediverse', 'activitypub']
     },
     {
@@ -481,11 +481,11 @@ const slashCommands = [
         title: '/starterkits',
         description: 'Manage starter kits',
         icon: StarIcon,
-        iconBg: 'bg-[#F02C56]/10 dark:bg-[#F02C56]/20',
-        iconColor: 'text-[#F02C56]',
+        iconBg: 'bg-primary/10 dark:bg-primary/20',
+        iconColor: 'text-primary',
         action: () => router.push('/admin/starterkits'),
         badge: 'Command',
-        badgeClass: 'bg-[#F02C56]/10 text-[#F02C56]',
+        badgeClass: 'bg-primary/10 text-primary',
         keywords: ['kits', 'curated', 'onboarding']
     }
 ]
@@ -584,8 +584,8 @@ const navCommands = [
         title: 'Videos',
         description: 'Manage videos',
         icon: VideoCameraIcon,
-        iconBg: 'bg-[#F02C56]/10 dark:bg-[#F02C56]/20',
-        iconColor: 'text-[#F02C56]',
+        iconBg: 'bg-primary/10 dark:bg-primary/20',
+        iconColor: 'text-primary',
         action: () => router.push('/admin/videos'),
         keywords: ['content', 'media', 'loops'],
         group: 'Navigation'
@@ -749,7 +749,7 @@ function highlightMatch(text, search) {
     const regex = new RegExp(`(${escaped})`, 'gi')
     return text.replace(
         regex,
-        '<mark class="bg-[#F02C56]/15 text-[#F02C56] dark:text-[#ff6b8a] font-semibold rounded-sm px-0.5">$1</mark>'
+        '<mark class="bg-primary/15 text-primary dark:text-[#ff6b8a] font-semibold rounded-sm px-0.5">$1</mark>'
     )
 }
 

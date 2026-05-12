@@ -5,9 +5,9 @@
 
             <div class="flex min-h-screen items-center justify-center p-4">
                 <div
-                    class="relative w-full max-w-lg transform rounded-lg bg-white dark:bg-slate-900 shadow-xl transition-all"
+                    class="relative w-full max-w-lg transform rounded-lg bg-white dark:bg-neutral-900 shadow-xl transition-all"
                 >
-                    <div class="border-b px-4 py-3 border-gray-200 dark:border-slate-800">
+                    <div class="border-b px-4 py-3 border-gray-200 dark:border-neutral-800">
                         <div class="flex items-center justify-center">
                             <div class="flex justify-around flex-grow">
                                 <button
@@ -15,8 +15,8 @@
                                     :class="[
                                         'text-lg cursor-pointer',
                                         activeTab === 'followers'
-                                            ? 'text-black dark:text-slate-200 font-semibold'
-                                            : 'text-gray-400 dark:text-slate-700'
+                                            ? 'text-black dark:text-neutral-200 font-semibold'
+                                            : 'text-gray-400 dark:text-neutral-700'
                                     ]"
                                 >
                                     {{ t('common.followers') }}
@@ -26,8 +26,8 @@
                                     :class="[
                                         'text-lg cursor-pointer',
                                         activeTab === 'following'
-                                            ? 'text-black dark:text-slate-200 font-semibold'
-                                            : 'text-gray-400 dark:text-slate-700'
+                                            ? 'text-black dark:text-neutral-200 font-semibold'
+                                            : 'text-gray-400 dark:text-neutral-700'
                                     ]"
                                 >
                                     {{ t('common.following') }}
@@ -53,19 +53,19 @@
                                     class="flex flex-col items-center justify-center text-center px-6 h-[350px]"
                                 >
                                     <div
-                                        class="mb-5 flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-slate-800"
+                                        class="mb-5 flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-neutral-800"
                                     >
                                         <LockClosedIcon
-                                            class="w-7 h-7 text-gray-500 dark:text-slate-400"
+                                            class="w-7 h-7 text-gray-500 dark:text-neutral-400"
                                         />
                                     </div>
                                     <h3
-                                        class="text-lg font-semibold text-gray-900 dark:text-slate-200 mb-2"
+                                        class="text-lg font-semibold text-gray-900 dark:text-neutral-200 mb-2"
                                     >
                                         {{ gatedTitle }}
                                     </h3>
                                     <p
-                                        class="text-sm text-gray-500 dark:text-slate-400 leading-relaxed max-w-xs"
+                                        class="text-sm text-gray-500 dark:text-neutral-400 leading-relaxed max-w-xs"
                                     >
                                         {{ gatedMessage }}
                                     </p>
@@ -75,9 +75,9 @@
                                     class="flex flex-col items-center justify-center py-12 h-[350px]"
                                 >
                                     <div
-                                        class="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-[#F02C56] mb-4"
+                                        class="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-primary mb-4"
                                     ></div>
-                                    <p class="text-gray-500 dark:text-slate-400">
+                                    <p class="text-gray-500 dark:text-neutral-400">
                                         {{ t('common.loading') }}
                                         {{ activeTab }}...
                                     </p>
@@ -104,7 +104,7 @@
                                             :key="`follower-${follower.id}`"
                                         >
                                             <div
-                                                class="flex items-center justify-between py-2 px-5 hover:bg-gray-100 dark:hover:bg-slate-800 border-b border-gray-200 dark:border-slate-800 cursor-pointer transition-colors duration-150"
+                                                class="flex items-center justify-between py-2 px-5 hover:bg-gray-100 dark:hover:bg-neutral-800 border-b border-gray-200 dark:border-neutral-800 cursor-pointer transition-colors duration-150"
                                                 @click="$emit('gotoProfile', follower.username)"
                                             >
                                                 <ProfileListCard :account="follower" />
@@ -118,7 +118,7 @@
                                             :key="`following-${follower.id}`"
                                         >
                                             <div
-                                                class="flex items-center justify-between py-2 px-5 hover:bg-gray-100 dark:hover:bg-slate-800 border-b border-gray-200 dark:border-slate-800 cursor-pointer transition-colors duration-150"
+                                                class="flex items-center justify-between py-2 px-5 hover:bg-gray-100 dark:hover:bg-neutral-800 border-b border-gray-200 dark:border-neutral-800 cursor-pointer transition-colors duration-150"
                                                 @click="$emit('gotoProfile', follower.username)"
                                             >
                                                 <ProfileListCard :account="follower" />
@@ -140,7 +140,7 @@
                                         class="flex justify-center py-4"
                                     >
                                         <div
-                                            class="h-6 w-6 animate-spin rounded-full border-4 border-gray-300 border-t-[#F02C56]"
+                                            class="h-6 w-6 animate-spin rounded-full border-4 border-gray-300 border-t-primary"
                                         ></div>
                                     </div>
                                 </Transition>
@@ -155,7 +155,7 @@
                                 >
                                     <div
                                         v-if="showEndMessage"
-                                        class="py-4 text-center text-gray-500 dark:text-slate-400"
+                                        class="py-4 text-center text-gray-500 dark:text-neutral-400"
                                     >
                                         {{ t('profile.youveReachedTheEndOfThisList') }}
                                         ✨
@@ -172,22 +172,22 @@
                                 >
                                     <div
                                         v-if="showEmptyState"
-                                        class="flex flex-col items-center justify-center text-gray-500 dark:text-slate-400 h-[350px]"
+                                        class="flex flex-col items-center justify-center text-gray-500 dark:text-neutral-400 h-[350px]"
                                     >
                                         <div
                                             class="mb-6 transition-transform duration-300 hover:scale-105"
                                         >
                                             <i
-                                                class="bx bx-group text-6xl text-gray-300 dark:text-slate-600"
+                                                class="bx bx-group text-6xl text-gray-300 dark:text-neutral-600"
                                             ></i>
                                         </div>
                                         <h3
-                                            class="text-lg font-medium text-gray-900 dark:text-slate-200 mb-2 transition-colors duration-200"
+                                            class="text-lg font-medium text-gray-900 dark:text-neutral-200 mb-2 transition-colors duration-200"
                                         >
                                             {{ emptyStateTitle }}
                                         </h3>
                                         <p
-                                            class="text-center max-w-sm text-gray-500 dark:text-slate-400 leading-relaxed transition-colors duration-200"
+                                            class="text-center max-w-sm text-gray-500 dark:text-neutral-400 leading-relaxed transition-colors duration-200"
                                         >
                                             {{ emptyStateMessage }}
                                         </p>

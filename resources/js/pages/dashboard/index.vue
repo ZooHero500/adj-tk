@@ -11,7 +11,7 @@
                 </h2>
                 <div class="flex gap-3 flex-col lg:flex-row">
                     <div
-                        class="flex w-full justify-between items-center p-4 bg-white dark:bg-slate-950 rounded-lg shadow-sm"
+                        class="flex w-full justify-between items-center p-4 bg-white dark:bg-neutral-950 rounded-lg shadow-sm"
                     >
                         <span class="text-sm text-gray-600 font-light">{{
                             t('settings.deactivateAccount')
@@ -23,7 +23,7 @@
                         >
                     </div>
                     <div
-                        class="flex w-full justify-between items-center p-4 bg-white dark:bg-slate-950 rounded-lg shadow-sm"
+                        class="flex w-full justify-between items-center p-4 bg-white dark:bg-neutral-950 rounded-lg shadow-sm"
                     >
                         <span class="text-sm text-gray-600 font-light">{{
                             t('settings.deleteAccount')
@@ -44,7 +44,7 @@
                 <div class="flex flex-col gap-3">
                     <router-link
                         to="/dashboard/account/status"
-                        class="bg-white dark:bg-slate-950 dark:hover:bg-slate-800 transition-colors hover:bg-gray-50 rounded-lg shadow-lg"
+                        class="bg-white dark:bg-neutral-950 dark:hover:bg-neutral-800 transition-colors hover:bg-gray-50 rounded-lg shadow-lg"
                     >
                         <div class="flex justify-between items-center p-4">
                             <div class="flex items-center gap-5">
@@ -68,7 +68,7 @@
                     </router-link>
                     <router-link
                         to="/dashboard/account/email"
-                        class="bg-white dark:bg-slate-950 dark:hover:bg-slate-800 transition-colors hover:bg-gray-50 rounded-lg shadow-lg"
+                        class="bg-white dark:bg-neutral-950 dark:hover:bg-neutral-800 transition-colors hover:bg-gray-50 rounded-lg shadow-lg"
                     >
                         <div class="flex justify-between items-center p-4">
                             <div class="flex items-center gap-5">
@@ -86,7 +86,7 @@
                     </router-link>
                     <router-link
                         to="/dashboard/account/security"
-                        class="bg-white dark:bg-slate-950 dark:hover:bg-slate-800 transition-colors hover:bg-gray-50 rounded-lg shadow-lg"
+                        class="bg-white dark:bg-neutral-950 dark:hover:bg-neutral-800 transition-colors hover:bg-gray-50 rounded-lg shadow-lg"
                     >
                         <div class="flex justify-between items-center p-4">
                             <div class="flex items-center gap-5">
@@ -104,7 +104,7 @@
                     </router-link>
                     <router-link
                         to="/dashboard/account/data"
-                        class="bg-white dark:bg-slate-950 dark:hover:bg-slate-800 transition-colors hover:bg-gray-50 rounded-lg shadow-lg"
+                        class="bg-white dark:bg-neutral-950 dark:hover:bg-neutral-800 transition-colors hover:bg-gray-50 rounded-lg shadow-lg"
                     >
                         <div class="flex justify-between items-center p-4">
                             <div class="flex items-center gap-5">
@@ -123,7 +123,7 @@
 
                     <router-link
                         to="/dashboard/safety/blocked-accounts"
-                        class="lg:hidden bg-white dark:bg-slate-950 dark:hover:bg-slate-800 transition-colors hover:bg-gray-50 rounded-lg shadow-lg"
+                        class="lg:hidden bg-white dark:bg-neutral-950 dark:hover:bg-neutral-800 transition-colors hover:bg-gray-50 rounded-lg shadow-lg"
                     >
                         <div class="flex justify-between items-center p-4">
                             <div class="flex items-center gap-5">
@@ -148,7 +148,7 @@
                 </h2>
                 <div class="flex gap-3">
                     <div
-                        class="bg-white dark:bg-slate-950 transition-colors rounded-lg shadow-sm flex-1"
+                        class="bg-white dark:bg-neutral-950 transition-colors rounded-lg shadow-sm flex-1"
                     >
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[60%]">
@@ -166,7 +166,7 @@
                         </div>
                     </div>
                     <div
-                        class="bg-white dark:bg-slate-950 transition-colors rounded-lg shadow-sm flex-1"
+                        class="bg-white dark:bg-neutral-950 transition-colors rounded-lg shadow-sm flex-1"
                     >
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[60%]">

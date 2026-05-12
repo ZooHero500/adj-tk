@@ -36,7 +36,7 @@
                     ]"
                 >
                     <div
-                        class="absolute inset-x-0 top-0 h-25 bg-gradient-to-r from-[#F02C56]/10 via-transparent to-[#F02C56]/5 dark:from-[#F02C56]/15 dark:via-transparent dark:to-[#F02C56]/10"
+                        class="absolute inset-x-0 top-0 h-25 bg-gradient-to-r from-primary/10 via-transparent to-primary/5 dark:from-primary/15 dark:via-transparent dark:to-primary/10"
                     />
 
                     <div class="flex flex-col h-full relative px-4 py-5 sm:px-6 sm:py-6 lg:px-7">
@@ -239,7 +239,7 @@
                                 v-if="bioNeedsClamp"
                                 type="button"
                                 :aria-expanded="bioExpanded"
-                                class="mt-2 inline-flex text-sm font-medium text-[#F02C56] transition hover:opacity-80"
+                                class="mt-2 inline-flex text-sm font-medium text-primary transition hover:opacity-80"
                                 @click="bioExpanded = !bioExpanded"
                             >
                                 {{ bioExpanded ? 'Show less' : 'Read more' }}
@@ -429,7 +429,7 @@
                                 v-model="adminNotes"
                                 rows="4"
                                 placeholder="Add internal notes about this profile..."
-                                class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-transparent focus:ring-2 focus:ring-[#F02C56]/60 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500"
+                                class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-transparent focus:ring-2 focus:ring-primary/60 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500"
                                 @blur="saveAdminNotes"
                             />
                         </div>
@@ -575,7 +575,7 @@
                                                 <button
                                                     type="button"
                                                     @click="openEmailModal(entry)"
-                                                    class="flex w-full items-center justify-center gap-1.5 border-t border-gray-100 bg-gray-50/50 py-2 text-xs font-medium text-[#F02C56] transition hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-800/30 dark:hover:bg-gray-800/60"
+                                                    class="flex w-full items-center justify-center gap-1.5 border-t border-gray-100 bg-gray-50/50 py-2 text-xs font-medium text-primary transition hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-800/30 dark:hover:bg-gray-800/60"
                                                 >
                                                     <EyeIcon class="h-3.5 w-3.5" />
                                                     View full message
@@ -1530,8 +1530,8 @@ const PermissionTile = {
                                 onClick: () => emit('toggle'),
                                 disabled: props.disabled,
                                 class: [
-                                    'relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#F02C56]/60 focus:ring-offset-2 dark:focus:ring-offset-gray-900 disabled:cursor-not-allowed disabled:opacity-40',
-                                    props.enabled ? 'bg-[#F02C56]' : 'bg-gray-300 dark:bg-gray-700'
+                                    'relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 dark:focus:ring-offset-gray-900 disabled:cursor-not-allowed disabled:opacity-40',
+                                    props.enabled ? 'bg-primary' : 'bg-gray-300 dark:bg-gray-700'
                                 ]
                             },
                             [

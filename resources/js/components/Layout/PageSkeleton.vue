@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-white dark:bg-slate-950 flex" role="status" aria-label="Loading">
+    <div class="min-h-screen bg-white dark:bg-neutral-950 flex" role="status" aria-label="Loading">
         <aside
             class="hidden lg:flex flex-col w-60 xl:w-72 shrink-0 border-r border-neutral-200 dark:border-neutral-800 h-screen sticky top-0 py-4"
         >

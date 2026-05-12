@@ -12,7 +12,7 @@
                         {{ $t('settings.feeds') }}
                     </h2>
                     <div class="flex flex-col gap-3 mb-6">
-                        <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                        <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                             <div class="px-4 py-6 flex items-center justify-between">
                                 <div class="flex flex-col max-w-[80%]">
                                     <h3 class="font-medium mb-2 dark:text-gray-300">

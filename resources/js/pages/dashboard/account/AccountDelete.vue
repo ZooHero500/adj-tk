@@ -27,7 +27,7 @@
                 </div>
 
                 <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">What gets deleted</h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm mb-6">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm mb-6">
                     <div class="p-6">
                         <div class="space-y-4">
                             <div class="flex items-start gap-3">
@@ -87,7 +87,7 @@
                 <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">
                     Before you proceed
                 </h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm mb-6">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm mb-6">
                     <div class="p-6">
                         <div class="space-y-4">
                             <div class="flex items-start gap-3">
@@ -130,7 +130,7 @@
                 </div>
 
                 <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">Deletion timeline</h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm mb-6">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm mb-6">
                     <div class="p-6">
                         <div class="space-y-4">
                             <div class="flex items-start gap-3">
@@ -188,7 +188,7 @@
                 <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">
                     Final confirmation
                 </h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                     <div class="p-6">
                         <div class="space-y-4 mb-6">
                             <label class="flex items-start gap-3">

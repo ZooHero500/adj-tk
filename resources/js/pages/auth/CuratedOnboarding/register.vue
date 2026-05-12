@@ -3,13 +3,13 @@
         <div class="onboarding relative min-h-screen overflow-hidden bg-gray-50 dark:bg-gray-950">
             <div class="pointer-events-none absolute inset-0 overflow-hidden">
                 <div
-                    class="absolute -top-1/2 -left-1/4 h-[900px] w-[900px] rounded-full bg-gradient-to-br from-[#F02C56]/40 via-[#F02C56]/20 to-transparent blur-3xl animate-drift-slow"
+                    class="absolute -top-1/2 -left-1/4 h-[900px] w-[900px] rounded-full bg-gradient-to-br from-primary/40 via-primary/20 to-transparent blur-3xl animate-drift-slow"
                 />
                 <div
-                    class="absolute -bottom-1/3 -right-1/4 h-[700px] w-[700px] rounded-full bg-gradient-to-tl from-[#F02C56]/30 via-rose-400/20 to-transparent blur-3xl animate-drift-slow-reverse"
+                    class="absolute -bottom-1/3 -right-1/4 h-[700px] w-[700px] rounded-full bg-gradient-to-tl from-primary/30 via-rose-400/20 to-transparent blur-3xl animate-drift-slow-reverse"
                 />
                 <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-rose-400/20 via-[#F02C56]/10 to-transparent blur-2xl animate-drift-slow"
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-rose-400/20 via-primary/10 to-transparent blur-2xl animate-drift-slow"
                 />
             </div>
 
@@ -87,7 +87,7 @@
                         <h1
                             class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
-                            Join <span class="text-[#F02C56]">PornTk</span>
+                            Join <span class="text-primary">PornTk</span>
                         </h1>
                         <p class="mt-2 text-base text-gray-500 dark:text-gray-400 sm:text-lg">
                             A community-first space for short video.
@@ -119,7 +119,7 @@
                         <h1
                             class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
-                            Join <span class="text-[#F02C56]">PornTk</span>
+                            Join <span class="text-primary">PornTk</span>
                         </h1>
                         <p class="mt-2 text-base text-gray-500 dark:text-gray-400 sm:text-lg">
                             A community-first space for short video.
@@ -150,7 +150,7 @@
                                     class="h-1.5 flex-1 rounded-full transition-all duration-500 ease-out"
                                     :class="
                                         i <= currentStep
-                                            ? 'bg-[#F02C56]'
+                                            ? 'bg-primary'
                                             : 'bg-gray-200 dark:bg-gray-700/50'
                                     "
                                 />
@@ -159,7 +159,7 @@
 
                         <div class="px-6 py-6 sm:px-8 sm:py-8">
                             <p
-                                class="mb-1 text-xs font-semibold uppercase tracking-widest text-[#F02C56]"
+                                class="mb-1 text-xs font-semibold uppercase tracking-widest text-primary"
                             >
                                 Step {{ currentStep }} of {{ totalSteps }}
                             </p>

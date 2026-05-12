@@ -13,7 +13,7 @@
                 <div class="flex flex-col gap-3">
                     <router-link
                         to="/dashboard/safety/blocked-accounts"
-                        class="bg-white dark:bg-slate-950 rounded-lg shadow-sm"
+                        class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm"
                     >
                         <div class="flex justify-between items-center p-4">
                             <div class="flex items-center gap-5">

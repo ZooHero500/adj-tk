@@ -15,9 +15,9 @@
                     >
                         <div class="flex items-center gap-2.5">
                             <div
-                                class="w-8 h-8 rounded-xl bg-[#F02C56]/10 flex items-center justify-center flex-shrink-0"
+                                class="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0"
                             >
-                                <GlobeAltIcon class="w-4 h-4 text-[#F02C56]" />
+                                <GlobeAltIcon class="w-4 h-4 text-primary" />
                             </div>
                             <h3 class="font-display font-bold text-gray-900 dark:text-white">
                                 Use from your platform
@@ -60,7 +60,7 @@
                                     :class="
                                         copiedFederated
                                             ? 'bg-emerald-500 text-white'
-                                            : 'bg-[#F02C56] hover:bg-[#D91B42] text-white shadow-md shadow-[#F02C56]/25'
+                                            : 'bg-primary hover:bg-[#D91B42] text-white shadow-md shadow-primary/25'
                                     "
                                 >
                                     <CheckCircleIcon v-if="copiedFederated" class="w-4 h-4" />
@@ -87,7 +87,7 @@
                                     class="flex items-start gap-3"
                                 >
                                     <span
-                                        class="w-5 h-5 rounded-full bg-[#F02C56]/10 text-[#F02C56] text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5"
+                                        class="w-5 h-5 rounded-full bg-primary/10 text-primary text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5"
                                     >
                                         {{ i + 1 }}
                                     </span>

@@ -17,13 +17,13 @@
                         class="flex flex-col sm:flex-row sm:gap-5 sm:items-end justify-center lg:justify-start"
                     >
                         <div
-                            class="text-lg sm:text-[20px] font-bold truncate dark:text-slate-50"
+                            class="text-lg sm:text-[20px] font-bold truncate dark:text-neutral-50"
                             :title="profile.name"
                         >
                             {{ textTruncate(profile.name || profile.username, 30) }}
                         </div>
                         <div
-                            class="text-base sm:text-[20px] text-gray-600 dark:text-slate-400"
+                            class="text-base sm:text-[20px] text-gray-600 dark:text-neutral-400"
                             :title="profile.username"
                         >
                             &commat;{{ textTruncate(profile.username, 50) }}
@@ -35,11 +35,11 @@
                     >
                         <div class="text-center lg:flex items-center gap-1 lg:text-left">
                             <div class="text-base">
-                                <span class="font-bold dark:text-slate-300">{{
+                                <span class="font-bold dark:text-neutral-300">{{
                                     formatCount(profile.postCount)
                                 }}</span>
                             </div>
-                            <div class="dark:text-slate-300 font-light">
+                            <div class="dark:text-neutral-300 font-light">
                                 {{ t('common.videos') }}
                             </div>
                         </div>
@@ -48,11 +48,11 @@
                             class="text-center lg:text-left lg:flex items-center gap-1 cursor-pointer hover:opacity-80"
                         >
                             <div class="text-base">
-                                <span class="font-bold dark:text-slate-300">{{
+                                <span class="font-bold dark:text-neutral-300">{{
                                     formatCount(profile.followerCount)
                                 }}</span>
                             </div>
-                            <div class="dark:text-slate-300 font-light">
+                            <div class="dark:text-neutral-300 font-light">
                                 {{ t('common.followers') }}
                             </div>
                         </div>
@@ -61,21 +61,21 @@
                             class="text-center lg:text-left lg:flex items-center gap-1 cursor-pointer hover:opacity-80"
                         >
                             <div class="text-base">
-                                <span class="font-bold dark:text-slate-300">{{
+                                <span class="font-bold dark:text-neutral-300">{{
                                     formatCount(profile.followingCount)
                                 }}</span>
                             </div>
-                            <div class="dark:text-slate-300 font-light">
+                            <div class="dark:text-neutral-300 font-light">
                                 {{ t('common.following') }}
                             </div>
                         </div>
                         <div class="text-center lg:text-left lg:flex items-center gap-1">
                             <div class="text-base">
-                                <span class="font-bold dark:text-slate-300">{{
+                                <span class="font-bold dark:text-neutral-300">{{
                                     formatCount(profile.allLikes)
                                 }}</span>
                             </div>
-                            <div class="dark:text-slate-300 font-light">
+                            <div class="dark:text-neutral-300 font-light">
                                 {{ t('profile.likes') }}
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                             <button
                                 v-if="profile.id == authStore.getUser.id"
                                 @click="openEditProfile"
-                                class="flex items-center gap-2 sm:gap-3 rounded-md py-1.5 px-4 sm:px-6 text-sm sm:text-[15px] font-semibold border hover:bg-gray-100 dark:text-slate-400 dark:border-slate-500 dark:hover:bg-slate-900 cursor-pointer"
+                                class="flex items-center gap-2 sm:gap-3 rounded-md py-1.5 px-4 sm:px-6 text-sm sm:text-[15px] font-semibold border hover:bg-gray-100 dark:text-neutral-400 dark:border-neutral-500 dark:hover:bg-neutral-900 cursor-pointer"
                             >
                                 <div>{{ t('profile.editProfile') }}</div>
                             </button>
@@ -97,14 +97,14 @@
                                 <button
                                     v-if="profile.relationship.blocking"
                                     @click="handleUnblock"
-                                    class="flex item-center rounded-md py-[4px] px-6 sm:px-8 text-sm sm:text-[15px] text-[#F02C56] border-[#F02C56] font-semibold border dark:border-[#F02C56] cursor-pointer"
+                                    class="flex item-center rounded-md py-[4px] px-6 sm:px-8 text-sm sm:text-[15px] text-primary border-primary font-semibold border dark:border-primary cursor-pointer"
                                 >
                                     {{ t('profile.blocked') }}
                                 </button>
                                 <button
                                     v-else-if="isFollowingRequestPending"
                                     @click="handleUndoFollowRequest"
-                                    class="flex item-center gap-2 rounded-md py-[5px] px-6 sm:px-8 text-sm sm:text-[15px] text-[#F02C56] border-[#F02C56] font-semibold border dark:border-border-[#F02C56] cursor-pointer"
+                                    class="flex item-center gap-2 rounded-md py-[5px] px-6 sm:px-8 text-sm sm:text-[15px] text-primary border-primary font-semibold border dark:border-border-primary cursor-pointer"
                                 >
                                     <Spinner v-if="isPollingFollowState" size="xs" />
                                     {{ t('profile.followRequestPending') }}
@@ -112,7 +112,7 @@
                                 <button
                                     v-else-if="!profile.isFollowing"
                                     @click="handleToggleFollow"
-                                    class="flex item-center rounded-md py-[5px] px-6 sm:px-8 text-sm sm:text-[15px] text-white bg-red-500 hover:bg-red-400 font-semibold border dark:border-slate-950 cursor-pointer"
+                                    class="flex item-center rounded-md py-[5px] px-6 sm:px-8 text-sm sm:text-[15px] text-white bg-red-500 hover:bg-red-400 font-semibold border dark:border-neutral-950 cursor-pointer"
                                 >
                                     {{
                                         profile.manuallyApprovesFollowers
@@ -123,7 +123,7 @@
                                 <button
                                     v-else
                                     @click="handleToggleFollow"
-                                    class="flex item-center rounded-md py-[5px] px-6 sm:px-8 text-sm sm:text-[15px] text-[#F02C56] border-[#F02C56] font-semibold border dark:border-border-[#F02C56] cursor-pointer"
+                                    class="flex item-center rounded-md py-[5px] px-6 sm:px-8 text-sm sm:text-[15px] text-primary border-primary font-semibold border dark:border-border-primary cursor-pointer"
                                 >
                                     {{ t('common.unfollow') }}
                                 </button>
@@ -133,7 +133,7 @@
                         <button
                             v-if="!authStore.authenticated"
                             @click="showRemoteFollowModal = true"
-                            class="flex item-center rounded-md py-[5px] px-6 sm:px-8 text-sm sm:text-[15px] text-white bg-red-500 hover:bg-red-400 font-semibold border dark:border-slate-950 cursor-pointer"
+                            class="flex item-center rounded-md py-[5px] px-6 sm:px-8 text-sm sm:text-[15px] text-white bg-red-500 hover:bg-red-400 font-semibold border dark:border-neutral-950 cursor-pointer"
                         >
                             {{ t('common.follow') }}
                         </button>
@@ -142,9 +142,9 @@
                             type="profile"
                             :url="profile.local ? profile.url : profile.remote_url"
                             :username="profile.username"
-                            class="flex items-center justify-center w-8 h-8 rounded-md border border-gray-300 hover:bg-gray-100 dark:border-slate-500 dark:hover:bg-slate-800 cursor-pointer transition-colors"
+                            class="flex items-center justify-center w-8 h-8 rounded-md border border-gray-300 hover:bg-gray-100 dark:border-neutral-500 dark:hover:bg-neutral-800 cursor-pointer transition-colors"
                         >
-                            <ShareIcon class="w-4 h-4 text-gray-600 dark:text-slate-400" />
+                            <ShareIcon class="w-4 h-4 text-gray-600 dark:text-neutral-400" />
                         </ShareModal>
 
                         <ShareModal
@@ -152,9 +152,9 @@
                             type="atom"
                             :url="profile.hasAtomUrl"
                             :username="profile.username"
-                            class="flex items-center justify-center w-8 h-8 rounded-md border border-gray-300 hover:bg-gray-100 dark:border-slate-500 dark:hover:bg-slate-800 cursor-pointer transition-colors"
+                            class="flex items-center justify-center w-8 h-8 rounded-md border border-gray-300 hover:bg-gray-100 dark:border-neutral-500 dark:hover:bg-neutral-800 cursor-pointer transition-colors"
                         >
-                            <RssIcon class="w-4 h-4 text-gray-600 dark:text-slate-400" />
+                            <RssIcon class="w-4 h-4 text-gray-600 dark:text-neutral-400" />
                         </ShareModal>
 
                         <div
@@ -284,7 +284,7 @@
                         >
                             <p
                                 ref="bioRef"
-                                class="text-gray-500 dark:text-slate-400 font-light text-sm sm:text-[15px] whitespace-pre-wrap break-words"
+                                class="text-gray-500 dark:text-neutral-400 font-light text-sm sm:text-[15px] whitespace-pre-wrap break-words"
                             >
                                 {{ profile.bio }}
                             </p>
@@ -293,7 +293,7 @@
                             v-if="bioOverflowing"
                             @click="bioExpanded = !bioExpanded"
                             type="button"
-                            class="mt-1 text-xs font-semibold text-gray-700 dark:text-slate-300 hover:text-gray-900 dark:hover:text-slate-100 transition-colors cursor-pointer"
+                            class="mt-1 text-xs font-semibold text-gray-700 dark:text-neutral-300 hover:text-gray-900 dark:hover:text-neutral-100 transition-colors cursor-pointer"
                         >
                             {{ bioExpanded ? t('common.showLess') : t('common.showMore') }}
                         </button>

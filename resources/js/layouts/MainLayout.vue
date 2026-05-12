@@ -1,6 +1,6 @@
 <template>
     <Header v-if="isMobile" @toggleMobileDrawer="toggleMobileDrawer" @openLogin="openLoginModal" />
-    <div class="flex justify-between mx-auto w-full bg-white dark:bg-slate-950 lg:px-2.5 px-0">
+    <div class="flex justify-between mx-auto w-full bg-white dark:bg-neutral-950 lg:px-2.5 px-0">
         <div>
             <Sidebar
                 :isOpen="isMobileDrawerOpen"

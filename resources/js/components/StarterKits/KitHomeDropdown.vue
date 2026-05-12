@@ -51,7 +51,7 @@
                         class="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors duration-150 cursor-pointer focus:outline-none focus-visible:bg-zinc-100 dark:focus-visible:bg-zinc-800"
                         @click="closeDropdown"
                     >
-                        <PlusIcon class="w-4 h-4 text-[#F02C56] flex-shrink-0" />
+                        <PlusIcon class="w-4 h-4 text-primary flex-shrink-0" />
                         <span>{{ t('common.createKit') }}</span>
                     </router-link>
 
@@ -63,7 +63,7 @@
                         class="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors duration-150 cursor-pointer focus:outline-none focus-visible:bg-zinc-100 dark:focus-visible:bg-zinc-800"
                         @click="closeDropdown"
                     >
-                        <ArchiveBoxIcon class="w-4 h-4 text-[#F02C56] flex-shrink-0" />
+                        <ArchiveBoxIcon class="w-4 h-4 text-primary flex-shrink-0" />
                         {{ t('common.myKits') }}
                     </router-link>
 
@@ -73,7 +73,7 @@
                         class="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors duration-150 cursor-pointer focus:outline-none focus-visible:bg-zinc-100 dark:focus-visible:bg-zinc-800"
                         @click="closeDropdown"
                     >
-                        <UserPlusIcon class="w-4 h-4 text-[#F02C56] flex-shrink-0" />
+                        <UserPlusIcon class="w-4 h-4 text-primary flex-shrink-0" />
                         {{ t('common.joinedKits') }}
                     </router-link>
 
@@ -85,7 +85,7 @@
                         class="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors duration-150 cursor-pointer focus:outline-none focus-visible:bg-zinc-100 dark:focus-visible:bg-zinc-800"
                         @click="closeDropdown"
                     >
-                        <InformationCircleIcon class="w-4 h-4 text-[#F02C56] flex-shrink-0" />
+                        <InformationCircleIcon class="w-4 h-4 text-primary flex-shrink-0" />
                         {{ t('nav.about') }}
                     </router-link>
 
@@ -95,7 +95,7 @@
                         class="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors duration-150 cursor-pointer focus:outline-none focus-visible:bg-zinc-100 dark:focus-visible:bg-zinc-800"
                         @click="closeDropdown"
                     >
-                        <ListBulletIcon class="w-4 h-4 text-[#F02C56] flex-shrink-0" />
+                        <ListBulletIcon class="w-4 h-4 text-primary flex-shrink-0" />
                         {{ t('common.faq') }}
                     </router-link>
 
@@ -107,7 +107,7 @@
                         class="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors duration-150 cursor-pointer focus:outline-none focus-visible:bg-zinc-100 dark:focus-visible:bg-zinc-800"
                         @click="closeDropdown"
                     >
-                        <Cog6ToothIcon class="w-4 h-4 text-[#F02C56] flex-shrink-0" />
+                        <Cog6ToothIcon class="w-4 h-4 text-primary flex-shrink-0" />
                         Starter Kit Settings
                     </router-link>
                 </div>

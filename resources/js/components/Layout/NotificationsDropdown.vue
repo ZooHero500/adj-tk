@@ -12,19 +12,19 @@
 
             <div
                 v-if="isOpen"
-                class="fixed right-4 top-16 w-[400px] max-h-[500px] overflow-y-auto bg-white dark:bg-slate-900 rounded-lg shadow-xl border border-gray-200 dark:border-slate-800 z-30"
+                class="fixed right-4 top-16 w-[400px] max-h-[500px] overflow-y-auto bg-white dark:bg-neutral-900 rounded-lg shadow-xl border border-gray-200 dark:border-neutral-800 z-30"
             >
                 <div
-                    class="fixed w-[400px] p-4 mb-3 border-b border-gray-200 dark:border-slate-800 shadow dark:shadow-slate-900 rounded-lg z-30 backdrop-blur-lg bg-white/60 dark:bg-slate-950/60"
+                    class="fixed w-[400px] p-4 mb-3 border-b border-gray-200 dark:border-neutral-800 shadow dark:shadow-neutral-900 rounded-lg z-30 backdrop-blur-lg bg-white/60 dark:bg-neutral-950/60"
                 >
                     <div class="flex justify-between">
-                        <h3 class="text-lg font-semibold dark:text-slate-500">
+                        <h3 class="text-lg font-semibold dark:text-neutral-500">
                             {{ t('common.notifications') }}
                         </h3>
 
                         <button
                             v-if="unreadCount"
-                            class="text-xs font-bold bg-[#F02C56] border border-[#F02C56] text-white rounded-lg px-5 py-2 hover:bg-[#F02C56]/90 hover:border-[#F02C5699] cursor-pointer"
+                            class="text-xs font-bold bg-primary border border-primary text-white rounded-lg px-5 py-2 hover:bg-primary/90 hover:border-primary/60 cursor-pointer"
                             @click="markAllRead"
                         >
                             {{ $t('common.markAllRead') }}
@@ -49,9 +49,9 @@
                                 <div
                                     v-for="(notification, idx) in page.data"
                                     :key="notification.id"
-                                    class="p-4 hover:bg-gray-50 dark:hover:bg-slate-700"
+                                    class="p-4 hover:bg-gray-50 dark:hover:bg-neutral-700"
                                     :class="{
-                                        'bg-gray-100 dark:bg-slate-800': idx % 2
+                                        'bg-gray-100 dark:bg-neutral-800': idx % 2
                                     }"
                                 >
                                     <div class="flex items-start gap-3">
@@ -69,7 +69,7 @@
                                         <div>
                                             <button @click="gotoProfile(notification)">
                                                 <p
-                                                    class="text-sm tracking-tight font-medium dark:text-slate-200"
+                                                    class="text-sm tracking-tight font-medium dark:text-neutral-200"
                                                 >
                                                     {{
                                                         truncateMiddle(
@@ -81,7 +81,7 @@
                                             </button>
                                             <div class="flex items-center gap-1">
                                                 <span
-                                                    class="text-sm tracking-tight text-gray-600 dark:text-slate-400"
+                                                    class="text-sm tracking-tight text-gray-600 dark:text-neutral-400"
                                                 >
                                                     {{ getNotificationText(notification) }}
                                                 </span>

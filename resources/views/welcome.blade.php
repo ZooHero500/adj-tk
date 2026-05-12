@@ -2,6 +2,7 @@
 @php($desc = \App\Services\FrontendService::getAppDescription())
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<script>if(localStorage.getItem('theme')!=='light')document.documentElement.classList.add('dark')</script>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,7 +30,7 @@
     </script>
 </head>
 
-<body class="bg-white dark:bg-slate-950">
+<body class="bg-white dark:bg-neutral-950">
     <main id="app">
         <router-view></router-view>
     </main>

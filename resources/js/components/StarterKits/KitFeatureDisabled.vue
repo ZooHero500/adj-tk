@@ -1,13 +1,13 @@
 <template>
     <div
-        class="min-h-screen bg-[#FAFAFA] dark:bg-slate-950 font-body lg:-mt-5 lg:-mr-2.5 w-full h-full flex flex-col justify-center items-center"
+        class="min-h-screen bg-[#FAFAFA] dark:bg-neutral-950 font-body lg:-mt-5 lg:-mr-2.5 w-full h-full flex flex-col justify-center items-center"
     >
         <div class="flex flex-col justify-center items-center">
             <div class="relative mb-6">
                 <div
-                    class="w-20 h-20 rounded-3xl flex items-center justify-center bg-[#F02C56]/8 dark:bg-[#F02C56]/12"
+                    class="w-20 h-20 rounded-3xl flex items-center justify-center bg-primary/8 dark:bg-primary/12"
                 >
-                    <ExclamationTriangleIcon class="w-9 h-9 text-[#F02C56]/40" />
+                    <ExclamationTriangleIcon class="w-9 h-9 text-primary/40" />
                 </div>
             </div>
             <h2

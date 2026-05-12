@@ -86,7 +86,7 @@
                 <div class="h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
                     <div
                         class="h-full rounded-full transition-all duration-500"
-                        :class="allReviewed ? 'bg-green-500' : 'bg-[#F02C56]'"
+                        :class="allReviewed ? 'bg-green-500' : 'bg-primary'"
                         :style="{ width: progressPercent + '%' }"
                     />
                 </div>
@@ -164,7 +164,7 @@
                             <button
                                 @click="approveField(field)"
                                 :disabled="fieldLoading[field]"
-                                class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[#F02C56] hover:bg-[#d42249] text-white font-medium transition-colors disabled:opacity-40"
+                                class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-primary hover:bg-[#d42249] text-white font-medium transition-colors disabled:opacity-40"
                             >
                                 <svg
                                     v-if="fieldLoading[field]"
@@ -237,7 +237,7 @@
                                                 ? 'border-green-200 dark:border-green-700/40 bg-green-50 dark:bg-green-900/10'
                                                 : localChanges[field].status === 'rejected'
                                                   ? 'border-red-200 dark:border-red-700/40 bg-red-50 dark:bg-red-900/10'
-                                                  : 'border-[#F02C56]/30 bg-[#F02C56]/5'
+                                                  : 'border-primary/30 bg-primary/5'
                                         "
                                     >
                                         <template v-if="localChanges[field].action === 'delete'">
@@ -307,7 +307,7 @@
                                                     ? 'bg-green-100 dark:bg-green-900/20 border-green-200 dark:border-green-700/40 text-green-700 dark:text-green-400'
                                                     : localChanges[field].status === 'rejected'
                                                       ? 'bg-red-100 dark:bg-red-900/20 border-red-200 dark:border-red-700/40 text-red-500 dark:text-red-400'
-                                                      : 'bg-[#F02C56]/10 border-[#F02C56]/30 text-[#F02C56]'
+                                                      : 'bg-primary/10 border-primary/30 text-primary'
                                             "
                                         >
                                             #{{ tag }}
@@ -351,7 +351,7 @@
                                                 ? 'text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/10 border-green-200 dark:border-green-700/40'
                                                 : localChanges[field].status === 'rejected'
                                                   ? 'text-red-400/60 line-through bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-700/40'
-                                                  : 'text-gray-700 dark:text-gray-300 bg-[#F02C56]/5 border-[#F02C56]/20'
+                                                  : 'text-gray-700 dark:text-gray-300 bg-primary/5 border-primary/20'
                                         ]"
                                     >
                                         {{ localChanges[field].value || '—' }}

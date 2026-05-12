@@ -21,9 +21,9 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <div class="flex items-center gap-2.5 mb-4">
-                            <span class="block w-8 h-px bg-[#F02C56]"></span>
+                            <span class="block w-8 h-px bg-primary"></span>
                             <span
-                                class="text-xs font-semibold tracking-[0.15em] uppercase text-[#F02C56]"
+                                class="text-xs font-semibold tracking-[0.15em] uppercase text-primary"
                                 >{{ t('common.myStarterKits') }}</span
                             >
                         </div>
@@ -98,7 +98,7 @@
                             class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all"
                             :class="
                                 sortBy === opt.value
-                                    ? 'bg-[#F02C56] text-white shadow-sm'
+                                    ? 'bg-primary text-white shadow-sm'
                                     : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
                             "
                         >
@@ -113,9 +113,9 @@
                     class="border-2 border-dashed border-gray-200 dark:border-gray-800 rounded-3xl py-24 text-center"
                 >
                     <div
-                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#F02C56]/10 to-[#F02C56]/5 flex items-center justify-center mx-auto mb-5"
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center mx-auto mb-5"
                     >
-                        <RectangleStackIcon class="w-7 h-7 text-[#F02C56]" />
+                        <RectangleStackIcon class="w-7 h-7 text-primary" />
                     </div>
                     <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-2">
                         {{ t('common.noKitsYet') }}
@@ -133,7 +133,7 @@
                     <router-link
                         v-if="canCreate"
                         to="/starter-kits/create"
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white bg-[#F02C56] hover:bg-[#D91B42] transition-all shadow-lg shadow-[#F02C56]/25"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white bg-primary hover:bg-[#D91B42] transition-all shadow-lg shadow-primary/25"
                     >
                         <PlusIcon class="w-4 h-4" />
                         {{ t('common.createYourFirstKit') }}
@@ -166,7 +166,7 @@
                                 <div class="flex items-start justify-between gap-3">
                                     <div class="min-w-0">
                                         <h3
-                                            class="font-semibold text-gray-900 dark:text-white group-hover:text-[#F02C56] transition-colors text-lg leading-tight truncate"
+                                            class="font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors text-lg leading-tight truncate"
                                         >
                                             {{ kit.title }}
                                         </h3>

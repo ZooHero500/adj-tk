@@ -42,7 +42,7 @@
                     <button
                         @click="retryLoad"
                         v-if="error.type === 'network'"
-                        class="w-full bg-[#F02C56] hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center cursor-pointer"
+                        class="w-full bg-primary hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center cursor-pointer"
                     >
                         <ArrowPathIcon class="h-5 w-5 mr-2" />
                         {{ $t('common.tryAgain') }}
@@ -79,7 +79,7 @@
                 <div class="space-y-3">
                     <button
                         @click="handleViewSensitiveContent"
-                        class="w-full bg-[#F02C56] hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center cursor-pointer"
+                        class="w-full bg-primary hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center cursor-pointer"
                     >
                         <EyeIcon class="h-5 w-5 mr-2" />
                         View Content
@@ -98,7 +98,7 @@
 
         <div v-else-if="currentVideo" class="lg:w-[calc(100%-540px)] h-full relative">
             <button
-                class="absolute z-20 m-5 flex items-center rounded-full bg-gray-900 dark:bg-slate-950 p-1.5 hover:bg-gray-800"
+                class="absolute z-20 m-5 flex items-center rounded-full bg-gray-900 dark:bg-neutral-950 p-1.5 hover:bg-gray-800"
                 @click="goBack"
             >
                 <ChevronLeftIcon class="h-8 w-8 text-white" />
@@ -157,7 +157,7 @@
                         <div
                             class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm w-30 h-30 flex justify-center items-center rounded-full p-6 shadow-2xl hover:scale-110 transition-transform duration-200"
                         >
-                            <PlayIcon class="h-16 w-16 text-[#F02C56] dark:text-white ml-2" />
+                            <PlayIcon class="h-16 w-16 text-primary dark:text-white ml-2" />
                         </div>
                         <p class="text-white text-lg font-semibold drop-shadow-lg">
                             {{ $t('common.tapToPlay') }}
@@ -174,11 +174,11 @@
                 !error &&
                 (!currentVideo.is_sensitive || showSensitiveContent)
             "
-            class="lg:max-w-[550px] relative w-full h-full bg-white dark:bg-slate-950 flex flex-col"
+            class="lg:max-w-[550px] relative w-full h-full bg-white dark:bg-neutral-950 flex flex-col"
         >
             <div class="flex-shrink-0">
                 <div
-                    class="p-3 sm:p-5 mx-2 mt-2 sm:mt-8 sm:mx-8 mb-0 rounded-lg bg-gray-100 dark:bg-slate-900"
+                    class="p-3 sm:p-5 mx-2 mt-2 sm:mt-8 sm:mx-8 mb-0 rounded-lg bg-gray-100 dark:bg-neutral-900"
                 >
                     <div class="flex items-start sm:items-center justify-between gap-3">
                         <div class="flex items-center flex-1 min-w-0">
@@ -197,7 +197,7 @@
                             <div class="ml-3 min-w-0 flex flex-col justify-center">
                                 <router-link :to="`/@${currentVideo.account.username}`">
                                     <div
-                                        class="text-base sm:text-[17px] font-semibold dark:text-slate-50 truncate"
+                                        class="text-base sm:text-[17px] font-semibold dark:text-neutral-50 truncate"
                                     >
                                         {{ currentVideo.account.username }}
                                     </div>
@@ -205,18 +205,18 @@
                                 <div
                                     class="text-xs sm:text-[13px] font-light flex gap-1 items-center"
                                 >
-                                    <div class="dark:text-slate-400 truncate">
+                                    <div class="dark:text-neutral-400 truncate">
                                         {{ currentVideo.account.name }}
                                     </div>
-                                    <div class="text-slate-400 dark:text-slate-500 leading-none">
+                                    <div class="text-neutral-400 dark:text-neutral-500 leading-none">
                                         ·
                                     </div>
-                                    <div class="dark:text-slate-400 whitespace-nowrap">
+                                    <div class="dark:text-neutral-400 whitespace-nowrap">
                                         {{ formatRecentDate(currentVideo.created_at) }}
                                     </div>
                                     <div
                                         v-if="currentVideo.is_edited"
-                                        class="text-slate-400 dark:text-slate-500 leading-none"
+                                        class="text-neutral-400 dark:text-neutral-500 leading-none"
                                     >
                                         ·
                                     </div>
@@ -235,7 +235,7 @@
                             <button
                                 v-if="userId === currentVideo.account.id"
                                 @click="showEditModal = true"
-                                class="flex items-center bg-[#F02C56] text-white border dark:border-red-400 hover:bg-[#F02C56]/70 rounded-md px-4 sm:px-8 py-2 sm:py-[6px] text-sm sm:text-base font-medium whitespace-nowrap flex-shrink-0 cursor-pointer"
+                                class="flex items-center bg-primary text-white border dark:border-red-400 hover:bg-primary/70 rounded-md px-4 sm:px-8 py-2 sm:py-[6px] text-sm sm:text-base font-medium whitespace-nowrap flex-shrink-0 cursor-pointer"
                             >
                                 {{ $t('post.edit') }}
                             </button>
@@ -243,14 +243,14 @@
                                 <button
                                     v-if="!profileStore.isFollowing"
                                     @click="profileStore.follow()"
-                                    class="flex items-center bg-[#F02C56] text-white border dark:border-red-400 hover:bg-red-600 rounded-md px-4 sm:px-8 py-2 sm:py-[6px] text-sm sm:text-base font-medium whitespace-nowrap flex-shrink-0 cursor-pointer"
+                                    class="flex items-center bg-primary text-white border dark:border-red-400 hover:bg-red-600 rounded-md px-4 sm:px-8 py-2 sm:py-[6px] text-sm sm:text-base font-medium whitespace-nowrap flex-shrink-0 cursor-pointer"
                                 >
                                     {{ $t('common.follow') }}
                                 </button>
                                 <button
                                     v-else
                                     @click="profileStore.unfollow()"
-                                    class="flex items-center border-[#F02C56] text-[#F02C56] border rounded-md px-4 sm:px-8 py-2 sm:py-[6px] text-sm sm:text-base font-medium whitespace-nowrap flex-shrink-0 cursor-pointer hover:opacity-60"
+                                    class="flex items-center border-primary text-primary border rounded-md px-4 sm:px-8 py-2 sm:py-[6px] text-sm sm:text-base font-medium whitespace-nowrap flex-shrink-0 cursor-pointer hover:opacity-60"
                                 >
                                     {{ $t('common.unfollow') }}
                                 </button>
@@ -259,7 +259,7 @@
                         <template v-else>
                             <button
                                 @click="handleGuestFollow"
-                                class="flex items-center bg-[#F02C56] text-white border dark:border-red-400 hover:bg-red-600 rounded-md px-4 sm:px-8 py-2 sm:py-[6px] text-sm sm:text-base font-medium whitespace-nowrap flex-shrink-0"
+                                class="flex items-center bg-primary text-white border dark:border-red-400 hover:bg-red-600 rounded-md px-4 sm:px-8 py-2 sm:py-[6px] text-sm sm:text-base font-medium whitespace-nowrap flex-shrink-0"
                             >
                                 {{ $t('common.follow') }}
                             </button>
@@ -285,7 +285,7 @@
                     </div>
 
                     <div
-                        class="mt-3 text-xs sm:text-sm font-medium dark:text-slate-500 flex items-center"
+                        class="mt-3 text-xs sm:text-sm font-medium dark:text-neutral-500 flex items-center"
                     >
                         <MusicalNoteIcon class="inline h-4 w-4 mr-1 flex-shrink-0" />
                         <span class="truncate"
@@ -318,7 +318,7 @@
                     <div class="pb-4 text-center flex items-center">
                         <button
                             @click="currentVideo.has_liked == true ? unlikePost() : likePost()"
-                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:hover:bg-slate-700 dark:bg-slate-800 dark:text-slate-50 cursor-pointer"
+                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:hover:bg-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 cursor-pointer"
                         >
                             <span
                                 class="text-[20px]"
@@ -331,7 +331,7 @@
                         </button>
                         <button
                             @click="openInteractionModal('likes')"
-                            class="text-sm pl-2 pr-4 text-gray-800 dark:text-slate-500 font-semibold hover:text-[#F02C56] dark:hover:text-[#F02C56] transition-colors cursor-pointer"
+                            class="text-sm pl-2 pr-4 text-gray-800 dark:text-neutral-500 font-semibold hover:text-primary dark:hover:text-primary transition-colors cursor-pointer"
                         >
                             {{ formatCount(currentVideo.likes) }}
                         </button>
@@ -339,12 +339,12 @@
 
                     <div class="pb-4 text-center flex items-center">
                         <div
-                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:hover:bg-slate-700 dark:bg-slate-800 dark:text-slate-50 cursor-pointer"
+                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:hover:bg-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 cursor-pointer"
                         >
                             <ChatBubbleOvalLeftIcon class="h-4 w-4 text-gray-400" />
                         </div>
                         <span
-                            class="text-sm pl-2 pr-4 text-gray-800 dark:text-slate-500 font-semibold"
+                            class="text-sm pl-2 pr-4 text-gray-800 dark:text-neutral-500 font-semibold"
                         >
                             {{ formatCount(currentVideo.comments) }}
                         </span>
@@ -352,14 +352,14 @@
 
                     <div class="pb-4 text-center flex items-center">
                         <button
-                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:hover:bg-slate-700 dark:bg-slate-800 dark:text-slate-50 cursor-pointer"
+                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:hover:bg-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 cursor-pointer"
                             @click="handleShare"
                         >
                             <ShareIcon class="h-4 w-4 text-gray-400" />
                         </button>
                         <button
                             @click="openInteractionModal('shares')"
-                            class="text-sm pl-2 pr-4 text-gray-800 dark:text-slate-500 font-semibold hover:text-[#F02C56] dark:hover:text-[#F02C56] transition-colors cursor-pointer"
+                            class="text-sm pl-2 pr-4 text-gray-800 dark:text-neutral-500 font-semibold hover:text-primary dark:hover:text-primary transition-colors cursor-pointer"
                         >
                             {{ formatCount(currentVideo.shares) }}
                         </button>
@@ -367,7 +367,7 @@
 
                     <div class="pb-4 text-center flex items-center">
                         <button
-                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:hover:bg-slate-700 dark:bg-slate-800 dark:text-slate-50 cursor-pointer"
+                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:hover:bg-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 cursor-pointer"
                             @click="handleBookmark"
                         >
                             <SolidBookmark
@@ -377,7 +377,7 @@
                             <BookmarkIcon v-else class="h-4 w-4 text-gray-400" />
                         </button>
                         <span
-                            class="text-sm pl-2 pr-4 text-gray-800 dark:text-slate-500 font-semibold"
+                            class="text-sm pl-2 pr-4 text-gray-800 dark:text-neutral-500 font-semibold"
                         >
                             {{ formatCount(currentVideo.bookmarks) }}
                         </span>
@@ -390,7 +390,7 @@
                         <div class="relative">
                             <button @click="showMenu = !showMenu">
                                 <div
-                                    class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:hover:bg-slate-700 dark:bg-slate-800 dark:text-slate-50 cursor-pointer"
+                                    class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:hover:bg-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 cursor-pointer"
                                 >
                                     <EllipsisVerticalIcon class="h-5 w-5" />
                                 </div>
@@ -398,11 +398,11 @@
 
                             <div
                                 v-if="showMenu"
-                                class="absolute bg-white dark:bg-slate-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-slate-700 top-[43px] -right-2"
+                                class="absolute bg-white dark:bg-neutral-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-neutral-700 top-[43px] -right-2"
                             >
                                 <div
                                     @click="handleReport"
-                                    class="flex items-center justify-start py-3 px-4 hover:bg-gray-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800 cursor-pointer"
+                                    class="flex items-center justify-start py-3 px-4 hover:bg-gray-100 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800 cursor-pointer"
                                 >
                                     <FlagIcon class="h-4 w-4" />
                                     <span class="pl-2 font-semibold text-sm">{{
@@ -420,7 +420,7 @@
             </div>
 
             <div
-                class="flex-1 min-h-0 border-t-2 border-gray-100 dark:border-slate-800 bg-[#F8F8F8] dark:bg-slate-900"
+                class="flex-1 min-h-0 border-t-2 border-gray-100 dark:border-neutral-800 bg-[#F8F8F8] dark:bg-neutral-900"
             >
                 <Comments />
             </div>
@@ -569,18 +569,18 @@ const handleGuestFollow = async () => {
     const modalBody = `
         <div class="space-y-6">
             <div class="text-center">
-                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r from-[#F02C56] to-pink-500 mb-4">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r from-primary to-pink-500 mb-4">
                     <div class="bx bx-user-plus text-[30px] text-white"></div>
                 </div>
                 <p class="text-gray-600 dark:text-gray-300">
-                    Connect with <span class="font-semibold text-[#F02C56]">@${currentVideo.value.account.username}</span> from your own Pixelfed, Mastodon, or other ActivityPub server
+                    Connect with <span class="font-semibold text-primary">@${currentVideo.value.account.username}</span> from your own Pixelfed, Mastodon, or other ActivityPub server
                 </p>
             </div>
 
-            <div class="rounded-lg p-4 border-2 border-dashed border-[#F02C56]">
+            <div class="rounded-lg p-4 border-2 border-dashed border-primary">
                 <div class="flex items-start space-x-3">
                     <div class="flex-shrink-0">
-                        <div class="flex items-center justify-center h-8 w-8 rounded-full bg-[#F02C56] text-white text-sm font-semibold">
+                        <div class="flex items-center justify-center h-8 w-8 rounded-full bg-primary text-white text-sm font-semibold">
                             1
                         </div>
                     </div>
@@ -590,13 +590,13 @@ const handleGuestFollow = async () => {
                         </h4>
                         <div class="mt-2 flex items-center space-x-2">
                             <div class="flex-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm">
-                                <code class="text-[#F02C56] font-mono select-all" id="webfinger-handle">
+                                <code class="text-primary font-mono select-all" id="webfinger-handle">
                                     ${accountHandle}
                                 </code>
                             </div>
                             <button
                                 onclick="copyToClipboard('${accountHandle}', this)"
-                                class="flex-shrink-0 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 text-gray-600 dark:text-gray-100 px-3 py-2 rounded-md text-xs font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#F02C56] focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+                                class="flex-shrink-0 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 text-gray-600 dark:text-gray-100 px-3 py-2 rounded-md text-xs font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-800"
                             >
                                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -610,7 +610,7 @@ const handleGuestFollow = async () => {
             <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-300 dark:border-gray-600">
                 <div class="flex items-start space-x-3">
                     <div class="flex-shrink-0">
-                        <div class="flex items-center justify-center h-8 w-8 rounded-full bg-[#F02C56]/80 text-white text-sm font-semibold">
+                        <div class="flex items-center justify-center h-8 w-8 rounded-full bg-primary/80 text-white text-sm font-semibold">
                             2
                         </div>
                     </div>
@@ -628,7 +628,7 @@ const handleGuestFollow = async () => {
             <div class="hidden border-t border-gray-200 dark:border-gray-600 pt-4">
                 <p class="text-center text-sm text-gray-600 dark:text-gray-300">
                     Don't have an account yet?
-                    <span class="font-medium text-[#F02C56]">Join PornTk today!</span>
+                    <span class="font-medium text-primary">Join PornTk today!</span>
                 </p>
             </div>
         </div>
@@ -647,12 +647,12 @@ const handleGuestFollow = async () => {
                         </svg>
                     `
                     buttonElement.classList.add('bg-green-500', 'hover:bg-green-600')
-                    buttonElement.classList.remove('bg-[#F02C56]', 'hover:bg-[#F02C56]/80')
+                    buttonElement.classList.remove('bg-primary', 'hover:bg-primary/80')
 
                     setTimeout(() => {
                         buttonElement.innerHTML = originalContent
                         buttonElement.classList.remove('bg-green-500', 'hover:bg-green-600')
-                        buttonElement.classList.add('bg-[#F02C56]', 'hover:bg-[#F02C56]/80')
+                        buttonElement.classList.add('bg-primary', 'hover:bg-primary/80')
                     }, 2000)
                 }
             } catch (err) {

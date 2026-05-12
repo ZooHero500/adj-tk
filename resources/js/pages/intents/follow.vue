@@ -1,17 +1,17 @@
 <template>
     <BlankLayout>
-        <div class="min-h-screen bg-gray-50 dark:bg-slate-900 py-8 px-4">
+        <div class="min-h-screen bg-gray-50 dark:bg-neutral-900 py-8 px-4">
             <div class="max-w-md mx-auto">
                 <div v-if="isLoading" class="text-center py-12">
                     <Spinner />
-                    <p class="text-sm text-gray-500 dark:text-slate-400 mt-4">
+                    <p class="text-sm text-gray-500 dark:text-neutral-400 mt-4">
                         {{ $t('common.loading') }}
                     </p>
                 </div>
 
                 <div
                     v-else-if="!authStore.isAuthenticated"
-                    class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden"
+                    class="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg overflow-hidden"
                 >
                     <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-center">
                         <UserIcon class="w-12 h-12 text-white mx-auto mb-2" />
@@ -21,11 +21,11 @@
                     <div class="p-6">
                         <div class="text-center mb-6">
                             <h2
-                                class="text-lg font-semibold text-gray-900 dark:text-slate-100 mb-2"
+                                class="text-lg font-semibold text-gray-900 dark:text-neutral-100 mb-2"
                             >
                                 Sign in to Follow
                             </h2>
-                            <p class="text-sm text-gray-600 dark:text-slate-400">
+                            <p class="text-sm text-gray-600 dark:text-neutral-400">
                                 You need to be logged in to follow users on PornTk. Create an account
                                 or sign in to continue.
                             </p>
@@ -45,7 +45,7 @@
 
                             <button
                                 @click="handleCancel"
-                                class="w-full py-3 text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-200 font-medium transition-colors cursor-pointer"
+                                class="w-full py-3 text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-neutral-200 font-medium transition-colors cursor-pointer"
                             >
                                 {{ $t('common.cancel') }}
                             </button>
@@ -55,7 +55,7 @@
 
                 <div
                     v-else-if="error"
-                    class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden"
+                    class="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg overflow-hidden"
                 >
                     <div class="bg-gradient-to-br from-red-500 to-red-600 p-6 text-center">
                         <ExclamationCircleIcon class="w-12 h-12 text-white mx-auto mb-2" />
@@ -65,11 +65,11 @@
                     <div class="p-6">
                         <div class="text-center mb-6">
                             <h2
-                                class="text-lg font-semibold text-gray-900 dark:text-slate-100 mb-2"
+                                class="text-lg font-semibold text-gray-900 dark:text-neutral-100 mb-2"
                             >
                                 User Not Found
                             </h2>
-                            <p class="text-sm text-gray-600 dark:text-slate-400">
+                            <p class="text-sm text-gray-600 dark:text-neutral-400">
                                 This user doesn't exist or cannot be accessed at this time. The
                                 account may have been deleted, made private, or the link may be
                                 incorrect.
@@ -95,7 +95,7 @@
 
                             <button
                                 @click="fetchActor"
-                                class="w-full py-3 text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-200 font-medium transition-colors cursor-pointer"
+                                class="w-full py-3 text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-neutral-200 font-medium transition-colors cursor-pointer"
                             >
                                 Try Again
                             </button>
@@ -105,9 +105,9 @@
 
                 <div
                     v-else-if="actor"
-                    class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden"
+                    class="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg overflow-hidden"
                 >
-                    <div class="bg-gradient-to-br from-[#F02C56] to-[#F02C56]/80 p-6 text-center">
+                    <div class="bg-gradient-to-br from-primary to-primary/80 p-6 text-center">
                         <UserPlusIcon class="w-12 h-12 text-white mx-auto mb-2" />
                         <h1 class="text-xl font-bold text-white">
                             {{ getHeaderText }}
@@ -119,20 +119,20 @@
                             <img
                                 :src="actor.avatar || '/storage/avatars/default.jpg'"
                                 :alt="actor.username"
-                                class="w-16 h-16 rounded-full object-cover border-2 border-gray-200 dark:border-slate-700"
+                                class="w-16 h-16 rounded-full object-cover border-2 border-gray-200 dark:border-neutral-700"
                             />
                             <div class="flex-1 min-w-0">
                                 <h2
-                                    class="text-lg font-bold text-gray-900 dark:text-slate-100 truncate"
+                                    class="text-lg font-bold text-gray-900 dark:text-neutral-100 truncate"
                                 >
                                     {{ actor.name || actor.username }}
                                 </h2>
-                                <p class="text-sm text-gray-500 dark:text-slate-400 truncate">
+                                <p class="text-sm text-gray-500 dark:text-neutral-400 truncate">
                                     @{{ actor.username }}
                                 </p>
                                 <p
                                     v-if="profileStore.followerCount !== undefined"
-                                    class="text-xs text-gray-500 dark:text-slate-400 mt-1"
+                                    class="text-xs text-gray-500 dark:text-neutral-400 mt-1"
                                 >
                                     {{ formatCount(profileStore.followerCount) }}
                                     {{ $t('common.followers') }}
@@ -142,7 +142,7 @@
 
                         <p
                             v-if="actor.bio"
-                            class="text-sm text-gray-700 dark:text-slate-300 mb-6 line-clamp-3"
+                            class="text-sm text-gray-700 dark:text-neutral-300 mb-6 line-clamp-3"
                         >
                             {{ actor.bio }}
                         </p>
@@ -150,7 +150,7 @@
                         <div class="flex flex-col gap-4">
                             <div
                                 v-if="profileStore.isSelf"
-                                class="w-full py-3 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-slate-300 font-medium rounded-lg text-center flex items-center justify-center gap-2"
+                                class="w-full py-3 bg-gray-100 dark:bg-neutral-700 text-gray-700 dark:text-neutral-300 font-medium rounded-lg text-center flex items-center justify-center gap-2"
                             >
                                 <UserIcon class="w-5 h-5" />
                                 This is your profile
@@ -209,7 +209,7 @@
                                 :href="actor.url"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="block w-full py-3 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-900 dark:text-slate-100 font-medium rounded-lg transition-colors text-center cursor-pointer flex items-center justify-center gap-2"
+                                class="block w-full py-3 bg-gray-100 dark:bg-neutral-700 hover:bg-gray-200 dark:hover:bg-neutral-600 text-gray-900 dark:text-neutral-100 font-medium rounded-lg transition-colors text-center cursor-pointer flex items-center justify-center gap-2"
                             >
                                 <ArrowTopRightOnSquareIcon class="w-5 h-5" />
                                 View Profile
@@ -218,7 +218,7 @@
                             <button
                                 @click="handleCancel"
                                 :disabled="isSubmitting"
-                                class="w-full py-3 text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-200 font-medium transition-colors cursor-pointer"
+                                class="w-full py-3 text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-neutral-200 font-medium transition-colors cursor-pointer"
                             >
                                 {{ $t('common.cancel') }}
                             </button>

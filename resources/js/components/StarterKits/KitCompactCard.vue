@@ -20,7 +20,7 @@
         </div>
         <div>
             <h3
-                class="font-semibold text-sm text-gray-900 dark:text-white group-hover:text-[#F02C56] transition-colors mb-1 break-all line-clamp-1"
+                class="font-semibold text-sm text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-1 break-all line-clamp-1"
             >
                 {{ kit.title }}
             </h3>
@@ -34,7 +34,7 @@
 
                 {{ kit.uses }} {{ $t('common.uses') }}
             </span>
-            <router-link :to="kit.path" class="text-xs font-bold text-[#F02C56] hover:underline"
+            <router-link :to="kit.path" class="text-xs font-bold text-primary hover:underline"
                 >{{ $t('common.useKit') }} →</router-link
             >
         </div>

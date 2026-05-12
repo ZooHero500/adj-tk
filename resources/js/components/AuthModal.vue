@@ -148,7 +148,7 @@
                                     <button
                                         type="button"
                                         @click="currentMode = 'password-reset'"
-                                        class="text-sm font-medium text-[#F02C56] hover:text-[#D7284A] dark:hover:text-[#D7284A] transition-colors cursor-pointer"
+                                        class="text-sm font-medium text-primary hover:text-[#D7284A] dark:hover:text-[#D7284A] transition-colors cursor-pointer"
                                     >
                                         {{ t('common.forgotPassword') }}
                                     </button>
@@ -997,7 +997,7 @@
                                     }}
                                     <button
                                         @click="toggleMode"
-                                        class="ml-1 text-[#F02C56] hover:text-[#D7284A] dark:hover:text-[#D7284A] font-medium transition-colors cursor-pointer"
+                                        class="ml-1 text-primary hover:text-[#D7284A] dark:hover:text-[#D7284A] font-medium transition-colors cursor-pointer"
                                     >
                                         {{
                                             currentMode === 'login'

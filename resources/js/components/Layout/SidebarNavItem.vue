@@ -1,6 +1,6 @@
 <template>
     <div
-        class="w-full flex items-center hover:bg-gray-100 dark:hover:bg-slate-800 px-2.5 rounded-lg py-2 transition-colors"
+        class="w-full flex items-center hover:bg-gray-100 dark:hover:bg-neutral-800 px-2.5 rounded-lg py-2 transition-colors"
         :class="{
             'justify-center lg:justify-start': !isMobile,
             'justify-start': isMobile

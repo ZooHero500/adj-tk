@@ -59,7 +59,7 @@
                                         <AutolinkedText
                                             :caption="playlist.description"
                                             maxCharLimit="80"
-                                            root-class="text-gray-500 dark:text-slate-400 whitespace-pre-wrap break-all leading-5 tracking-tight"
+                                            root-class="text-gray-500 dark:text-neutral-400 whitespace-pre-wrap break-all leading-5 tracking-tight"
                                         />
                                     </div>
 

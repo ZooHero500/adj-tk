@@ -71,7 +71,7 @@
                             >
                                 <button
                                     @click="handleReport"
-                                    class="flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                                    class="flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-neutral-300 hover:bg-gray-100 dark:hover:bg-neutral-700 transition-colors cursor-pointer"
                                 >
                                     <FlagIcon class="w-4 h-4 mr-3" />
                                     {{ $t('common.report') }}

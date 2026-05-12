@@ -1,5 +1,5 @@
 <template>
-    <div class="flex h-screen bg-white dark:bg-slate-950">
+    <div class="flex h-screen bg-white dark:bg-neutral-950">
         <StudioSidebar
             :isOpen="isMobileDrawerOpen"
             @close="closeMobileDrawer"

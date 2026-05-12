@@ -33,7 +33,7 @@
                 <button
                     v-if="!isNotFound"
                     @click="handleRetry"
-                    class="px-5 py-2.5 bg-[#F02C56] hover:bg-[#D91B42] text-white text-sm font-semibold rounded-xl transition-all shadow-md shadow-[#F02C56]/25"
+                    class="px-5 py-2.5 bg-primary hover:bg-[#D91B42] text-white text-sm font-semibold rounded-xl transition-all shadow-md shadow-primary/25"
                 >
                     {{ $t('common.tryAgain') }}
                 </button>

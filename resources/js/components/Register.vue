@@ -43,10 +43,10 @@
         <button
             :disabled="!name || !email || !password || !confirmPassword"
             :class="
-                !name || !email || !password || !confirmPassword ? 'bg-gray-200' : 'bg-[#F02C56]'
+                !name || !email || !password || !confirmPassword ? 'bg-gray-200' : 'bg-primary'
             "
             @click="register()"
-            class="w-full text-[17px] font-semibold text-white bg-[#F02C56] py-3 rounded-sm"
+            class="w-full text-[17px] font-semibold text-white bg-primary py-3 rounded-sm"
         >
             Sign up
         </button>

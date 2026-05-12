@@ -91,7 +91,7 @@
                             </button>
                             <button
                                 @click="saveEdit"
-                                class="px-4 py-1.5 bg-[#F02C56] hover:bg-[#F02C56]/70 text-white text-sm font-medium rounded-lg disabled:opacity-50 transition-colors cursor-pointer flex items-center space-x-2 disabled:pointer-events-none"
+                                class="px-4 py-1.5 bg-primary hover:bg-primary/70 text-white text-sm font-medium rounded-lg disabled:opacity-50 transition-colors cursor-pointer flex items-center space-x-2 disabled:pointer-events-none"
                                 :disabled="
                                     isSavingEdit ||
                                     !editedCaption.trim() ||
@@ -125,7 +125,7 @@
                             :root-class="
                                 comment.tombstone
                                     ? 'text-gray-500'
-                                    : 'text-gray-800 dark:text-slate-300 whitespace-pre-wrap leading-relaxed'
+                                    : 'text-gray-800 dark:text-neutral-300 whitespace-pre-wrap leading-relaxed'
                             "
                             :max-char-limit="80"
                         />
@@ -216,7 +216,7 @@
                             <div class="flex justify-end mt-2">
                                 <button
                                     @click="handleReply"
-                                    class="px-4 py-1.5 bg-[#F02C56] hover:bg-[#F02C56]/70 text-white text-sm font-medium rounded-lg disabled:opacity-50 transition-colors cursor-pointer"
+                                    class="px-4 py-1.5 bg-primary hover:bg-primary/70 text-white text-sm font-medium rounded-lg disabled:opacity-50 transition-colors cursor-pointer"
                                     :disabled="isSubmittingReply || !replyText.trim()"
                                 >
                                     {{
@@ -447,7 +447,7 @@
             <div v-if="!highlightedReplyId && hasMoreReplies" class="mt-3">
                 <button
                     @click="loadMoreReplies"
-                    class="text-sm text-[#F02C56] hover:text-[#F02C56]/70 font-medium cursor-pointer"
+                    class="text-sm text-primary hover:text-primary/70 font-medium cursor-pointer"
                     :disabled="isLoadingMoreReplies"
                 >
                     {{ isLoadingMoreReplies ? $t('common.loading') : $t('post.loadMoreReplies') }}

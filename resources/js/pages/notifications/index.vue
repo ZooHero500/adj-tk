@@ -18,7 +18,7 @@
                 <div class="flex items-center gap-2 flex-shrink-0">
                     <button
                         v-if="showMarkAllRead"
-                        class="inline-flex items-center justify-center font-bold bg-[#F02C56] border border-[#F02C56] text-white rounded-lg hover:bg-[#F02C56]/90 hover:border-[#F02C5699] cursor-pointer transition-colors px-3 py-2 text-xs sm:px-5 sm:py-2 sm:text-sm"
+                        class="inline-flex items-center justify-center font-bold bg-primary border border-primary text-white rounded-lg hover:bg-primary/90 hover:border-primary/60 cursor-pointer transition-colors px-3 py-2 text-xs sm:px-5 sm:py-2 sm:text-sm"
                         @click="handleMarkAllRead"
                     >
                         <span>{{ $t('common.markAllRead') }}</span>
@@ -50,7 +50,7 @@
                         :class="[
                             'whitespace-nowrap py-3 px-8 border-b-2 font-medium text-sm transition-colors flex-shrink-0 cursor-pointer',
                             activeTab === tab.id
-                                ? 'border-[#F02C56] text-[#F02C56] dark:text-[#F02C56]'
+                                ? 'border-primary text-primary dark:text-primary'
                                 : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'
                         ]"
                     >
@@ -72,7 +72,7 @@
                     <div class="relative inline-block" ref="dropdownRef">
                         <button
                             @click="toggleFilterDropdown"
-                            class="inline-flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#F02C56] dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700 cursor-pointer transition-colors min-w-[140px]"
+                            class="inline-flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700 cursor-pointer transition-colors min-w-[140px]"
                         >
                             <span>{{ activeFilterLabel }}</span>
                             <ChevronDownIcon
@@ -101,7 +101,7 @@
                                         :class="[
                                             'w-full text-left px-4 py-2 text-sm transition-colors',
                                             activityFilter === filter.value
-                                                ? 'bg-[#F02C56]/10 text-[#F02C56] dark:bg-[#F02C56]/20'
+                                                ? 'bg-primary/10 text-primary dark:bg-primary/20'
                                                 : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'
                                         ]"
                                         role="menuitem"
@@ -110,7 +110,7 @@
                                             <span>{{ filter.label }}</span>
                                             <CheckIcon
                                                 v-if="activityFilter === filter.value"
-                                                class="h-4 w-4 text-[#F02C56]"
+                                                class="h-4 w-4 text-primary"
                                             />
                                         </span>
                                     </button>

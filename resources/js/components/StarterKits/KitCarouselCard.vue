@@ -2,11 +2,11 @@
     <div
         class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer"
     >
-        <div class="p-6 bg-gradient-to-br from-[#F02C56]/90 to-[#FF4571]/85 dark:to-[#FF4571]/50">
+        <div class="p-6 bg-gradient-to-br from-primary/90 to-[#FF4571]/85 dark:to-[#FF4571]/50">
             <div class="flex items-start justify-between mb-3">
                 <div class="flex-1">
                     <h3
-                        class="font-extrabold text-xl text-white mb-1 tracking-tight group-hover:text-[#F02C56] transition-colors mb-1 line-clamp-1"
+                        class="font-extrabold text-xl text-white mb-1 tracking-tight group-hover:text-primary transition-colors mb-1 line-clamp-1"
                     >
                         {{ kit.title }}
                     </h3>
@@ -35,7 +35,7 @@
                 />
                 <div
                     v-if="kit.total_accounts > 5"
-                    class="w-12 h-12 rounded-full border-2 border-white dark:border-gray-900 bg-gradient-to-br from-[#F02C56] to-[#FF4571] flex items-center justify-center text-white text-sm font-bold"
+                    class="w-12 h-12 rounded-full border-2 border-white dark:border-gray-900 bg-gradient-to-br from-primary to-[#FF4571] flex items-center justify-center text-white text-sm font-bold"
                 >
                     +{{ kit.total_accounts - 5 }}
                 </div>
@@ -43,7 +43,7 @@
 
             <router-link
                 :to="kit.path"
-                class="flex justify-center w-full py-3 bg-gradient-to-r from-[#F02C56] to-[#FF4571] hover:from-[#E91E63] hover:to-[#F02C56] text-white font-semibold rounded-xl transition-all transform hover:scale-105"
+                class="flex justify-center w-full py-3 bg-gradient-to-r from-primary to-[#FF4571] hover:from-[#E91E63] hover:to-primary text-white font-semibold rounded-xl transition-all transform hover:scale-105"
             >
                 {{ isMyKit ? $t('common.viewKit') : $t('common.useKit') }}
             </router-link>
@@ -52,7 +52,7 @@
         <div v-else-if="isMyKit" class="p-6">
             <router-link
                 :to="kit.path"
-                class="flex justify-center w-full py-3 bg-gradient-to-r from-[#F02C56] to-[#FF4571] hover:from-[#E91E63] hover:to-[#F02C56] text-white font-semibold rounded-xl transition-all transform hover:scale-105"
+                class="flex justify-center w-full py-3 bg-gradient-to-r from-primary to-[#FF4571] hover:from-[#E91E63] hover:to-primary text-white font-semibold rounded-xl transition-all transform hover:scale-105"
             >
                 {{ isMyKit ? $t('common.viewKit') : $t('common.useKit') }}
             </router-link>

@@ -28,12 +28,12 @@ const sizeClass = {
 }[props.size ?? 'default']
 
 const themeClass = {
-    default: 'border-gray-200 border-t-[#F02C56]',
+    default: 'border-gray-200 border-t-primary',
     brand: 'border-white/30 border-t-white',
     indigo: 'border-gray-200 border-t-indigo-500',
     emerald: 'border-gray-200 border-t-emerald-500',
     sky: 'border-gray-200 border-t-sky-500',
-    slate: 'border-gray-200 border-t-slate-500',
+    slate: 'border-gray-200 border-t-neutral-500',
     amber: 'border-gray-200 border-t-amber-500'
 }[props.theme ?? 'default']
 

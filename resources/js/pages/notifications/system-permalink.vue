@@ -11,45 +11,45 @@
 
         <div
             v-else-if="error"
-            class="relative min-h-full w-full bg-white dark:bg-slate-950 px-6 py-24 sm:py-32 lg:px-8 overflow-hidden"
+            class="relative min-h-full w-full bg-white dark:bg-neutral-950 px-6 py-24 sm:py-32 lg:px-8 overflow-hidden"
         >
             <div class="absolute inset-0 -z-10">
                 <div
-                    class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#F02C56]/10 to-purple-500/10 rounded-full blur-3xl"
+                    class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-full blur-3xl"
                 ></div>
                 <div
-                    class="absolute bottom-0 right-1/4 w-64 h-64 bg-gradient-to-r from-blue-500/10 to-[#F02C56]/10 rounded-full blur-3xl"
+                    class="absolute bottom-0 right-1/4 w-64 h-64 bg-gradient-to-r from-blue-500/10 to-primary/10 rounded-full blur-3xl"
                 ></div>
             </div>
 
             <div class="flex min-h-[70vh] flex-col items-center justify-center text-center">
                 <div class="mb-8 relative">
                     <div>
-                        <ExclamationTriangleIcon class="h-24 w-24 text-[#F02C56] mx-auto" />
+                        <ExclamationTriangleIcon class="h-24 w-24 text-primary mx-auto" />
                     </div>
                 </div>
 
                 <div class="relative mb-6">
                     <h2
-                        class="text-8xl sm:text-9xl font-bold bg-gradient-to-r from-[#F02C56] to-purple-600 bg-clip-text text-transparent opacity-90 animate-pulse"
+                        class="text-8xl sm:text-9xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent opacity-90 animate-pulse"
                     >
                         404
                     </h2>
                     <div
-                        class="absolute inset-0 bg-gradient-to-r from-[#F02C56] to-purple-600 bg-clip-text text-transparent opacity-20 blur-sm text-8xl sm:text-9xl font-bold"
+                        class="absolute inset-0 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent opacity-20 blur-sm text-8xl sm:text-9xl font-bold"
                     >
                         404
                     </div>
                 </div>
 
                 <h1
-                    class="mt-4 text-balance text-4xl font-bold tracking-tight text-gray-900 dark:text-slate-50 sm:text-6xl mb-6 animate-fade-in"
+                    class="mt-4 text-balance text-4xl font-bold tracking-tight text-gray-900 dark:text-neutral-50 sm:text-6xl mb-6 animate-fade-in"
                 >
                     Notification not found
                 </h1>
 
                 <p
-                    class="text-pretty text-lg font-medium text-gray-600 dark:text-slate-400 sm:text-xl max-w-2xl leading-relaxed mb-10 animate-fade-in-delay"
+                    class="text-pretty text-lg font-medium text-gray-600 dark:text-neutral-400 sm:text-xl max-w-2xl leading-relaxed mb-10 animate-fade-in-delay"
                 >
                     This system notification doesn't exist or may have been removed.
                 </p>

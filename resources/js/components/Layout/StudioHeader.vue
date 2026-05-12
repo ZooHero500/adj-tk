@@ -1,14 +1,14 @@
 <template>
     <div
-        class="bg-white dark:bg-slate-950 flex items-center w-full h-[70px] z-10 border-b border-gray-200 dark:border-slate-800"
+        class="bg-white dark:bg-neutral-950 flex items-center w-full h-[70px] z-10 border-b border-gray-200 dark:border-neutral-800"
     >
         <div class="flex items-center justify-between w-full px-4 lg:px-6 mx-auto">
             <div class="flex items-center lg:w-[30%] w-auto">
                 <button
                     @click="toggleMobileDrawer"
-                    class="lg:hidden mr-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800"
+                    class="lg:hidden mr-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800"
                 >
-                    <i class="bx bx-menu text-2xl dark:text-slate-400"></i>
+                    <i class="bx bx-menu text-2xl dark:text-neutral-400"></i>
                 </button>
             </div>
 
@@ -33,19 +33,19 @@
 
                         <div
                             v-if="showMenu"
-                            class="absolute bg-white dark:bg-slate-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-gray-700 divide-y divide-gray-200 dark:divide-gray-700 ark:border-slate-700 top-[43px] -right-2"
+                            class="absolute bg-white dark:bg-neutral-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-gray-700 divide-y divide-gray-200 dark:divide-gray-700 ark:border-neutral-700 top-[43px] -right-2"
                         >
                             <router-link
                                 :to="`/@${authStore.user.username}`"
                                 @click="showMenu = false"
-                                class="flex items-center justify-start py-3 px-2 hover:bg-gray-100 dark:hover:bg-slate-800 cursor-pointer dark:text-slate-200"
+                                class="flex items-center justify-start py-3 px-2 hover:bg-gray-100 dark:hover:bg-neutral-800 cursor-pointer dark:text-neutral-200"
                             >
                                 <i class="ph-user text-[20px]"></i>
                                 <span class="pl-2 font-semibold text-sm">Profile</span>
                             </router-link>
                             <div
                                 @click="logout"
-                                class="flex items-center justify-start py-3 px-1.5 hover:bg-gray-100 dark:text-slate-200 dark:hover:bg-slate-800 cursor-pointer"
+                                class="flex items-center justify-start py-3 px-1.5 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 cursor-pointer"
                             >
                                 <i class="ic-outline-login text-[20px]"></i>
                                 <span class="pl-2 font-semibold text-sm">Log out</span>

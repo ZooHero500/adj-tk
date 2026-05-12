@@ -8,7 +8,7 @@
     <div
         :class="[
             'group',
-            'bg-white dark:bg-slate-950 lg:border-r-0 border-r dark:border-r-slate-800 overflow-auto loops-layout-sidebar no-scrollbar',
+            'bg-white dark:bg-neutral-950 lg:border-r-0 border-r dark:border-r-neutral-800 overflow-auto loops-layout-sidebar no-scrollbar',
             isMobile
                 ? `fixed top-0 left-0 h-screen w-[280px] transition-transform duration-300 ease-in-out z-[60] ${isOpen ? 'translate-x-0' : '-translate-x-full'}`
                 : 'h-full w-[75px] lg:w-[260px]'
@@ -36,7 +36,7 @@
             </div>
             <div
                 v-if="isMobile && isOpen"
-                class="flex items-center justify-between px-4 pb-2 border-b border-gray-100 dark:border-slate-800 lg:hidden"
+                class="flex items-center justify-between px-4 pb-2 border-b border-gray-100 dark:border-neutral-800 lg:hidden"
             >
                 <div class="flex items-center gap-2">
                     <img
@@ -51,9 +51,9 @@
                 </div>
                 <button
                     @click="closeMobileDrawer"
-                    class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800"
+                    class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800"
                 >
-                    <i class="bx bx-x text-xl dark:text-slate-400"></i>
+                    <i class="bx bx-x text-xl dark:text-neutral-400"></i>
                 </button>
             </div>
 
@@ -83,12 +83,12 @@
                             class="dbi"
                             :class="{
                                 'text-black dark:text-white': !isActive(mainLink.path),
-                                'text-[#F02C56]': isActive(mainLink.path)
+                                'text-primary': isActive(mainLink.path)
                             }"
                             @click="handleLinkClick"
                         >
                             <div
-                                class="w-full flex items-center hover:bg-gray-100 dark:hover:bg-slate-800 px-2.5 py-2 rounded-lg transition-colors"
+                                class="w-full flex items-center hover:bg-gray-100 dark:hover:bg-neutral-800 px-2.5 py-2 rounded-lg transition-colors"
                                 :class="{
                                     'justify-center lg:justify-start': !isMobile,
                                     'justify-start': isMobile
@@ -126,7 +126,7 @@
                         class="dbi"
                         :class="{
                             'text-black dark:text-white': !isActive(mainLink.path),
-                            'text-[#F02C56]': isActive(mainLink.path)
+                            'text-primary': isActive(mainLink.path)
                         }"
                         @click="handleLinkClick"
                     >
@@ -142,9 +142,9 @@
                 <div class="relative">
                     <button
                         @click="toggleMoreMenu"
-                        class="w-full text-black dark:text-white hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                        class="w-full text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-lg transition-colors"
                         :class="{
-                            'bg-gray-100 dark:bg-slate-800': showMoreMenu
+                            'bg-gray-100 dark:bg-neutral-800': showMoreMenu
                         }"
                     >
                         <SidebarNavItem
@@ -158,8 +158,8 @@
                     <div
                         v-if="showMoreMenu"
                         :class="[
-                            'absolute bg-white dark:bg-slate-900 rounded-lg shadow-xl border border-gray-200 dark:border-slate-700 z-50 min-w-[200px] overflow-hidden',
-                            'divide-y divide-gray-200 dark:divide-slate-700',
+                            'absolute bg-white dark:bg-neutral-900 rounded-lg shadow-xl border border-gray-200 dark:border-neutral-700 z-50 min-w-[200px] overflow-hidden',
+                            'divide-y divide-gray-200 dark:divide-neutral-700',
                             isMobile || isLargeScreen
                                 ? 'left-0 top-full mt-2'
                                 : 'left-full top-0 ml-2'
@@ -169,7 +169,7 @@
                             v-if="authStore.getUser"
                             to="/dashboard/appearance"
                             @click="handleMoreItemClick"
-                            class="flex items-center px-4 py-3 hover:bg-gray-50 dark:hover:bg-slate-800 text-gray-700 dark:text-slate-300"
+                            class="flex items-center px-4 py-3 hover:bg-gray-50 dark:hover:bg-neutral-800 text-gray-700 dark:text-neutral-300"
                         >
                             <i class="bx bx-moon mr-3 text-xl"></i>
                             <span class="text-sm font-medium">{{ t('nav.appearance') }}</span>
@@ -177,7 +177,7 @@
 
                         <div
                             v-else
-                            class="flex items-center px-4 py-3 hover:bg-gray-50 dark:hover:bg-slate-800 text-gray-700 dark:text-slate-300"
+                            class="flex items-center px-4 py-3 hover:bg-gray-50 dark:hover:bg-neutral-800 text-gray-700 dark:text-neutral-300"
                         >
                             <button
                                 @click="handleToggleDarkMode"
@@ -195,7 +195,7 @@
                             v-if="authStore.getUser"
                             to="/dashboard"
                             @click="handleMoreItemClick"
-                            class="flex items-center px-4 py-3 hover:bg-gray-50 dark:hover:bg-slate-800 text-gray-700 dark:text-slate-300"
+                            class="flex items-center px-4 py-3 hover:bg-gray-50 dark:hover:bg-neutral-800 text-gray-700 dark:text-neutral-300"
                         >
                             <i class="bx bx-cog mr-3 text-xl"></i>
                             <span class="text-sm font-medium">{{ t('nav.settings') }}</span>
@@ -203,7 +203,7 @@
 
                         <div
                             v-if="authStore.getUser"
-                            class="flex items-center px-4 py-3 hover:bg-gray-50 dark:hover:bg-slate-800 text-gray-700 dark:text-slate-300"
+                            class="flex items-center px-4 py-3 hover:bg-gray-50 dark:hover:bg-neutral-800 text-gray-700 dark:text-neutral-300"
                         >
                             <button
                                 @click="handleLogout"
@@ -234,7 +234,7 @@
                         <button
                             v-if="!authStore.isAuthenticated"
                             @click="handleLoginClick"
-                            class="w-full flex items-center justify-center bg-[#F02C56] text-white rounded-lg px-4 py-3 font-medium"
+                            class="w-full flex items-center justify-center bg-primary text-white rounded-lg px-4 py-3 font-medium"
                         >
                             {{ t('nav.logIn') }}
                         </button>
@@ -246,7 +246,7 @@
                                     appConfig.registration_mode === 'curated')
                             "
                             @click="handleJoinClick"
-                            class="w-full flex items-center justify-center border border-gray-300 dark:border-slate-700 text-gray-700 dark:text-slate-300 rounded-lg px-4 py-3 font-medium hover:bg-gray-50 dark:hover:bg-slate-800"
+                            class="w-full flex items-center justify-center border border-gray-300 dark:border-neutral-700 text-gray-700 dark:text-neutral-300 rounded-lg px-4 py-3 font-medium hover:bg-gray-50 dark:hover:bg-neutral-800"
                         >
                             {{ t('nav.join') }}
                         </button>
@@ -254,7 +254,7 @@
                 </template>
             </div>
 
-            <div class="block border-b border-gray-100 dark:border-slate-800 my-2" />
+            <div class="block border-b border-gray-100 dark:border-neutral-800 my-2" />
 
             <div class="flex pt-1 text-[11px] text-gray-500 px-3 flex-wrap">
                 <template v-for="link in footerLinks" :key="link.name">
@@ -262,7 +262,7 @@
                         <router-link
                             :to="link.path"
                             class="dfi"
-                            activeClass="text-black dark:text-slate-300"
+                            activeClass="text-black dark:text-neutral-300"
                             >{{ link.name }}</router-link
                         >
                     </div>

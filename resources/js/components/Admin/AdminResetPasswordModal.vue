@@ -18,9 +18,9 @@
                 >
                     <div class="flex items-start gap-4">
                         <div
-                            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#F02C56]/10 dark:bg-[#F02C56]/20"
+                            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 dark:bg-primary/20"
                         >
-                            <KeyIcon class="h-6 w-6 text-[#F02C56]" />
+                            <KeyIcon class="h-6 w-6 text-primary" />
                         </div>
                         <div class="min-w-0 flex-1">
                             <h3
@@ -67,7 +67,7 @@
                                 :type="showPassword ? 'text' : 'password'"
                                 autocomplete="new-password"
                                 spellcheck="false"
-                                class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 pr-[104px] font-mono text-sm tracking-tight text-gray-900 outline-none transition focus:border-transparent focus:ring-2 focus:ring-[#F02C56]/60 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+                                class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 pr-[104px] font-mono text-sm tracking-tight text-gray-900 outline-none transition focus:border-transparent focus:ring-2 focus:ring-primary/60 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
                             />
 
                             <div class="absolute inset-y-0 right-0 flex items-center gap-0.5 pr-2">
@@ -141,7 +141,7 @@
                             class="rounded-lg border px-2.5 py-1 font-medium transition"
                             :class="
                                 preferredLength === len
-                                    ? 'border-[#F02C56] bg-[#F02C56]/10 text-[#F02C56]'
+                                    ? 'border-primary bg-primary/10 text-primary'
                                     : 'border-gray-200 bg-gray-50 text-gray-600 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
                             "
                         >
@@ -163,7 +163,7 @@
                                 :checked="opt.model.value"
                                 :disabled="opt.disabled"
                                 @change="opt.model.value = $event.target.checked"
-                                class="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-[#F02C56] focus:ring-[#F02C56]/60 disabled:cursor-not-allowed dark:border-gray-600 dark:bg-gray-700"
+                                class="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-primary focus:ring-primary/60 disabled:cursor-not-allowed dark:border-gray-600 dark:bg-gray-700"
                             />
                             <div class="min-w-0 flex-1">
                                 <p class="text-sm font-medium text-gray-900 dark:text-white">
@@ -203,7 +203,7 @@
                             :class="[
                                 'inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium text-white transition',
                                 canSubmit
-                                    ? 'bg-[#F02C56] hover:bg-[#d9244a]'
+                                    ? 'bg-primary hover:bg-[#d9244a]'
                                     : 'cursor-not-allowed bg-gray-300 dark:bg-gray-700'
                             ]"
                         >

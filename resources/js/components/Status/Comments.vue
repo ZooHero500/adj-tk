@@ -1,9 +1,9 @@
 <template>
-    <div class="h-full flex flex-col bg-white dark:bg-slate-900">
+    <div class="h-full flex flex-col bg-white dark:bg-neutral-900">
         <div class="flex-1 overflow-y-auto p-3">
             <div v-if="isLoadingHighlightedComment" class="p-4 text-center">
                 <Spinner />
-                <p class="text-sm text-gray-500 dark:text-slate-400 mt-2">
+                <p class="text-sm text-gray-500 dark:text-neutral-400 mt-2">
                     {{ $t('post.loadingComment') }}
                 </p>
             </div>
@@ -42,7 +42,7 @@
                 <div class="mt-6 text-center">
                     <button
                         @click="handleViewAllComments"
-                        class="inline-flex items-center px-6 py-3 bg-[#F02C56] hover:bg-[#F02C56]/80 text-white rounded-lg font-medium transition-colors duration-200 cursor-pointer"
+                        class="inline-flex items-center px-6 py-3 bg-primary hover:bg-primary/80 text-white rounded-lg font-medium transition-colors duration-200 cursor-pointer"
                     >
                         <i class="bx bx-comment-dots text-xl mr-2"></i>
                         {{ $t('post.viewAllComments') }}
@@ -51,7 +51,7 @@
 
                 <div v-if="hasOtherComments && showBlurredPreview" class="mt-6 relative">
                     <div
-                        class="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white dark:via-slate-900/50 dark:to-slate-900 z-10 backdrop-blur-sm"
+                        class="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white dark:via-neutral-900/50 dark:to-neutral-900 z-10 backdrop-blur-sm"
                     ></div>
                     <div class="opacity-40 pointer-events-none space-y-3">
                         <CommentItem
@@ -75,7 +75,7 @@
                 <div v-else class="h-full">
                     <div
                         v-if="!comments.length"
-                        class="flex flex-col h-full px-4 text-gray-500 dark:text-slate-400"
+                        class="flex flex-col h-full px-4 text-gray-500 dark:text-neutral-400"
                     >
                         <div class="flex flex-col items-center justify-center flex-grow">
                             <div
@@ -92,12 +92,12 @@
                         </div>
 
                         <div v-if="hasHiddenComments" class="flex-shrink mt-4">
-                            <div class="border-t border-gray-200 dark:border-slate-700 my-4"></div>
+                            <div class="border-t border-gray-200 dark:border-neutral-700 my-4"></div>
 
                             <div v-if="!isShowingHidden" class="text-center">
                                 <button
                                     @click="handleShowHiddenComments"
-                                    class="inline-flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-slate-100 bg-transparent hover:bg-gray-50 dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 cursor-pointer"
+                                    class="inline-flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-neutral-300 hover:text-gray-900 dark:hover:text-neutral-100 bg-transparent hover:bg-gray-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-200 cursor-pointer"
                                 >
                                     <EyeIcon class="w-5 h-5" />
                                     <span class="text-sm font-medium">Show hidden comments</span>
@@ -107,13 +107,13 @@
                             <div v-else>
                                 <div class="flex items-center justify-between mb-3 px-2">
                                     <h3
-                                        class="text-sm font-semibold text-gray-700 dark:text-slate-300"
+                                        class="text-sm font-semibold text-gray-700 dark:text-neutral-300"
                                     >
                                         Hidden Comments
                                     </h3>
                                     <button
                                         @click="handleHideHiddenComments"
-                                        class="text-xs text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200 cursor-pointer"
+                                        class="text-xs text-gray-500 dark:text-neutral-400 hover:text-gray-700 dark:hover:text-neutral-200 cursor-pointer"
                                     >
                                         <EyeSlashIcon class="w-4 h-4 inline mr-1" />
                                         Hide
@@ -128,7 +128,7 @@
                                 </div>
                                 <div
                                     v-else-if="!hiddenComments.length"
-                                    class="p-4 text-center text-gray-500 dark:text-slate-400 text-sm"
+                                    class="p-4 text-center text-gray-500 dark:text-neutral-400 text-sm"
                                 >
                                     No hidden comments
                                 </div>
@@ -142,7 +142,7 @@
                                     <div v-if="hasMoreHidden" class="p-4 text-center">
                                         <button
                                             @click="loadMoreHidden"
-                                            class="text-sm font-medium text-[#F02C56] hover:text-[#F02C56]/70 cursor-pointer"
+                                            class="text-sm font-medium text-primary hover:text-primary/70 cursor-pointer"
                                             :disabled="isLoadingHidden"
                                         >
                                             {{ $t('common.loadMore') }}
@@ -163,7 +163,7 @@
                         <div v-if="hasMore" class="p-4 text-center">
                             <button
                                 @click="loadMore"
-                                class="text-sm font-medium text-[#F02C56] hover:text-[#F02C56]/70 cursor-pointer"
+                                class="text-sm font-medium text-primary hover:text-primary/70 cursor-pointer"
                                 :disabled="isLoading"
                             >
                                 {{ $t('common.loadMore') }}
@@ -171,12 +171,12 @@
                         </div>
 
                         <div v-if="!hasMore && hasHiddenComments" class="mt-4">
-                            <div class="border-t border-gray-200 dark:border-slate-700 my-4"></div>
+                            <div class="border-t border-gray-200 dark:border-neutral-700 my-4"></div>
 
                             <div v-if="!isShowingHidden" class="text-center pb-4">
                                 <button
                                     @click="handleShowHiddenComments"
-                                    class="inline-flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-slate-100 bg-transparent hover:bg-gray-50 dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 cursor-pointer"
+                                    class="inline-flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-neutral-300 hover:text-gray-900 dark:hover:text-neutral-100 bg-transparent hover:bg-gray-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-200 cursor-pointer"
                                 >
                                     <EyeIcon class="w-5 h-5" />
                                     <span class="text-sm font-medium">Show hidden comments</span>
@@ -186,13 +186,13 @@
                             <div v-else>
                                 <div class="flex items-center justify-between mb-3 px-2">
                                     <h3
-                                        class="text-sm font-semibold text-gray-700 dark:text-slate-300"
+                                        class="text-sm font-semibold text-gray-700 dark:text-neutral-300"
                                     >
                                         Hidden Comments
                                     </h3>
                                     <button
                                         @click="handleHideHiddenComments"
-                                        class="text-xs text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200 cursor-pointer"
+                                        class="text-xs text-gray-500 dark:text-neutral-400 hover:text-gray-700 dark:hover:text-neutral-200 cursor-pointer"
                                     >
                                         <EyeSlashIcon class="w-4 h-4 inline mr-1" />
                                         Hide
@@ -208,7 +208,7 @@
 
                                 <div
                                     v-else-if="!hiddenComments.length"
-                                    class="p-4 text-center text-gray-500 dark:text-slate-400 text-sm"
+                                    class="p-4 text-center text-gray-500 dark:text-neutral-400 text-sm"
                                 >
                                     No hidden comments
                                 </div>
@@ -224,7 +224,7 @@
                                     <div v-if="hasMoreHidden" class="p-4 text-center">
                                         <button
                                             @click="loadMoreHidden"
-                                            class="text-sm font-medium text-[#F02C56] hover:text-[#F02C56]/70 cursor-pointer"
+                                            class="text-sm font-medium text-primary hover:text-primary/70 cursor-pointer"
                                             :disabled="isLoadingHidden"
                                         >
                                             {{ $t('common.loadMore') }}
@@ -240,7 +240,7 @@
 
         <div
             v-if="authStore.authenticated && canComment"
-            class="p-4 border-t border-gray-200 dark:border-slate-800 flex-shrink-0"
+            class="p-4 border-t border-gray-200 dark:border-neutral-800 flex-shrink-0"
         >
             <form class="relative flex items-start space-x-2" @submit.prevent="handleAddComment">
                 <div class="flex-1">
@@ -255,7 +255,7 @@
                         :validate-hashtags="true"
                         :initial-validated-mentions="initialValidatedMentions"
                         :initial-validated-hashtags="initialValidatedHashtags"
-                        border-class="border-gray-300 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 dark:text-slate-50 focus:border-[#F02C56]"
+                        border-class="border-gray-300 dark:border-neutral-700 bg-gray-50 dark:bg-neutral-800 dark:text-neutral-50 focus:border-primary"
                         min-height="40px"
                         max-height="120px"
                         @focus="handleInputFocus"
@@ -287,7 +287,7 @@
 
                     <button
                         type="submit"
-                        class="px-3 py-1.5 bg-[#F02C56] hover:bg-[#F02C56]/80 text-white text-sm font-medium rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                        class="px-3 py-1.5 bg-primary hover:bg-primary/80 text-white text-sm font-medium rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
                         :disabled="isSubmitting || !normalizedComment"
                     >
                         {{ isSubmitting ? $t('post.postingDotDotDot') : $t('post.post') }}
@@ -298,18 +298,18 @@
 
         <div
             v-else-if="!canComment"
-            class="p-4 border-t border-gray-200 dark:border-slate-800 flex-shrink-0"
+            class="p-4 border-t border-gray-200 dark:border-neutral-800 flex-shrink-0"
         >
-            <div class="text-center text-gray-500 dark:text-slate-400 text-sm">
+            <div class="text-center text-gray-500 dark:text-neutral-400 text-sm">
                 {{ $t('post.commentsHaveBeenDisabled') }}
             </div>
         </div>
 
         <div
             v-else-if="!authStore.authenticated && canComment"
-            class="p-4 border-t border-gray-200 dark:border-slate-800 flex-shrink-0"
+            class="p-4 border-t border-gray-200 dark:border-neutral-800 flex-shrink-0"
         >
-            <div class="text-center text-gray-500 dark:text-slate-400 text-sm">
+            <div class="text-center text-gray-500 dark:text-neutral-400 text-sm">
                 {{ $t('post.signInToLeaveAComment') }}
             </div>
         </div>

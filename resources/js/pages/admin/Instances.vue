@@ -239,13 +239,13 @@
                             Add Instance{{ addMode === 'mass' ? 's' : '' }}
                         </h2>
                         <div class="flex items-center">
-                            <div class="flex bg-gray-100 dark:bg-slate-900 rounded-lg p-1">
+                            <div class="flex bg-gray-100 dark:bg-neutral-900 rounded-lg p-1">
                                 <button
                                     @click="addMode = 'single'"
                                     :class="[
                                         'px-3 py-1.5 text-[10px] lg:text-[14px] font-medium rounded-md transition-all duration-200 relative cursor-pointer',
                                         addMode === 'single'
-                                            ? 'bg-white dark:bg-slate-700 text-black dark:text-white shadow-sm'
+                                            ? 'bg-white dark:bg-neutral-700 text-black dark:text-white shadow-sm'
                                             : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
                                     ]"
                                 >
@@ -256,7 +256,7 @@
                                     :class="[
                                         'px-3 py-1.5 text-[10px] lg:text-[14px] font-medium rounded-md transition-all duration-200 relative cursor-pointer',
                                         addMode === 'mass'
-                                            ? 'bg-white dark:bg-slate-700 text-black dark:text-white shadow-sm'
+                                            ? 'bg-white dark:bg-neutral-700 text-black dark:text-white shadow-sm'
                                             : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
                                     ]"
                                 >

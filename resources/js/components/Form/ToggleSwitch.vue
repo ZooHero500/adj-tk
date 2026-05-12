@@ -48,7 +48,7 @@ const toggleClasses = computed(() => {
             disabled: 'bg-gray-200 dark:bg-gray-700'
         },
         danger: {
-            enabled: 'bg-[#F02C56] dark:bg-[#E91E63] focus:ring-red-500',
+            enabled: 'bg-primary dark:bg-[#E91E63] focus:ring-red-500',
             disabled: 'bg-gray-200 dark:bg-gray-600'
         },
         warning: {

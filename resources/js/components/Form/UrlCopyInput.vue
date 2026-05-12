@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex w-full items-center bg-gray-200 dark:bg-gray-800 dark:border dark:border-slate-700 rounded-lg overflow-hidden"
+        class="flex w-full items-center bg-gray-200 dark:bg-gray-800 dark:border dark:border-neutral-700 rounded-lg overflow-hidden"
     >
         <input
             type="text"

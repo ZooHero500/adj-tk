@@ -5,7 +5,7 @@
 
         <div
             v-else-if="!loading"
-            class="min-h-screen bg-[#FAFAFA] dark:bg-slate-950 font-body lg:-mt-5"
+            class="min-h-screen bg-[#FAFAFA] dark:bg-neutral-950 font-body lg:-mt-5"
         >
             <div class="max-w-5xl mx-auto px-6 md:px-12">
                 <div class="pt-14 pb-8">
@@ -27,9 +27,9 @@
                     >
                         <div class="relative mb-6">
                             <div
-                                class="w-20 h-20 rounded-3xl flex items-center justify-center bg-[#F02C56]/8 dark:bg-[#F02C56]/12"
+                                class="w-20 h-20 rounded-3xl flex items-center justify-center bg-primary/8 dark:bg-primary/12"
                             >
-                                <ExclamationTriangleIcon class="w-9 h-9 text-[#F02C56]/40" />
+                                <ExclamationTriangleIcon class="w-9 h-9 text-primary/40" />
                             </div>
                         </div>
 
@@ -119,7 +119,7 @@
                                 class="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-900/60 border border-gray-100 dark:border-gray-800 rounded-full shadow-sm mb-8"
                             >
                                 <span
-                                    class="w-2 h-2 rounded-full bg-[#F02C56] flex-shrink-0"
+                                    class="w-2 h-2 rounded-full bg-primary flex-shrink-0"
                                 ></span>
                                 <span
                                     class="text-xs font-semibold text-gray-500 dark:text-gray-400 tabular-nums"
@@ -133,7 +133,7 @@
                         <router-link
                             v-if="config?.limit_restriction"
                             to="/"
-                            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold shadow-lg transition-all bg-[#F02C56] hover:bg-[#D91B42] text-white shadow-[#F02C56]/25"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold shadow-lg transition-all bg-primary hover:bg-[#D91B42] text-white shadow-primary/25"
                         >
                             <ChevronLeftIcon class="w-4 h-4" />
                             {{ t('common.goBackHome') }}
@@ -142,7 +142,7 @@
                         <router-link
                             v-else-if="config?.min_followers_not_met"
                             to="/starter-kits"
-                            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold shadow-lg transition-all bg-[#F02C56] hover:bg-[#D91B42] text-white shadow-[#F02C56]/25"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold shadow-lg transition-all bg-primary hover:bg-[#D91B42] text-white shadow-primary/25"
                         >
                             <ChevronLeftIcon class="w-4 h-4" />
                             {{
@@ -155,7 +155,7 @@
                         <router-link
                             v-else-if="config?.total_kits === config?.max_kits"
                             to="/starter-kits/my-kits"
-                            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold shadow-lg transition-all bg-[#F02C56] hover:bg-[#D91B42] text-white shadow-[#F02C56]/25"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold shadow-lg transition-all bg-primary hover:bg-[#D91B42] text-white shadow-primary/25"
                         >
                             <ChevronLeftIcon class="w-4 h-4" />
                             {{ t('common.manageMyKits') }}
@@ -180,9 +180,9 @@
                     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-5">
                         <div>
                             <div class="flex items-center gap-2.5 mb-4">
-                                <span class="block w-8 h-px bg-[#F02C56]"></span>
+                                <span class="block w-8 h-px bg-primary"></span>
                                 <span
-                                    class="text-xs font-semibold tracking-[0.15em] uppercase text-[#F02C56]"
+                                    class="text-xs font-semibold tracking-[0.15em] uppercase text-primary"
                                 >
                                     {{ t('common.newStarterKit') }}
                                 </span>
@@ -214,15 +214,15 @@
                                         class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                                     >
                                         {{ t('common.kitName') }}
-                                        <span class="text-[#F02C56]">*</span>
+                                        <span class="text-primary">*</span>
                                     </label>
                                     <input
                                         v-model="form.name"
                                         type="text"
                                         placeholder="e.g. Creative Content Creators"
                                         :maxlength="80"
-                                        class="w-full px-4 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-[#F02C56] focus:ring-2 focus:ring-[#F02C56]/15 transition-all"
-                                        :class="{ 'border-[#F02C56]': form.name.length > 0 }"
+                                        class="w-full px-4 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all"
+                                        :class="{ 'border-primary': form.name.length > 0 }"
                                     />
                                     <div class="flex justify-end mt-1.5">
                                         <span
@@ -237,14 +237,14 @@
                                         class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                                     >
                                         {{ t('studio.description') }}
-                                        <span class="text-[#F02C56]">*</span>
+                                        <span class="text-primary">*</span>
                                     </label>
                                     <textarea
                                         v-model="form.description"
                                         rows="4"
                                         maxlength="500"
                                         :placeholder="`${t('common.describeWhatThisStarterKitIsAboutAndWhoItsFor')}…`"
-                                        class="w-full px-4 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-[#F02C56] focus:ring-2 focus:ring-[#F02C56]/15 transition-all resize-none"
+                                        class="w-full px-4 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all resize-none"
                                     />
                                     <div class="flex justify-end mt-1.5">
                                         <span
@@ -258,7 +258,7 @@
                                     <label
                                         class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                                     >
-                                        {{ t('common.tags') }} <span class="text-[#F02C56]">*</span>
+                                        {{ t('common.tags') }} <span class="text-primary">*</span>
                                         <span class="ml-1.5 text-xs font-normal text-gray-400"
                                             >{{ t('common.upTo') }} 10</span
                                         >
@@ -271,12 +271,12 @@
                                         <span
                                             v-for="(tag, idx) in form.hashtags"
                                             :key="idx"
-                                            class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#F02C56]/10 dark:bg-[#F02C56]/15 text-[#F02C56] border border-[#F02C56]/20 rounded-full text-xs font-semibold"
+                                            class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-primary/10 dark:bg-primary/15 text-primary border border-primary/20 rounded-full text-xs font-semibold"
                                         >
                                             #{{ tag }}
                                             <button
                                                 @click="removeHashtag(idx)"
-                                                class="hover:bg-[#F02C56]/20 rounded-full p-0.5 transition-colors"
+                                                class="hover:bg-primary/20 rounded-full p-0.5 transition-colors"
                                             >
                                                 <XMarkIcon class="w-3 h-3" />
                                             </button>
@@ -302,7 +302,7 @@
                                                             ? t('common.limitReached')
                                                             : t('common.addATag') + '…'
                                                     "
-                                                    class="w-full pl-7 pr-4 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-[#F02C56] focus:ring-2 focus:ring-[#F02C56]/15 transition-all disabled:opacity-40"
+                                                    class="w-full pl-7 pr-4 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all disabled:opacity-40"
                                                     @keydown.enter.prevent="addHashtag"
                                                     @keydown.down.prevent="
                                                         navigateHashtagDropdown(1)
@@ -324,7 +324,7 @@
                                                 class="px-4 py-2 text-sm font-bold rounded-xl border transition-all disabled:opacity-40"
                                                 :class="
                                                     hashtagInput.trim()
-                                                        ? 'bg-[#F02C56] border-[#F02C56] text-white hover:bg-[#D91B42]'
+                                                        ? 'bg-primary border-primary text-white hover:bg-[#D91B42]'
                                                         : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-400'
                                                 "
                                             >
@@ -354,12 +354,12 @@
                                                     class="w-full flex items-center gap-2.5 px-3 py-2 text-left transition-colors"
                                                     :class="
                                                         hashtagDropdownIndex === idx
-                                                            ? 'bg-[#F02C56]/10 text-[#F02C56]'
+                                                            ? 'bg-primary/10 text-primary'
                                                             : 'hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200'
                                                     "
                                                 >
                                                     <span
-                                                        class="w-6 h-6 flex items-center justify-center bg-[#F02C56]/10 text-[#F02C56] rounded-lg text-xs font-bold flex-shrink-0"
+                                                        class="w-6 h-6 flex items-center justify-center bg-primary/10 text-primary rounded-lg text-xs font-bold flex-shrink-0"
                                                         >#</span
                                                     >
                                                     <span class="text-sm font-medium">{{
@@ -422,7 +422,7 @@
                                             :disabled="accountLimitReached"
                                             :placeholder="`${t('common.searchByUsernameOrDisplayName')}…`"
                                             autocomplete="off"
-                                            class="w-full pl-10 pr-9 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-[#F02C56] focus:ring-2 focus:ring-[#F02C56]/15 transition-all"
+                                            class="w-full pl-10 pr-9 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all"
                                             @input="onAccountSearchInput"
                                             @keydown.down.prevent="navigateAccountDropdown(1)"
                                             @keydown.up.prevent="navigateAccountDropdown(-1)"
@@ -476,7 +476,7 @@
                                                         class="w-full flex items-center gap-3 px-3 py-2.5 transition-colors border-t border-gray-50 dark:border-gray-800"
                                                         :class="
                                                             accountDropdownIndex === idx
-                                                                ? 'bg-[#F02C56]/8 dark:bg-[#F02C56]/10'
+                                                                ? 'bg-primary/8 dark:bg-primary/10'
                                                                 : 'hover:bg-gray-50 dark:hover:bg-gray-800/60'
                                                         "
                                                     >
@@ -505,7 +505,7 @@
                                                             </p>
                                                         </div>
                                                         <span
-                                                            class="flex-shrink-0 text-xs font-bold text-[#F02C56] flex items-center gap-1"
+                                                            class="flex-shrink-0 text-xs font-bold text-primary flex items-center gap-1"
                                                         >
                                                             <PlusIcon class="w-3.5 h-3.5" />
                                                             {{ t('common.add') }}
@@ -663,7 +663,7 @@
                                             class="h-1.5 rounded-full transition-all duration-500"
                                             :class="
                                                 isFormValid
-                                                    ? 'bg-[#F02C56]'
+                                                    ? 'bg-primary'
                                                     : 'bg-gray-300 dark:bg-gray-600'
                                             "
                                             :style="{
@@ -683,7 +683,7 @@
                                         class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all"
                                         :class="
                                             isFormValid && !isSaving
-                                                ? 'bg-[#F02C56] hover:bg-[#D91B42] text-white shadow-lg shadow-[#F02C56]/25'
+                                                ? 'bg-primary hover:bg-[#D91B42] text-white shadow-lg shadow-primary/25'
                                                 : 'bg-gray-100 dark:bg-gray-800 text-gray-300 dark:text-gray-600 cursor-not-allowed'
                                         "
                                     >
@@ -725,7 +725,7 @@
                                         :class="[
                                             'relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none flex-shrink-0',
                                             form.sensitive
-                                                ? 'bg-[#F02C56]'
+                                                ? 'bg-primary'
                                                 : 'bg-gray-200 dark:bg-gray-700'
                                         ]"
                                     >
@@ -747,8 +747,8 @@
                                             class="w-5 h-5 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 transition-all border-2"
                                             :class="
                                                 form.termsOfService
-                                                    ? 'bg-[#F02C56] border-[#F02C56] text-white'
-                                                    : 'border-gray-200 dark:border-gray-700 group-hover:border-[#F02C56]/40'
+                                                    ? 'bg-primary border-primary text-white'
+                                                    : 'border-gray-200 dark:border-gray-700 group-hover:border-primary/40'
                                             "
                                         >
                                             <CheckIcon v-if="form.termsOfService" class="w-3 h-3" />
@@ -759,7 +759,7 @@
                                             {{ t('common.thisKitAbidesByThe') }}
                                             <router-link
                                                 to="/community-guidelines"
-                                                class="font-semibold text-[#F02C56] hover:underline"
+                                                class="font-semibold text-primary hover:underline"
                                                 @click.stop
                                             >
                                                 {{ t('auth.communityGuidelines') }}
@@ -767,7 +767,7 @@
                                             {{ t('common.and') }}
                                             <router-link
                                                 to="/terms"
-                                                class="font-semibold text-[#F02C56] hover:underline"
+                                                class="font-semibold text-primary hover:underline"
                                                 @click.stop
                                             >
                                                 {{ t('auth.termsOfService') }}
@@ -842,7 +842,7 @@
                                             >{{ form.selectedAccounts.length }}
                                             {{ t('common.accounts') }}</span
                                         >
-                                        <span class="text-xs font-bold text-[#F02C56]"
+                                        <span class="text-xs font-bold text-primary"
                                             >{{ t('common.useKit') }} →</span
                                         >
                                     </div>

@@ -51,7 +51,7 @@
                                 <div v-if="index === 0" class="absolute top-3 left-3">
                                     <span
                                         class="px-2.5 py-1 rounded-full flex gap-1.5 items-center text-white text-xs font-bold shadow-lg"
-                                        style="background-color: #f02c56"
+                                        style="background-color: #E8713A"
                                     >
                                         <svg
                                             class="w-3.5 h-3.5"

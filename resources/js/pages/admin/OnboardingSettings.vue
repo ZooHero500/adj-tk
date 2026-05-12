@@ -211,7 +211,7 @@
                                     {{ f.label }}
                                     <span
                                         v-if="activeFilter === f.key"
-                                        class="absolute bottom-0 left-0 right-0 h-0.5 bg-[#F02C56] rounded-t-full"
+                                        class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-t-full"
                                     />
                                 </button>
                             </div>

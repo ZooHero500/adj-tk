@@ -2,7 +2,7 @@
     <div class="w-full">
         <div v-if="isMobile || !isCollapsed" class="relative">
             <i
-                class="bx bx-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500 text-lg pointer-events-none"
+                class="bx bx-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-neutral-500 text-lg pointer-events-none"
             ></i>
             <input
                 v-model="searchQuery"
@@ -11,9 +11,9 @@
                 @blur="handleBlur"
                 type="text"
                 :placeholder="$t('nav.search')"
-                class="w-full pl-10 pr-10 py-2.5 bg-gray-100 dark:bg-slate-900 border-0 rounded-full text-sm focus:ring-2 focus:ring-[#F02C56] dark:text-white placeholder-gray-500 dark:placeholder-slate-500 transition-all"
+                class="w-full pl-10 pr-10 py-2.5 bg-gray-100 dark:bg-neutral-900 border-0 rounded-full text-sm focus:ring-2 focus:ring-primary dark:text-white placeholder-gray-500 dark:placeholder-neutral-500 transition-all"
                 :class="{
-                    'ring-2 ring-[#F02C56]': isFocused
+                    'ring-2 ring-primary': isFocused
                 }"
             />
             <button
@@ -29,11 +29,11 @@
         <button
             v-else
             @click="handleCollapsedClick"
-            class="w-full flex items-center justify-center p-3 hover:bg-gray-100 dark:hover:bg-slate-900 rounded-lg transition-colors group"
+            class="w-full flex items-center justify-center p-3 hover:bg-gray-100 dark:hover:bg-neutral-900 rounded-lg transition-colors group"
             :title="$t('search.placeholder') || 'Search'"
         >
             <i
-                class="bx bx-search text-2xl text-gray-600 dark:text-slate-500 group-hover:text-[#F02C56] transition-colors"
+                class="bx bx-search text-2xl text-gray-600 dark:text-neutral-500 group-hover:text-primary transition-colors"
             ></i>
         </button>
     </div>

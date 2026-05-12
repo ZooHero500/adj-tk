@@ -199,7 +199,7 @@
                     <div class="flex items-center gap-2 lg:pr-4">
                         <span class="text-sm font-light text-gray-500">Select period: </span>
                         <div
-                            class="flex bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-gray-700 shadow rounded-lg p-2 gap-1"
+                            class="flex bg-gray-100 dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 shadow rounded-lg p-2 gap-1"
                         >
                             <button
                                 v-for="filter in filterOptions"
@@ -208,7 +208,7 @@
                                 :class="[
                                     'px-5 py-1.5 text-[10px] lg:text-[16px] font-medium rounded-md transition-all duration-200 relative cursor-pointer',
                                     activeFilter === filter
-                                        ? 'bg-white dark:bg-slate-700 text-black dark:text-white shadow-sm'
+                                        ? 'bg-white dark:bg-neutral-700 text-black dark:text-white shadow-sm'
                                         : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-200'
                                 ]"
                             >

@@ -1,6 +1,6 @@
 <template>
     <BlankLayout>
-        <div class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+        <div class="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
             <div
                 class="pointer-events-none absolute inset-0 opacity-60 dark:opacity-40"
                 aria-hidden="true"
@@ -37,17 +37,17 @@
                         </h1>
 
                         <p
-                            class="mt-4 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300"
+                            class="mt-4 max-w-xl text-base leading-relaxed text-neutral-600 dark:text-neutral-300"
                         >
                             {{ $t('auth.youveBeenInvitedToCreateALoopsAccount') }}
                         </p>
 
                         <div
                             v-if="invitedBy && currentStep >= 2"
-                            class="mt-8 rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/60"
+                            class="mt-8 rounded-2xl border border-neutral-200 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/60"
                         >
                             <p
-                                class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3"
+                                class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-3"
                             >
                                 {{ $t('auth.invitedBy') }}
                             </p>
@@ -55,15 +55,15 @@
                                 <img
                                     :src="invitedBy.avatar"
                                     :alt="invitedBy.name"
-                                    class="h-12 w-12 rounded-full border-2 border-slate-200 dark:border-slate-700 object-cover"
+                                    class="h-12 w-12 rounded-full border-2 border-neutral-200 dark:border-neutral-700 object-cover"
                                 />
                                 <div>
                                     <p
-                                        class="text-base font-semibold text-slate-900 dark:text-slate-100"
+                                        class="text-base font-semibold text-neutral-900 dark:text-neutral-100"
                                     >
                                         {{ invitedBy.name }}
                                     </p>
-                                    <p class="text-sm text-slate-600 dark:text-slate-400">
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
                                         @{{ invitedBy.username }}
                                     </p>
                                 </div>
@@ -72,12 +72,12 @@
 
                         <div
                             v-if="inviteMessage && currentStep >= 2"
-                            class="mt-4 rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/60"
+                            class="mt-4 rounded-2xl border border-neutral-200 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/60"
                         >
                             <div class="flex items-start gap-3">
                                 <div>
                                     <p
-                                        class="my-1 text-lg leading-relaxed text-slate-700 dark:text-slate-300"
+                                        class="my-1 text-lg leading-relaxed text-neutral-700 dark:text-neutral-300"
                                     >
                                         {{ inviteMessage }}
                                     </p>
@@ -93,12 +93,12 @@
                                     class="h-1 flex-1 rounded-full transition-colors"
                                     :class="
                                         i <= currentStep
-                                            ? 'bg-[#F02C56]'
-                                            : 'bg-slate-200 dark:bg-slate-800'
+                                            ? 'bg-primary'
+                                            : 'bg-neutral-200 dark:bg-neutral-800'
                                     "
                                 ></div>
                             </div>
-                            <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                            <p class="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
                                 {{ $t('common.step') }} {{ currentStep }} {{ $t('common.of') }} 4
                             </p>
                         </div>
@@ -110,7 +110,7 @@
                     >
                         <div class="w-full max-w-md">
                             <div
-                                class="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-xl shadow-slate-900/5 backdrop-blur dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-black/30 overflow-hidden"
+                                class="rounded-3xl border border-neutral-200 bg-white/80 p-6 shadow-xl shadow-neutral-900/5 backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/70 dark:shadow-black/30 overflow-hidden"
                             >
                                 <transition name="slide">
                                     <div v-if="authStore.isAuthenticated" class="space-y-4">
@@ -122,7 +122,7 @@
                                                     You are already logged in.
                                                 </p>
                                                 <p
-                                                    class="text-sm text-slate-600 dark:text-slate-300"
+                                                    class="text-sm text-neutral-600 dark:text-neutral-300"
                                                 >
                                                     Please logout before attempting to use this
                                                     invite.
@@ -140,7 +140,7 @@
                     <section v-else class="flex items-center justify-center">
                         <div class="w-full max-w-md">
                             <div
-                                class="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-xl shadow-slate-900/5 backdrop-blur dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-black/30 overflow-hidden"
+                                class="rounded-3xl border border-neutral-200 bg-white/80 p-6 shadow-xl shadow-neutral-900/5 backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/70 dark:shadow-black/30 overflow-hidden"
                             >
                                 <transition name="slide">
                                     <div v-if="currentStep === 0" class="space-y-4">
@@ -152,7 +152,7 @@
                                                     {{ $t('auth.verifyingInviteDotDotDot') }}
                                                 </p>
                                                 <p
-                                                    class="text-sm text-slate-600 dark:text-slate-300"
+                                                    class="text-sm text-neutral-600 dark:text-neutral-300"
                                                 >
                                                     {{ $t('auth.thisUsuallyTakesAMoment') }}
                                                 </p>
@@ -161,13 +161,13 @@
 
                                         <div class="space-y-3">
                                             <div
-                                                class="h-10 w-full animate-pulse rounded-xl bg-slate-100 dark:bg-slate-800/70"
+                                                class="h-10 w-full animate-pulse rounded-xl bg-neutral-100 dark:bg-neutral-800/70"
                                             ></div>
                                             <div
-                                                class="h-10 w-full animate-pulse rounded-xl bg-slate-100 dark:bg-slate-800/70"
+                                                class="h-10 w-full animate-pulse rounded-xl bg-neutral-100 dark:bg-neutral-800/70"
                                             ></div>
                                             <div
-                                                class="h-10 w-full animate-pulse rounded-xl bg-slate-100 dark:bg-slate-800/70"
+                                                class="h-10 w-full animate-pulse rounded-xl bg-neutral-100 dark:bg-neutral-800/70"
                                             ></div>
                                         </div>
                                     </div>
@@ -177,7 +177,7 @@
                                     <div v-if="currentStep === -1" class="space-y-4">
                                         <div class="flex items-start gap-3">
                                             <div
-                                                class="mt-0.5 p-4 rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950 flex items-center justify-center"
+                                                class="mt-0.5 p-4 rounded-2xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950 flex items-center justify-center"
                                             >
                                                 <ExclamationTriangleIcon
                                                     class="h-10 w-10 text-red-500"
@@ -188,7 +188,7 @@
                                                     {{ $t('auth.inviteLinkNotValid') }}
                                                 </p>
                                                 <p
-                                                    class="mt-1 text-sm text-slate-600 dark:text-slate-300"
+                                                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-300"
                                                 >
                                                     {{ $t('auth.thisInviteMayBeExpired') }}
                                                 </p>
@@ -213,7 +213,7 @@
 
                                             <button
                                                 type="button"
-                                                class="inline-flex w-full items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100 dark:hover:bg-slate-900 dark:focus:ring-slate-800"
+                                                class="inline-flex w-full items-center justify-center rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-50 focus:outline-none focus:ring-4 focus:ring-neutral-200 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900 dark:focus:ring-neutral-800"
                                                 @click="goHome"
                                             >
                                                 {{ $t('post.goBack') }}
@@ -232,7 +232,7 @@
                                                 {{ $t('auth.verifyYoureHuman') }}
                                             </p>
                                             <p
-                                                class="mt-1 text-sm text-slate-600 dark:text-slate-300"
+                                                class="mt-1 text-sm text-neutral-600 dark:text-neutral-300"
                                             >
                                                 {{ $t('auth.completeTheVerificationToContinue') }}
                                             </p>
@@ -290,7 +290,7 @@
                                                 {{ $t('auth.whatsYourBirthdate') }}
                                             </p>
                                             <p
-                                                class="mt-1 text-sm text-slate-600 dark:text-slate-300"
+                                                class="mt-1 text-sm text-neutral-600 dark:text-neutral-300"
                                             >
                                                 {{ $t('auth.weNeedToVerifyYouMeetTheMinAgeReq') }}
                                             </p>
@@ -299,14 +299,14 @@
                                         <div class="grid grid-cols-3 gap-3">
                                             <div>
                                                 <label
-                                                    class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1"
+                                                    class="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1"
                                                 >
                                                     {{ $t('common.month') }}
                                                 </label>
                                                 <select
                                                     v-model="birth.month"
                                                     required
-                                                    class="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm focus:border-[#F02C56] focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] transition-colors outline-none"
+                                                    class="w-full px-3 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 text-sm focus:border-primary focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] transition-colors outline-none"
                                                 >
                                                     <option value="" disabled>Month</option>
                                                     <option
@@ -321,14 +321,14 @@
 
                                             <div>
                                                 <label
-                                                    class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1"
+                                                    class="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1"
                                                 >
                                                     {{ $t('common.day') }}
                                                 </label>
                                                 <select
                                                     v-model="birth.day"
                                                     required
-                                                    class="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm focus:border-[#F02C56] focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] transition-colors outline-none"
+                                                    class="w-full px-3 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 text-sm focus:border-primary focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] transition-colors outline-none"
                                                 >
                                                     <option value="" disabled>Day</option>
                                                     <option v-for="d in days" :key="d" :value="d">
@@ -339,14 +339,14 @@
 
                                             <div>
                                                 <label
-                                                    class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1"
+                                                    class="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1"
                                                 >
                                                     {{ $t('common.year') }}
                                                 </label>
                                                 <select
                                                     v-model="birth.year"
                                                     required
-                                                    class="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm focus:border-[#F02C56] focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] transition-colors outline-none"
+                                                    class="w-full px-3 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 text-sm focus:border-primary focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] transition-colors outline-none"
                                                 >
                                                     <option value="" disabled>Year</option>
                                                     <option v-for="y in years" :key="y" :value="y">
@@ -363,7 +363,7 @@
                                             {{ ageError }}
                                         </div>
 
-                                        <div class="text-xs text-slate-500 dark:text-slate-400">
+                                        <div class="text-xs text-neutral-500 dark:text-neutral-400">
                                             {{ $t('auth.yourBirthdateWontBePublic') }}
                                         </div>
 
@@ -371,7 +371,7 @@
                                             <button
                                                 v-if="appCaptcha.enabled"
                                                 type="button"
-                                                class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100 dark:hover:bg-slate-900 dark:focus:ring-slate-800"
+                                                class="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-50 focus:outline-none focus:ring-4 focus:ring-neutral-200 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900 dark:focus:ring-neutral-800"
                                                 @click="goToPreviousStep"
                                             >
                                                 {{ $t('settings.back') }}
@@ -404,7 +404,7 @@
                                                 {{ $t('auth.createYourProfile') }}
                                             </p>
                                             <p
-                                                class="mt-1 text-sm text-slate-600 dark:text-slate-300"
+                                                class="mt-1 text-sm text-neutral-600 dark:text-neutral-300"
                                             >
                                                 {{
                                                     $t('auth.chooseYourDisplayNameUsernameAndEmail')
@@ -414,7 +414,7 @@
 
                                         <div>
                                             <label
-                                                class="text-sm font-medium text-slate-800 dark:text-slate-200"
+                                                class="text-sm font-medium text-neutral-800 dark:text-neutral-200"
                                             >
                                                 {{ $t('profile.displayName') }}
                                             </label>
@@ -422,7 +422,7 @@
                                                 v-model.trim="form.name"
                                                 type="text"
                                                 autocomplete="name"
-                                                class="mt-1 w-full rounded-xl border bg-white px-3 py-2.5 text-sm shadow-sm outline-none transition border-slate-200 text-slate-900 placeholder:text-slate-400 focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] focus:border-[rgba(240,44,86,0.55)] dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
+                                                class="mt-1 w-full rounded-xl border bg-white px-3 py-2.5 text-sm shadow-sm outline-none transition border-neutral-200 text-neutral-900 placeholder:text-neutral-400 focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] focus:border-[rgba(240,44,86,0.55)] dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:placeholder:text-neutral-500"
                                                 placeholder="Your name"
                                             />
                                             <p
@@ -435,17 +435,17 @@
 
                                         <div>
                                             <label
-                                                class="text-sm font-medium text-slate-800 dark:text-slate-200"
+                                                class="text-sm font-medium text-neutral-800 dark:text-neutral-200"
                                             >
                                                 {{ $t('common.username') }}
                                             </label>
 
                                             <div class="mt-1 flex items-center gap-2">
                                                 <div
-                                                    class="flex w-full items-center rounded-xl border bg-white px-3 py-2.5 text-sm shadow-sm transition border-slate-200 focus-within:ring-4 focus-within:ring-[rgba(240,44,86,0.18)] focus-within:border-[rgba(240,44,86,0.55)] dark:border-slate-800 dark:bg-slate-950"
+                                                    class="flex w-full items-center rounded-xl border bg-white px-3 py-2.5 text-sm shadow-sm transition border-neutral-200 focus-within:ring-4 focus-within:ring-[rgba(240,44,86,0.18)] focus-within:border-[rgba(240,44,86,0.55)] dark:border-neutral-800 dark:bg-neutral-950"
                                                 >
                                                     <span
-                                                        class="select-none text-slate-400 dark:text-slate-500"
+                                                        class="select-none text-neutral-400 dark:text-neutral-500"
                                                         >@</span
                                                     >
                                                     <input
@@ -457,7 +457,7 @@
                                                         autocapitalize="none"
                                                         @input="handleUsernameInput"
                                                         :maxlength="24"
-                                                        class="ml-2 w-full bg-transparent text-slate-900 placeholder:text-slate-400 outline-none dark:text-slate-100 dark:placeholder:text-slate-500"
+                                                        class="ml-2 w-full bg-transparent text-neutral-900 placeholder:text-neutral-400 outline-none dark:text-neutral-100 dark:placeholder:text-neutral-500"
                                                         placeholder="yourUsername123"
                                                     />
                                                 </div>
@@ -465,7 +465,7 @@
                                                 <div class="min-w-[2.25rem] flex justify-center">
                                                     <span
                                                         v-if="usernameStatus === 'checking'"
-                                                        class="h-4 w-4 animate-spin rounded-full border-2 border-slate-300 border-t-transparent dark:border-slate-600 dark:border-t-transparent"
+                                                        class="h-4 w-4 animate-spin rounded-full border-2 border-neutral-300 border-t-transparent dark:border-neutral-600 dark:border-t-transparent"
                                                     ></span>
 
                                                     <svg
@@ -498,7 +498,7 @@
 
                                             <p
                                                 v-if="usernameHelp"
-                                                class="mt-1 text-xs text-slate-500 dark:text-slate-400"
+                                                class="mt-1 text-xs text-neutral-500 dark:text-neutral-400"
                                             >
                                                 {{ usernameHelp }}
                                             </p>
@@ -512,7 +512,7 @@
 
                                         <div>
                                             <label
-                                                class="text-sm font-medium text-slate-800 dark:text-slate-200"
+                                                class="text-sm font-medium text-neutral-800 dark:text-neutral-200"
                                             >
                                                 {{ $t('common.email') }}
                                             </label>
@@ -520,7 +520,7 @@
                                                 v-model.trim="form.email"
                                                 type="email"
                                                 autocomplete="email"
-                                                class="mt-1 w-full rounded-xl border bg-white px-3 py-2.5 text-sm shadow-sm outline-none transition border-slate-200 text-slate-900 placeholder:text-slate-400 focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] focus:border-[rgba(240,44,86,0.55)] dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
+                                                class="mt-1 w-full rounded-xl border bg-white px-3 py-2.5 text-sm shadow-sm outline-none transition border-neutral-200 text-neutral-900 placeholder:text-neutral-400 focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] focus:border-[rgba(240,44,86,0.55)] dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:placeholder:text-neutral-500"
                                                 placeholder="you@example.com"
                                             />
                                             <p
@@ -534,7 +534,7 @@
                                         <div class="flex gap-2">
                                             <button
                                                 type="button"
-                                                class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100 dark:hover:bg-slate-900 dark:focus:ring-slate-800"
+                                                class="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-50 focus:outline-none focus:ring-4 focus:ring-neutral-200 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900 dark:focus:ring-neutral-800"
                                                 @click="goToPreviousStep"
                                             >
                                                 {{ $t('settings.back') }}
@@ -559,7 +559,7 @@
                                                 {{ $t('auth.setYourPassword') }}
                                             </p>
                                             <p
-                                                class="mt-1 text-sm text-slate-600 dark:text-slate-300"
+                                                class="mt-1 text-sm text-neutral-600 dark:text-neutral-300"
                                             >
                                                 {{ $t('auth.chooseASecurePasswordForYourAccount') }}
                                             </p>
@@ -567,7 +567,7 @@
 
                                         <div>
                                             <label
-                                                class="text-sm font-medium text-slate-800 dark:text-slate-200"
+                                                class="text-sm font-medium text-neutral-800 dark:text-neutral-200"
                                             >
                                                 {{ $t('common.password') }}
                                             </label>
@@ -575,7 +575,7 @@
                                                 v-model="form.password"
                                                 type="password"
                                                 autocomplete="new-password"
-                                                class="mt-1 w-full rounded-xl border bg-white px-3 py-2.5 text-sm shadow-sm outline-none transition border-slate-200 text-slate-900 placeholder:text-slate-400 focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] focus:border-[rgba(240,44,86,0.55)] dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
+                                                class="mt-1 w-full rounded-xl border bg-white px-3 py-2.5 text-sm shadow-sm outline-none transition border-neutral-200 text-neutral-900 placeholder:text-neutral-400 focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] focus:border-[rgba(240,44,86,0.55)] dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:placeholder:text-neutral-500"
                                                 placeholder="••••••••"
                                             />
                                             <p
@@ -588,7 +588,7 @@
 
                                         <div>
                                             <label
-                                                class="text-sm font-medium text-slate-800 dark:text-slate-200"
+                                                class="text-sm font-medium text-neutral-800 dark:text-neutral-200"
                                             >
                                                 {{ $t('common.confirmPassword') }}
                                             </label>
@@ -596,7 +596,7 @@
                                                 v-model="form.password_confirmation"
                                                 type="password"
                                                 autocomplete="new-password"
-                                                class="mt-1 w-full rounded-xl border bg-white px-3 py-2.5 text-sm shadow-sm outline-none transition border-slate-200 text-slate-900 placeholder:text-slate-400 focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] focus:border-[rgba(240,44,86,0.55)] dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
+                                                class="mt-1 w-full rounded-xl border bg-white px-3 py-2.5 text-sm shadow-sm outline-none transition border-neutral-200 text-neutral-900 placeholder:text-neutral-400 focus:ring-4 focus:ring-[rgba(240,44,86,0.18)] focus:border-[rgba(240,44,86,0.55)] dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:placeholder:text-neutral-500"
                                                 placeholder="••••••••"
                                             />
                                             <p
@@ -622,7 +622,7 @@
 
                                         <div>
                                             <p
-                                                class="text-xs text-slate-500 dark:text-slate-400 text-center"
+                                                class="text-xs text-neutral-500 dark:text-neutral-400 text-center"
                                             >
                                                 {{ $t('auth.byCreatingANewAccount') }}
                                                 <a
@@ -650,7 +650,7 @@
                                         <div class="flex gap-2">
                                             <button
                                                 type="button"
-                                                class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100 dark:hover:bg-slate-900 dark:focus:ring-slate-800"
+                                                class="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-50 focus:outline-none focus:ring-4 focus:ring-neutral-200 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900 dark:focus:ring-neutral-800"
                                                 @click="goToPreviousStep"
                                             >
                                                 {{ $t('settings.back') }}
@@ -680,7 +680,7 @@
                                     <div v-if="currentStep === 5" class="space-y-4">
                                         <div class="flex items-start gap-3">
                                             <div
-                                                class="mt-0.5 h-10 w-10 rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950 flex items-center justify-center"
+                                                class="mt-0.5 h-10 w-10 rounded-2xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950 flex items-center justify-center"
                                             >
                                                 <svg
                                                     viewBox="0 0 24 24"
@@ -700,7 +700,7 @@
                                                     {{ $t('auth.accountCreated') }}
                                                 </p>
                                                 <p
-                                                    class="mt-1 text-sm text-slate-600 dark:text-slate-300"
+                                                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-300"
                                                 >
                                                     {{
                                                         $t('auth.yourAccountIsReadyYouCanSignInNow')
@@ -721,7 +721,7 @@
                                 </transition>
                             </div>
 
-                            <p class="mt-4 text-center text-xs text-slate-500 dark:text-slate-400">
+                            <p class="mt-4 text-center text-xs text-neutral-500 dark:text-neutral-400">
                                 {{ $t('auth.needHelpAskTheAdminWhoSentYouThisInvite') }}
                             </p>
                         </div>
@@ -900,8 +900,8 @@ const canSubmit = computed(() => {
 })
 
 const primaryButtonStyle = computed(() => ({
-    backgroundColor: '#F02C56',
-    boxShadow: '0 10px 25px rgba(240,44,86,0.25)'
+    backgroundColor: '#E8713A',
+    boxShadow: '0 10px 25px rgba(232,113,58,0.25)'
 }))
 
 function goHome() {

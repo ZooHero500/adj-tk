@@ -1,5 +1,5 @@
 <template>
-    <aside class="w-64 bg-white dark:bg-slate-950">
+    <aside class="w-64 bg-white dark:bg-neutral-950">
         <nav class="flex flex-col h-full px-3">
             <div class="p-4">
                 <router-link

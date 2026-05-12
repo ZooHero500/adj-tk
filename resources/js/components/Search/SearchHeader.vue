@@ -14,7 +14,7 @@
                         @keyup.enter="handleSearch"
                         type="text"
                         :placeholder="$t('nav.search')"
-                        class="w-full pl-12 pr-12 py-3 bg-gray-100 dark:bg-gray-800 border-0 rounded-full text-sm focus:ring-2 focus:ring-[#F02C56] dark:text-white placeholder-gray-500"
+                        class="w-full pl-12 pr-12 py-3 bg-gray-100 dark:bg-gray-800 border-0 rounded-full text-sm focus:ring-2 focus:ring-primary dark:text-white placeholder-gray-500"
                     />
                     <button
                         v-if="localQuery"

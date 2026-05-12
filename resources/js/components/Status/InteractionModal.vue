@@ -13,10 +13,10 @@
                     <div class="fixed inset-0 bg-black/90 transition-opacity" @click="close"></div>
 
                     <div
-                        class="relative transform overflow-hidden rounded-2xl bg-white dark:bg-slate-900 text-left shadow-xl transition-all w-full max-w-md"
+                        class="relative transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 text-left shadow-xl transition-all w-full max-w-md"
                     >
                         <div
-                            class="absolute top-0 z-10 flex w-full items-center justify-between px-6 pt-4 border-b border-gray-200/30 dark:border-slate-700/30 bg-gray-50/70 dark:bg-slate-900/70 backdrop-blur-lg"
+                            class="absolute top-0 z-10 flex w-full items-center justify-between px-6 pt-4 border-b border-gray-200/30 dark:border-neutral-700/30 bg-gray-50/70 dark:bg-neutral-900/70 backdrop-blur-lg"
                         >
                             <div class="flex items-center space-x-3 relative">
                                 <button
@@ -26,14 +26,14 @@
                                     class="relative px-4 pb-[14px] pt-2 text-sm font-semibold transition-colors rounded-lg cursor-pointer"
                                     :class="
                                         activeTab === tab.key
-                                            ? 'text-[#F02C56] dark:text-[#F02C56]'
+                                            ? 'text-primary dark:text-primary'
                                             : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                                     "
                                 >
                                     {{ tab.label }}
                                     <span
                                         v-if="activeTab === tab.key"
-                                        class="absolute -bottom-[1px] left-0 right-0 h-[2px] bg-[#F02C56]"
+                                        class="absolute -bottom-[1px] left-0 right-0 h-[2px] bg-primary"
                                     >
                                     </span>
                                 </button>
@@ -62,7 +62,7 @@
                                 class="flex flex-col items-center justify-center py-12 px-6"
                             >
                                 <div
-                                    class="w-16 h-16 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center mb-4"
+                                    class="w-16 h-16 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center mb-4"
                                 >
                                     <HeartIcon
                                         v-if="activeTab === 'likes'"
@@ -78,12 +78,12 @@
                                 </p>
                             </div>
 
-                            <div v-else class="divide-y divide-gray-200 dark:divide-slate-800">
+                            <div v-else class="divide-y divide-gray-200 dark:divide-neutral-800">
                                 <TransitionGroup name="fade-in" tag="div">
                                     <div
                                         v-for="user in users"
                                         :key="user.id"
-                                        class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors"
+                                        class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-neutral-800 transition-colors"
                                     >
                                         <div class="flex items-center justify-between">
                                             <router-link
@@ -123,8 +123,8 @@
                                                 class="ml-3 flex-shrink-0 px-4 py-1.5 text-sm font-semibold rounded-lg transition-colors"
                                                 :class="
                                                     user.is_following
-                                                        ? 'border border-[#F02C56] text-[#F02C56] hover:bg-red-50 dark:hover:bg-slate-800'
-                                                        : 'bg-[#F02C56] text-white hover:bg-red-600'
+                                                        ? 'border border-primary text-primary hover:bg-red-50 dark:hover:bg-neutral-800'
+                                                        : 'bg-primary text-white hover:bg-red-600'
                                                 "
                                             >
                                                 {{

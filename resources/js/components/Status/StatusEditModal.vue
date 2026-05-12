@@ -5,10 +5,10 @@
         @click.self="closeModal"
     >
         <div
-            class="bg-white dark:bg-slate-900 rounded-lg shadow-xl w-full max-w-md mx-4 max-h-[90vh] overflow-y-auto"
+            class="bg-white dark:bg-neutral-900 rounded-lg shadow-xl w-full max-w-md mx-4 max-h-[90vh] overflow-y-auto"
         >
             <div
-                class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-slate-700"
+                class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-neutral-700"
             >
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
                     {{ $t('post.editVideo') }}
@@ -28,7 +28,7 @@
                     </label>
                     <textarea
                         v-model="formData.caption"
-                        class="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#F02C56] focus:border-[#F02C56] dark:bg-slate-800 dark:text-white resize-none"
+                        class="w-full px-3 py-2 border border-gray-300 dark:border-neutral-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary dark:bg-neutral-800 dark:text-white resize-none"
                         rows="4"
                         :placeholder="$t('post.writeYourCaptionDotDotDot')"
                         maxlength="200"
@@ -77,7 +77,7 @@
                         </p>
                         <textarea
                             v-model="formData.altText"
-                            class="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#F02C56] focus:border-[#F02C56] dark:bg-slate-800 dark:text-white resize-none"
+                            class="w-full px-3 py-2 border border-gray-300 dark:border-neutral-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary dark:bg-neutral-800 dark:text-white resize-none"
                             rows="3"
                             :placeholder="$t('studio.describeYourVideoDotDotDotAltText')"
                             maxlength="2000"
@@ -190,7 +190,7 @@
                     </p>
                 </div>
 
-                <div class="space-y-4 pt-4 border-t border-gray-200 dark:border-slate-700">
+                <div class="space-y-4 pt-4 border-t border-gray-200 dark:border-neutral-700">
                     <div class="flex items-start justify-between">
                         <div class="flex-1">
                             <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -234,7 +234,7 @@
                     </div>
                 </div>
 
-                <div class="border-t border-gray-200 dark:border-slate-700 pt-6">
+                <div class="border-t border-gray-200 dark:border-neutral-700 pt-6">
                     <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-4">
                         <div class="flex items-start">
                             <ExclamationTriangleIcon class="h-5 w-5 text-red-400 mt-0.5 mr-3" />
@@ -258,18 +258,18 @@
             </div>
 
             <div
-                class="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 rounded-b-lg"
+                class="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-200 dark:border-neutral-700 bg-gray-50 dark:bg-neutral-800 rounded-b-lg"
             >
                 <button
                     @click="closeModal"
-                    class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-md hover:bg-gray-50 dark:hover:bg-slate-600 transition-colors duration-200 cursor-pointer"
+                    class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-neutral-700 border border-gray-300 dark:border-neutral-600 rounded-md hover:bg-gray-50 dark:hover:bg-neutral-600 transition-colors duration-200 cursor-pointer"
                 >
                     {{ $t('common.cancel') }}
                 </button>
                 <button
                     @click="saveChanges"
                     :disabled="isSaving"
-                    class="px-4 py-2 text-sm font-medium text-white bg-[#F02C56] hover:bg-red-600 disabled:bg-red-300 disabled:cursor-not-allowed rounded-md transition-colors duration-200 flex items-center cursor-pointer"
+                    class="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-red-600 disabled:bg-red-300 disabled:cursor-not-allowed rounded-md transition-colors duration-200 flex items-center cursor-pointer"
                 >
                     <Spinner v-if="isSaving" size="sm" class="mr-2" />
                     {{ isSaving ? $t('common.savingDotDotDot') : $t('post.saveChanges') }}

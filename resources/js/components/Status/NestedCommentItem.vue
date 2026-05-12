@@ -73,7 +73,7 @@
                         </button>
                         <button
                             @click="saveEdit"
-                            class="px-4 py-1.5 bg-[#F02C56] hover:bg-[#F02C56]/70 text-white text-sm font-medium rounded-lg disabled:opacity-50 transition-colors cursor-pointer flex items-center space-x-2"
+                            class="px-4 py-1.5 bg-primary hover:bg-primary/70 text-white text-sm font-medium rounded-lg disabled:opacity-50 transition-colors cursor-pointer flex items-center space-x-2"
                             :disabled="
                                 isSavingEdit ||
                                 !editedCaption.trim() ||
@@ -106,7 +106,7 @@
                         :root-class="
                             comment.tombstone
                                 ? 'text-gray-500'
-                                : 'text-gray-800 dark:text-slate-300 whitespace-pre-wrap leading-relaxed'
+                                : 'text-gray-800 dark:text-neutral-300 whitespace-pre-wrap leading-relaxed'
                         "
                         text-size="text-[16px]"
                         :max-char-limit="80"

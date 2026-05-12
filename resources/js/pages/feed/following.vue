@@ -46,7 +46,7 @@
                     <button
                         type="button"
                         @click="refetch()"
-                        class="flex items-center bg-[#F02C56] border border-[#F02C56] text-white rounded-lg px-5 py-2 hover:bg-[#F02C56]/80 hover:border-[#F02C5699] cursor-pointer"
+                        class="flex items-center bg-primary border border-primary text-white rounded-lg px-5 py-2 hover:bg-primary/80 hover:border-primary/60 cursor-pointer"
                     >
                         <i class="bx bx-refresh text-[20px]"></i>
                         <div>Refresh</div>

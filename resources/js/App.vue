@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-white dark:bg-slate-950">
+    <div class="min-h-screen bg-white dark:bg-neutral-950">
         <router-view v-slot="{ Component }">
             <Suspense>
                 <template #default>
@@ -23,13 +23,10 @@ import PageSkeleton from '@/components/Layout/PageSkeleton.vue'
 const authStore = useAuthStore()
 
 onMounted(async () => {
-    if (
-        localStorage.theme === 'dark' ||
-        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-        document.documentElement.classList.add('dark')
-    } else {
+    if (localStorage.theme === 'light') {
         document.documentElement.classList.remove('dark')
+    } else {
+        document.documentElement.classList.add('dark')
     }
     try {
         await authStore.hasSessionExpired()

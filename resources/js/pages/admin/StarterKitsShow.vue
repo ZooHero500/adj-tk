@@ -133,7 +133,7 @@
                     <button
                         @click="saveDetails"
                         :disabled="saving || !detailsDirty"
-                        class="flex items-center gap-1.5 px-4 xl:px-12 py-2 bg-[#F02C56] hover:bg-[#E91E63] disabled:bg-gray-200 dark:disabled:bg-gray-700 disabled:text-gray-400 dark:disabled:text-gray-500 text-white text-sm font-semibold rounded-lg transition-colors"
+                        class="flex items-center gap-1.5 px-4 xl:px-12 py-2 bg-primary hover:bg-[#E91E63] disabled:bg-gray-200 dark:disabled:bg-gray-700 disabled:text-gray-400 dark:disabled:text-gray-500 text-white text-sm font-semibold rounded-lg transition-colors"
                     >
                         <Spinner v-if="saving" size="sm" />
                         <CheckIcon v-else-if="saveSuccess" class="w-4 h-4" />
@@ -155,7 +155,7 @@
                                 v-model="form.title"
                                 type="text"
                                 placeholder="e.g. Science & Tech Creators"
-                                class="w-full px-3 py-2.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#F02C56]/30 focus:border-[#F02C56] transition-colors"
+                                class="w-full px-3 py-2.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
                                 :maxlength="80"
                                 @input="markDirty"
                             />
@@ -175,7 +175,7 @@
                                 rows="4"
                                 maxlength="500"
                                 placeholder="What's this kit about? Help people decide if it's right for them."
-                                class="w-full px-3 py-2.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#F02C56]/30 focus:border-[#F02C56] transition-colors resize-none"
+                                class="w-full px-3 py-2.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none"
                                 @input="markDirty"
                             />
                             <p class="text-xs text-gray-400 dark:text-gray-500 mt-1 text-right">
@@ -212,7 +212,7 @@
                                     type="text"
                                     maxlength="32"
                                     placeholder="Add a tag…"
-                                    class="flex-1 px-3 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#F02C56]/30 focus:border-[#F02C56] transition-colors"
+                                    class="flex-1 px-3 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
                                     @keydown.enter.prevent="addTag"
                                     @keydown.space.prevent="addTag"
                                 />
@@ -245,9 +245,9 @@
                                 role="switch"
                                 :aria-checked="form.is_discoverable"
                                 :class="[
-                                    'relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F02C56]/50',
+                                    'relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50',
                                     form.is_discoverable
-                                        ? 'bg-[#F02C56]'
+                                        ? 'bg-primary'
                                         : 'bg-gray-200 dark:bg-gray-700'
                                 ]"
                             >
@@ -276,9 +276,9 @@
                                 role="switch"
                                 :aria-checked="form.is_sensitive"
                                 :class="[
-                                    'relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F02C56]/50',
+                                    'relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50',
                                     form.is_sensitive
-                                        ? 'bg-[#F02C56]'
+                                        ? 'bg-primary'
                                         : 'bg-gray-200 dark:bg-gray-700'
                                 ]"
                             >

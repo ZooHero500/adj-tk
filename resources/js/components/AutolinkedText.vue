@@ -47,7 +47,7 @@ const props = defineProps({
     },
     rootClass: {
         type: String,
-        default: 'text-gray-800 dark:text-slate-300 whitespace-pre-wrap break-all leading-relaxed'
+        default: 'text-gray-800 dark:text-neutral-300 whitespace-pre-wrap break-all leading-relaxed'
     },
     maxCharLimit: {
         type: Number,

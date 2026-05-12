@@ -5,7 +5,7 @@
             style="min-height: calc(100vh - 70px)"
         >
             <div class="w-full max-w-md">
-                <div class="bg-white dark:bg-slate-900 rounded-xl shadow-lg p-8">
+                <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-lg p-8">
                     <div v-if="emailSent" class="text-center">
                         <div
                             class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6"
@@ -24,25 +24,25 @@
                                 ></path>
                             </svg>
                         </div>
-                        <div class="text-[24px] mb-4 font-bold dark:text-slate-300">
+                        <div class="text-[24px] mb-4 font-bold dark:text-neutral-300">
                             Check your email
                         </div>
                         <p
-                            class="text-[15px] text-gray-600 dark:text-slate-400 mb-6 leading-relaxed"
+                            class="text-[15px] text-gray-600 dark:text-neutral-400 mb-6 leading-relaxed"
                         >
                             We've sent a password reset link to
-                            <span class="font-medium text-gray-900 dark:text-slate-300">{{
+                            <span class="font-medium text-gray-900 dark:text-neutral-300">{{
                                 email
                             }}</span>
                         </p>
-                        <p class="text-[13px] text-gray-500 dark:text-slate-500 mb-8">
+                        <p class="text-[13px] text-gray-500 dark:text-neutral-500 mb-8">
                             Didn't receive the email? Check your spam folder or try again.
                         </p>
                         <div class="space-y-3">
                             <button
                                 @click="resendEmail"
                                 :disabled="resendCooldown > 0"
-                                class="w-full text-[15px] font-medium text-[#F02C56] border border-[#F02C56] py-2.5 rounded-lg hover:bg-[#F02C56] hover:text-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                class="w-full text-[15px] font-medium text-primary border border-primary py-2.5 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {{
                                     resendCooldown > 0
@@ -52,7 +52,7 @@
                             </button>
                             <button
                                 @click="goBackToLogin"
-                                class="w-full text-[15px] font-medium text-gray-600 dark:text-slate-400 py-2.5 rounded-lg hover:text-gray-800 dark:hover:text-slate-200 transition-colors duration-200"
+                                class="w-full text-[15px] font-medium text-gray-600 dark:text-neutral-400 py-2.5 rounded-lg hover:text-gray-800 dark:hover:text-neutral-200 transition-colors duration-200"
                             >
                                 Back to login
                             </button>
@@ -61,11 +61,11 @@
 
                     <div v-else>
                         <div class="text-center mb-8">
-                            <div class="text-[28px] mb-3 font-bold dark:text-slate-300">
+                            <div class="text-[28px] mb-3 font-bold dark:text-neutral-300">
                                 Reset your password
                             </div>
                             <p
-                                class="text-[15px] text-gray-600 dark:text-slate-400 leading-relaxed"
+                                class="text-[15px] text-gray-600 dark:text-neutral-400 leading-relaxed"
                             >
                                 Enter your email address and we'll send you a link to reset your
                                 password.
@@ -74,7 +74,7 @@
 
                         <div class="space-y-6">
                             <div>
-                                <div class="pb-1.5 text-[15px] dark:text-slate-500">
+                                <div class="pb-1.5 text-[15px] dark:text-neutral-500">
                                     Email address
                                 </div>
                                 <TextInput
@@ -91,8 +91,8 @@
                                     :disabled="!email || loading"
                                     :class="
                                         !email || loading
-                                            ? 'bg-gray-200 dark:bg-slate-800 cursor-not-allowed'
-                                            : 'bg-[#F02C56] hover:bg-[#E0254A]'
+                                            ? 'bg-gray-200 dark:bg-neutral-800 cursor-not-allowed'
+                                            : 'bg-primary hover:bg-[#E0254A]'
                                     "
                                     @click="sendResetEmail"
                                     class="w-full text-[17px] font-semibold text-white py-3 rounded-lg transition-colors duration-200 flex items-center justify-center"
@@ -123,7 +123,7 @@
 
                                 <button
                                     @click="goBackToLogin"
-                                    class="w-full text-[15px] font-medium text-gray-600 dark:text-slate-400 py-2.5 rounded-lg hover:text-gray-800 dark:hover:text-slate-200 transition-colors duration-200"
+                                    class="w-full text-[15px] font-medium text-gray-600 dark:text-neutral-400 py-2.5 rounded-lg hover:text-gray-800 dark:hover:text-neutral-200 transition-colors duration-200"
                                 >
                                     Back to login
                                 </button>

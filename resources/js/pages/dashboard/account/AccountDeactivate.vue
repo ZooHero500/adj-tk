@@ -33,7 +33,7 @@
                 <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">
                     What happens when you deactivate
                 </h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm mb-6">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm mb-6">
                     <div class="p-6">
                         <div class="space-y-4">
                             <div class="flex items-start gap-3">
@@ -89,7 +89,7 @@
                 </div>
 
                 <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">Reactivation</h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm mb-6">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm mb-6">
                     <div class="p-6">
                         <div class="flex items-start gap-3">
                             <i class="bx bx-refresh text-green-500 text-[20px] mt-0.5"></i>
@@ -113,7 +113,7 @@
                 <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">
                     Confirm deactivation
                 </h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                     <div class="p-6">
                         <div class="mb-4">
                             <label class="flex items-start gap-3">

@@ -24,7 +24,7 @@
                         <div
                             class="mx-auto mb-4 flex h-30 w-30 p-3 items-center justify-center rounded-full bg-gray-50 dark:bg-amber-400/10 ring-1 ring-gray-600/15 dark:ring-amber-400/15"
                         >
-                            <ExclamationTriangleIcon class="h-full w-full text-[#F02C56] mx-auto" />
+                            <ExclamationTriangleIcon class="h-full w-full text-primary mx-auto" />
                         </div>
 
                         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">

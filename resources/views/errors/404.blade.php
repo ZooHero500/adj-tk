@@ -23,7 +23,7 @@
     </script>
 </head>
 
-<body class="bg-white dark:bg-slate-950">
+<body class="bg-white dark:bg-neutral-950">
     <main id="app">
         <router-view></router-view>
     </main>

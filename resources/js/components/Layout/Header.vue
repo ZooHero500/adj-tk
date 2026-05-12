@@ -1,14 +1,14 @@
 <template>
     <div
-        class="fixed bg-white dark:bg-slate-950 flex items-center w-full h-[70px] z-10 border-b border-gray-200 dark:border-slate-800 loops-layout-header"
+        class="fixed bg-white dark:bg-neutral-950 flex items-center w-full h-[70px] z-10 border-b border-gray-200 dark:border-neutral-800 loops-layout-header"
     >
         <div class="flex items-center justify-between w-full px-4 lg:px-6 mx-auto">
             <div class="flex items-center lg:w-[30%] w-auto">
                 <button
                     @click="toggleMobileDrawer"
-                    class="lg:hidden mr-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800"
+                    class="lg:hidden mr-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800"
                 >
-                    <i class="bx bx-menu text-2xl dark:text-slate-400"></i>
+                    <i class="bx bx-menu text-2xl dark:text-neutral-400"></i>
                 </button>
 
                 <router-link to="/" class="flex items-center gap-2">
@@ -31,7 +31,7 @@
                 <button
                     v-if="authStore.isAuthenticated"
                     @click="isLoggedIn"
-                    class="hidden lg:flex items-center bg-[#F02C56] border border-[#F02C56] text-white rounded-lg px-5 py-2 hover:bg-[#F02C56]/80 hover:border-[#F02C5699] cursor-pointer"
+                    class="hidden lg:flex items-center bg-primary border border-primary text-white rounded-lg px-5 py-2 hover:bg-primary/80 hover:border-primary/60 cursor-pointer"
                 >
                     <i class="bx bx-upload text-white text-[22px]"></i>
                     <span class="px-2 font-medium tracking-tight text-[15px]">{{
@@ -45,7 +45,7 @@
                     <button
                         v-if="!authStore.isAuthenticated && appConfig.registration"
                         @click="authStore.openAuthModal('register')"
-                        class="flex items-center border-[#F02C56] text-[#F02C56] border dark:border-red-400 rounded-md px-3 py-[6px] cursor-pointer mr-3"
+                        class="flex items-center border-primary text-primary border dark:border-red-400 rounded-md px-3 py-[6px] cursor-pointer mr-3"
                     >
                         <span class="mx-4 font-medium text-[15px]">{{ t('nav.join') }}</span>
                     </button>
@@ -53,7 +53,7 @@
                     <button
                         v-if="!authStore.isAuthenticated"
                         @click="authStore.openAuthModal('login')"
-                        class="flex items-center bg-[#F02C56] text-white border dark:border-red-400 rounded-md px-3 py-[6px] cursor-pointer"
+                        class="flex items-center bg-primary text-white border dark:border-red-400 rounded-md px-3 py-[6px] cursor-pointer"
                     >
                         <span class="mx-4 font-medium text-[15px]">{{ t('nav.logIn') }}</span>
                     </button>
@@ -76,12 +76,12 @@
 
                         <div
                             v-if="showMenu"
-                            class="absolute bg-white dark:bg-slate-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-gray-700 divide-y divide-gray-200 dark:divide-gray-700 ark:border-slate-700 top-[43px] -right-2"
+                            class="absolute bg-white dark:bg-neutral-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-gray-700 divide-y divide-gray-200 dark:divide-gray-700 ark:border-neutral-700 top-[43px] -right-2"
                         >
                             <router-link
                                 :to="`/@${authStore.user.username}`"
                                 @click="showMenu = false"
-                                class="flex items-center justify-start py-3 px-2 hover:bg-gray-100 dark:hover:bg-slate-800 cursor-pointer dark:text-slate-200"
+                                class="flex items-center justify-start py-3 px-2 hover:bg-gray-100 dark:hover:bg-neutral-800 cursor-pointer dark:text-neutral-200"
                             >
                                 <i class="ph-user text-[20px]"></i>
                                 <span class="pl-2 font-semibold text-sm">{{
@@ -90,7 +90,7 @@
                             </router-link>
                             <div
                                 @click="logout"
-                                class="flex items-center justify-start py-3 px-1.5 hover:bg-gray-100 dark:text-slate-200 dark:hover:bg-slate-800 cursor-pointer"
+                                class="flex items-center justify-start py-3 px-1.5 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 cursor-pointer"
                             >
                                 <i class="ic-outline-login text-[20px]"></i>
                                 <span class="pl-2 font-semibold text-sm">{{
@@ -118,7 +118,7 @@
                 <button
                     v-if="!authStore.isAuthenticated"
                     @click="authStore.openAuthModal('login')"
-                    class="lg:hidden bg-[#F02C56] text-white rounded-md px-3 py-2 text-sm font-medium"
+                    class="lg:hidden bg-primary text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                     {{ t('nav.loginOrRegister') }}
                 </button>

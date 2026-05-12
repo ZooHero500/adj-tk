@@ -421,11 +421,7 @@ const handleDeleteVideo = async (data) => {
 }
 
 onMounted(() => {
-    if (
-        localStorage.getItem('theme') === 'dark' ||
-        (!localStorage.getItem('theme') &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
+    if (localStorage.getItem('theme') !== 'light') {
         isDarkMode.value = true
         document.documentElement.classList.add('dark')
     }

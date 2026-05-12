@@ -95,14 +95,14 @@ defineExpose({
             <div class="fixed inset-0 z-10 bg-black bg-opacity-50" @click="closeModal"></div>
 
             <div
-                class="fixed inset-x-0 z-30 top-10 mx-auto max-w-lg max-h-[50dvh] bg-white dark:bg-slate-800 rounded-lg shadow-xl flex flex-col"
+                class="fixed inset-x-0 z-30 top-10 mx-auto max-w-lg max-h-[50dvh] bg-white dark:bg-neutral-800 rounded-lg shadow-xl flex flex-col"
             >
-                <div class="flex items-center justify-between p-4 border-b dark:border-slate-700">
+                <div class="flex items-center justify-between p-4 border-b dark:border-neutral-700">
                     <div class="flex items-center gap-2">
                         <button
                             v-if="currentStep === 'detail'"
                             @click="goBack"
-                            class="p-1 hover:bg-gray-100 dark:text-slate-500 rounded"
+                            class="p-1 hover:bg-gray-100 dark:text-neutral-500 rounded"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -117,11 +117,11 @@ defineExpose({
                                 />
                             </svg>
                         </button>
-                        <h2 class="text-lg font-semibold dark:text-slate-50">Report</h2>
+                        <h2 class="text-lg font-semibold dark:text-neutral-50">Report</h2>
                     </div>
                     <button
                         @click="closeModal"
-                        class="p-1 hover:bg-gray-100 rounded dark:text-slate-500"
+                        class="p-1 hover:bg-gray-100 rounded dark:text-neutral-500"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -142,7 +142,7 @@ defineExpose({
                     <div v-if="currentStep === 'main'">
                         <div class="p-4">
                             <p
-                                class="px-3 text-gray-600 mb-3 text-sm tracking-tight dark:text-slate-400"
+                                class="px-3 text-gray-600 mb-3 text-sm tracking-tight dark:text-neutral-400"
                             >
                                 Please select a scenario
                             </p>
@@ -169,14 +169,14 @@ defineExpose({
                                 v-for="option in reportOptions"
                                 :key="option.key"
                                 @click="goToDetail(option)"
-                                class="w-full p-3 text-left bg-gray-50 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg flex items-center justify-between group"
+                                class="w-full p-3 text-left bg-gray-50 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded-lg flex items-center justify-between group"
                             >
-                                <span class="text-gray-800 dark:text-slate-300">{{
+                                <span class="text-gray-800 dark:text-neutral-300">{{
                                     option.message
                                 }}</span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    class="h-5 w-5 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-slate-500"
+                                    class="h-5 w-5 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-neutral-500"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                 >
@@ -191,13 +191,13 @@ defineExpose({
                     </div>
 
                     <div v-else-if="currentStep === 'detail'">
-                        <div class="bg-gray-100 dark:bg-slate-700 p-4">
-                            <h3 class="font-light tracking-tight text-gray-500 dark:text-slate-400">
+                        <div class="bg-gray-100 dark:bg-neutral-700 p-4">
+                            <h3 class="font-light tracking-tight text-gray-500 dark:text-neutral-400">
                                 {{ selectedOption?.message }}
                             </h3>
                         </div>
                         <div class="px-4 py-10">
-                            <div class="space-y-4 font-light text-gray-600 dark:text-slate-300">
+                            <div class="space-y-4 font-light text-gray-600 dark:text-neutral-300">
                                 <p>We don't allow the following:</p>
                                 <ul class="list-disc ml-6">
                                     <li>
@@ -212,7 +212,7 @@ defineExpose({
 
                 <div
                     v-if="currentStep === 'detail'"
-                    class="p-4 border-t dark:border-slate-700 flex justify-end"
+                    class="p-4 border-t dark:border-neutral-700 flex justify-end"
                 >
                     <button
                         @click="handleSubmit"

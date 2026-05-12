@@ -3,7 +3,7 @@
         <input
             :id="`input-${placeholder}`"
             :placeholder="placeholder"
-            class="block w-full bg-[#F1F1F2] text-gray-800 dark:text-slate-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-800 rounded-md py-2.5 px-3 focus:outline-none"
+            class="block w-full bg-[#F1F1F2] text-gray-800 dark:text-neutral-50 dark:bg-neutral-900 border border-gray-300 dark:border-neutral-800 rounded-md py-2.5 px-3 focus:outline-none"
             :type="inputType"
             :value="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"

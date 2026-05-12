@@ -6,9 +6,9 @@
             class="relative bg-white dark:bg-gray-950 w-full max-w-[700px] mx-3 overflow-hidden rounded-lg mb-10 flex flex-col"
         >
             <div
-                class="sticky top-0 z-10 flex items-center justify-between w-full p-5 border-b border-b-gray-300 dark:border-b-slate-800 bg-white dark:bg-slate-900"
+                class="sticky top-0 z-10 flex items-center justify-between w-full p-5 border-b border-b-gray-300 dark:border-b-neutral-800 bg-white dark:bg-neutral-900"
             >
-                <div class="text-[22px] font-medium dark:text-slate-400">
+                <div class="text-[22px] font-medium dark:text-neutral-400">
                     {{ t('profile.editProfile') }}
                 </div>
                 <button
@@ -33,7 +33,7 @@
 
                     <div v-if="!uploadedImage">
                         <div
-                            class="flex flex-col border-b border-gray-100 dark:border-b-slate-800 px-1.5 py-2 w-full"
+                            class="flex flex-col border-b border-gray-100 dark:border-b-neutral-800 px-1.5 py-2 w-full"
                         >
                             <div
                                 class="font-semibold text-[15px] sm:mb-0 mb-1 text-gray-700 sm:w-[160px] sm:text-left dark:text-gray-400"
@@ -84,7 +84,7 @@
                         </div>
 
                         <div
-                            class="flex flex-col border-b border-gray-100 dark:border-b-slate-800 px-1.5 py-2 mt-1.5 w-full"
+                            class="flex flex-col border-b border-gray-100 dark:border-b-neutral-800 px-1.5 py-2 mt-1.5 w-full"
                         >
                             <div
                                 class="font-semibold text-[15px] sm:mb-0 mb-1 text-gray-700 sm:w-[160px] sm:text-left text-center dark:text-gray-400"
@@ -137,7 +137,7 @@
                                         maxlength="250"
                                         :placeholder="t('profile.bioPlaceholder')"
                                         :disabled="isSaving"
-                                        class="resize-none w-full bg-[#F1F1F2] dark:bg-slate-900 dark:text-slate-50 text-gray-800 border dark:border-slate-800 border-gray-300 rounded-md py-2.5 px-3 focus:outline-none focus:ring-2 focus:ring-[#F02C56] focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                                        class="resize-none w-full bg-[#F1F1F2] dark:bg-neutral-900 dark:text-neutral-50 text-gray-800 border dark:border-neutral-800 border-gray-300 rounded-md py-2.5 px-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
                                     ></textarea>
                                     <div class="flex justify-between mt-1">
                                         <div class="text-[11px] text-gray-500">
@@ -172,7 +172,7 @@
             </div>
 
             <div
-                class="sticky bottom-0 p-5 border-t border-t-gray-300 dark:border-t-slate-800 w-full bg-white dark:bg-slate-900"
+                class="sticky bottom-0 p-5 border-t border-t-gray-300 dark:border-t-neutral-800 w-full bg-white dark:bg-neutral-900"
             >
                 <div
                     id="UpdateInfoButtons"
@@ -182,9 +182,9 @@
                     <button
                         @click="closeEditProfile"
                         :disabled="isSaving"
-                        class="flex items-center border rounded-md px-3 py-[6px] hover:bg-gray-100 dark:border-slate-700 dark:hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        class="flex items-center border rounded-md px-3 py-[6px] hover:bg-gray-100 dark:border-neutral-700 dark:hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        <span class="px-2 font-medium text-[15px] dark:text-slate-400">{{
+                        <span class="px-2 font-medium text-[15px] dark:text-neutral-400">{{
                             t('common.cancel')
                         }}</span>
                     </button>
@@ -195,8 +195,8 @@
                         class="flex items-center text-white border rounded-md ml-3 px-3 py-[6px] transition-all duration-200 disabled:cursor-not-allowed min-w-[80px]"
                         :class="
                             !isUpdated || isSaving
-                                ? 'bg-gray-300 dark:bg-slate-700 border-gray-300 dark:border-slate-700 text-gray-500 dark:text-slate-500'
-                                : 'bg-[#F02C56] border-red-400 hover:bg-red-600'
+                                ? 'bg-gray-300 dark:bg-neutral-700 border-gray-300 dark:border-neutral-700 text-gray-500 dark:text-neutral-500'
+                                : 'bg-primary border-red-400 hover:bg-red-600'
                         "
                     >
                         <span v-if="isSaving" class="flex items-center">
@@ -232,9 +232,9 @@
                     <button
                         @click="cancelImageUpload"
                         :disabled="isSaving"
-                        class="flex items-center border rounded-md px-3 py-[6px] hover:bg-gray-100 dark:border-slate-700 dark:hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        class="flex items-center border rounded-md px-3 py-[6px] hover:bg-gray-100 dark:border-neutral-700 dark:hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        <span class="px-2 font-medium text-[15px] dark:text-slate-400">{{
+                        <span class="px-2 font-medium text-[15px] dark:text-neutral-400">{{
                             t('common.cancel')
                         }}</span>
                     </button>
@@ -242,7 +242,7 @@
                     <button
                         @click="cropAndUpdateImage"
                         :disabled="isSaving"
-                        class="flex items-center bg-[#F02C56] text-white border border-red-400 rounded-md ml-3 px-3 py-[6px] hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-w-[80px]"
+                        class="flex items-center bg-primary text-white border border-red-400 rounded-md ml-3 px-3 py-[6px] hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-w-[80px]"
                     >
                         <span v-if="isSaving" class="flex items-center">
                             <svg

@@ -64,7 +64,7 @@
         <a
             :href="account.url"
             target="_blank"
-            class="flex-shrink-0 px-3 py-1.5 text-xs font-bold rounded-xl border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 opacity-0 group-hover:opacity-100 group-hover:border-[#F02C56] group-hover:text-[#F02C56] transition-all"
+            class="flex-shrink-0 px-3 py-1.5 text-xs font-bold rounded-xl border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 opacity-0 group-hover:opacity-100 group-hover:border-primary group-hover:text-primary transition-all"
         >
             {{ $t('studio.view') }} →
         </a>

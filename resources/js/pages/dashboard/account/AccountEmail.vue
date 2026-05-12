@@ -28,7 +28,7 @@
                 <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">
                     {{ $t('settings.currentEmailAddress') }}
                 </h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm mb-6">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm mb-6">
                     <div class="p-6">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-4">
@@ -131,7 +131,7 @@
                 <h2 class="tracking-tight font-light mb-4 dark:text-gray-300">
                     {{ $t('settings.changeEmailAddress') }}
                 </h2>
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm mb-6">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm mb-6">
                     <div class="p-6">
                         <form @submit.prevent="changeEmail">
                             <div class="mb-4">
@@ -199,7 +199,7 @@
 
                 <!--<h2 class="tracking-tight font-light mb-4 dark:text-gray-300">Email preferences</h2>
                 <div class="flex flex-col gap-3 mb-6">
-                    <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[60%]">
                                 <h3 class="font-medium mb-2 dark:text-gray-300">Security alerts</h3>
@@ -212,7 +212,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[60%]">
                                 <h3 class="font-medium mb-2 dark:text-gray-300">Account notifications</h3>
@@ -222,7 +222,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[60%]">
                                 <h3 class="font-medium mb-2 dark:text-gray-300">Product updates</h3>
@@ -232,7 +232,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[60%]">
                                 <h3 class="font-medium mb-2 dark:text-gray-300">Marketing emails</h3>
@@ -245,7 +245,7 @@
 
                 <!--<h2 class="tracking-tight font-light mb-4 dark:text-gray-300">Troubleshooting</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="p-4 flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <i class="bx bx-help-circle text-blue-500 text-[20px]"></i>

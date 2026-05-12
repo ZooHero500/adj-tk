@@ -12,7 +12,7 @@
                 <div class="flex items-center lg:items-end h-full justify-center w-full">
                     <div
                         :class="[
-                            'relative flex items-center h-full w-full bg-black border-0 lg:border-[0.5px] lg:border-slate-300 lg:dark:border-slate-800 overflow-hidden rounded-none lg:rounded-xl video-container',
+                            'relative flex items-center h-full w-full bg-black border-0 lg:border-[0.5px] lg:border-neutral-300 lg:dark:border-neutral-800 overflow-hidden rounded-none lg:rounded-xl video-container',
                             videoAspectClass
                         ]"
                         :style="videoAspectStyle"
@@ -47,7 +47,7 @@
                                 </p>
                                 <button
                                     @click.stop="revealSensitiveContent"
-                                    class="mt-5 w-full bg-[#F02C56] border border-[#F02C56] text-white rounded-lg px-5 py-2 hover:bg-[#F02C56]/80 hover:border-[#F02C5699] cursor-pointer backdrop-blur-sm text-sm font-medium"
+                                    class="mt-5 w-full bg-primary border border-primary text-white rounded-lg px-5 py-2 hover:bg-primary/80 hover:border-primary/60 cursor-pointer backdrop-blur-sm text-sm font-medium"
                                 >
                                     Show Content
                                 </button>
@@ -99,7 +99,7 @@
                                     :mentions="mentions"
                                     :tags="hashtags"
                                     text-size="text-[14px]"
-                                    root-class="text-gray-300 dark:text-slate-300 whitespace-pre-wrap leading-relaxed pointer-events-auto drop-shadow-md"
+                                    root-class="text-gray-300 dark:text-neutral-300 whitespace-pre-wrap leading-relaxed pointer-events-auto drop-shadow-md"
                                     :max-char-limit="80"
                                 />
                             </div>
@@ -112,7 +112,7 @@
                             <div class="flex flex-col items-center">
                                 <router-link :to="`/@${username}`">
                                     <div
-                                        class="h-10 w-10 sm:h-12 sm:w-12 overflow-hidden shadow rounded-full bg-gray-200 dark:border-slate-800"
+                                        class="h-10 w-10 sm:h-12 sm:w-12 overflow-hidden shadow rounded-full bg-gray-200 dark:border-neutral-800"
                                     >
                                         <img
                                             :src="profileImage"
@@ -195,10 +195,10 @@
 
                                     <div
                                         v-if="showMenu"
-                                        class="absolute z-20 bg-white dark:bg-slate-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-slate-700 divide-y divide-gray-200 dark:divide-gray-700 bottom-[43px] -right-2"
+                                        class="absolute z-20 bg-white dark:bg-neutral-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-neutral-700 divide-y divide-gray-200 dark:divide-gray-700 bottom-[43px] -right-2"
                                     >
                                         <LoopLink
-                                            class="flex w-full items-center justify-start gap-2 py-3 px-4 hover:bg-gray-100 dark:text-slate-200 dark:hover:bg-slate-800 cursor-pointer"
+                                            class="flex w-full items-center justify-start gap-2 py-3 px-4 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 cursor-pointer"
                                             :id="videoId"
                                         >
                                             <i class="bx bx-link text-[20px]"></i>
@@ -211,7 +211,7 @@
                                                 authStore.authenticated &&
                                                 profileId != authStore.user.id
                                             "
-                                            class="flex w-full items-center justify-start gap-2 py-3 px-4 hover:bg-gray-100 dark:text-slate-200 dark:hover:bg-slate-800 cursor-pointer"
+                                            class="flex w-full items-center justify-start gap-2 py-3 px-4 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 cursor-pointer"
                                             @click="handleReport"
                                         >
                                             <i class="bx bx-flag text-[20px]"></i>
@@ -232,7 +232,7 @@
                         <div class="flex flex-col items-center">
                             <router-link :to="`/@${username}`">
                                 <div
-                                    class="h-12 w-12 overflow-hidden shadow rounded-full bg-gray-200 dark:border-slate-800"
+                                    class="h-12 w-12 overflow-hidden shadow rounded-full bg-gray-200 dark:border-neutral-800"
                                 >
                                     <img
                                         :src="profileImage"
@@ -306,7 +306,7 @@
                         <div class="flex flex-col items-center">
                             <div class="relative">
                                 <button
-                                    class="mt-1 hover:text-gray-600 dark:text-slate-500"
+                                    class="mt-1 hover:text-gray-600 dark:text-neutral-500"
                                     @click="showMenu = !showMenu"
                                 >
                                     <i class="bx bx-cog text-[30px]"></i>
@@ -314,10 +314,10 @@
                                 <div
                                     v-if="showMenu"
                                     id="videoMenu"
-                                    class="absolute z-20 bg-white dark:bg-slate-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-slate-700 bottom-[43px] -right-2 divide-y divide-gray-200 dark:divide-gray-700"
+                                    class="absolute z-20 bg-white dark:bg-neutral-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-neutral-700 bottom-[43px] -right-2 divide-y divide-gray-200 dark:divide-gray-700"
                                 >
                                     <LoopLink
-                                        class="flex w-full items-center justify-start gap-2 py-3 px-4 hover:bg-gray-100 dark:text-slate-200 dark:hover:bg-slate-800 cursor-pointer"
+                                        class="flex w-full items-center justify-start gap-2 py-3 px-4 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 cursor-pointer"
                                         :id="videoId"
                                     >
                                         <i class="bx bx-link text-[20px]"></i>
@@ -330,7 +330,7 @@
                                             authStore.authenticated &&
                                             profileId != authStore.user.id
                                         "
-                                        class="flex w-full items-center justify-start gap-2 py-3 px-4 hover:bg-gray-100 dark:text-slate-200 dark:hover:bg-slate-800 cursor-pointer"
+                                        class="flex w-full items-center justify-start gap-2 py-3 px-4 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 cursor-pointer"
                                         @click="handleReport"
                                     >
                                         <i class="bx bx-flag text-[20px]"></i>
@@ -343,7 +343,7 @@
                                             authStore.authenticated &&
                                             profileId == authStore.user.id
                                         "
-                                        class="flex w-full items-center justify-start gap-2 py-3 px-4 hover:bg-gray-100 text-red-500 dark:hover:bg-slate-800 cursor-pointer"
+                                        class="flex w-full items-center justify-start gap-2 py-3 px-4 hover:bg-gray-100 text-red-500 dark:hover:bg-neutral-800 cursor-pointer"
                                         @click="handleVideoDelete"
                                     >
                                         <i class="bx bx-trash text-[20px]"></i>
@@ -371,7 +371,7 @@
         <div
             v-if="showComments"
             :class="[
-                'fixed top-[70px] lg:top-0 bottom-0 right-0 bg-gray-50 dark:bg-slate-900 border-l border-t lg:border-t border-gray-100 dark:border-slate-800 transform transition-transform duration-300 z-50 flex flex-col w-full sm:w-[400px] lg:w-[400px] shadow-xl comments-panel',
+                'fixed top-[70px] lg:top-0 bottom-0 right-0 bg-gray-50 dark:bg-neutral-900 border-l border-t lg:border-t border-gray-100 dark:border-neutral-800 transform transition-transform duration-300 z-50 flex flex-col w-full sm:w-[400px] lg:w-[400px] shadow-xl comments-panel',
                 showComments ? 'translate-x-0' : 'translate-x-full'
             ]"
             @touchstart.stop
@@ -381,9 +381,9 @@
             @click.stop
             data-interactive="true"
         >
-            <div class="flex-shrink-0 bg-gray-50 dark:bg-slate-900">
+            <div class="flex-shrink-0 bg-gray-50 dark:bg-neutral-900">
                 <div
-                    class="flex items-center justify-between p-4 border-b border-gray-300 dark:border-slate-700"
+                    class="flex items-center justify-between p-4 border-b border-gray-300 dark:border-neutral-700"
                 >
                     <h2 class="text-lg font-semibold text-black dark:text-gray-400">
                         {{ $t('post.comments') }} ({{ formatCount(displayCommentCount) }})

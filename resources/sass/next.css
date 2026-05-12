@@ -2,6 +2,13 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+    --color-primary: #E8713A;
+    --color-primary-hover: #D4651F;
+    --color-surface: #141414;
+    --color-surface-elevated: #1C1C1C;
+}
+
 a {
     @apply cursor-pointer;
 }
@@ -143,13 +150,13 @@ a {
                outline-none
                ring-2 ring-transparent
                transition-all duration-200
-               focus:border-[#F02C56]/50 focus:ring-[#F02C56]/15
+               focus:border-primary/50 focus:ring-primary/15
                disabled:cursor-not-allowed disabled:opacity-50;
     }
 
     .onboarding {
         .form-input {
-            @apply w-full rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/60 px-4 py-3 text-base text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all duration-200 focus:border-[#F02C56] dark:focus:border-[#F02C56] focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-[#F02C56]/10 dark:focus:ring-[#F02C56]/10;
+            @apply w-full rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/60 px-4 py-3 text-base text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all duration-200 focus:border-primary dark:focus:border-primary focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-primary/10 dark:focus:ring-primary/10;
         }
     }
 }

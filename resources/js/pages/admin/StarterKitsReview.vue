@@ -44,7 +44,7 @@
                     {{ f.label }}
                     <span
                         v-if="activeFilter === f.key"
-                        class="absolute bottom-0 left-0 right-0 h-0.5 bg-[#F02C56] rounded-t-full"
+                        class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-t-full"
                     />
                 </button>
             </div>
@@ -156,7 +156,7 @@
                                         :class="
                                             progressPercent(cs.changes) === 100
                                                 ? 'bg-green-500'
-                                                : 'bg-[#F02C56]'
+                                                : 'bg-primary'
                                         "
                                         :style="{ width: progressPercent(cs.changes) + '%' }"
                                     />
@@ -237,7 +237,7 @@
                         class="w-8 h-8 rounded-lg text-sm transition-colors"
                         :class="
                             page === meta.current_page
-                                ? 'bg-[#F02C56] text-white font-medium'
+                                ? 'bg-primary text-white font-medium'
                                 : 'text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
                         "
                     >

@@ -86,7 +86,7 @@
                 <div class="flex gap-3 justify-center">
                     <button
                         @click="retryLoad"
-                        class="px-5 py-2.5 bg-[#F02C56] hover:bg-[#D91B42] text-white text-sm font-semibold rounded-xl transition-all shadow-md shadow-[#F02C56]/25"
+                        class="px-5 py-2.5 bg-primary hover:bg-[#D91B42] text-white text-sm font-semibold rounded-xl transition-all shadow-md shadow-primary/25"
                     >
                         {{ $t('common.tryAgain') }}
                     </button>
@@ -201,9 +201,9 @@
                         </div>
 
                         <div class="flex items-center gap-2.5 mb-3">
-                            <span class="block w-8 h-px bg-[#F02C56]"></span>
+                            <span class="block w-8 h-px bg-primary"></span>
                             <span
-                                class="text-xs font-semibold tracking-[0.15em] uppercase text-[#F02C56]"
+                                class="text-xs font-semibold tracking-[0.15em] uppercase text-primary"
                                 >{{ $t('common.starterKit') }}</span
                             >
                             <span
@@ -246,7 +246,7 @@
                                 v-for="tag in starterKit.hashtags"
                                 :key="tag"
                                 :to="`/starter-kits/hashtag/${tag}`"
-                                class="px-2.5 py-1 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-[#F02C56]/40 hover:text-[#F02C56] text-gray-500 dark:text-gray-400 rounded-full text-xs font-medium transition-all"
+                                class="px-2.5 py-1 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-primary/40 hover:text-primary text-gray-500 dark:text-gray-400 rounded-full text-xs font-medium transition-all"
                             >
                                 #{{ tag }}
                             </router-link>
@@ -286,7 +286,7 @@
                                 <span class="text-xs text-gray-400">curated by</span>
                                 <router-link
                                     :to="`/@${starterKit.creator.username}`"
-                                    class="flex items-center gap-1.5 hover:text-[#F02C56] transition-colors"
+                                    class="flex items-center gap-1.5 hover:text-primary transition-colors"
                                 >
                                     <img
                                         :src="starterKit.creator.avatar"
@@ -337,15 +337,15 @@
                                 <template v-if="starterKit.status === 10">
                                     <div
                                         v-if="hasUsed && newAccountsInKit.length > 0"
-                                        class="mt-4 flex items-start gap-2.5 p-3 bg-[#F02C56]/5 border border-[#F02C56]/20 rounded-xl"
+                                        class="mt-4 flex items-start gap-2.5 p-3 bg-primary/5 border border-primary/20 rounded-xl"
                                     >
-                                        <span class="mt-0.5 w-4 h-4 flex-shrink-0 text-[#F02C56]">
+                                        <span class="mt-0.5 w-4 h-4 flex-shrink-0 text-primary">
                                             <UserPlusIcon class="w-4 h-4" />
                                         </span>
                                         <p
                                             class="text-xs text-gray-600 dark:text-gray-300 leading-snug"
                                         >
-                                            <span class="font-semibold text-[#F02C56]"
+                                            <span class="font-semibold text-primary"
                                                 >{{ newAccountsInKit.length }} new
                                                 {{
                                                     newAccountsInKit.length === 1
@@ -451,7 +451,7 @@
                             v-if="starterKit.status === 10"
                             @click="useStarterKit"
                             :disabled="isUsing || useSuccess || hasUsed || limitRestriction"
-                            class="w-full flex items-center justify-center gap-2 py-3 bg-[#F02C56] hover:bg-[#D91B42] disabled:bg-gray-200 dark:disabled:bg-gray-700 text-white font-semibold text-sm rounded-xl transition-all active:scale-[0.98] shadow-md shadow-[#F02C56]/25"
+                            class="w-full flex items-center justify-center gap-2 py-3 bg-primary hover:bg-[#D91B42] disabled:bg-gray-200 dark:disabled:bg-gray-700 text-white font-semibold text-sm rounded-xl transition-all active:scale-[0.98] shadow-md shadow-primary/25"
                         >
                             <CheckCircleIcon v-if="hasUsed || useSuccess" class="w-4 h-4" />
                             <UserPlusIcon v-else-if="!isUsing" class="w-4 h-4" />
@@ -488,7 +488,7 @@
                                 class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5"
                                 :class="
                                     activeTab === tab.value
-                                        ? 'bg-[#F02C56] text-white shadow-sm'
+                                        ? 'bg-primary text-white shadow-sm'
                                         : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
                                 "
                             >

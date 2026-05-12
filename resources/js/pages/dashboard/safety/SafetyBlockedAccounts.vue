@@ -41,7 +41,7 @@
                     </button>
                 </div>
 
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                     <div
                         class="p-4 border-b border-gray-200 dark:border-gray-700"
                         v-if="blockedAccounts.length > 0 || searchQuery"
@@ -204,7 +204,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm mt-6">
+                <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm mt-6">
                     <div class="p-6">
                         <h3 class="font-medium text-gray-800 dark:text-gray-200 mb-3">
                             What happens when you block someone
@@ -272,7 +272,7 @@
             v-if="showAddModal"
             class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
         >
-            <div class="bg-white dark:bg-slate-950 rounded-lg p-6 w-full max-w-md mx-4">
+            <div class="bg-white dark:bg-neutral-950 rounded-lg p-6 w-full max-w-md mx-4">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-lg font-semibold dark:text-gray-100">Block account</h3>
                     <button class="text-gray-400 hover:text-gray-600" @click="closeAddModal">
@@ -290,7 +290,7 @@
                             v-model="newBlockUsername"
                             @input="onUsernameInput"
                             placeholder="Enter username to block"
-                            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 dark:bg-slate-900 dark:text-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 dark:bg-neutral-900 dark:text-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
                             :class="{
                                 'border-red-300': newBlockUsername && !isValidUsername
                             }"
@@ -298,12 +298,12 @@
 
                         <div
                             v-if="showSuggestions && userSuggestions.length > 0"
-                            class="absolute z-10 w-full mt-1 bg-white dark:bg-slate-900 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg max-h-60 overflow-y-auto"
+                            class="absolute z-10 w-full mt-1 bg-white dark:bg-neutral-900 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg max-h-60 overflow-y-auto"
                         >
                             <div
                                 v-for="suggestion in userSuggestions"
                                 :key="suggestion.id"
-                                class="p-3 hover:bg-gray-50 dark:hover:bg-slate-800 cursor-pointer border-b border-gray-100 dark:border-gray-700 last:border-b-0"
+                                class="p-3 hover:bg-gray-50 dark:hover:bg-neutral-800 cursor-pointer border-b border-gray-100 dark:border-gray-700 last:border-b-0"
                                 @click="selectSuggestion(suggestion)"
                             >
                                 <div class="flex items-center gap-3">
@@ -351,7 +351,7 @@
 
                 <div class="flex gap-3 justify-end">
                     <button
-                        class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-slate-800 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                        class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-neutral-800 rounded-lg hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors cursor-pointer"
                         @click="closeAddModal"
                     >
                         Cancel

@@ -134,7 +134,7 @@ const getButtonClasses = (type) => {
 
     switch (type) {
         case 'danger':
-            return `${baseClasses} bg-[#F02C56] hover:bg-[#F02C56]/80 text-white focus:ring-red-500`
+            return `${baseClasses} bg-primary hover:bg-primary/80 text-white focus:ring-red-500`
         case 'primary':
             return `${baseClasses} bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500`
         case 'link':

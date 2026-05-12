@@ -24,16 +24,16 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <div class="flex items-center gap-2.5 mb-4">
-                            <span class="block w-8 h-px bg-[#F02C56]"></span>
+                            <span class="block w-8 h-px bg-primary"></span>
                             <span
-                                class="text-xs font-semibold tracking-[0.15em] uppercase text-[#F02C56]"
+                                class="text-xs font-semibold tracking-[0.15em] uppercase text-primary"
                                 >{{ t('common.tag') }}</span
                             >
                         </div>
                         <h1
                             class="font-display text-4xl md:text-5xl font-bold text-gray-950 dark:text-white leading-tight tracking-tight flex items-baseline gap-1"
                         >
-                            <span class="text-[#F02C56]">#</span>{{ tag }}
+                            <span class="text-primary">#</span>{{ tag }}
                         </h1>
                         <p class="text-gray-500 dark:text-gray-400 mt-2">
                             <span class="font-semibold text-gray-900 dark:text-white">{{
@@ -41,13 +41,13 @@
                             }}</span>
                             {{ t('common.kit') }}{{ allKits.length !== 1 ? 's' : '' }}
                             {{ t('common.taggedWith') }}
-                            <span class="text-[#F02C56] font-medium">#{{ tag }}</span>
+                            <span class="text-primary font-medium">#{{ tag }}</span>
                         </p>
                     </div>
 
                     <router-link
                         to="/starter-kits/create"
-                        class="self-start md:self-auto px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-[#F02C56] hover:bg-[#D91B42] transition-all shadow-md shadow-[#F02C56]/25 flex items-center gap-2 flex-shrink-0"
+                        class="self-start md:self-auto px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-primary hover:bg-[#D91B42] transition-all shadow-md shadow-primary/25 flex items-center gap-2 flex-shrink-0"
                     >
                         <PlusIcon class="w-4 h-4" />
                         {{ t('common.createKit') }}
@@ -64,7 +64,7 @@
                         v-for="relatedTag in relatedTags"
                         :key="relatedTag"
                         :to="`/starter-kits/hashtag/${relatedTag}`"
-                        class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 hover:border-[#F02C56]/40 hover:text-[#F02C56] transition-all"
+                        class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 hover:border-primary/40 hover:text-primary transition-all"
                     >
                         #{{ relatedTag }}
                     </router-link>
@@ -89,7 +89,7 @@
                                     class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all"
                                     :class="
                                         sortBy === opt.value
-                                            ? 'bg-[#F02C56] text-white shadow-sm'
+                                            ? 'bg-primary text-white shadow-sm'
                                             : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
                                     "
                                 >
@@ -115,7 +115,7 @@
                             </p>
                             <router-link
                                 :to="`/starter-kits/create?tag=${tag}`"
-                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-[#F02C56] hover:bg-[#D91B42] transition-all"
+                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-primary hover:bg-[#D91B42] transition-all"
                             >
                                 <PlusIcon class="w-4 h-4" />
                                 {{ t('common.create') }} #{{ tag }} {{ t('common.kit') }}
@@ -146,7 +146,7 @@
                                         <div class="flex items-start justify-between gap-4">
                                             <div class="min-w-0">
                                                 <h3
-                                                    class="font-semibold text-gray-900 dark:text-white group-hover:text-[#F02C56] transition-colors truncate"
+                                                    class="font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors truncate"
                                                 >
                                                     {{ kit.name }}
                                                 </h3>
@@ -158,7 +158,7 @@
                                             </div>
                                             <router-link
                                                 :to="kit.path"
-                                                class="flex-shrink-0 px-4 py-1.5 text-xs font-bold rounded-lg border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 group-hover:bg-[#F02C56] group-hover:border-[#F02C56] group-hover:text-white transition-all"
+                                                class="flex-shrink-0 px-4 py-1.5 text-xs font-bold rounded-lg border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all"
                                             >
                                                 {{ t('common.useKit') }}
                                             </router-link>
@@ -181,7 +181,7 @@
                                                     class="text-[10px] font-medium px-2 py-0.5 rounded-full border transition-colors"
                                                     :class="
                                                         t === tag
-                                                            ? 'bg-[#F02C56]/10 text-[#F02C56] border-[#F02C56]/20'
+                                                            ? 'bg-primary/10 text-primary border-primary/20'
                                                             : 'bg-gray-50 dark:bg-gray-800 text-gray-400 border-gray-100 dark:border-gray-700'
                                                     "
                                                     >#{{ t }}</span
@@ -255,7 +255,7 @@
                                     class="flex items-center justify-between px-3 py-2 rounded-xl transition-all group/tag"
                                     :class="
                                         t.name === tag
-                                            ? 'bg-[#F02C56]/10 text-[#F02C56]'
+                                            ? 'bg-primary/10 text-primary'
                                             : 'hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
                                     "
                                 >
@@ -264,7 +264,7 @@
                                         class="text-xs font-bold px-1.5 py-0.5 rounded-md"
                                         :class="
                                             t.name === tag
-                                                ? 'bg-[#F02C56]/20 text-[#F02C56]'
+                                                ? 'bg-primary/20 text-primary'
                                                 : 'bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400'
                                         "
                                         >{{ t.count }}</span
@@ -297,7 +297,7 @@
                                     />
                                     <div class="flex-1 min-w-0">
                                         <div
-                                            class="text-sm font-semibold text-gray-900 dark:text-white truncate group-hover:text-[#F02C56] transition-colors"
+                                            class="text-sm font-semibold text-gray-900 dark:text-white truncate group-hover:text-primary transition-colors"
                                         >
                                             {{ creator.display_name }}
                                         </div>
@@ -330,7 +330,7 @@
                             </p>
                             <router-link
                                 :to="`/starter-kits/create?tag=${tag}`"
-                                class="block w-full py-2.5 text-sm font-bold text-center rounded-xl bg-[#F02C56] text-white hover:bg-[#D91B42] transition-all"
+                                class="block w-full py-2.5 text-sm font-bold text-center rounded-xl bg-primary text-white hover:bg-[#D91B42] transition-all"
                             >
                                 {{ t('common.create') }} #{{ tag }} {{ t('common.kit') }}
                             </router-link>

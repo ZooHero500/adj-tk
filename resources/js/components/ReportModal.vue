@@ -101,7 +101,7 @@
                                     <button
                                         @click="goToNextReportStep"
                                         :disabled="!canProceedToNextStep"
-                                        class="px-6 py-3 bg-[#F02C56] text-white font-medium rounded-lg hover:bg-[#F02C56]/80 disabled:bg-gray-300 dark:disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                        class="px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/80 disabled:bg-gray-300 dark:disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors cursor-pointer"
                                     >
                                         {{ t('common.next') }}
                                     </button>
@@ -169,11 +169,11 @@
                                     <button
                                         @click="submitReport"
                                         :disabled="!canProceedToNextStep || isSubmitting"
-                                        class="px-6 py-3 bg-[#F02C56] text-white font-medium rounded-lg hover:bg-[#F02C56]/80 disabled:bg-gray-300 dark:disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors flex items-center cursor-pointer space-x-2"
+                                        class="px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/80 disabled:bg-gray-300 dark:disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors flex items-center cursor-pointer space-x-2"
                                     >
                                         <span v-if="isSubmitting">
                                             <div
-                                                class="w-6 h-6 rounded-full border-4 border-gray-200 border-t-[#F02C56] animate-spin"
+                                                class="w-6 h-6 rounded-full border-4 border-gray-200 border-t-primary animate-spin"
                                             ></div>
                                         </span>
                                         <span>{{

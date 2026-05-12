@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center text-[28px] mb-4 font-bold dark:text-slate-300">Log in</div>
+    <div class="text-center text-[28px] mb-4 font-bold dark:text-neutral-300">Log in</div>
 
     <!-- <div class="px-6 pb-4 space-y-2">
         <button 
@@ -30,13 +30,13 @@
     </div>
 
     <div class="px-6 pb-4 flex items-center">
-        <div class="flex-grow border-t border-gray-200 dark:border-slate-700"></div>
-        <span class="px-4 text-sm text-gray-500 dark:text-slate-500">or</span>
-        <div class="flex-grow border-t border-gray-200 dark:border-slate-700"></div>
+        <div class="flex-grow border-t border-gray-200 dark:border-neutral-700"></div>
+        <span class="px-4 text-sm text-gray-500 dark:text-neutral-500">or</span>
+        <div class="flex-grow border-t border-gray-200 dark:border-neutral-700"></div>
     </div> -->
 
     <div>
-        <div class="px-6 pb-1.5 text-[15px] dark:text-slate-500">Email address</div>
+        <div class="px-6 pb-1.5 text-[15px] dark:text-neutral-500">Email address</div>
 
         <div class="px-6 pb-2">
             <TextInput
@@ -48,7 +48,7 @@
             />
         </div>
 
-        <div class="px-6 pb-1.5 text-[15px] dark:text-slate-500">Password</div>
+        <div class="px-6 pb-1.5 text-[15px] dark:text-neutral-500">Password</div>
 
         <div class="px-6 pb-2">
             <TextInput placeholder="Password" v-model="password" input-type="password" />
@@ -59,7 +59,7 @@
     <div class="px-6 py-2">
         <button
             :disabled="!email || !password"
-            :class="!email || !password ? 'bg-gray-200 dark:bg-slate-800' : 'bg-[#F02C56]'"
+            :class="!email || !password ? 'bg-gray-200 dark:bg-neutral-800' : 'bg-primary'"
             @click="login"
             class="w-full text-[17px] font-semibold text-white py-3 rounded-lg"
         >

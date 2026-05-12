@@ -22,7 +22,7 @@
 
                 <div class="flex flex-col gap-3 mb-6">
                     <div
-                        class="bg-white dark:bg-slate-950 border border-gray-200 dark:border-slate-800 rounded-xl shadow-sm"
+                        class="bg-white dark:bg-neutral-950 border border-gray-200 dark:border-neutral-800 rounded-xl shadow-sm"
                     >
                         <div class="flex justify-between items-center p-4">
                             <div class="flex items-center gap-5">
@@ -42,7 +42,7 @@
                     </div>
 
                     <div
-                        class="bg-white dark:bg-slate-950 border border-gray-200 dark:border-slate-800 rounded-xl shadow-sm"
+                        class="bg-white dark:bg-neutral-950 border border-gray-200 dark:border-neutral-800 rounded-xl shadow-sm"
                     >
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[60%]">
@@ -91,7 +91,7 @@
 
                     <div
                         v-if="isSettingUp2FA"
-                        class="bg-white dark:bg-slate-950 border border-gray-200 dark:border-slate-800 rounded-xl shadow-sm"
+                        class="bg-white dark:bg-neutral-950 border border-gray-200 dark:border-neutral-800 rounded-xl shadow-sm"
                     >
                         <div class="p-6">
                             <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
@@ -109,7 +109,7 @@
 
                                     <div class="flex justify-center mb-4">
                                         <div
-                                            class="bg-white dark:bg-slate-900 p-4 rounded-lg border border-gray-200 dark:border-slate-700 inline-block"
+                                            class="bg-white dark:bg-neutral-900 p-4 rounded-lg border border-gray-200 dark:border-neutral-700 inline-block"
                                         >
                                             <div v-html="qrCode" class="w-48 h-48"></div>
                                         </div>
@@ -131,7 +131,7 @@
                                                 v-model="twoFactorVerifyCode"
                                                 maxlength="6"
                                                 placeholder="000000"
-                                                class="w-full px-4 py-3 text-center text-lg font-mono tracking-widest border border-gray-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                                class="w-full px-4 py-3 text-center text-lg font-mono tracking-widest border border-gray-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-900 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                                                 :class="{
                                                     'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500':
                                                         has2FAError,
@@ -162,7 +162,7 @@
 
                                 <div class="flex gap-3 justify-center pt-4">
                                     <button
-                                        class="px-6 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-slate-800 border border-transparent dark:border-slate-700 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                                        class="px-6 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-neutral-800 border border-transparent dark:border-neutral-700 rounded-lg hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors cursor-pointer"
                                         @click="cancel2FASetup"
                                         :disabled="isVerifying"
                                     >
@@ -201,7 +201,7 @@
             @click.self="cancelChangePassword"
         >
             <div
-                class="w-full max-w-md rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-2xl"
+                class="w-full max-w-md rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shadow-2xl"
             >
                 <div class="p-6">
                     <div class="mb-5">
@@ -239,7 +239,7 @@
                             <input
                                 type="password"
                                 v-model="currentPassword"
-                                class="w-full rounded-lg border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                class="w-full rounded-lg border border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-2 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             />
                         </div>
 
@@ -252,7 +252,7 @@
                             <input
                                 type="password"
                                 v-model="newPassword"
-                                class="w-full rounded-lg border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                class="w-full rounded-lg border border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-2 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             />
                         </div>
 
@@ -265,14 +265,14 @@
                             <input
                                 type="password"
                                 v-model="confirmPassword"
-                                class="w-full rounded-lg border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                class="w-full rounded-lg border border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-2 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             />
                         </div>
                     </div>
 
                     <div class="mt-6 flex justify-end gap-3">
                         <button
-                            class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-slate-800 border border-transparent dark:border-slate-700 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                            class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-neutral-800 border border-transparent dark:border-neutral-700 rounded-lg hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors cursor-pointer"
                             @click="cancelChangePassword"
                         >
                             {{ $t('common.cancel') }}

@@ -22,9 +22,9 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <div class="flex items-center gap-2.5 mb-4">
-                            <span class="block w-8 h-px bg-[#F02C56]"></span>
+                            <span class="block w-8 h-px bg-primary"></span>
                             <span
-                                class="text-xs font-semibold tracking-[0.15em] uppercase text-[#F02C56]"
+                                class="text-xs font-semibold tracking-[0.15em] uppercase text-primary"
                                 >{{ t('common.browse') }}</span
                             >
                         </div>
@@ -69,7 +69,7 @@
                     <router-link
                         v-if="authStore.isAuthenticated"
                         to="/starter-kits/create"
-                        class="self-start md:self-auto px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-[#F02C56] hover:bg-[#D91B42] transition-all shadow-md shadow-[#F02C56]/25 flex items-center gap-2 flex-shrink-0"
+                        class="self-start md:self-auto px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-primary hover:bg-[#D91B42] transition-all shadow-md shadow-primary/25 flex items-center gap-2 flex-shrink-0"
                     >
                         <PlusIcon class="w-4 h-4" />
                         {{ t('common.createKit') }}
@@ -89,7 +89,7 @@
                             v-model="search"
                             type="text"
                             placeholder="Search kits..."
-                            class="w-full pl-9 pr-4 py-2 text-sm bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl focus:outline-none focus:border-[#F02C56] focus:ring-1 focus:ring-[#F02C56]/20 text-gray-900 dark:text-white placeholder-gray-400 transition-all"
+                            class="w-full pl-9 pr-4 py-2 text-sm bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 text-gray-900 dark:text-white placeholder-gray-400 transition-all"
                         />
                     </div>
 
@@ -108,7 +108,7 @@
                                     class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all"
                                     :class="
                                         sortBy === opt.value
-                                            ? 'bg-[#F02C56] text-white shadow-sm'
+                                            ? 'bg-primary text-white shadow-sm'
                                             : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
                                     "
                                 >
@@ -131,7 +131,7 @@
                                     class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all"
                                     :class="
                                         limitBy === opt.value
-                                            ? 'bg-[#F02C56] text-white shadow-sm'
+                                            ? 'bg-primary text-white shadow-sm'
                                             : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
                                     "
                                 >
@@ -177,7 +177,7 @@
                         class="flex-shrink-0 px-3 py-1 rounded-full text-xs font-semibold transition-all"
                         :class="
                             activeTag === null
-                                ? 'bg-[#F02C56] text-white'
+                                ? 'bg-primary text-white'
                                 : 'bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 hover:border-gray-300'
                         "
                     >
@@ -190,8 +190,8 @@
                         class="flex-shrink-0 px-3 py-1 rounded-full text-xs font-semibold transition-all"
                         :class="
                             activeTag === tag
-                                ? 'bg-[#F02C56] text-white'
-                                : 'bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 hover:border-[#F02C56]/40 hover:text-[#F02C56]'
+                                ? 'bg-primary text-white'
+                                : 'bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 hover:border-primary/40 hover:text-primary'
                         "
                     >
                         #{{ tag }}
@@ -264,7 +264,7 @@
                                     <div class="flex items-center justify-between gap-4">
                                         <div class="min-w-0">
                                             <h3
-                                                class="font-semibold text-gray-900 dark:text-white group-hover:text-[#F02C56] transition-colors truncate"
+                                                class="font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors truncate"
                                             >
                                                 {{ kit.title }}
                                             </h3>
@@ -274,7 +274,7 @@
                                         </div>
                                         <router-link
                                             :to="kit.path"
-                                            class="flex-shrink-0 px-4 py-1.5 text-xs font-bold rounded-lg border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 group-hover:bg-[#F02C56] group-hover:border-[#F02C56] group-hover:text-white transition-all"
+                                            class="flex-shrink-0 px-4 py-1.5 text-xs font-bold rounded-lg border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all"
                                         >
                                             {{ t('common.useKit') }}
                                         </router-link>

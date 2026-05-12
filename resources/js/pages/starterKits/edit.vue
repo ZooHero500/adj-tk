@@ -25,7 +25,7 @@
                         class="self-start sm:self-auto flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all flex-shrink-0"
                         :class="
                             detailsDirty
-                                ? 'bg-[#F02C56] hover:bg-[#D91B42] text-white shadow-md shadow-[#F02C56]/25'
+                                ? 'bg-primary hover:bg-[#D91B42] text-white shadow-md shadow-primary/25'
                                 : 'bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-400 cursor-not-allowed'
                         "
                     >
@@ -45,9 +45,9 @@
                 <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10">
                     <div>
                         <div class="flex items-center gap-2.5 mb-4">
-                            <span class="block w-8 h-px bg-[#F02C56]"></span>
+                            <span class="block w-8 h-px bg-primary"></span>
                             <span
-                                class="text-xs font-semibold tracking-[0.15em] uppercase text-[#F02C56]"
+                                class="text-xs font-semibold tracking-[0.15em] uppercase text-primary"
                                 >{{ t('common.editing') }} {{ t('common.starterKit') }}</span
                             >
                         </div>
@@ -265,7 +265,7 @@
                                         </div>
 
                                         <div
-                                            class="relative group rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-200 dark:border-gray-700 transition-colors hover:border-[#F02C56]/50"
+                                            class="relative group rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-200 dark:border-gray-700 transition-colors hover:border-primary/50"
                                             :class="[
                                                 'aspect-[5/3]',
                                                 headerUrl ? 'border-solid border-transparent' : ''
@@ -371,7 +371,7 @@
                                                     {{ t('common.current') }}
                                                 </p>
                                                 <div
-                                                    class="relative group w-20 h-20 rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-200 dark:border-gray-700 transition-colors hover:border-[#F02C56]/50 cursor-pointer"
+                                                    class="relative group w-20 h-20 rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-200 dark:border-gray-700 transition-colors hover:border-primary/50 cursor-pointer"
                                                     :class="
                                                         iconUrl
                                                             ? 'border-solid border-transparent'
@@ -465,7 +465,7 @@
                                                 <div class="flex gap-2 mt-2">
                                                     <button
                                                         @click="$refs.iconInput.click()"
-                                                        class="px-3 py-1.5 text-xs font-semibold rounded-xl border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#F02C56] hover:text-[#F02C56] transition-all flex items-center gap-1.5"
+                                                        class="px-3 py-1.5 text-xs font-semibold rounded-xl border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-primary hover:text-primary transition-all flex items-center gap-1.5"
                                                     >
                                                         <ArrowUpTrayIcon class="w-3.5 h-3.5" />
                                                         {{
@@ -512,7 +512,7 @@
                                 >
                                     <span class="flex items-center gap-2">
                                         {{ t('common.kitName') }}
-                                        <span class="text-[#F02C56]">*</span>
+                                        <span class="text-primary">*</span>
                                         <PendingFieldBadge v-if="hasPendingField('title')" />
                                     </span>
                                 </label>
@@ -523,7 +523,7 @@
                                         placeholder="e.g. Science & Tech Creators"
                                         :maxlength="50"
                                         @input="markDirty"
-                                        class="w-full px-4 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-[#F02C56] focus:ring-2 focus:ring-[#F02C56]/15 transition-all"
+                                        class="w-full px-4 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all"
                                     />
                                 </div>
                                 <div class="flex items-center justify-between mt-1.5">
@@ -544,7 +544,7 @@
                                 >
                                     <span class="flex items-center gap-2">
                                         {{ t('studio.description') }}
-                                        <span class="text-[#F02C56]">*</span>
+                                        <span class="text-primary">*</span>
                                         <PendingFieldBadge v-if="hasPendingField('description')" />
                                     </span>
                                 </label>
@@ -554,7 +554,7 @@
                                     maxlength="500"
                                     placeholder="What's this kit about? Help people decide if it's right for them."
                                     @input="markDirty"
-                                    class="w-full px-4 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-[#F02C56] focus:ring-2 focus:ring-[#F02C56]/15 transition-all resize-none"
+                                    class="w-full px-4 py-2.5 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all resize-none"
                                 />
                                 <div class="flex items-center justify-between mt-1.5">
                                     <PendingFieldValue
@@ -574,7 +574,7 @@
                                     class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                                 >
                                     <span class="flex items-center gap-2">
-                                        {{ t('common.tags') }} <span class="text-[#F02C56]">*</span>
+                                        {{ t('common.tags') }} <span class="text-primary">*</span>
                                         <PendingFieldBadge v-if="hasPendingField('hashtags')" />
                                     </span>
                                 </label>
@@ -624,7 +624,7 @@
                                         type="text"
                                         maxlength="32"
                                         :placeholder="`${t('common.addATag')}…`"
-                                        class="flex-1 px-4 py-2 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-[#F02C56] focus:ring-2 focus:ring-[#F02C56]/15 transition-all"
+                                        class="flex-1 px-4 py-2 bg-[#FAFAFA] dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all"
                                         @keydown.enter.prevent="addTag"
                                         @keydown.space.prevent="addTag"
                                     />
@@ -634,7 +634,7 @@
                                         class="px-4 py-2 text-sm font-semibold rounded-xl border transition-all disabled:opacity-40"
                                         :class="
                                             tagInput.trim()
-                                                ? 'bg-[#F02C56] border-[#F02C56] text-white hover:bg-[#D91B42]'
+                                                ? 'bg-primary border-primary text-white hover:bg-[#D91B42]'
                                                 : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-400'
                                         "
                                     >
@@ -671,7 +671,7 @@
                                     class="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all disabled:opacity-40"
                                     :class="
                                         accounts.length < 50
-                                            ? 'bg-[#F02C56] text-white hover:bg-[#D91B42] shadow-sm shadow-[#F02C56]/20'
+                                            ? 'bg-primary text-white hover:bg-[#D91B42] shadow-sm shadow-primary/20'
                                             : 'bg-gray-100 dark:bg-gray-800 text-gray-400'
                                     "
                                 >
@@ -691,7 +691,7 @@
                                         class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5"
                                         :class="
                                             accountTab === tab.value
-                                                ? 'bg-[#F02C56] text-white shadow-sm'
+                                                ? 'bg-primary text-white shadow-sm'
                                                 : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
                                         "
                                     >
@@ -828,7 +828,7 @@
                                     <button
                                         v-if="accountTab === 'all'"
                                         @click="showAddModal = true"
-                                        class="mt-3 text-sm font-semibold text-[#F02C56] hover:underline"
+                                        class="mt-3 text-sm font-semibold text-primary hover:underline"
                                     >
                                         {{ t('common.addYourFirstAccount') }} →
                                     </button>
@@ -864,7 +864,7 @@
                                     :class="[
                                         'relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none flex-shrink-0',
                                         form.is_sensitive
-                                            ? 'bg-[#F02C56]'
+                                            ? 'bg-primary'
                                             : 'bg-gray-200 dark:bg-gray-700'
                                     ]"
                                 >
@@ -903,7 +903,7 @@
                                     class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-1.5 overflow-hidden"
                                 >
                                     <div
-                                        class="bg-[#F02C56] h-1.5 rounded-full transition-all"
+                                        class="bg-primary h-1.5 rounded-full transition-all"
                                         :style="{
                                             width: `${Math.min(100, (accounts.length / 25) * 100)}%`
                                         }"
@@ -1051,7 +1051,7 @@
                                     v-model="searchQuery"
                                     type="text"
                                     placeholder="Search by username or handle…"
-                                    class="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-[#F02C56] focus:ring-2 focus:ring-[#F02C56]/15 transition-all"
+                                    class="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all"
                                     @input="searchAccounts"
                                 />
                             </div>
@@ -1128,7 +1128,7 @@
                                             v-else
                                             @click="addAccount(result)"
                                             :disabled="addingId === result.id"
-                                            class="flex-shrink-0 px-3 py-1.5 bg-[#F02C56] hover:bg-[#D91B42] disabled:bg-[#F02C56]/60 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5"
+                                            class="flex-shrink-0 px-3 py-1.5 bg-primary hover:bg-[#D91B42] disabled:bg-primary/60 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5"
                                         >
                                             <Spinner v-if="addingId === result.id" size="sm" />
                                             <span v-else>{{ t('common.add') }}</span>

@@ -18,9 +18,9 @@
                 >
                     <div class="flex items-start gap-4">
                         <div
-                            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#F02C56]/10 dark:bg-[#F02C56]/20"
+                            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 dark:bg-primary/20"
                         >
-                            <EnvelopeIcon class="h-6 w-6 text-[#F02C56]" />
+                            <EnvelopeIcon class="h-6 w-6 text-primary" />
                         </div>
                         <div class="min-w-0 flex-1">
                             <h3
@@ -101,7 +101,7 @@
                                 :class="[
                                     'rounded-xl border px-3 py-2 text-left text-xs font-medium transition',
                                     activeTemplateId === tpl.id
-                                        ? 'border-[#F02C56] bg-[#F02C56]/5 text-[#F02C56]'
+                                        ? 'border-primary bg-primary/5 text-primary'
                                         : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
                                 ]"
                             >
@@ -124,7 +124,7 @@
                             type="text"
                             maxlength="120"
                             placeholder="e.g. Important account information"
-                            class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-transparent focus:ring-2 focus:ring-[#F02C56]/60 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500"
+                            class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-transparent focus:ring-2 focus:ring-primary/60 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500"
                         />
                     </div>
 
@@ -146,7 +146,7 @@
                             :maxlength="MAX_MESSAGE"
                             rows="7"
                             placeholder="Write your message to the user…"
-                            class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-transparent focus:ring-2 focus:ring-[#F02C56]/60 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500"
+                            class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-transparent focus:ring-2 focus:ring-primary/60 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500"
                         />
                         <p class="mt-1.5 text-xs text-gray-500 dark:text-gray-400">
                             Plain text. The user's display name will be included automatically.
@@ -160,7 +160,7 @@
                             <input
                                 v-model="ccAdmin"
                                 type="checkbox"
-                                class="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-[#F02C56] focus:ring-[#F02C56]/60 dark:border-gray-600 dark:bg-gray-700"
+                                class="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-primary focus:ring-primary/60 dark:border-gray-600 dark:bg-gray-700"
                             />
                             <div class="min-w-0 flex-1">
                                 <p class="text-sm font-medium text-gray-900 dark:text-white">
@@ -176,7 +176,7 @@
                             <input
                                 v-model="logAsAudit"
                                 type="checkbox"
-                                class="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-[#F02C56] focus:ring-[#F02C56]/60 dark:border-gray-600 dark:bg-gray-700"
+                                class="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-primary focus:ring-primary/60 dark:border-gray-600 dark:bg-gray-700"
                             />
                             <div class="min-w-0 flex-1">
                                 <p class="text-sm font-medium text-gray-900 dark:text-white">
@@ -218,7 +218,7 @@
                             :class="[
                                 'inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium text-white transition',
                                 canSubmit
-                                    ? 'bg-[#F02C56] hover:bg-[#d9244a]'
+                                    ? 'bg-primary hover:bg-[#d9244a]'
                                     : 'cursor-not-allowed bg-gray-300 dark:bg-gray-700'
                             ]"
                         >

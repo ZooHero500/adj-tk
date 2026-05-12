@@ -105,7 +105,7 @@
 
                     <button @click="!isDark ? handleToggleDarkMode() : null" class="relative group">
                         <div
-                            class="bg-white dark:bg-slate-950 rounded-xl border-2 transition-all duration-200 p-4 text-left"
+                            class="bg-white dark:bg-neutral-950 rounded-xl border-2 transition-all duration-200 p-4 text-left"
                             :class="
                                 isDark
                                     ? 'border-red-500 shadow-lg shadow-red-500/20'
@@ -113,21 +113,21 @@
                             "
                         >
                             <div
-                                class="aspect-video bg-black rounded-lg border border-slate-800 overflow-hidden mb-3 relative"
+                                class="aspect-video bg-black rounded-lg border border-neutral-800 overflow-hidden mb-3 relative"
                             >
                                 <div class="absolute inset-0 flex">
                                     <div
-                                        class="w-[25%] bg-slate-950 border-r border-slate-800 p-2 flex flex-col gap-2"
+                                        class="w-[25%] bg-neutral-950 border-r border-neutral-800 p-2 flex flex-col gap-2"
                                     >
-                                        <div class="h-2 bg-slate-700 rounded w-3/4"></div>
-                                        <div class="h-1.5 bg-slate-800 rounded w-2/3 mt-1"></div>
-                                        <div class="h-1.5 bg-slate-800 rounded w-2/3"></div>
-                                        <div class="h-1.5 bg-slate-800 rounded w-2/3"></div>
+                                        <div class="h-2 bg-neutral-700 rounded w-3/4"></div>
+                                        <div class="h-1.5 bg-neutral-800 rounded w-2/3 mt-1"></div>
+                                        <div class="h-1.5 bg-neutral-800 rounded w-2/3"></div>
+                                        <div class="h-1.5 bg-neutral-800 rounded w-2/3"></div>
                                     </div>
 
-                                    <div class="flex-1 bg-slate-900 relative">
+                                    <div class="flex-1 bg-neutral-900 relative">
                                         <div
-                                            class="absolute inset-2 right-8 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg"
+                                            class="absolute inset-2 right-8 bg-gradient-to-br from-neutral-700 to-neutral-800 rounded-lg"
                                         >
                                             <div
                                                 class="absolute bottom-1.5 left-1.5 right-10 space-y-0.5"
@@ -139,22 +139,22 @@
 
                                         <div class="absolute flex flex-col gap-2 right-2 bottom-2">
                                             <div
-                                                class="w-4 h-4 rounded-full bg-slate-800 border border-slate-600"
+                                                class="w-4 h-4 rounded-full bg-neutral-800 border border-neutral-600"
                                             ></div>
                                             <div
-                                                class="w-4 h-4 rounded-full bg-slate-800 border border-slate-600"
+                                                class="w-4 h-4 rounded-full bg-neutral-800 border border-neutral-600"
                                             ></div>
                                             <div
-                                                class="w-4 h-4 rounded-full bg-slate-800 border border-slate-600"
+                                                class="w-4 h-4 rounded-full bg-neutral-800 border border-neutral-600"
                                             ></div>
                                             <div
-                                                class="w-4 h-4 rounded-full bg-slate-800 border border-slate-600"
+                                                class="w-4 h-4 rounded-full bg-neutral-800 border border-neutral-600"
                                             ></div>
                                             <div
-                                                class="w-4 h-4 rounded-full bg-slate-800 border border-slate-600"
+                                                class="w-4 h-4 rounded-full bg-neutral-800 border border-neutral-600"
                                             ></div>
                                             <div
-                                                class="w-4 h-4 rounded-full bg-slate-800 border border-slate-600"
+                                                class="w-4 h-4 rounded-full bg-neutral-800 border border-neutral-600"
                                             ></div>
                                         </div>
                                     </div>
@@ -204,7 +204,7 @@
                     {{ $t('language.language') }}
                 </h2>
                 <div class="flex flex-col gap-3 mb-6">
-                    <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="px-4 py-6">
                             <div
                                 class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
@@ -221,7 +221,7 @@
                                     <select
                                         v-model="selectedLocale"
                                         @change="changeLanguage"
-                                        class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500 dark:border-gray-600 dark:bg-slate-900 dark:text-white dark:focus:border-red-400 dark:focus:ring-red-400 transition-colors"
+                                        class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500 dark:border-gray-600 dark:bg-neutral-900 dark:text-white dark:focus:border-red-400 dark:focus:ring-red-400 transition-colors"
                                     >
                                         <option
                                             v-for="language in availableLanguages"
@@ -260,7 +260,7 @@
                     {{ $t('settings.feeds') }}
                 </h2>
                 <div class="flex flex-col gap-3 mb-6">
-                    <div class="bg-white dark:bg-slate-950 rounded-lg shadow-sm">
+                    <div class="bg-white dark:bg-neutral-950 rounded-lg shadow-sm">
                         <div class="px-4 py-6 flex items-center justify-between">
                             <div class="flex flex-col max-w-[80%]">
                                 <h3 class="font-medium mb-2 dark:text-gray-300">

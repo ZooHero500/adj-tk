@@ -3,13 +3,13 @@
         <div class="onboarding relative min-h-screen overflow-hidden bg-gray-50 dark:bg-gray-950">
             <div class="pointer-events-none absolute inset-0 overflow-hidden">
                 <div
-                    class="absolute -top-1/2 -left-1/4 h-[900px] w-[900px] rounded-full bg-gradient-to-br from-[#F02C56]/40 via-[#F02C56]/20 to-transparent blur-3xl animate-drift-slow"
+                    class="absolute -top-1/2 -left-1/4 h-[900px] w-[900px] rounded-full bg-gradient-to-br from-primary/40 via-primary/20 to-transparent blur-3xl animate-drift-slow"
                 />
                 <div
-                    class="absolute -bottom-1/3 -right-1/4 h-[700px] w-[700px] rounded-full bg-gradient-to-tl from-[#F02C56]/30 via-rose-400/20 to-transparent blur-3xl animate-drift-slow-reverse"
+                    class="absolute -bottom-1/3 -right-1/4 h-[700px] w-[700px] rounded-full bg-gradient-to-tl from-primary/30 via-rose-400/20 to-transparent blur-3xl animate-drift-slow-reverse"
                 />
                 <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-rose-400/20 via-[#F02C56]/10 to-transparent blur-2xl animate-drift-slow"
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-rose-400/20 via-primary/10 to-transparent blur-2xl animate-drift-slow"
                 />
             </div>
 
@@ -75,7 +75,7 @@
                         <h1
                             class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
-                            Welcome to <span class="text-[#F02C56]">PornTk</span>
+                            Welcome to <span class="text-primary">PornTk</span>
                         </h1>
                         <p class="mt-2 text-base text-gray-500 dark:text-gray-400 sm:text-lg">
                             Setting up your account...
@@ -161,7 +161,7 @@
                         <h1
                             class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
-                            Welcome to <span class="text-[#F02C56]">PornTk</span>
+                            Welcome to <span class="text-primary">PornTk</span>
                         </h1>
                         <p class="mt-2 text-base text-gray-500 dark:text-gray-400 sm:text-lg">
                             Let's finish setting up your account.
@@ -177,7 +177,7 @@
                                     class="h-1.5 flex-1 rounded-full transition-all duration-500 ease-out"
                                     :class="
                                         i <= currentStep
-                                            ? 'bg-[#F02C56]'
+                                            ? 'bg-primary'
                                             : 'bg-gray-200 dark:bg-gray-700/50'
                                     "
                                 />
@@ -186,7 +186,7 @@
 
                         <div class="px-6 py-6 sm:px-8 sm:py-8">
                             <p
-                                class="mb-1 text-xs font-semibold uppercase tracking-widest text-[#F02C56]"
+                                class="mb-1 text-xs font-semibold uppercase tracking-widest text-primary"
                             >
                                 Step {{ currentStep }} of {{ totalSteps }}
                             </p>
@@ -226,10 +226,10 @@
                                                 class="flex items-center gap-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 p-4"
                                             >
                                                 <div
-                                                    class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#F02C56]/10 dark:bg-[#F02C56]/20"
+                                                    class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 dark:bg-primary/20"
                                                 >
                                                     <svg
-                                                        class="h-5 w-5 text-[#F02C56]"
+                                                        class="h-5 w-5 text-primary"
                                                         fill="none"
                                                         stroke="currentColor"
                                                         viewBox="0 0 24 24"
@@ -455,7 +455,7 @@
                                                     <button
                                                         type="button"
                                                         @click="applySuggestedUsername"
-                                                        class="ml-1 font-semibold text-[#F02C56] hover:text-[#D7284A] transition-colors cursor-pointer"
+                                                        class="ml-1 font-semibold text-primary hover:text-[#D7284A] transition-colors cursor-pointer"
                                                     >
                                                         @{{ suggestedUsername }}
                                                     </button>
