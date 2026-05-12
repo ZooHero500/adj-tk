@@ -144,7 +144,7 @@ export function useSnapScroll({
             'textarea',
             'select',
             '[role="button"]',
-            '[tabindex]',
+            '[tabindex]:not([tabindex="-1"])',
             '.mobile-interaction-btn',
             '.play-button',
             '.comments-panel',

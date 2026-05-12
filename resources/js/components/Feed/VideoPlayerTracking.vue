@@ -1168,12 +1168,12 @@ defineExpose({
 
 .video-container {
     overscroll-behavior: contain;
-    touch-action: manipulation;
+    touch-action: pan-y;
 }
 
 .mobile-pause-overlay {
     overscroll-behavior: contain;
-    touch-action: manipulation;
+    touch-action: pan-y;
 }
 
 .play-button {

@@ -188,7 +188,7 @@ const handleItemChange = async (newIndex, oldIndex) => {
                     await newItem.preload()
                 }
 
-                if (props.autoPlay && typeof newItem.play === 'function') {
+                if (typeof newItem.play === 'function') {
                     let playAttempts = 0
                     const maxAttempts = 3
 
@@ -360,6 +360,44 @@ const checkMobileView = () => {
 }
 
 let dataWatcher = null
+let intersectionObserver = null
+
+const setupIntersectionObserver = () => {
+    if (!scrollContainerRef.value || intersectionObserver) return
+
+    intersectionObserver = new IntersectionObserver(
+        (entries) => {
+            for (const entry of entries) {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                    const index = parseInt(entry.target.dataset.index)
+                    if (!isNaN(index) && index !== currentItemIndex.value && !isChangingItem.value) {
+                        const oldIndex = currentItemIndex.value
+                        currentItemIndex.value = index
+                        handleItemChange(index, oldIndex)
+                    }
+                }
+            }
+        },
+        {
+            root: scrollContainerRef.value,
+            threshold: 0.5
+        }
+    )
+
+    // Observe existing snap items
+    scrollContainerRef.value.querySelectorAll('.snap-item[data-index]').forEach((el) => {
+        intersectionObserver.observe(el)
+    })
+}
+
+// Re-observe when new items are added (pagination)
+const observeNewItems = () => {
+    if (!intersectionObserver || !scrollContainerRef.value) return
+    scrollContainerRef.value.querySelectorAll('.snap-item[data-index]').forEach((el) => {
+        intersectionObserver.observe(el)
+    })
+}
+
 onMounted(async () => {
     if (!scrollContainerRef.value) return
 
@@ -380,15 +418,25 @@ onMounted(async () => {
         async (newData) => {
             if (newData && totalItems.value > 0) {
                 await nextTick()
+                setupIntersectionObserver()
                 setTimeout(() => {
                     if (currentItemIndex.value === 0) {
                         handleItemChange(0, -1)
                     }
-                }, 500)
+                }, 200)
                 stopWatcher()
             }
         },
         { immediate: true }
+    )
+
+    // Re-observe when pages change (new data loaded)
+    watch(
+        () => data.value?.pages?.length,
+        async () => {
+            await nextTick()
+            observeNewItems()
+        }
     )
 
     scrollContainerRef.value._cleanupWheel = cleanupWheel
@@ -397,6 +445,11 @@ onMounted(async () => {
 
 onUnmounted(() => {
     window.removeEventListener('resize', checkMobileView)
+
+    if (intersectionObserver) {
+        intersectionObserver.disconnect()
+        intersectionObserver = null
+    }
 
     if (scrollDebounceTimer) {
         clearTimeout(scrollDebounceTimer)
