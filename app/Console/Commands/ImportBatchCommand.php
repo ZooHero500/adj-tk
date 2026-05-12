@@ -151,6 +151,13 @@ class ImportBatchCommand extends Command
             ]);
         }
 
+        // Update follower/following counts if provided
+        if (! empty($data['followers']) || ! empty($data['following'])) {
+            $profile->followers = $data['followers'] ?? $profile->followers;
+            $profile->following = $data['following'] ?? $profile->following;
+            $profile->save();
+        }
+
         // Upload avatar if provided
         if (! empty($data['avatar'])) {
             if (str_starts_with($data['avatar'], 'http')) {
@@ -229,6 +236,9 @@ class ImportBatchCommand extends Command
         }
 
         // Create video record
+        $likes = $data['likes'] ?? 0;
+        $views = $data['views'] ?? 0;
+
         $video = Video::create([
             'profile_id' => $profile->id,
             'vid' => $mp4File,
@@ -237,6 +247,8 @@ class ImportBatchCommand extends Command
             'status' => 2,
             'visibility' => 1,
             'duration' => $duration,
+            'likes' => $likes,
+            'views' => $views,
             'is_sensitive' => $isSensitive,
             'is_adult' => $isAdult ? 1 : 0,
             'is_local' => true,
