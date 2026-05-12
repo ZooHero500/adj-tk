@@ -120,16 +120,20 @@ class FeedService
         return $videos;
     }
 
-    public static function getPublicVideoFeed($limit = 10)
+    public static function getPublicVideoFeed($limit = 10, ?string $cursor = null)
     {
         $videos = Video::published()
             ->where('is_local', true)
             ->where('created_at', '>', now()->subDays(93))
-            ->orderBy('videos.likes', 'desc')
-            ->limit($limit)
-            ->get();
+            ->orderByDesc('videos.id')
+            ->cursorPaginate(
+                perPage: $limit,
+                columns: ['*'],
+                cursorName: 'cursor',
+                cursor: $cursor
+            );
 
-        self::loadBookmarkStatus($videos, auth('web')->user() ?? auth('api')->user());
+        self::loadBookmarkStatus($videos->items(), auth('web')->user() ?? auth('api')->user());
 
         return $videos;
     }

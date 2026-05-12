@@ -43,14 +43,19 @@ class WebPublicController extends Controller
 
     public function getFeed(Request $request)
     {
-        $res = Cache::remember('wpc:get-feed', now()->addMinutes(45), function () {
-            $request = new Request;
-            $feed = FeedService::getPublicVideoFeed(20);
+        $cursor = $request->input('cursor');
 
-            $feed = collect($feed)->shuffle();
+        $feed = FeedService::getPublicVideoFeed(20, $cursor);
 
-            return VideoResource::collection($feed->all())->toArray($request);
-        });
+        $nextCursor = $feed->nextCursor()?->encode();
+        $prevCursor = $feed->previousCursor()?->encode();
+
+        $items = collect($feed->items());
+        if (! $cursor) {
+            $items = $items->shuffle();
+        }
+
+        $res = VideoResource::collection($items->all())->toArray($request);
 
         return response()->json([
             'data' => $res,
@@ -63,8 +68,8 @@ class WebPublicController extends Controller
             'meta' => [
                 'path' => $request->url(),
                 'per_page' => count($res),
-                'next_cursor' => null,
-                'prev_cursor' => null,
+                'next_cursor' => $nextCursor,
+                'prev_cursor' => $prevCursor,
             ],
         ]);
     }
