@@ -440,8 +440,8 @@ class VideoController extends Controller
         ]);
 
         if ($like->wasRecentlyCreated) {
-            $video->likes = VideoLike::whereVideoId($video->id)->count();
-            $video->saveQuietly();
+            $video->increment('likes');
+
 
             app(LikeService::class)->addVideoLike((string) $video->id, (string) $pid);
 
@@ -500,8 +500,7 @@ class VideoController extends Controller
             }
             app(LikeService::class)->removeVideoLike((string) $video->id, (string) $pid);
             $res->delete();
-            $video->likes = VideoLike::whereVideoId($video->id)->count();
-            $video->saveQuietly();
+            $video->decrement('likes');
         } else {
             $resp = (new VideoResource($video))->toArray($request);
 
