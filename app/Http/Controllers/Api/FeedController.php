@@ -47,14 +47,64 @@ class FeedController extends Controller
         app(UserActivityService::class)->markActive($user);
         FeedService::enforcePaginationLimit($request);
         $hideAi = $user->hide_ai;
-        $feed = FeedService::getVideoFeed($user->profile_id, 15, $hideAi);
 
-        // Shuffle on first page for variety, subsequent pages stay ordered
+        // First page: fetch larger pool, score & weighted-random sort
         if (! $request->has('cursor')) {
-            $feed->setCollection($feed->getCollection()->shuffle());
+            $feed = FeedService::getVideoFeed($user->profile_id, 50, $hideAi);
+            $scored = $feed->getCollection()->map(function ($video) {
+                $video->_score = $this->calcNewFeedScore($video);
+                return $video;
+            });
+
+            // Weighted random: score as probability weight
+            $sorted = $this->weightedShuffle($scored);
+            $feed->setCollection($sorted->take(15)->values());
+
+            return VideoResource::collection($feed);
         }
 
+        $feed = FeedService::getVideoFeed($user->profile_id, 15, $hideAi);
+
         return VideoResource::collection($feed);
+    }
+
+    /**
+     * Score a video for the New feed.
+     * Freshness 40% + Engagement 40% + Random 20%
+     */
+    private function calcNewFeedScore($video): float
+    {
+        $ageHours = max(1, now()->diffInHours($video->created_at));
+        $maxAge = 30 * 24; // 30 days
+
+        // Freshness: quadratic decay, 0-1
+        $freshness = max(0, 1 - pow($ageHours / $maxAge, 2));
+
+        // Engagement: log-normalized, 0-1
+        $likes = min($video->likes ?? 0, 500);
+        $comments = min($video->comments ?? 0, 100);
+        $shares = min($video->shares ?? 0, 50);
+        $views = min($video->views ?? 0, 5000);
+
+        $engagementRaw = ($likes * 0.35) + ($comments * 0.25) + ($shares * 0.25) + ($views * 0.01);
+        $engagement = min(1, log($engagementRaw + 1) / log(200));
+
+        // Random factor for diversity
+        $random = mt_rand(0, 100) / 100;
+
+        return ($freshness * 0.40) + ($engagement * 0.40) + ($random * 0.20);
+    }
+
+    /**
+     * Weighted shuffle: items with higher scores are more likely to appear first.
+     */
+    private function weightedShuffle($collection)
+    {
+        return $collection->sortByDesc(function ($item) {
+            // Add jitter proportional to score so high-score items float up
+            // but with enough randomness to vary the order each time
+            return $item->_score + (mt_rand(0, 30) / 100);
+        });
     }
 
     public function getFollowingFeed(Request $request)
