@@ -68,17 +68,7 @@
                             </button>
                         </div>
 
-                        <button
-                            v-if="!isPaused && isMuted && canInteract"
-                            @click.stop="toggleMute"
-                            @touchend.stop
-                            class="absolute bottom-[200px] left-4 lg:bottom-4 lg:left-4 z-20 bg-black/50 rounded-full p-2.5 text-white flex items-center justify-center hover:bg-black/70 cursor-pointer"
-                        >
-                            <i
-                                :class="isMuted ? 'bx bx-volume-mute' : 'bx bx-volume-full'"
-                                class="text-2xl"
-                            ></i>
-                        </button>
+                        <!-- Mute button moved to right sidebar -->
 
                         <div
                             class="absolute bottom-0 left-0 right-0 h-30 bg-gradient-to-t from-black/80 via-black/50 to-transparent pointer-events-none z-0"
@@ -107,12 +97,12 @@
 
                         <div
                             v-if="canInteract"
-                            class="absolute right-2 bottom-4 lg:bottom-4 flex flex-col items-center space-y-6 lg:hidden pointer-events-auto z-10"
+                            class="absolute right-3 bottom-6 lg:bottom-4 flex flex-col items-center space-y-4 lg:hidden pointer-events-auto z-10"
                         >
                             <div class="flex flex-col items-center">
                                 <router-link :to="`/@${username}`">
                                     <div
-                                        class="h-10 w-10 sm:h-12 sm:w-12 overflow-hidden shadow rounded-full bg-gray-200 dark:border-neutral-800"
+                                        class="h-9 w-9 overflow-hidden shadow-lg rounded-full ring-2 ring-white/30"
                                     >
                                         <img
                                             :src="profileImage"
@@ -131,66 +121,64 @@
                                     @click.stop="toggleLike"
                                     :class="[
                                         videoLiked
-                                            ? 'text-red-500 hover:text-red-400'
-                                            : 'text-white hover:text-red-500 dark:text-white'
+                                            ? 'text-red-500'
+                                            : 'text-white/90'
                                     ]"
-                                    class="mobile-interaction-btn"
+                                    class="sidebar-action-btn"
                                 >
                                     <i
-                                        class="text-[28px]"
+                                        class="text-[26px]"
                                         :class="[videoLiked ? 'bx bxs-heart' : 'bx bx-heart']"
                                     ></i>
                                 </button>
-                                <span class="mt-1 text-xs font-medium text-white dark:text-white">{{
+                                <span class="text-[11px] font-medium text-white/90">{{
                                     formatCount(likeCount)
                                 }}</span>
                             </div>
 
-                            <div class="flex flex-col items-center text-white hover:text-red-500">
-                                <button @click.stop="toggleComments" class="mobile-interaction-btn">
+                            <div class="flex flex-col items-center">
+                                <button @click.stop="toggleBookmark" class="sidebar-action-btn text-white/90">
                                     <i
-                                        class="bx bx-message-square-dots text-[24px] sm:text-[28px]"
-                                    ></i>
-                                </button>
-                                <span class="mt-1 text-xs font-medium">{{
-                                    formatCount(displayCommentCount)
-                                }}</span>
-                            </div>
-
-                            <div class="flex flex-col items-center text-white hover:text-red-500">
-                                <button @click.stop="toggleBookmark" class="mobile-interaction-btn">
-                                    <i
-                                        class="bx text-[24px] sm:text-[28px]"
+                                        class="text-[26px]"
                                         :class="[
                                             videoBookmarked
-                                                ? 'bxs-bookmark text-red-500'
-                                                : 'bx-bookmark'
+                                                ? 'bx bxs-bookmark text-red-500'
+                                                : 'bx bx-bookmark'
                                         ]"
                                     ></i>
                                 </button>
-                                <span class="mt-1 text-xs font-medium">{{
+                                <span class="text-[11px] font-medium text-white/90">{{
                                     formatCount(bookmarksCount)
                                 }}</span>
                             </div>
 
-                            <div class="flex flex-col items-center text-white hover:text-red-500">
+                            <div class="flex flex-col items-center">
+                                <button
+                                    @click.stop="toggleMute"
+                                    class="sidebar-action-btn text-white/90"
+                                >
+                                    <i
+                                        :class="isMuted ? 'bx bx-volume-mute' : 'bx bx-volume-full'"
+                                        class="text-[26px]"
+                                    ></i>
+                                </button>
+                            </div>
+
+                            <div class="flex flex-col items-center">
                                 <ShareModal :url="shareUrl">
-                                    <button class="mobile-interaction-btn" @click.stop>
-                                        <i class="bx bx-share text-[24px] sm:text-[28px]"></i>
+                                    <button class="sidebar-action-btn text-white/90" @click.stop>
+                                        <i class="bx bx-link text-[26px]"></i>
                                     </button>
                                 </ShareModal>
-                                <span class="mt-1 text-xs font-medium">{{
-                                    formatCount(shares)
-                                }}</span>
                             </div>
 
                             <div class="flex flex-col items-center">
                                 <div class="relative">
                                     <button
-                                        class="mt-1 text-white hover:text-gray-300 mobile-interaction-btn"
+                                        class="sidebar-action-btn text-white/90"
                                         @click.stop="showMenu = !showMenu"
                                     >
-                                        <i class="bx bx-cog text-[24px] sm:text-[28px]"></i>
+                                        <i class="bx bx-dots-horizontal-rounded text-[26px]"></i>
                                     </button>
 
                                     <div
@@ -604,7 +592,7 @@ const handleTouchEnd = (e) => {
 }
 
 const handleVideoClick = async (e) => {
-    if (e.target.closest('button, a, .mobile-interaction-btn')) return
+    if (e.target.closest('button, a, .mobile-interaction-btn, .sidebar-action-btn')) return
     if (!canInteract.value) return
 
     // First interaction: record it and unmute
@@ -1174,6 +1162,28 @@ defineExpose({
     pointer-events: none;
 }
 
+.sidebar-action-btn {
+    position: relative;
+    z-index: 10;
+    border: none;
+    background: none;
+    padding: 4px;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+.sidebar-action-btn:active {
+    transform: scale(0.9);
+}
+
+.sidebar-action-btn i {
+    display: block;
+    pointer-events: none;
+}
+
 .hover\:overflow-y-auto:hover {
     scrollbar-width: thin;
     scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
@@ -1217,6 +1227,14 @@ defineExpose({
     .mobile-interaction-btn {
         min-width: 44px;
         min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar-action-btn {
+        min-width: 40px;
+        min-height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
