@@ -3,7 +3,10 @@
         v-if="isMobileView && showTabsAndSearch"
         class="fixed top-0 left-0 right-0 z-50 safe-area-top"
     >
-        <div class="flex items-center justify-center h-14">
+        <div class="flex items-center justify-between h-14 px-4">
+            <router-link to="/" class="flex items-center">
+                <img src="/img/logo-light.svg" alt="PornTk" class="h-8 w-8 rounded-lg" />
+            </router-link>
             <div class="relative" ref="dropdownRef">
                 <button
                     @click="toggleDropdown"
@@ -38,6 +41,7 @@
                     </div>
                 </Transition>
             </div>
+            <div class="w-8"></div>
         </div>
     </header>
 </template>
