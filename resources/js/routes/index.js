@@ -15,7 +15,9 @@ const router = createRouter({
         },
         {
             path: '/feed/for-you',
-            redirect: '/'
+            name: 'feedForYouPage',
+            component: () => import('~/pages/feed/for-you.vue'),
+            meta: { requiresAuth: true }
         },
         {
             path: '/feed/following',
