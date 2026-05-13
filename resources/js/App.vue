@@ -41,7 +41,7 @@ onMounted(async () => {
 
     setTimeout(() => {
         showSplash.value = false
-    }, 1500)
+    }, 3500)
 
     try {
         await authStore.hasSessionExpired()
@@ -63,7 +63,7 @@ onMounted(async () => {
 }
 
 .splash-logo {
-    animation: splash-bounce 1.5s ease-in-out;
+    animation: splash-bounce 3.5s ease-in-out;
 }
 
 .splash-logo-img {
@@ -77,20 +77,20 @@ onMounted(async () => {
         transform: scale(0.3);
         opacity: 0;
     }
-    20% {
+    10% {
         transform: scale(1.15);
         opacity: 1;
     }
-    35% {
+    18% {
         transform: scale(0.9);
     }
-    50% {
+    25% {
         transform: scale(1.05);
     }
-    65% {
+    32% {
         transform: scale(0.97);
     }
-    80% {
+    40% {
         transform: scale(1);
     }
     100% {
