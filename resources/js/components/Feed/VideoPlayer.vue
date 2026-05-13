@@ -913,11 +913,11 @@ const handlePlayClick = async () => {
 }
 
 const preload = async () => {
-    if (player && player.readyState() < 1) {
+    if (player && player.readyState() < 3) {
         try {
             player.load()
         } catch (error) {
-            console.warn('Failed to preload video:', error)
+            // ignore
         }
     }
 }

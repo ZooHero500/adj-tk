@@ -216,6 +216,9 @@ const handleItemChange = async (newIndex, oldIndex) => {
                     props.onItemVisible(newIndex)
                 }
                 emit('item-visible', newIndex)
+
+                // Preload adjacent videos so next swipe is instant
+                preloadAdjacent(newIndex)
             }
         }
     } finally {
@@ -227,6 +230,23 @@ const handleItemChange = async (newIndex, oldIndex) => {
     // Load more when approaching the end (covers snap scroll where handleScroll is suppressed)
     if (hasNextPage.value && !isFetchingNextPage.value && newIndex >= totalItems.value - 3) {
         fetchNextPage()
+    }
+}
+
+const preloadAdjacent = (currentIndex) => {
+    const offsets = [1, -1, 2]
+    for (const offset of offsets) {
+        const idx = currentIndex + offset
+        if (idx >= 0 && idx < totalItems.value) {
+            const item = itemRefs.value[idx]
+            if (item && typeof item.preload === 'function') {
+                try {
+                    item.preload()
+                } catch (e) {
+                    // ignore preload failures
+                }
+            }
+        }
     }
 }
 
