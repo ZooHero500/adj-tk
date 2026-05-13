@@ -223,6 +223,11 @@ const handleItemChange = async (newIndex, oldIndex) => {
             isChangingItem.value = false
         }, 200)
     }
+
+    // Load more when approaching the end (covers snap scroll where handleScroll is suppressed)
+    if (hasNextPage.value && !isFetchingNextPage.value && newIndex >= totalItems.value - 3) {
+        fetchNextPage()
+    }
 }
 
 const {
