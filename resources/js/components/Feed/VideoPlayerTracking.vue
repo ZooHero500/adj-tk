@@ -82,12 +82,12 @@
                         </button>
 
                         <div
-                            class="absolute bottom-10 lg:bottom-0 left-0 right-0 h-30 bg-gradient-to-t from-black/80 via-black/50 to-transparent pointer-events-none z-0"
+                            class="absolute bottom-0 left-0 right-0 h-30 bg-gradient-to-t from-black/80 via-black/50 to-transparent pointer-events-none z-0"
                         ></div>
 
                         <div
                             v-if="canInteract"
-                            class="absolute bottom-10 left-2 right-20 lg:bottom-2 lg:right-4 p-2 lg:p-4 text-white pointer-events-none z-10"
+                            class="absolute bottom-2 left-2 right-20 lg:bottom-2 lg:right-4 p-2 lg:p-4 text-white pointer-events-none z-10"
                         >
                             <div class="mb-0">
                                 <span class="text-base sm:text-lg font-semibold drop-shadow-lg"
@@ -108,7 +108,7 @@
 
                         <div
                             v-if="canInteract"
-                            class="absolute right-2 bottom-15 lg:bottom-4 flex flex-col items-center space-y-6 lg:hidden pointer-events-auto z-10"
+                            class="absolute right-2 bottom-4 lg:bottom-4 flex flex-col items-center space-y-6 lg:hidden pointer-events-auto z-10"
                         >
                             <div class="flex flex-col items-center">
                                 <router-link :to="`/@${username}`">
