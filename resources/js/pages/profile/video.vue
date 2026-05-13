@@ -1,5 +1,36 @@
 <template>
     <FeedLayout>
+        <!-- Floating header: back button + username -->
+        <div
+            v-if="!isLoadingProfile && !profileError && accountId"
+            class="fixed top-0 left-0 right-0 z-50 pointer-events-none lg:left-[260px]"
+        >
+            <div class="flex items-center justify-between h-14 px-4 pointer-events-auto safe-area-top">
+                <button
+                    @click="goBack"
+                    class="flex items-center justify-center w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm hover:bg-black/70 transition-colors"
+                >
+                    <ChevronLeftIcon class="h-5 w-5 text-white" />
+                </button>
+
+                <router-link
+                    :to="`/@${profileUsername}`"
+                    class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-sm hover:bg-black/70 transition-colors"
+                >
+                    <img
+                        v-if="profileAvatar"
+                        :src="profileAvatar"
+                        :alt="profileUsername"
+                        class="w-6 h-6 rounded-full"
+                        @error="$event.target.src = '/storage/avatars/default.jpg'"
+                    />
+                    <span class="text-white text-sm font-semibold">@{{ profileUsername }}</span>
+                </router-link>
+
+                <div class="w-9"></div>
+            </div>
+        </div>
+
         <div
             v-if="isLoadingProfile"
             class="flex h-screen flex-col items-center justify-center dark:bg-black"
@@ -31,7 +62,7 @@
             ref="snapFeedRef"
             :key="`profile-feed-${accountId}`"
             :feed-data="feedData"
-            :item-component="VideoPlayerTracking"
+            :item-component="VideoPlayer"
             :get-item-props="getVideoProps"
             :get-item-key="getVideoKey"
             :auto-play="hasInteracted"
@@ -47,21 +78,25 @@
 
 <script setup>
 import { ref, computed, watch, nextTick } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useProfileFeed } from '~/composables/useProfileFeed'
 import { useFeedInteraction } from '~/composables/useFeedInteraction'
 import { useHashids } from '@/composables/useHashids'
+import { ChevronLeftIcon } from '@heroicons/vue/24/outline'
 import FeedLayout from '~/layouts/FeedLayout.vue'
 import SnapScrollFeed from '~/components/Feed/SnapScrollFeed.vue'
-import VideoPlayerTracking from '~/components/Feed/VideoPlayerTracking.vue'
+import VideoPlayer from '~/components/Feed/VideoPlayer.vue'
 import axios from '~/plugins/axios'
 
 const route = useRoute()
+const router = useRouter()
 const { decodeHashid } = useHashids()
 const { hasInteracted, handleFirstInteraction, globalMuted } = useFeedInteraction()
 
 const snapFeedRef = ref(null)
 const accountId = ref(null)
+const profileUsername = ref(route.params.username)
+const profileAvatar = ref(null)
 const isLoadingProfile = ref(true)
 const profileError = ref(false)
 const hasScrolledToTarget = ref(false)
@@ -73,6 +108,14 @@ const targetVideoId = computed(() => {
         return null
     }
 })
+
+const goBack = () => {
+    if (window.history.length > 1) {
+        router.back()
+    } else {
+        router.push(`/@${profileUsername.value}`)
+    }
+}
 
 const loadProfile = async () => {
     const username = route.params.username
@@ -86,6 +129,8 @@ const loadProfile = async () => {
         const axiosInstance = axios.getAxiosInstance()
         const res = await axiosInstance.get(`/api/v1/account/username/${username}?ext=1`)
         accountId.value = res.data.data.id
+        profileUsername.value = res.data.data.username
+        profileAvatar.value = res.data.data.avatar
     } catch {
         profileError.value = true
     } finally {
@@ -97,7 +142,6 @@ const loadProfile = async () => {
 const feedData = useProfileFeed(accountId)
 
 const getVideoProps = (post, index) => ({
-    duration: post.media?.duration,
     'video-id': post.id,
     'video-url': post.media.src_url,
     'hls-url': post.media.hls_url || null,
@@ -157,3 +201,9 @@ watch(
 
 loadProfile()
 </script>
+
+<style scoped>
+.safe-area-top {
+    padding-top: env(safe-area-inset-top);
+}
+</style>
