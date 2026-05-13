@@ -158,6 +158,12 @@ const router = createRouter({
             meta: { requiresAuth: true, params: true }
         },
         {
+            path: '/@:username/v/:videoId',
+            name: 'profileVideoFeed',
+            component: () => import('~/pages/profile/video.vue'),
+            meta: { requiresAuth: false, params: true }
+        },
+        {
             path: '/@:id',
             name: 'profilePage',
             component: () => import('~/pages/profile/index.vue'),

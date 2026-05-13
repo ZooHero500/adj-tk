@@ -103,7 +103,7 @@ const isSensitiveRevealed = ref(false)
 const displayPost = (post) => {
     const { encodeHashid } = useHashids()
     const postId = encodeHashid(post.id)
-    setTimeout(() => router.push(`/v/${postId}`), 300)
+    setTimeout(() => router.push(`/@${post.account.username}/v/${postId}`), 300)
 }
 
 const handleClick = (event) => {
