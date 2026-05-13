@@ -12,7 +12,7 @@
         <div class="w-full lg:w-[calc(100%-260px)]">
             <slot />
         </div>
-        <MobileHeader @toggleMobileDrawer="toggleMobileDrawer" />
+        <MobileHeader />
         <MobileNav />
     </div>
 

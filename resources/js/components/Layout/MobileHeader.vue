@@ -1,131 +1,121 @@
 <template>
     <header
-        v-if="isMobileView"
-        class="fixed top-0 left-0 right-0 z-50"
-        :class="{
-            'bg-gradient-to-b from-black/60 via-black/30 to-transparent safe-area-top':
-                showTabsAndSearch
-        }"
+        v-if="isMobileView && showTabsAndSearch"
+        class="fixed top-0 left-0 right-0 z-50 safe-area-top"
     >
-        <div class="flex items-center justify-between px-4 h-14">
-            <button
-                @click="toggleMenu"
-                class="flex items-center justify-center w-10 h-10 text-white transition-colors active:opacity-70"
-                aria-label="Menu"
-            >
-                <i class="bx bx-menu text-3xl"></i>
-            </button>
-
-            <div v-if="showTabsAndSearch" class="flex items-center gap-6">
+        <div class="flex items-center justify-center h-14">
+            <div class="relative" ref="dropdownRef">
                 <button
-                    @click="setActiveTab('following')"
-                    class="relative px-3 py-2 text-base font-semibold transition-colors"
-                    :class="activeTab === 'following' ? 'text-white' : 'text-white/60'"
+                    @click="toggleDropdown"
+                    class="flex items-center gap-1 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-sm text-white text-sm font-semibold transition-colors active:bg-black/60"
                 >
-                    {{ $t('common.following') }}
-                    <div
-                        v-if="activeTab === 'following'"
-                        class="absolute bottom-0 left-0 right-0 h-0.5 bg-white rounded-full"
-                    ></div>
+                    {{ activeLabel }}
+                    <i
+                        class="bx bx-chevron-down text-lg transition-transform"
+                        :class="{ 'rotate-180': isDropdownOpen }"
+                    ></i>
                 </button>
 
-                <button
-                    @click="setActiveTab('local')"
-                    class="relative px-3 py-2 text-base font-semibold transition-colors"
-                    :class="activeTab === 'local' ? 'text-white' : 'text-white/60'"
-                >
-                    {{ $t('nav.local') }}
+                <Transition name="dropdown">
                     <div
-                        v-if="activeTab === 'local'"
-                        class="absolute bottom-0 left-0 right-0 h-0.5 bg-white rounded-full"
-                    ></div>
-                </button>
-
-                <button
-                    v-if="hasForYou"
-                    @click="setActiveTab('foryou')"
-                    class="relative px-3 py-2 text-base font-semibold transition-colors"
-                    :class="activeTab === 'foryou' ? 'text-white' : 'text-white/60'"
-                >
-                    {{ $t('nav.forYou') }}
-                    <div
-                        v-if="activeTab === 'foryou'"
-                        class="absolute bottom-0 left-0 right-0 h-0.5 bg-white rounded-full"
-                    ></div>
-                </button>
+                        v-if="isDropdownOpen"
+                        class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-44 bg-white dark:bg-neutral-800 rounded-xl shadow-xl overflow-hidden border border-gray-100 dark:border-neutral-700"
+                    >
+                        <button
+                            v-for="tab in dropdownTabs"
+                            :key="tab.key"
+                            @click="selectTab(tab)"
+                            class="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium transition-colors"
+                            :class="
+                                activeTab === tab.key
+                                    ? 'text-gray-900 dark:text-white bg-gray-50 dark:bg-neutral-700'
+                                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-neutral-700'
+                            "
+                        >
+                            <i :class="tab.icon" class="text-lg"></i>
+                            {{ tab.label }}
+                        </button>
+                    </div>
+                </Transition>
             </div>
-
-            <button
-                v-if="showTabsAndSearch"
-                @click="openSearch"
-                class="flex items-center justify-center w-10 h-10 text-white transition-colors active:opacity-70"
-                aria-label="Search"
-            >
-                <i class="bx bx-search text-2xl"></i>
-            </button>
         </div>
     </header>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, inject } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { useAuthStore } from '@/stores/auth.js'
+import { useI18n } from 'vue-i18n'
 
 const router = useRouter()
 const route = useRoute()
-const authStore = useAuthStore()
-const appConfig = inject('appConfig')
+const { t } = useI18n()
 
 const isMobileView = ref(false)
-const activeTab = ref(
-    route.path == '/' ? 'local' : route.path == '/feed/following' ? 'following' : 'foryou'
-)
-const hasForYou = computed(() => appConfig.fyf)
+const isDropdownOpen = ref(false)
+const dropdownRef = ref(null)
 
-const routePaths = {
-    local: '/',
-    foryou: '/feed/for-you',
-    following: '/feed/following'
+const tabConfig = {
+    foryou: { path: '/', label: 'For You' },
+    new: { path: '/feed/for-you', label: 'New' },
+    following: { path: '/feed/following', label: 'Following' }
 }
 
-const emit = defineEmits(['toggleMobileDrawer', 'openLogin'])
+const dropdownTabs = [
+    { key: 'foryou', label: 'For You', icon: 'bx bx-star', path: '/' },
+    { key: 'new', label: 'New', icon: 'bx bx-time-five', path: '/feed/for-you' },
+    { key: 'following', label: 'Following', icon: 'bx bx-group', path: '/feed/following' }
+]
+
+const activeTab = computed(() => {
+    if (route.path === '/feed/following') return 'following'
+    if (route.path === '/feed/for-you') return 'new'
+    return 'foryou'
+})
+
+const activeLabel = computed(() => {
+    const tab = dropdownTabs.find((t) => t.key === activeTab.value)
+    return tab ? tab.label : 'For You'
+})
 
 const showTabsAndSearch = computed(() => {
     return route.path === '/' || route.path === '/feed/following' || route.path === '/feed/for-you'
 })
 
-const toggleMenu = () => {
-    emit('toggleMobileDrawer')
+const toggleDropdown = () => {
+    isDropdownOpen.value = !isDropdownOpen.value
 }
 
-const closeMenu = () => {
-    isMenuOpen.value = false
-    document.body.style.overflow = ''
+const selectTab = (tab) => {
+    isDropdownOpen.value = false
+    if (route.path !== tab.path) {
+        router.push(tab.path)
+    }
 }
 
-const setActiveTab = (tab) => {
-    activeTab.value = tab
-
-    router.push(routePaths[tab])
-}
-
-const openSearch = () => {
-    router.push('/search')
+const handleClickOutside = (e) => {
+    if (dropdownRef.value && !dropdownRef.value.contains(e.target)) {
+        isDropdownOpen.value = false
+    }
 }
 
 const checkMobileView = () => {
     isMobileView.value = window.innerWidth < 768
 }
 
+watch(route, () => {
+    isDropdownOpen.value = false
+})
+
 onMounted(() => {
     checkMobileView()
     window.addEventListener('resize', checkMobileView)
+    document.addEventListener('click', handleClickOutside)
 })
 
 onUnmounted(() => {
     window.removeEventListener('resize', checkMobileView)
-    document.body.style.overflow = ''
+    document.removeEventListener('click', handleClickOutside)
 })
 </script>
 
@@ -134,27 +124,18 @@ onUnmounted(() => {
     padding-top: env(safe-area-inset-top);
 }
 
-.safe-area-bottom {
-    padding-bottom: env(safe-area-inset-bottom);
+.dropdown-enter-active {
+    transition: all 0.2s ease-out;
 }
-
-.menu-enter-active,
-.menu-leave-active {
-    transition: opacity 0.3s ease;
+.dropdown-leave-active {
+    transition: all 0.15s ease-in;
 }
-
-.menu-enter-from,
-.menu-leave-to {
+.dropdown-enter-from {
     opacity: 0;
+    transform: translate(-50%, -4px) scale(0.95);
 }
-
-.menu-enter-active .absolute.left-0,
-.menu-leave-active .absolute.left-0 {
-    transition: transform 0.3s ease;
-}
-
-.menu-enter-from .absolute.left-0,
-.menu-leave-to .absolute.left-0 {
-    transform: translateX(-100%);
+.dropdown-leave-to {
+    opacity: 0;
+    transform: translate(-50%, -4px) scale(0.95);
 }
 </style>

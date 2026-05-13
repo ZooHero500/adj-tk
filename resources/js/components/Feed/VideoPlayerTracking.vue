@@ -72,11 +72,12 @@
                         <button
                             v-if="!isPaused && isMuted && canInteract"
                             @click.stop="toggleMute"
-                            class="absolute bottom-[106px] left-4 lg:bottom-4 lg:right-auto lg:left-4 z-10 bg-black/50 rounded-full p-2 text-white flex items-center justify-center hover:bg-black/70"
+                            @touchend.stop
+                            class="absolute bottom-[200px] left-4 lg:bottom-4 lg:left-4 z-20 bg-black/50 rounded-full p-2.5 text-white flex items-center justify-center hover:bg-black/70 cursor-pointer"
                         >
                             <i
                                 :class="isMuted ? 'bx bx-volume-mute' : 'bx bx-volume-full'"
-                                class="text-xl"
+                                class="text-2xl"
                             ></i>
                         </button>
 
@@ -700,6 +701,10 @@ const toggleBookmark = async () => {
 
 const toggleMute = () => {
     if (player) {
+        if (!hasGlobalInteraction.value) {
+            globalHandleFirstInteraction()
+            emit('interaction')
+        }
         const newMutedState = !isMuted.value
         setGlobalMuted(newMutedState)
         player.muted(newMutedState)
@@ -730,7 +735,7 @@ onMounted(async () => {
         player = videojs(videoRef.value, {
             controls: false,
             autoplay: false,
-            preload: 'none',
+            preload: 'auto',
             loop: true,
             fluid: true,
             muted: true,
@@ -883,6 +888,7 @@ const play = async () => {
         isPaused.value = false
     } catch (error) {
         try {
+            setGlobalMuted(true)
             player.muted(true)
             await player.play()
             isPaused.value = false
@@ -1052,7 +1058,7 @@ defineExpose({
 
     @media (max-width: 767px) {
         .video-wrapper {
-            height: calc(100dvh - 80px);
+            height: calc(100dvh - 56px);
         }
     }
 
@@ -1070,7 +1076,7 @@ defineExpose({
 
 @media (max-width: 767px) {
     .video-wrapper {
-        height: calc(100dvh - 80px);
+        height: calc(100dvh - 56px);
     }
 }
 

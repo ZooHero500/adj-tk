@@ -518,7 +518,7 @@ defineExpose({
 
 @media (max-width: 767px) {
     .scroll-container.mobile-navbar-padding {
-        height: calc(100dvh - 80px);
+        height: calc(100dvh - 56px);
     }
 }
 
@@ -533,7 +533,7 @@ defineExpose({
 
     @media (max-width: 767px) {
         .scroll-container.mobile-navbar-padding {
-            height: calc(100dvh - 80px);
+            height: calc(100dvh - 56px);
             padding-bottom: calc(env(safe-area-inset-bottom));
         }
     }
@@ -558,7 +558,7 @@ defineExpose({
 
 @media (max-width: 767px) {
     .mobile-navbar-padding .snap-item {
-        height: calc(100dvh - 80px);
+        height: calc(100dvh - 56px);
     }
 }
 
@@ -588,7 +588,7 @@ defineExpose({
 
     @media (max-width: 767px) {
         .scroll-container.mobile-navbar-padding .snap-item {
-            height: calc(100dvh - 80px);
+            height: calc(100dvh - 56px);
         }
     }
 }
