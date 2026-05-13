@@ -90,10 +90,9 @@ class ForYouFeedService
             $allVideos = $personalizedVideos->concat($popularVideos)
                 ->unique('id')
                 ->sortByDesc('feed_score')
-                ->take($limit)
                 ->values();
 
-            return $allVideos;
+            return $this->diversifyByCreator($allVideos, $limit);
         }
         // @phpstan-ignore-next-line
         if (! $isNewUser && $discoveryCount > 0) {
@@ -103,10 +102,12 @@ class ForYouFeedService
                 $discoveryCount
             );
 
-            return $this->interleaveVideos($personalizedVideos, $discoveryVideos, $limit);
+            $interleaved = $this->interleaveVideos($personalizedVideos, $discoveryVideos, $limit * 2);
+
+            return $this->diversifyByCreator($interleaved, $limit);
         }
 
-        return $personalizedVideos->take($limit)->values();
+        return $this->diversifyByCreator($personalizedVideos, $limit);
     }
 
     private function applyUserFilters($query, int $profileId)
@@ -266,6 +267,30 @@ class ForYouFeedService
         $videos = app(ImpressionBloomFilterService::class)->filterVideos($profile->id, $videos);
 
         return $videos;
+    }
+
+    /**
+     * Limit each creator to at most $maxPerCreator videos in the result set.
+     */
+    private function diversifyByCreator(Collection $videos, int $limit, int $maxPerCreator = 2): Collection
+    {
+        $result = collect();
+        $creatorCounts = [];
+
+        foreach ($videos->sortByDesc('feed_score') as $video) {
+            $creatorId = $video->profile_id;
+            $creatorCounts[$creatorId] = ($creatorCounts[$creatorId] ?? 0) + 1;
+
+            if ($creatorCounts[$creatorId] <= $maxPerCreator) {
+                $result->push($video);
+            }
+
+            if ($result->count() >= $limit) {
+                break;
+            }
+        }
+
+        return $result->values();
     }
 
     private function interleaveVideos(Collection $personalized, Collection $discovery, int $limit): Collection
