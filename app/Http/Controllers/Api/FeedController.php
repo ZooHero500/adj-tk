@@ -47,7 +47,12 @@ class FeedController extends Controller
         app(UserActivityService::class)->markActive($user);
         FeedService::enforcePaginationLimit($request);
         $hideAi = $user->hide_ai;
-        $feed = FeedService::getVideoFeed($user->profile_id, 5, $hideAi);
+        $feed = FeedService::getVideoFeed($user->profile_id, 15, $hideAi);
+
+        // Shuffle on first page for variety, subsequent pages stay ordered
+        if (! $request->has('cursor')) {
+            $feed->setCollection($feed->getCollection()->shuffle());
+        }
 
         return VideoResource::collection($feed);
     }
