@@ -45,17 +45,61 @@ class WebPublicController extends Controller
     {
         $cursor = $request->input('cursor');
 
-        $feed = FeedService::getPublicVideoFeed(20, $cursor);
-
-        $nextCursor = $feed->nextCursor()?->encode();
-        $prevCursor = $feed->previousCursor()?->encode();
-
-        $items = collect($feed->items());
+        // First page: random sample from full pool, scored by freshness + engagement
         if (! $cursor) {
-            $items = $items->shuffle();
+            $candidates = Video::published()
+                ->where('is_local', true)
+                ->where('created_at', '>', now()->subDays(93))
+                ->inRandomOrder()
+                ->limit(50)
+                ->get();
+
+            // Score and weighted-sort
+            $scored = $candidates->map(function ($video) {
+                $ageHours = max(1, now()->diffInHours($video->created_at));
+                $maxAge = 60 * 24; // 60 days
+
+                $freshness = max(0, 1 - pow($ageHours / $maxAge, 2));
+
+                $likes = min($video->likes ?? 0, 500);
+                $comments = min($video->comments ?? 0, 100);
+                $shares = min($video->shares ?? 0, 50);
+                $views = min($video->views ?? 0, 5000);
+                $engagementRaw = ($likes * 0.35) + ($comments * 0.25) + ($shares * 0.25) + ($views * 0.01);
+                $engagement = min(1, log($engagementRaw + 1) / log(200));
+
+                $random = mt_rand(0, 100) / 100;
+
+                $video->_score = ($freshness * 0.35) + ($engagement * 0.45) + ($random * 0.20);
+
+                return $video;
+            });
+
+            $items = $scored->sortByDesc('_score')->take(15)->values();
+
+            $res = VideoResource::collection($items->all())->toArray($request);
+
+            return response()->json([
+                'data' => $res,
+                'links' => [
+                    'first' => null,
+                    'last' => null,
+                    'prev' => null,
+                    'next' => null,
+                ],
+                'meta' => [
+                    'path' => $request->url(),
+                    'per_page' => count($res),
+                    'next_cursor' => null,
+                    'prev_cursor' => null,
+                ],
+            ]);
         }
 
-        $res = VideoResource::collection($items->all())->toArray($request);
+        // Subsequent pages: cursor pagination
+        $feed = FeedService::getPublicVideoFeed(15, $cursor);
+
+        $res = VideoResource::collection($feed->items())->toArray($request);
 
         return response()->json([
             'data' => $res,
@@ -68,8 +112,8 @@ class WebPublicController extends Controller
             'meta' => [
                 'path' => $request->url(),
                 'per_page' => count($res),
-                'next_cursor' => $nextCursor,
-                'prev_cursor' => $prevCursor,
+                'next_cursor' => $feed->nextCursor()?->encode(),
+                'prev_cursor' => $feed->previousCursor()?->encode(),
             ],
         ]);
     }
