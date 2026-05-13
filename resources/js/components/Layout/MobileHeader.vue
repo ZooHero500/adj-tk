@@ -57,14 +57,14 @@ const dropdownRef = ref(null)
 
 const dropdownTabs = [
     { key: 'foryou', label: 'For You', icon: 'bx bx-star', path: '/' },
-    { key: 'new', label: 'New', icon: 'bx bx-time-five', path: '/feed/for-you' },
+    { key: 'new', label: 'New', icon: 'bx bx-time-five', path: '/feed/new' },
     { key: 'following', label: 'Following', icon: 'bx bx-group', path: '/feed/following' }
 ]
 
 const activeTab = computed(() => {
     if (route.path === '/feed/following') return 'following'
-    if (route.path === '/feed/for-you') return 'new'
-    return 'foryou'
+    if (route.path === '/feed/new') return 'new'
+    return 'foryou' // '/' and '/feed/for-you' both = For You
 })
 
 const activeLabel = computed(() => {
@@ -73,7 +73,7 @@ const activeLabel = computed(() => {
 })
 
 const showTabsAndSearch = computed(() => {
-    return route.path === '/' || route.path === '/feed/following' || route.path === '/feed/for-you'
+    return route.path === '/' || route.path === '/feed/for-you' || route.path === '/feed/new' || route.path === '/feed/following'
 })
 
 const toggleDropdown = () => {
