@@ -55,12 +55,6 @@ const isMobileView = ref(false)
 const isDropdownOpen = ref(false)
 const dropdownRef = ref(null)
 
-const tabConfig = {
-    foryou: { path: '/', label: 'For You' },
-    new: { path: '/feed/for-you', label: 'New' },
-    following: { path: '/feed/following', label: 'Following' }
-}
-
 const dropdownTabs = [
     { key: 'foryou', label: 'For You', icon: 'bx bx-star', path: '/' },
     { key: 'new', label: 'New', icon: 'bx bx-time-five', path: '/feed/for-you' },
@@ -70,7 +64,7 @@ const dropdownTabs = [
 const activeTab = computed(() => {
     if (route.path === '/feed/following') return 'following'
     if (route.path === '/feed/for-you') return 'new'
-    return 'foryou'
+    return 'foryou' // '/' = For You (default)
 })
 
 const activeLabel = computed(() => {

@@ -1,6 +1,6 @@
 <template>
     <div
-        class="relative flex justify-center h-[100dvh] lg:h-[calc(100dvh-60px)] w-full overflow-hidden video-wrapper"
+        class="relative flex justify-center w-full overflow-hidden video-wrapper"
     >
         <div class="flex items-center h-full w-full lg:max-w-7xl lg:mx-auto px-0 lg:px-4 lg:py-4">
             <div

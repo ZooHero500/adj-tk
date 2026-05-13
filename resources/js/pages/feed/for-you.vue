@@ -33,7 +33,7 @@
 
 <script setup>
 import { inject, computed, shallowRef, watch } from 'vue'
-import { useForYouFeed } from '~/composables/useForYouFeed'
+import { useFeed } from '~/composables/useFeed'
 import { usePublicFeed } from '~/composables/usePublicFeed'
 import { useFeedInteraction } from '~/composables/useFeedInteraction'
 import FeedLayout from '~/layouts/FeedLayout.vue'
@@ -49,7 +49,7 @@ const { hasInteracted, handleFirstInteraction, globalMuted } = useFeedInteractio
 watch(
     () => authStore.authenticated,
     (isAuthenticated, _, onCleanup) => {
-        activeFeed.value = isAuthenticated ? useForYouFeed() : usePublicFeed()
+        activeFeed.value = isAuthenticated ? useFeed() : usePublicFeed()
     },
     { immediate: true }
 )
