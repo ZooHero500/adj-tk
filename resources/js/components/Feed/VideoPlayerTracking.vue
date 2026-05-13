@@ -23,7 +23,7 @@
                     >
                         <video
                             ref="videoRef"
-                            class="video-js vjs-default-skin h-full w-full object-contain"
+                            class="video-js vjs-default-skin h-full w-full object-cover"
                             playsinline
                             :muted="isMuted"
                         >
@@ -1258,7 +1258,7 @@ defineExpose({
         border-radius: 0 !important;
         max-width: 100% !important;
         width: 100vw !important;
-        height: 100dvh !important;
+        height: 100% !important;
         aspect-ratio: unset !important;
     }
 
@@ -1269,6 +1269,10 @@ defineExpose({
     .video-js {
         width: 100% !important;
         height: 100% !important;
+    }
+
+    .video-js .vjs-tech {
+        object-fit: cover !important;
     }
 
     .mobile-interaction-btn {
