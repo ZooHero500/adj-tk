@@ -17,7 +17,7 @@
             v-else
             key="for-you-feed"
             :feed-data="feedData"
-            :item-component="VideoPlayerTracking"
+            :item-component="VideoPlayer"
             :get-item-props="getVideoProps"
             :get-item-key="getVideoKey"
             :auto-play="hasInteracted"
@@ -38,7 +38,7 @@ import { usePublicFeed } from '~/composables/usePublicFeed'
 import { useFeedInteraction } from '~/composables/useFeedInteraction'
 import FeedLayout from '~/layouts/FeedLayout.vue'
 import SnapScrollFeed from '~/components/Feed/SnapScrollFeed.vue'
-import VideoPlayerTracking from '~/components/Feed/VideoPlayerTracking.vue'
+import VideoPlayer from '~/components/Feed/VideoPlayer.vue'
 
 const authStore = inject('authStore')
 
@@ -76,7 +76,6 @@ const showEmptyState = computed(() => {
 })
 
 const getVideoProps = (post, index) => ({
-    duration: post.media?.duration,
     'video-id': post.id,
     'video-url': post.media.src_url,
     'hls-url': post.media.hls_url || null,
