@@ -4,9 +4,9 @@
             <!-- Avatar + info -->
             <div class="flex flex-col items-center">
                 <div
-                    class="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center mb-4 border border-gray-200 dark:border-gray-700"
+                    class="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center mb-4 border border-gray-200 dark:border-neutral-700"
                 >
-                    <i class="bx bx-user text-gray-400 dark:text-gray-600" style="font-size: 48px"></i>
+                    <i class="bx bx-user text-gray-400 dark:text-neutral-600" style="font-size: 48px"></i>
                 </div>
                 <h2 class="text-lg font-bold text-gray-900 dark:text-white">
                     {{ $t('guestProfile.title') }}

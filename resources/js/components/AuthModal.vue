@@ -27,13 +27,13 @@
                         <div
                             v-if="authStore.isOpen"
                             :class="isMobile
-                                ? 'relative w-full rounded-t-2xl bg-white dark:bg-gray-900 px-6 pb-6 pt-2 shadow-2xl transition-all max-h-[90vh] overflow-y-auto auth-modal-safe-bottom'
-                                : 'relative w-full max-w-md transform rounded-2xl bg-white dark:bg-gray-900 px-8 pb-8 pt-12 shadow-2xl transition-all'"
+                                ? 'relative w-full h-full bg-neutral-950 px-6 pb-6 pt-2 transition-all overflow-y-auto auth-modal-safe-bottom'
+                                : 'relative w-full max-w-md transform rounded-2xl bg-white dark:bg-neutral-950 px-8 pb-8 pt-12 shadow-2xl transition-all'"
                             @click.stop
                         >
                             <!-- Mobile drag handle -->
-                            <div v-if="isMobile" class="flex justify-center pt-1 pb-3">
-                                <div class="w-10 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+                            <div v-if="isMobile" class="flex justify-center pt-2 pb-1">
+                                <div class="w-10 h-1 rounded-full bg-neutral-700"></div>
                             </div>
 
                             <button
@@ -120,7 +120,7 @@
                                         v-model="form.email"
                                         type="email"
                                         required
-                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                        class="w-full px-4 py-3 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-neutral-500 focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                         :placeholder="t('common.enterYourEmail')"
                                     />
                                 </div>
@@ -135,7 +135,7 @@
                                             v-model="form.password"
                                             :type="showPassword ? 'text' : 'password'"
                                             required
-                                            class="w-full px-4 py-3 pr-12 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                            class="w-full px-4 py-3 pr-12 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-neutral-500 focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                             :placeholder="t('common.enterYourPassword')"
                                         />
                                         <button
@@ -153,7 +153,7 @@
                                         <input
                                             v-model="form.remember"
                                             type="checkbox"
-                                            class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-400 dark:bg-gray-800"
+                                            class="h-4 w-4 rounded border-gray-300 dark:border-neutral-600 text-primary focus:ring-primary dark:focus:ring-primary dark:bg-neutral-800"
                                         />
                                         <span
                                             class="ml-2 text-sm text-gray-700 dark:text-gray-300"
@@ -214,10 +214,10 @@
                                         >
                                     </div>
                                     <div
-                                        class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2"
+                                        class="w-full bg-gray-200 dark:bg-neutral-800 rounded-full h-2"
                                     >
                                         <div
-                                            class="bg-blue-600 dark:bg-blue-500 h-2 rounded-full transition-all duration-500 ease-out"
+                                            class="bg-primary dark:bg-primary h-2 rounded-full transition-all duration-500 ease-out"
                                             :style="{
                                                 width: `${((registrationStep - 1) / 4) * 100}%`
                                             }"
@@ -240,7 +240,7 @@
                                             v-model="form.email"
                                             type="email"
                                             required
-                                            class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                            class="w-full px-4 py-3 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-neutral-500 focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                             :placeholder="t('common.enterYourEmail')"
                                         />
                                     </div>
@@ -274,20 +274,20 @@
                                             <a
                                                 href="/terms"
                                                 target="_blank"
-                                                class="font-medium text-blue-500"
+                                                class="font-medium text-primary"
                                                 >{{ $t('auth.termsOfService') }}</a
                                             >,
                                             <a
                                                 href="/privacy"
                                                 target="_blank"
-                                                class="font-medium text-blue-500"
+                                                class="font-medium text-primary"
                                                 >{{ $t('auth.privacyPolicy') }}</a
                                             >
                                             {{ $t('common.and') }}
                                             <a
                                                 href="/community-guidelines"
                                                 target="_blank"
-                                                class="font-medium text-blue-500"
+                                                class="font-medium text-primary"
                                                 >{{ $t('auth.communityGuidelines') }}</a
                                             >.
                                         </p>
@@ -328,7 +328,7 @@
                                             type="text"
                                             required
                                             maxlength="16"
-                                            class="w-full px-4 py-3 text-center text-2xl tracking-widest rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                            class="w-full px-4 py-3 text-center text-2xl tracking-widest rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-neutral-500 focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                             placeholder="000000"
                                         />
                                         <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
@@ -342,7 +342,7 @@
                                             type="button"
                                             @click="handleResendCode"
                                             :disabled="resendCooldown > 0 || loading"
-                                            class="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 disabled:text-gray-400 dark:disabled:text-gray-600 transition-colors"
+                                            class="text-sm text-primary dark:text-primary hover:text-primary-hover dark:hover:text-primary-hover disabled:text-gray-400 dark:disabled:text-gray-600 transition-colors"
                                         >
                                             {{
                                                 resendCooldown > 0
@@ -389,7 +389,7 @@
                                                 <select
                                                     v-model="birth.month"
                                                     required
-                                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                                    class="w-full px-4 py-3 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                                 >
                                                     <option value="" disabled>
                                                         {{ t('common.month') || 'Month' }}
@@ -408,7 +408,7 @@
                                                 <select
                                                     v-model="birth.day"
                                                     required
-                                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                                    class="w-full px-4 py-3 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                                 >
                                                     <option value="" disabled>
                                                         {{ t('common.day') || 'Day' }}
@@ -423,7 +423,7 @@
                                                 <select
                                                     v-model="birth.year"
                                                     required
-                                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                                    class="w-full px-4 py-3 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                                 >
                                                     <option value="" disabled>
                                                         {{ t('common.year') || 'Year' }}
@@ -479,7 +479,7 @@
                                             type="text"
                                             required
                                             maxlength="24"
-                                            class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                            class="w-full px-4 py-3 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-neutral-500 focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                             :placeholder="t('common.chooseAUsername')"
                                         />
                                     </div>
@@ -495,7 +495,7 @@
                                                 v-model="form.password"
                                                 :type="showPassword ? 'text' : 'password'"
                                                 required
-                                                class="w-full px-4 py-3 pr-12 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                                class="w-full px-4 py-3 pr-12 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-neutral-500 focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                                 :placeholder="t('common.createAStrongPassword')"
                                             />
                                             <button
@@ -554,7 +554,7 @@
                                                 </span>
                                             </div>
                                             <div
-                                                class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1"
+                                                class="w-full bg-gray-200 dark:bg-neutral-800 rounded-full h-1"
                                             >
                                                 <div
                                                     class="h-1 rounded-full transition-all duration-300"
@@ -577,7 +577,7 @@
                                             v-model="form.confirmPassword"
                                             type="password"
                                             required
-                                            class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                            class="w-full px-4 py-3 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-neutral-500 focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                             :placeholder="t('settings.confirmYourPassword')"
                                         />
                                     </div>
@@ -605,7 +605,7 @@
                                 <div v-if="registrationStep === 5" class="space-y-6">
                                     <div v-if="form.selectedAvatarUrl" class="text-center">
                                         <div
-                                            class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white text-2xl font-bold mb-4"
+                                            class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-hover text-white text-2xl font-bold mb-4"
                                         >
                                             <img
                                                 :src="form.selectedAvatarUrl"
@@ -634,7 +634,7 @@
                                         <button
                                             type="button"
                                             @click="$refs.avatarInput.click()"
-                                            class="w-full px-4 py-3 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-400 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                                            class="w-full px-4 py-3 border-2 border-dashed border-gray-300 dark:border-neutral-700 rounded-lg text-gray-600 dark:text-gray-400 hover:border-primary dark:hover:border-primary hover:text-primary dark:hover:text-primary transition-colors"
                                         >
                                             {{ t('common.clickToUploadImage') }}
                                         </button>
@@ -668,7 +668,7 @@
                                         v-model="form.email"
                                         type="email"
                                         required
-                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                        class="w-full px-4 py-3 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-neutral-500 focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                         :placeholder="t('common.enterYourEmail')"
                                     />
                                 </div>
@@ -755,10 +755,10 @@
                             >
                                 <div class="text-center mb-6">
                                     <div
-                                        class="inline-flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full mb-4"
+                                        class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full mb-4"
                                     >
                                         <svg
-                                            class="w-6 h-6 text-blue-600 dark:text-blue-400"
+                                            class="w-6 h-6 text-primary dark:text-primary"
                                             fill="none"
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"
@@ -815,7 +815,7 @@
                                         type="button"
                                         @click="sendEmailCode"
                                         :disabled="emailCodeLoading"
-                                        class="flex-1 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                        class="flex-1 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-neutral-900 border border-gray-300 dark:border-neutral-700 rounded-md hover:bg-gray-50 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                                     >
                                         {{
                                             emailCodeLoading
@@ -895,7 +895,7 @@
                                             minlength="12"
                                             maxlength="64"
                                             autocomplete="new-password"
-                                            class="w-full px-4 py-3 pr-12 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                            class="w-full px-4 py-3 pr-12 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-neutral-500 focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                             :placeholder="t('common.createAStrongPassword')"
                                         />
                                         <button
@@ -920,7 +920,7 @@
                                             </span>
                                         </div>
                                         <div
-                                            class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1"
+                                            class="w-full bg-gray-200 dark:bg-neutral-800 rounded-full h-1"
                                         >
                                             <div
                                                 class="h-1 rounded-full transition-all duration-300"
@@ -952,7 +952,7 @@
                                             :type="showConfirmPassword ? 'text' : 'password'"
                                             required
                                             autocomplete="new-password"
-                                            class="w-full px-4 py-3 pr-12 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-colors"
+                                            class="w-full px-4 py-3 pr-12 rounded-lg border border-neutral-700 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-neutral-500 focus:border-primary dark:focus:border-primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/20 transition-colors"
                                             :placeholder="t('settings.confirmYourPassword')"
                                         />
                                         <button
