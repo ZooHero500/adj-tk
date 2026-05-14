@@ -13,7 +13,7 @@
 
                 <div
                     :class="isMobile
-                        ? 'flex min-h-full items-end'
+                        ? 'min-h-full'
                         : 'flex min-h-full items-center justify-center p-4'"
                 >
                     <Transition
@@ -27,7 +27,7 @@
                         <div
                             v-if="authStore.isOpen"
                             :class="isMobile
-                                ? 'relative w-full h-full bg-neutral-950 px-6 pb-6 pt-2 transition-all overflow-y-auto auth-modal-safe-bottom'
+                                ? 'dark relative w-full min-h-screen bg-neutral-950 px-6 pb-6 pt-2 transition-all auth-modal-safe-bottom'
                                 : 'relative w-full max-w-md transform rounded-2xl bg-white dark:bg-neutral-950 px-8 pb-8 pt-12 shadow-2xl transition-all'"
                             @click.stop
                         >
