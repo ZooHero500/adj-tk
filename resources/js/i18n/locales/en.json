@@ -973,5 +973,11 @@
         "view": "View",
         "visibility": "Visibility",
         "yourPostedAndProcessingVideos": "Your posted and processing videos will appear here"
+    },
+    "guestProfile": {
+        "title": "Your Profile",
+        "subtitle": "Sign up or log in to see your profile",
+        "noVideosTitle": "No Videos Yet",
+        "noVideosSubtitle": "Sign up to start creating and sharing videos"
     }
 }

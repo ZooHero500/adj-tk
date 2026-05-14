@@ -938,5 +938,11 @@
         "view": "View",
         "visibility": "Visibility",
         "yourPostedAndProcessingVideos": "Your posted and processing videos will appear here"
+    },
+    "guestProfile": {
+        "title": "我的主页",
+        "subtitle": "注册或登录以查看你的主页",
+        "noVideosTitle": "还没有视频",
+        "noVideosSubtitle": "注册后可以开始创作和分享视频"
     }
 }

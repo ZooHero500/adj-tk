@@ -8,23 +8,34 @@
             leave-from-class="opacity-100"
             leave-to-class="opacity-0"
         >
-            <div v-if="authStore.isOpen" class="fixed inset-0 z-50 overflow-y-auto">
+            <div v-if="authStore.isOpen" class="fixed inset-0 z-50 overflow-y-auto" @click.self="closeModal">
                 <div class="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-sm"></div>
 
-                <div class="flex min-h-full items-center justify-center p-4">
+                <div
+                    :class="isMobile
+                        ? 'flex min-h-full items-end'
+                        : 'flex min-h-full items-center justify-center p-4'"
+                >
                     <Transition
                         enter-active-class="duration-300 ease-out"
-                        enter-from-class="opacity-0 scale-95"
-                        enter-to-class="opacity-100 scale-100"
+                        :enter-from-class="isMobile ? 'opacity-0 translate-y-full' : 'opacity-0 scale-95'"
+                        :enter-to-class="isMobile ? 'opacity-100 translate-y-0' : 'opacity-100 scale-100'"
                         leave-active-class="duration-200 ease-in"
-                        leave-from-class="opacity-100 scale-100"
-                        leave-to-class="opacity-0 scale-95"
+                        :leave-from-class="isMobile ? 'opacity-100 translate-y-0' : 'opacity-100 scale-100'"
+                        :leave-to-class="isMobile ? 'opacity-0 translate-y-full' : 'opacity-0 scale-95'"
                     >
                         <div
                             v-if="authStore.isOpen"
-                            class="relative w-full max-w-md transform rounded-2xl bg-white dark:bg-gray-900 px-8 pb-8 pt-12 shadow-2xl transition-all"
+                            :class="isMobile
+                                ? 'relative w-full rounded-t-2xl bg-white dark:bg-gray-900 px-6 pb-6 pt-2 shadow-2xl transition-all max-h-[90vh] overflow-y-auto auth-modal-safe-bottom'
+                                : 'relative w-full max-w-md transform rounded-2xl bg-white dark:bg-gray-900 px-8 pb-8 pt-12 shadow-2xl transition-all'"
                             @click.stop
                         >
+                            <!-- Mobile drag handle -->
+                            <div v-if="isMobile" class="flex justify-center pt-1 pb-3">
+                                <div class="w-10 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+                            </div>
+
                             <button
                                 @click="closeModal"
                                 class="absolute right-4 top-4 rounded-full p-1 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors"
@@ -45,6 +56,10 @@
                             </button>
 
                             <div class="text-center mb-8">
+                                <!-- Logo -->
+                                <div class="flex justify-center mb-4">
+                                    <img src="/img/logo-light.svg" alt="Logo" class="h-10 w-10 rounded-lg" />
+                                </div>
                                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
                                     {{ getTitle() }}
                                 </h2>
@@ -1017,6 +1032,7 @@
 
 <script setup>
 import { ref, computed, watch, nextTick, inject } from 'vue'
+import { useIsMobile } from '@/composables/useIsMobile'
 import { useAuthStore } from '~/stores/auth'
 import CloudflareTurnstile from '@/components/Captcha/CloudflareTurnstile.vue'
 import HCaptcha from '@/components/Captcha/HCaptcha.vue'
@@ -1035,6 +1051,7 @@ import { EyeIcon, EyeSlashIcon } from '@heroicons/vue/24/outline'
 
 const apiClient = useApiClient()
 const authStore = useAuthStore()
+const { isMobile } = useIsMobile()
 const axios = inject('axios')
 const appConfig = inject('appConfig')
 const appCaptcha = inject('appCaptcha')
@@ -1806,3 +1823,9 @@ watch(
     }
 )
 </script>
+
+<style scoped>
+.auth-modal-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+</style>

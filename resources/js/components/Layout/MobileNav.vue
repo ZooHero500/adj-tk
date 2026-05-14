@@ -98,8 +98,9 @@
             </router-link>
             <router-link
                 v-else
-                to="/login"
-                class="flex items-center justify-center w-12 h-12 transition-colors text-gray-400"
+                to="/me"
+                class="flex items-center justify-center w-12 h-12 transition-colors"
+                :class="isActive('/me') ? 'text-white' : 'text-gray-400'"
             >
                 <i class="bx bx-user text-[26px]"></i>
             </router-link>

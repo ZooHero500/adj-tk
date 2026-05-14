@@ -330,6 +330,12 @@ const router = createRouter({
             meta: { requiresAuth: true }
         },
         {
+            path: '/me',
+            name: 'guestMe',
+            component: () => import('~/pages/me.vue'),
+            meta: { requiresAuth: false }
+        },
+        {
             path: '/login',
             name: 'login',
             component: () => import('~/pages/auth/login.vue'),
