@@ -183,6 +183,7 @@ class ImportBatchCommand extends Command
         $duration = $data['duration'] ?? null;
         $isAdult = $data['is_adult'] ?? false;
         $isSensitive = $data['is_sensitive'] ?? false;
+        $category = $data['category'] ?? null;
 
         // Check for duplicate by hash if available
         if (! empty($data['sha512_hash'])) {
@@ -261,6 +262,7 @@ class ImportBatchCommand extends Command
             'can_download' => true,
             'comment_state' => 4,
             'sha512_hash' => $data['sha512_hash'] ?? null,
+            'category' => $category,
         ]);
 
         // Attach hashtags
