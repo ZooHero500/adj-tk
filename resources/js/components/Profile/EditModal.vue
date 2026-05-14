@@ -3,7 +3,7 @@
         class="fixed flex justify-center pt-14 md:pt-[105px] z-50 top-0 left-0 w-full h-full bg-black/90"
     >
         <div
-            class="relative bg-white dark:bg-gray-950 w-full max-w-[700px] mx-3 overflow-hidden rounded-lg mb-10 flex flex-col"
+            class="relative bg-white dark:bg-neutral-950 w-full max-w-[700px] mx-3 overflow-hidden rounded-lg mb-10 flex flex-col"
         >
             <div
                 class="sticky top-0 z-10 flex items-center justify-between w-full p-5 border-b border-b-gray-300 dark:border-b-neutral-800 bg-white dark:bg-neutral-900"

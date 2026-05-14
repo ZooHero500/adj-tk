@@ -76,7 +76,7 @@
 
                         <div
                             v-if="showMenu"
-                            class="absolute bg-white dark:bg-neutral-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-gray-700 divide-y divide-gray-200 dark:divide-gray-700 ark:border-neutral-700 top-[43px] -right-2"
+                            class="absolute bg-white dark:bg-neutral-900 rounded-lg w-[200px] shadow-xl overflow-hidden border border-gray-200 dark:border-neutral-700 divide-y divide-gray-200 dark:divide-neutral-700 top-[43px] -right-2"
                         >
                             <router-link
                                 :to="`/@${authStore.user.username}`"

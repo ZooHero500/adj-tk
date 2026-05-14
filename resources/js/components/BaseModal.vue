@@ -33,7 +33,7 @@
                         v-if="modelValue"
                         ref="panelRef"
                         :class="[
-                            'relative w-full overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5 dark:bg-gray-900 dark:ring-white/10',
+                            'relative w-full overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5 dark:bg-neutral-900 dark:ring-white/10',
                             maxWidthClass
                         ]"
                         tabindex="-1"
@@ -41,7 +41,7 @@
                     >
                         <div
                             v-if="title || $slots.header || !hideClose"
-                            class="flex items-start justify-between gap-4 border-b border-gray-200 px-5 py-4 dark:border-gray-800"
+                            class="flex items-start justify-between gap-4 border-b border-gray-200 px-5 py-4 dark:border-neutral-800"
                         >
                             <div class="min-w-0 flex-1">
                                 <slot name="header">
@@ -64,7 +64,7 @@
                                 v-if="!hideClose"
                                 type="button"
                                 @click="close"
-                                class="-mr-1 -mt-1 shrink-0 rounded-md p-1.5 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/40 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                                class="-mr-1 -mt-1 shrink-0 rounded-md p-1.5 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/40 dark:hover:bg-neutral-800 dark:hover:text-gray-200"
                                 aria-label="Close"
                             >
                                 <XMarkIcon class="h-5 w-5" />
@@ -77,7 +77,7 @@
 
                         <div
                             v-if="$slots.footer"
-                            class="border-t border-gray-200 bg-gray-50 px-5 py-3 dark:border-gray-800 dark:bg-gray-900/50"
+                            class="border-t border-gray-200 bg-gray-50 px-5 py-3 dark:border-neutral-800 dark:bg-neutral-900/50"
                         >
                             <slot name="footer" />
                         </div>

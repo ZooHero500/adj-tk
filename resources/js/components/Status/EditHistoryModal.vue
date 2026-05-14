@@ -12,13 +12,13 @@
                 @click.self="closeModal"
             >
                 <div
-                    class="relative w-full max-w-2xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-lg shadow-xl flex flex-col"
+                    class="relative w-full max-w-2xl max-h-[90vh] bg-white dark:bg-neutral-900 rounded-lg shadow-xl flex flex-col"
                     role="dialog"
                     aria-modal="true"
                     :aria-labelledby="currentEntity?.title"
                 >
                     <div
-                        class="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700"
+                        class="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-neutral-700"
                     >
                         <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
                             {{ currentEntity?.title || 'Edit History' }}
@@ -99,7 +99,7 @@
                             >
                                 <div
                                     v-if="index < history.length - 1"
-                                    class="absolute left-4 top-10 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700"
+                                    class="absolute left-4 top-10 bottom-0 w-0.5 bg-gray-200 dark:bg-neutral-700"
                                 ></div>
 
                                 <div class="flex gap-4">
@@ -108,8 +108,8 @@
                                             class="w-8 h-8 rounded-full flex items-center justify-center"
                                             :class="
                                                 index === 0
-                                                    ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400'
-                                                    : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+                                                    ? 'bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary'
+                                                    : 'bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-gray-400'
                                             "
                                         >
                                             <svg
@@ -139,7 +139,7 @@
 
                                     <div class="flex-1 pb-6">
                                         <div
-                                            class="dark:bg-gray-800 rounded-lg p-2 border border-gray-200 dark:border-gray-700"
+                                            class="dark:bg-neutral-800 rounded-lg p-2 border border-gray-200 dark:border-neutral-700"
                                         >
                                             <div
                                                 v-if="
@@ -151,7 +151,7 @@
                                                 <div class="flex items-center gap-2">
                                                     <span
                                                         v-if="index === 0"
-                                                        class="px-2 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded"
+                                                        class="px-2 py-1 text-xs font-medium bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary rounded"
                                                     >
                                                         Current
                                                     </span>
@@ -159,7 +159,7 @@
                                                         v-else-if="
                                                             index === history.length - 1 && !hasMore
                                                         "
-                                                        class="px-2 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded"
+                                                        class="px-2 py-1 text-xs font-medium bg-gray-200 dark:bg-neutral-700 text-gray-700 dark:text-gray-300 rounded"
                                                     >
                                                         Original
                                                     </span>
@@ -192,12 +192,12 @@
                             <div
                                 v-if="hasMore"
                                 ref="loadMoreSection"
-                                class="flex justify-center pt-6 mt-6 border-t border-gray-200 dark:border-gray-700"
+                                class="flex justify-center pt-6 mt-6 border-t border-gray-200 dark:border-neutral-700"
                             >
                                 <button
                                     @click="handleLoadMore"
                                     :disabled="isLoadingMore"
-                                    class="px-6 py-2.5 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 hover:bg-blue-100 dark:hover:bg-blue-900/50 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer"
+                                    class="px-6 py-2.5 text-sm font-medium text-primary dark:text-primary bg-primary/10 dark:bg-primary/10 hover:bg-primary/20 dark:hover:bg-primary/20 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer"
                                 >
                                     <svg
                                         v-if="isLoadingMore"
@@ -226,11 +226,11 @@
                     </div>
 
                     <div
-                        class="flex items-center justify-end px-6 py-4 border-t border-gray-200 dark:border-gray-700"
+                        class="flex items-center justify-end px-6 py-4 border-t border-gray-200 dark:border-neutral-700"
                     >
                         <button
                             @click="closeModal"
-                            class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                            class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-neutral-800 hover:bg-gray-200 dark:hover:bg-neutral-700 rounded-lg transition-colors"
                         >
                             Close
                         </button>

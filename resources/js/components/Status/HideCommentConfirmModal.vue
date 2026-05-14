@@ -14,7 +14,7 @@
                     <Transition name="modal-content">
                         <div
                             v-if="isOpen"
-                            class="relative w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-2xl transition-all"
+                            class="relative w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 shadow-2xl transition-all"
                         >
                             <div class="flex items-center justify-center pt-8 pb-4">
                                 <div
@@ -60,7 +60,7 @@
                             <div class="px-6 pb-6 flex flex-col-reverse sm:flex-row gap-3">
                                 <button
                                     @click="closeModal"
-                                    class="flex-1 px-4 py-2.5 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-xl transition-colors"
+                                    class="flex-1 px-4 py-2.5 bg-gray-100 dark:bg-neutral-700 hover:bg-gray-200 dark:hover:bg-neutral-600 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-xl transition-colors"
                                     :disabled="isHiding"
                                 >
                                     {{ $t('common.cancel') }}

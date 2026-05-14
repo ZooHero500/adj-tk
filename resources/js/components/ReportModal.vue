@@ -23,11 +23,11 @@
                 >
                     <div
                         v-if="isOpen"
-                        class="w-full max-w-md mx-4 bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden"
+                        class="w-full max-w-md mx-4 bg-white dark:bg-neutral-900 rounded-2xl shadow-xl overflow-hidden"
                         @click.stop
                     >
                         <div
-                            class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700"
+                            class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-neutral-700"
                         >
                             <div class="flex items-center space-x-3">
                                 <button
@@ -68,7 +68,7 @@
                                 </p>
 
                                 <div
-                                    class="max-h-80 overflow-y-scroll border border-gray-200 dark:border-gray-700 dark:bg-gray-700 divide-y-1 divide-gray-200 dark:divide-gray-600 rounded-lg"
+                                    class="max-h-80 overflow-y-scroll border border-gray-200 dark:border-neutral-700 dark:bg-neutral-800 divide-y-1 divide-gray-200 dark:divide-gray-600 rounded-lg"
                                 >
                                     <button
                                         v-for="category in REPORT_CATEGORIES"
@@ -76,7 +76,7 @@
                                         @click="selectCategory(category)"
                                         class="w-full flex items-center justify-between p-3 text-sm text-left text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors group cursor-pointer"
                                         :class="{
-                                            'bg-red-100 text-red-500 dark:bg-gray-900':
+                                            'bg-red-100 text-red-500 dark:bg-neutral-950':
                                                 selectedCategory?.key === category.key
                                         }"
                                     >
@@ -101,7 +101,7 @@
                                     <button
                                         @click="goToNextReportStep"
                                         :disabled="!canProceedToNextStep"
-                                        class="px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/80 disabled:bg-gray-300 dark:disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                        class="px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/80 disabled:bg-gray-300 dark:disabled:bg-neutral-700 disabled:cursor-not-allowed transition-colors cursor-pointer"
                                     >
                                         {{ t('common.next') }}
                                     </button>
@@ -143,7 +143,7 @@
                                         :placeholder="getTextareaPlaceholder()"
                                         rows="4"
                                         maxlength="500"
-                                        class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none"
+                                        class="w-full px-3 py-2 border border-gray-300 dark:border-neutral-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-neutral-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none"
                                     ></textarea>
                                     <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
                                         {{ additionalText.length }}/500
@@ -162,14 +162,14 @@
                                     <button
                                         v-if="!isSubmitting"
                                         @click="goToPreviousReportStep"
-                                        class="px-6 py-3 text-gray-700 border dark:border-gray-700/50 dark:text-gray-500 font-medium rounded-lg hover:bg-gray-100 dark:hover:text-gray-100 dark:hover:bg-gray-900/20 transition-colors cursor-pointer"
+                                        class="px-6 py-3 text-gray-700 border dark:border-neutral-700/50 dark:text-gray-500 font-medium rounded-lg hover:bg-gray-100 dark:hover:text-gray-100 dark:hover:bg-gray-900/20 transition-colors cursor-pointer"
                                     >
                                         {{ t('post.goBack') }}
                                     </button>
                                     <button
                                         @click="submitReport"
                                         :disabled="!canProceedToNextStep || isSubmitting"
-                                        class="px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/80 disabled:bg-gray-300 dark:disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors flex items-center cursor-pointer space-x-2"
+                                        class="px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/80 disabled:bg-gray-300 dark:disabled:bg-neutral-700 disabled:cursor-not-allowed transition-colors flex items-center cursor-pointer space-x-2"
                                     >
                                         <span v-if="isSubmitting">
                                             <div
