@@ -132,7 +132,7 @@
 
                         <button
                             v-if="!authStore.authenticated"
-                            @click="showRemoteFollowModal = true"
+                            @click="authStore.openAuthModal('login')"
                             class="flex item-center rounded-md py-[5px] px-6 sm:px-8 text-sm sm:text-[15px] text-white bg-red-500 hover:bg-red-400 font-semibold border dark:border-neutral-950 cursor-pointer"
                         >
                             {{ t('common.follow') }}
@@ -336,12 +336,6 @@
         :tab="followersTab"
     />
 
-    <RemoteFollowModal
-        v-model="showRemoteFollowModal"
-        :username="profile.username"
-        :url="profile.url"
-    />
-
     <Teleport to="body">
         <EditModal
             v-if="showEditModal"
@@ -378,21 +372,19 @@ import {
     ArrowTopRightOnSquareIcon,
     RssIcon
 } from '@heroicons/vue/24/outline'
-import RemoteFollowModal from './RemoteFollowModal.vue'
 
 const { t } = useI18n()
 const router = useRouter()
 const profile = useProfileStore()
 const { isPollingFollowState } = storeToRefs(profile)
 const { toggleFollow } = useProfileStore()
-const { alertModal, confirmModal } = useAlertModal()
+const { confirmModal } = useAlertModal()
 
 const { formatCount, textTruncate } = useUtils()
 const authStore = useAuthStore()
 const showFollowersModal = ref(false)
 const showEditModal = ref(false)
 const showMenu = ref(false)
-const showRemoteFollowModal = ref(false)
 const menuRef = ref(null)
 const followersTab = ref('followers')
 const isFollowing = computed(() => profile.isFollowing)
@@ -408,17 +400,7 @@ const bioFullHeight = ref(0)
 let resizeObserver = null
 
 const handleToggleFollow = async () => {
-    const state = isFollowing.value
-    const action = state ? 'Unfollow' : 'Follow'
-    const result = await confirmModal(
-        `Confirm ${action}`,
-        `Are you sure you want to ${action.toLowerCase()} <strong>${profile.username}</strong>?`,
-        action,
-        'Cancel'
-    )
-    if (result) {
-        await toggleFollow()
-    }
+    await toggleFollow()
 }
 
 const measureBio = async () => {
@@ -471,16 +453,7 @@ const handleReport = () => {
 }
 
 const handleUndoFollowRequest = async () => {
-    const result = await confirmModal(
-        'Confirm Cancel Follow Request',
-        `Are you sure you cancel your follow request to <strong>${profile.username}</strong>?`,
-        'Confirm Cancel',
-        'Close'
-    )
-
-    if (result) {
-        await profile.undoFollowRequest()
-    }
+    await profile.undoFollowRequest()
 }
 
 const handleBlock = async () => {

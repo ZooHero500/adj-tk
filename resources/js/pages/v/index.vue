@@ -258,7 +258,7 @@
                         </template>
                         <template v-else>
                             <button
-                                @click="handleGuestFollow"
+                                @click="authStore.openAuthModal('login')"
                                 class="flex items-center bg-primary text-white border dark:border-red-400 hover:bg-red-600 rounded-md px-4 sm:px-8 py-2 sm:py-[6px] text-sm sm:text-base font-medium whitespace-nowrap flex-shrink-0"
                             >
                                 {{ $t('common.follow') }}
@@ -456,7 +456,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch, computed, inject } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useAppStore } from '~/stores/app'
 import { useAuthStore } from '~/stores/auth'
@@ -504,7 +504,6 @@ const videoStore = useVideoStore()
 const { openReportModal } = useReportModal()
 const { formatNumber, formatRecentDate, goBack, formatCount } = useUtils()
 const { alertModal, confirmModal, persistentModal } = useAlertModal()
-const appConfig = inject('appConfig')
 
 const videoRef = ref(null)
 const isVideoLoaded = ref(false)
@@ -560,142 +559,6 @@ const handleViewSensitiveContent = () => {
         return
     }
     showSensitiveContent.value = true
-}
-
-const handleGuestFollow = async () => {
-    const currentDomain = window.location.hostname
-    const accountHandle = `@${currentVideo.value.account.username}@${currentDomain}`
-
-    const modalBody = `
-        <div class="space-y-6">
-            <div class="text-center">
-                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r from-primary to-pink-500 mb-4">
-                    <div class="bx bx-user-plus text-[30px] text-white"></div>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300">
-                    Connect with <span class="font-semibold text-primary">@${currentVideo.value.account.username}</span> from your own Pixelfed, Mastodon, or other ActivityPub server
-                </p>
-            </div>
-
-            <div class="rounded-lg p-4 border-2 border-dashed border-primary">
-                <div class="flex items-start space-x-3">
-                    <div class="flex-shrink-0">
-                        <div class="flex items-center justify-center h-8 w-8 rounded-full bg-primary text-white text-sm font-semibold">
-                            1
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="font-medium text-gray-900 dark:text-white text-sm">
-                            Copy this handle
-                        </h4>
-                        <div class="mt-2 flex items-center space-x-2">
-                            <div class="flex-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-sm">
-                                <code class="text-primary font-mono select-all" id="webfinger-handle">
-                                    ${accountHandle}
-                                </code>
-                            </div>
-                            <button
-                                onclick="copyToClipboard('${accountHandle}', this)"
-                                class="flex-shrink-0 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 text-gray-600 dark:text-gray-100 px-3 py-2 rounded-md text-xs font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-800"
-                            >
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-300 dark:border-gray-600">
-                <div class="flex items-start space-x-3">
-                    <div class="flex-shrink-0">
-                        <div class="flex items-center justify-center h-8 w-8 rounded-full bg-primary/80 text-white text-sm font-semibold">
-                            2
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="font-medium text-gray-900 dark:text-white text-sm">
-                            Search on your server
-                        </h4>
-                        <p class="mt-1 text-xs text-gray-600 dark:text-gray-300">
-                            Paste the handle in your server's search box, then click follow
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hidden border-t border-gray-200 dark:border-gray-600 pt-4">
-                <p class="text-center text-sm text-gray-600 dark:text-gray-300">
-                    Don't have an account yet?
-                    <span class="font-medium text-primary">Join PornTk today!</span>
-                </p>
-            </div>
-        </div>
-    `
-
-    if (!window.copyToClipboard) {
-        window.copyToClipboard = async (text, buttonElement) => {
-            try {
-                await navigator.clipboard.writeText(text)
-
-                if (buttonElement) {
-                    const originalContent = buttonElement.innerHTML
-                    buttonElement.innerHTML = `
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    `
-                    buttonElement.classList.add('bg-green-500', 'hover:bg-green-600')
-                    buttonElement.classList.remove('bg-primary', 'hover:bg-primary/80')
-
-                    setTimeout(() => {
-                        buttonElement.innerHTML = originalContent
-                        buttonElement.classList.remove('bg-green-500', 'hover:bg-green-600')
-                        buttonElement.classList.add('bg-primary', 'hover:bg-primary/80')
-                    }, 2000)
-                }
-            } catch (err) {
-                console.error('Failed to copy: ', err)
-                const textArea = document.createElement('textarea')
-                textArea.value = text
-                document.body.appendChild(textArea)
-                textArea.select()
-                document.execCommand('copy')
-                document.body.removeChild(textArea)
-            }
-        }
-    }
-
-    const ctaButtons = appConfig.registration
-        ? [
-              {
-                  text: `<div class="tracking-tight">Join PornTk</div>`,
-                  type: 'danger',
-                  callback: () => {
-                      authStore.openAuthModal('register')
-                  }
-              },
-
-              {
-                  text: 'Close',
-                  type: 'button',
-                  callback: () => {}
-              }
-          ]
-        : [
-              {
-                  text: 'Close',
-                  type: 'button',
-                  callback: () => {}
-              }
-          ]
-
-    await alertModal('Follow @' + currentVideo.value.account.username, modalBody, ctaButtons, {
-        persistModal: true,
-        closeOnBackdrop: true,
-        closeOnEscape: true
-    })
 }
 
 const handleShare = () => {

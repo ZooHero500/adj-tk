@@ -270,6 +270,7 @@ declare global {
   const usePreferredReducedMotion: typeof import('@vueuse/core').usePreferredReducedMotion
   const usePreferredReducedTransparency: typeof import('@vueuse/core').usePreferredReducedTransparency
   const usePrevious: typeof import('@vueuse/core').usePrevious
+  const useProfileFeed: typeof import('./composables/useProfileFeed.js').useProfileFeed
   const useProfileStore: typeof import('./stores/profile.js').useProfileStore
   const usePublicFeed: typeof import('./composables/usePublicFeed.js').usePublicFeed
   const useQuery: typeof import('@tanstack/vue-query').useQuery
@@ -631,6 +632,7 @@ declare module 'vue' {
     readonly usePreferredReducedMotion: UnwrapRef<typeof import('@vueuse/core')['usePreferredReducedMotion']>
     readonly usePreferredReducedTransparency: UnwrapRef<typeof import('@vueuse/core')['usePreferredReducedTransparency']>
     readonly usePrevious: UnwrapRef<typeof import('@vueuse/core')['usePrevious']>
+    readonly useProfileFeed: UnwrapRef<typeof import('./composables/useProfileFeed.js')['useProfileFeed']>
     readonly useProfileStore: UnwrapRef<typeof import('./stores/profile.js')['useProfileStore']>
     readonly usePublicFeed: UnwrapRef<typeof import('./composables/usePublicFeed.js')['usePublicFeed']>
     readonly useQuery: UnwrapRef<typeof import('@tanstack/vue-query')['useQuery']>

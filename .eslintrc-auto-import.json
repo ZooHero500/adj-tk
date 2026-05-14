@@ -279,6 +279,7 @@
     "usePreferredReducedMotion": true,
     "usePreferredReducedTransparency": true,
     "usePrevious": true,
+    "useProfileFeed": true,
     "useProfileStore": true,
     "usePublicFeed": true,
     "useQuery": true,

@@ -2,9 +2,7 @@ import { defineStore } from 'pinia'
 import { nextTick } from 'vue'
 import axios from '@/plugins/axios'
 import { useAuthStore } from '@/stores/auth'
-import { useAlertModal } from '@/composables/useAlertModal.js'
 import { useQueryClient } from '@tanstack/vue-query'
-const { confirmModal } = useAlertModal()
 
 export const useProfileStore = defineStore('profile', {
     state: () => ({
@@ -256,18 +254,6 @@ export const useProfileStore = defineStore('profile', {
         },
 
         async unfollow() {
-            const msg = this.username ?? 'this account'
-            const res = await confirmModal(
-                'Confirm Unfollow',
-                `Are you sure you want to unfollow ${msg}?`,
-                'Unfollow',
-                'Cancel'
-            )
-
-            if (!res) {
-                return
-            }
-
             await this.toggleFollow()
         },
 
