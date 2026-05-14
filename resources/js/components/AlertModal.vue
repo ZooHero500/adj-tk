@@ -25,7 +25,7 @@
                 >
                     <div
                         v-if="isVisible"
-                        class="relative w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-xl"
+                        class="relative w-full max-w-md mx-auto bg-white dark:bg-neutral-900 rounded-lg shadow-xl"
                         role="dialog"
                         aria-modal="true"
                         :aria-labelledby="titleId"
@@ -66,14 +66,14 @@
                         </div>
 
                         <div
-                            class="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 px-6 py-4 bg-gray-50 dark:bg-gray-700/50 rounded-b-lg"
+                            class="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 px-6 py-4 bg-gray-50 dark:bg-neutral-800/50 rounded-b-lg"
                         >
                             <button
                                 v-for="(action, index) in actions"
                                 :key="index"
                                 :class="getButtonClasses(action.type)"
                                 @click="handleAction(action)"
-                                class="px-4 py-2 text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 cursor-pointer"
+                                class="px-4 py-2 text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-neutral-900 cursor-pointer"
                                 v-html="action.text"
                             ></button>
                         </div>
@@ -130,18 +130,18 @@ const bodyId = computed(() => `alert-modal-body-${Math.random().toString(36).sub
 
 const getButtonClasses = (type) => {
     const baseClasses =
-        'px-4 py-2 text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800'
+        'px-4 py-2 text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-neutral-900'
 
     switch (type) {
         case 'danger':
-            return `${baseClasses} bg-primary hover:bg-primary/80 text-white focus:ring-red-500`
+            return `${baseClasses} bg-primary hover:bg-primary-hover text-white focus:ring-primary`
         case 'primary':
-            return `${baseClasses} bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500`
+            return `${baseClasses} bg-primary hover:bg-primary-hover text-white focus:ring-primary`
         case 'link':
-            return `${baseClasses} text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 focus:ring-blue-500`
+            return `${baseClasses} text-primary dark:text-primary hover:text-primary-hover dark:hover:text-primary-hover hover:bg-primary/10 dark:hover:bg-primary/10 focus:ring-primary`
         case 'cancel':
         default:
-            return `${baseClasses} bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-500 focus:ring-blue-500`
+            return `${baseClasses} bg-white dark:bg-neutral-700 border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-neutral-600 focus:ring-primary`
     }
 }
 
