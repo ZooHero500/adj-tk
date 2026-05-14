@@ -236,6 +236,7 @@
     "useIntersectionObserver": true,
     "useInterval": true,
     "useIntervalFn": true,
+    "useIsMobile": true,
     "useKeyModifier": true,
     "useKitImageUpload": true,
     "useLanguagePicker": true,

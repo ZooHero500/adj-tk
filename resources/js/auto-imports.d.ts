@@ -227,6 +227,7 @@ declare global {
   const useIntersectionObserver: typeof import('@vueuse/core').useIntersectionObserver
   const useInterval: typeof import('@vueuse/core').useInterval
   const useIntervalFn: typeof import('@vueuse/core').useIntervalFn
+  const useIsMobile: typeof import('./composables/useIsMobile.js').useIsMobile
   const useKeyModifier: typeof import('@vueuse/core').useKeyModifier
   const useKitImageUpload: typeof import('./composables/useKitImageUpload.js').useKitImageUpload
   const useLanguagePicker: typeof import('./composables/useLanguagePicker.js').useLanguagePicker
@@ -589,6 +590,7 @@ declare module 'vue' {
     readonly useIntersectionObserver: UnwrapRef<typeof import('@vueuse/core')['useIntersectionObserver']>
     readonly useInterval: UnwrapRef<typeof import('@vueuse/core')['useInterval']>
     readonly useIntervalFn: UnwrapRef<typeof import('@vueuse/core')['useIntervalFn']>
+    readonly useIsMobile: UnwrapRef<typeof import('./composables/useIsMobile.js')['useIsMobile']>
     readonly useKeyModifier: UnwrapRef<typeof import('@vueuse/core')['useKeyModifier']>
     readonly useKitImageUpload: UnwrapRef<typeof import('./composables/useKitImageUpload.js')['useKitImageUpload']>
     readonly useLanguagePicker: UnwrapRef<typeof import('./composables/useLanguagePicker.js')['useLanguagePicker']>

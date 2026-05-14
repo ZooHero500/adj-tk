@@ -104,7 +104,6 @@ declare module 'vue' {
     Register: typeof import('./components/Register.vue')['default']
     RegistrationAlreadyAuthenticated: typeof import('./components/Layout/RegistrationAlreadyAuthenticated.vue')['default']
     RegistrationClosed: typeof import('./components/Layout/RegistrationClosed.vue')['default']
-    RemoteFollowModal: typeof import('./components/Profile/RemoteFollowModal.vue')['default']
     ReportModal: typeof import('./components/ReportModal.vue')['default']
     ReportVideo: typeof import('./components/Feed/ReportVideo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
