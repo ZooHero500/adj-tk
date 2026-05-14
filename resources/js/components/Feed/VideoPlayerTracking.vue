@@ -888,7 +888,6 @@ const play = async () => {
         isPaused.value = false
     } catch (error) {
         try {
-            setGlobalMuted(true)
             player.muted(true)
             await player.play()
             isPaused.value = false
