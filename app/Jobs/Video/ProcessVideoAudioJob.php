@@ -4,6 +4,7 @@ namespace App\Jobs\Video;
 
 use App\Models\Video;
 use App\Services\AudioFingerprintService;
+use App\Services\BunnyStorageService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUniqueUntilProcessing;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -12,7 +13,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\Middleware\WithoutOverlapping;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
-use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
+use Illuminate\Support\Facades\Process;
 use Throwable;
 
 class ProcessVideoAudioJob implements ShouldBeUniqueUntilProcessing, ShouldQueue
@@ -132,13 +133,27 @@ class ProcessVideoAudioJob implements ShouldBeUniqueUntilProcessing, ShouldQueue
 
     protected function hasAudioTrack(Video $video, string $path): bool
     {
+        $tmpPath = null;
+
         try {
-            $media = FFMpeg::fromDisk('s3')->open($path);
+            $storage = app(BunnyStorageService::class);
+            $tmpPath = $storage->downloadToTemp($path, 'video-audio-');
 
-            $res = $media->getAudioStream() !== null;
-            $media->cleanupTemporaryFiles();
+            $cmd = implode(' ', [
+                escapeshellarg((string) config('laravel-ffmpeg.ffprobe.binaries', 'ffprobe')),
+                '-v', 'error',
+                '-select_streams', 'a:0',
+                '-show_entries', 'stream=codec_type',
+                '-of', 'csv=p=0',
+                escapeshellarg($tmpPath),
+            ]);
 
-            return $res;
+            $result = Process::timeout(60)->run($cmd);
+            if ($result->failed()) {
+                throw new \RuntimeException($result->errorOutput());
+            }
+
+            return trim($result->output()) !== '';
         } catch (Throwable $e) {
             Log::warning('ffprobe failed while checking audio stream', [
                 'video_id' => $video->id,
@@ -148,6 +163,10 @@ class ProcessVideoAudioJob implements ShouldBeUniqueUntilProcessing, ShouldQueue
             ]);
 
             throw $e;
+        } finally {
+            if ($tmpPath) {
+                @unlink($tmpPath);
+            }
         }
     }
 

@@ -7,11 +7,11 @@ use App\Models\Profile;
 use App\Models\User;
 use App\Models\Video;
 use App\Models\VideoHashtag;
+use App\Services\BunnyStorageService;
 use App\Services\VideoService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ImportBatchCommand extends Command
@@ -30,6 +30,11 @@ class ImportBatchCommand extends Command
     private int $videosSkipped = 0;
 
     private int $filesUploaded = 0;
+
+    public function __construct(private readonly BunnyStorageService $storage)
+    {
+        parent::__construct();
+    }
 
     public function handle(): int
     {
@@ -164,10 +169,10 @@ class ImportBatchCommand extends Command
                 // Already a URL (S3 mode) — use directly
                 $profile->update(['avatar' => $data['avatar']]);
             } elseif (file_exists($data['avatar'])) {
-                // Local file — upload to S3
+                // Local file — upload to object storage
                 $avatarPath = 'avatars/'.Str::random(20).'.'.pathinfo($data['avatar'], PATHINFO_EXTENSION);
-                Storage::disk('s3')->put($avatarPath, file_get_contents($data['avatar']), 'public');
-                $profile->update(['avatar' => Storage::disk('s3')->url($avatarPath)]);
+                $this->storage->putFile($avatarPath, $data['avatar']);
+                $profile->update(['avatar' => $this->storage->url($avatarPath)]);
                 $this->filesUploaded++;
             }
         }
@@ -206,7 +211,7 @@ class ImportBatchCommand extends Command
             $mp4Local = $this->findFile($localDir, 'video.mp4') ?? $this->findFile($localDir, '*.mp4');
             if ($mp4Local) {
                 $mp4File = $s3Base.'/'.basename($mp4Local);
-                Storage::disk('s3')->put($mp4File, file_get_contents($mp4Local), 'public');
+                $this->storage->putFile($mp4File, $mp4Local);
                 $this->filesUploaded++;
             }
 
@@ -214,7 +219,7 @@ class ImportBatchCommand extends Command
             $thumbLocal = $this->findFile($localDir, '*.jpg') ?? $this->findFile($localDir, '*.jpeg') ?? $this->findFile($localDir, '*.png');
             if ($thumbLocal) {
                 $thumbPath = $s3Base.'/thumb.jpg';
-                Storage::disk('s3')->put($thumbPath, file_get_contents($thumbLocal), 'public');
+                $this->storage->putFile($thumbPath, $thumbLocal, 'image/jpeg');
                 $thumbUploaded = true;
                 $this->filesUploaded++;
             }
@@ -312,7 +317,7 @@ class ImportBatchCommand extends Command
         // Upload master.m3u8
         $masterPath = $localDir.'/master.m3u8';
         if (file_exists($masterPath)) {
-            Storage::disk('s3')->put($s3Base.'/master.m3u8', file_get_contents($masterPath), 'public');
+            $this->storage->putFile($s3Base.'/master.m3u8', $masterPath, 'application/vnd.apple.mpegurl');
             $this->filesUploaded++;
         }
 
@@ -326,7 +331,7 @@ class ImportBatchCommand extends Command
             foreach (glob($variantDir.'/*') as $file) {
                 if (is_file($file)) {
                     $s3Key = $s3Base.'/'.$variant.'/'.basename($file);
-                    Storage::disk('s3')->put($s3Key, file_get_contents($file), 'public');
+                    $this->storage->putFile($s3Key, $file);
                     $this->filesUploaded++;
                 }
             }

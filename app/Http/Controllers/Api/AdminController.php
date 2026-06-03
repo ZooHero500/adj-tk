@@ -47,6 +47,7 @@ use App\Services\AccountSuggestionService;
 use App\Services\AdminAuditLogService;
 use App\Services\AdminDashboardService;
 use App\Services\AvatarService;
+use App\Services\BunnyStorageService;
 use App\Services\ExploreService;
 use App\Services\InstanceService;
 use App\Services\NodeinfoCrawlerService;
@@ -138,10 +139,8 @@ class AdminController extends Controller
                     if (Storage::exists($video->vid)) {
                         Storage::delete($video->vid);
                     }
-                    $s3Path = 'videos/'.$video->profile_id.'/'.$video->id.'/';
-                    if (Storage::disk('s3')->exists($s3Path)) {
-                        Storage::disk('s3')->deleteDirectory($s3Path);
-                    }
+                    $storagePath = 'videos/'.$video->profile_id.'/'.$video->id.'/';
+                    app(BunnyStorageService::class)->deleteDirectory($storagePath);
                 }
             }
 
@@ -847,10 +846,8 @@ class AdminController extends Controller
             if (Storage::exists($video->vid)) {
                 Storage::delete($video->vid);
             }
-            $s3Path = 'videos/'.$video->profile_id.'/'.$video->id.'/';
-            if (Storage::disk('s3')->exists($s3Path)) {
-                Storage::disk('s3')->deleteDirectory($s3Path);
-            }
+            $storagePath = 'videos/'.$video->profile_id.'/'.$video->id.'/';
+            app(BunnyStorageService::class)->deleteDirectory($storagePath);
         }
         $video->forceDelete();
 

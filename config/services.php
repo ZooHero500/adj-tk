@@ -28,6 +28,12 @@ return [
         'key' => env('RESEND_KEY'),
     ],
 
+    'bunny_storage' => [
+        'endpoint' => env('BUNNY_STORAGE_ENDPOINT'),
+        'access_key' => env('BUNNY_STORAGE_ACCESS_KEY'),
+        'cdn_url' => env('BUNNY_CDN_URL', env('AWS_URL')),
+    ],
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),

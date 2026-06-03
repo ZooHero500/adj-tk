@@ -3,13 +3,13 @@
 namespace App\Jobs\Video;
 
 use App\Models\Video;
+use App\Services\BunnyStorageService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
 
@@ -29,14 +29,14 @@ class VideoCustomThumbnailJob implements ShouldQueue
             return;
         }
 
-        $disk = Storage::disk('s3');
+        $storage = app(BunnyStorageService::class);
 
         try {
             $originalPath = $this->video->thumbnail_path;
-            $contents = $disk->get($originalPath);
+            $contents = $storage->get($originalPath);
 
             if (! $contents) {
-                throw new \Exception('Failed to read thumbnail from S3');
+                throw new \Exception('Failed to read thumbnail from storage');
             }
 
             $image = Image::read($contents);
@@ -47,18 +47,18 @@ class VideoCustomThumbnailJob implements ShouldQueue
 
             $pid = $this->video->profile_id;
             $fileName = 'thumb_'.Str::random(8).'.webp';
-            $s3Path = 'videos/'.$pid.'/'.$this->video->id.'/'.$fileName;
+            $storagePath = 'videos/'.$pid.'/'.$this->video->id.'/'.$fileName;
 
-            $disk->put($s3Path, file_get_contents($tempPath), 'public');
+            $storage->putFile($storagePath, $tempPath, 'image/webp');
 
             unlink($tempPath);
 
-            if ($originalPath !== $s3Path) {
-                $disk->delete($originalPath);
+            if ($originalPath !== $storagePath) {
+                $storage->delete($originalPath);
             }
 
             $this->video->has_thumb = true;
-            $this->video->thumbnail_path = $s3Path;
+            $this->video->thumbnail_path = $storagePath;
             $this->video->thumbnail_width = 1080;
             $this->video->thumbnail_height = 1920;
             $this->video->thumbnail_mime = 'image/webp';

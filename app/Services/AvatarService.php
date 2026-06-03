@@ -7,7 +7,6 @@ use App\Models\ProfileAvatar;
 use Exception;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
 
@@ -38,7 +37,7 @@ class AvatarService
                 return url('/storage/avatars/default.jpg');
             }
 
-            return Storage::disk('s3')->url($profileAvatar->path);
+            return app(BunnyStorageService::class)->url($profileAvatar->path);
         });
     }
 
@@ -92,8 +91,9 @@ class AvatarService
 
     private static function deleteExistingAvatars($hashid, $profileId): void
     {
-        Storage::disk('s3')->deleteDirectory('avatars/'.$hashid);
-        Storage::disk('s3')->deleteDirectory('avatars/'.$profileId);
+        $storage = app(BunnyStorageService::class);
+        $storage->deleteDirectory('avatars/'.$hashid);
+        $storage->deleteDirectory('avatars/'.$profileId);
     }
 
     private static function processAndUploadAvatar($avatarFile, int $profileId, $hashid, ?array $coordinates = null): string
@@ -104,13 +104,9 @@ class AvatarService
         $processedImagePath = self::processImage($avatarFile, $profileId, $coordinates);
 
         try {
-            Storage::disk('s3')->put(
-                $filename,
-                file_get_contents($processedImagePath),
-                'public'
-            );
+            app(BunnyStorageService::class)->putFile($filename, $processedImagePath, 'image/webp');
 
-            return Storage::disk('s3')->url($filename);
+            return app(BunnyStorageService::class)->url($filename);
         } finally {
             if (file_exists($processedImagePath)) {
                 unlink($processedImagePath);

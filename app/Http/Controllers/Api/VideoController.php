@@ -51,6 +51,7 @@ use App\Models\VideoLike;
 use App\Models\VideoRepost;
 use App\Services\AccountService;
 use App\Services\ActivityPubCacheService;
+use App\Services\BunnyStorageService;
 use App\Services\ConfigService;
 use App\Services\FederationDispatcher;
 use App\Services\KlipyMediaSelector;
@@ -62,7 +63,6 @@ use App\Services\VideoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
@@ -127,7 +127,7 @@ class VideoController extends Controller
         ];
 
         $model = null;
-        $s3Path = null;
+        $storagePath = null;
         $thumbnailPath = null;
 
         try {
@@ -151,18 +151,19 @@ class VideoController extends Controller
             $model->save();
 
             try {
-                $s3Path = $request->video->store('videos/'.$pid.'/'.$model->id, 's3');
+                $storagePath = 'videos/'.$pid.'/'.$model->id.'/original.mp4';
+                app(BunnyStorageService::class)->putFile($storagePath, $request->file('video')->getRealPath(), 'video/mp4');
 
-                if (! $s3Path) {
-                    throw new \Exception('Failed to upload video to S3');
+                if (! $storagePath) {
+                    throw new \Exception('Failed to upload video to storage');
                 }
 
-                $model->vid = $s3Path;
+                $model->vid = $storagePath;
                 $model->save();
 
             } catch (\Exception $e) {
                 if (config('logging.dev_log')) {
-                    Log::error('S3 upload failed for video', [
+                    Log::error('Bunny upload failed for video', [
                         'user_id' => $request->user()->id,
                         'video_id' => $model->id,
                         'error' => $e->getMessage(),
@@ -188,14 +189,14 @@ class VideoController extends Controller
             if ($request->hasFile('thumbnail')) {
                 try {
                     $thumbName = 'custom_thumb.'.$request->file('thumbnail')->getClientOriginalExtension();
-                    $thumbnailPath = $request->file('thumbnail')->storeAs(
-                        'videos/'.$pid.'/'.$model->id,
-                        $thumbName,
-                        's3'
+                    $thumbnailPath = 'videos/'.$pid.'/'.$model->id.'/'.$thumbName;
+                    app(BunnyStorageService::class)->putFile(
+                        $thumbnailPath,
+                        $request->file('thumbnail')->getRealPath()
                     );
 
                     if (! $thumbnailPath) {
-                        throw new \Exception('Failed to upload thumbnail to S3');
+                        throw new \Exception('Failed to upload thumbnail to storage');
                     }
 
                     $model->thumbnail_path = $thumbnailPath;
@@ -227,16 +228,16 @@ class VideoController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
 
-            if ($s3Path) {
+            if ($storagePath) {
                 try {
-                    Storage::disk('s3')->delete($s3Path);
+                    app(BunnyStorageService::class)->delete($storagePath);
 
                     if (config('logging.dev_log')) {
-                        Log::info('Cleaned up S3 file after error', ['path' => $s3Path]);
+                        Log::info('Cleaned up Bunny file after error', ['path' => $storagePath]);
                     }
                 } catch (\Exception $deleteError) {
-                    Log::error('Failed to delete S3 file during cleanup', [
-                        'path' => $s3Path,
+                    Log::error('Failed to delete Bunny file during cleanup', [
+                        'path' => $storagePath,
                         'error' => $deleteError->getMessage(),
                     ]);
                 }
@@ -399,13 +400,8 @@ class VideoController extends Controller
         if (str_starts_with($video->vid, 'https://')) {
 
         } else {
-            if (Storage::exists($video->vid)) {
-                Storage::delete($video->vid);
-            }
-            $s3Path = 'videos/'.$video->profile_id.'/'.$video->id.'/';
-            if (Storage::disk('s3')->exists($s3Path)) {
-                Storage::disk('s3')->deleteDirectory($s3Path);
-            }
+            $storagePath = 'videos/'.$video->profile_id.'/'.$video->id.'/';
+            app(BunnyStorageService::class)->deleteDirectory($storagePath);
         }
         $config = app(ConfigService::class);
 

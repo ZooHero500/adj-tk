@@ -6,6 +6,7 @@ use App\Concerns\HasSnowflakePrimary;
 use App\Concerns\HasSyncHashtagsFromCaption;
 use App\Concerns\HasSyncMentionsFromCaption;
 use App\Observers\VideoObserver;
+use App\Services\BunnyStorageService;
 use App\Services\HashidService;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Attributes\Scope;
@@ -17,7 +18,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 #[ObservedBy([VideoObserver::class])]
 /**
@@ -243,11 +243,11 @@ class Video extends Model
             if ($this->thumbnail) {
                 $thumb = $this->thumbnail;
             } elseif ($this->thumbnail_path) {
-                $thumb = Storage::disk('s3')->url($this->thumbnail_path);
+                $thumb = app(BunnyStorageService::class)->url($this->thumbnail_path);
             } else {
                 $ext = pathinfo($this->vid, PATHINFO_EXTENSION);
                 $url = str_replace('.'.$ext, '.jpg', $this->vid);
-                $thumb = Storage::disk('s3')->url($url);
+                $thumb = app(BunnyStorageService::class)->url($url);
             }
         }
 
@@ -281,12 +281,11 @@ class Video extends Model
 
     public function mediaUrl(): string
     {
-        return Storage::disk('s3')
-            ->url(
-                $this->has_processed && $this->vid_optimized ?
-                    $this->vid_optimized :
-                    $this->vid
-            );
+        return app(BunnyStorageService::class)->url(
+            $this->has_processed && $this->vid_optimized ?
+                $this->vid_optimized :
+                $this->vid
+        );
     }
 
     public function recalculateCommentsCount(): int

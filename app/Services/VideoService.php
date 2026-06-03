@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Models\Video;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class VideoService
@@ -79,22 +78,22 @@ class VideoService
                 if ($video->thumbnail) {
                     $thumb = $video->thumbnail;
                 } elseif ($video->thumbnail_path) {
-                    $thumb = Storage::disk('s3')->url($video->thumbnail_path);
+                    $thumb = app(BunnyStorageService::class)->url($video->thumbnail_path);
                 } else {
                     $ext = pathinfo($video->vid, PATHINFO_EXTENSION);
                     $url = str_replace('.'.$ext, '.jpg', $video->vid);
-                    $thumb = Storage::disk('s3')->url($url);
+                    $thumb = app(BunnyStorageService::class)->url($url);
                 }
             }
 
-            $mediaUrl = $video->vid_optimized ? Storage::disk('s3')->url($video->vid_optimized) : url('/storage/videos/video-placeholder.jpg');
+            $mediaUrl = $video->vid_optimized ? app(BunnyStorageService::class)->url($video->vid_optimized) : url('/storage/videos/video-placeholder.jpg');
             $captionText = Str::limit($video->caption ?? 'Untitled loop', 20);
             $captionText .= " • $video->likes likes • $video->comments comments";
 
             $hlsUrl = null;
             if ($video->has_hls && $video->vid_optimized) {
                 $basePath = pathinfo($video->vid_optimized, PATHINFO_DIRNAME);
-                $hlsUrl = Storage::disk('s3')->url($basePath.'/master.m3u8');
+                $hlsUrl = app(BunnyStorageService::class)->url($basePath.'/master.m3u8');
             }
 
             return [

@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Services\BunnyStorageService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Facades\Storage;
 
 class ProfileAvatar extends Model
 {
@@ -32,7 +32,7 @@ class ProfileAvatar extends Model
 
     public function getUrlAttribute(): ?string
     {
-        return $this->path ? Storage::disk('s3')->url($this->path) : null;
+        return $this->path ? app(BunnyStorageService::class)->url($this->path) : null;
     }
 
     public function shouldRefetch(): bool
@@ -48,9 +48,9 @@ class ProfileAvatar extends Model
 
     public function delete(): ?bool
     {
-        // Delete from S3 when model is deleted
-        if ($this->path && Storage::disk('s3')->exists($this->path)) {
-            Storage::disk('s3')->delete($this->path);
+        // Delete from Bunny when model is deleted.
+        if ($this->path) {
+            app(BunnyStorageService::class)->delete($this->path);
         }
 
         return parent::delete();

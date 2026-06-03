@@ -3,7 +3,7 @@
 namespace App\Jobs\Video;
 
 use App\Models\Video;
-use FFMpeg\Format\Video\X264;
+use App\Services\BunnyStorageService;
 use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -11,9 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
-use ProtoneMedia\LaravelFFMpeg\Exporters\EncodingException;
-use ProtoneMedia\LaravelFFMpeg\Filesystem\Media;
-use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
+use Illuminate\Support\Facades\Process;
 
 class CompositeDuetVideo implements ShouldQueue
 {
@@ -25,50 +23,51 @@ class CompositeDuetVideo implements ShouldQueue
 
     protected Video $video;
 
-    /**
-     * Create a new job instance.
-     */
     public function __construct(Video $video)
     {
         $this->video = $video;
     }
 
-    /**
-     * Execute the job.
-     */
     public function handle(): void
     {
-        $disk = 's3';
+        $tmpDir = null;
 
         try {
             $this->video->refresh();
 
-            $originalLoopId = $this->video->original_duet_id;
-            $originalLoop = Video::published()->where('can_duet', true)->find($originalLoopId);
+            $originalLoop = Video::published()
+                ->where('can_duet', true)
+                ->find($this->video->original_duet_id);
 
-            if (! $originalLoop || ! $originalLoop->vid_optimized) {
+            if (! $originalLoop || ! $originalLoop->vid_optimized || ! $this->video->vid) {
                 throw new \Exception('Missing original or upload paths for duet.');
             }
 
-            $ogVideoPath = $this->video->vid;
+            $storage = app(BunnyStorageService::class);
             $composedVideoPath = str_replace('.mp4', '_duet.1080p.mp4', $this->video->vid);
             $layout = $this->video->duet_layout == 1 ? 'side-by-side' : 'vertical';
 
-            $res = $this->compositeVideosToS3(
-                $disk,
-                $originalLoop->vid_optimized,
-                $this->video->vid,
-                $composedVideoPath,
-                $layout
-            );
-        } catch (EncodingException $e) {
-            Log::error("Duet composition failed (FFmpeg) for duet ID: {$this->video->id}", [
-                'error' => $e->getMessage(),
-                'command' => $e->getCommand(),
-                'output' => $e->getErrorOutput(),
-            ]);
+            $tmpDir = storage_path('app/duet-processing/'.$this->video->id.'-'.uniqid());
+            mkdir($tmpDir, 0755, true);
 
-            throw $e;
+            $originalPath = $storage->downloadToTemp($originalLoop->vid_optimized, 'duet-original-');
+            $responsePath = $storage->downloadToTemp($this->video->vid, 'duet-response-');
+            $outputPath = $tmpDir.'/duet.mp4';
+
+            try {
+                $this->composeLocal($originalPath, $responsePath, $outputPath, $layout);
+                $storage->putFile($composedVideoPath, $outputPath, 'video/mp4');
+
+                $this->video->update([
+                    'vid_optimized' => $composedVideoPath,
+                    'duration' => $this->duration($outputPath),
+                    'has_processed' => true,
+                    'status' => 2,
+                ]);
+            } finally {
+                @unlink($originalPath);
+                @unlink($responsePath);
+            }
         } catch (\Throwable $e) {
             Log::error("Duet composition failed for duet ID: {$this->video->id}", [
                 'error' => $e->getMessage(),
@@ -77,113 +76,84 @@ class CompositeDuetVideo implements ShouldQueue
 
             throw $e;
         } finally {
-            try {
-                if (isset($composedVideoPath) && ! empty($composedVideoPath)) {
-                    $this->video->update([
-                        'vid_optimized' => $composedVideoPath,
-                        'duration' => $res['duration'] ?? 0,
-                        'has_processed' => true,
-                        'status' => 2,
-                    ]);
-                }
-                FFMpeg::cleanupTemporaryFiles();
-            } catch (\Throwable $cleanupException) {
-                Log::warning('Failed to cleanup FFmpeg temporary files', [
-                    'error' => $cleanupException->getMessage(),
-                ]);
+            if ($tmpDir && is_dir($tmpDir)) {
+                $this->cleanupDirectory($tmpDir);
             }
         }
     }
 
-    /**
-     * Composite two videos directly from S3 into a new S3 object using laravel-ffmpeg.
-     */
-    protected function compositeVideosToS3(
-        string $disk,
-        string $originalVideoPath,
-        string $responseVideoPath,
-        string $outputPath,
-        string $layout
-    ) {
-        $format = new X264('aac', 'libx264');
-        $format->setAudioKiloBitrate(128);
-        $format->setAdditionalParameters([
+    private function composeLocal(string $originalPath, string $responsePath, string $outputPath, string $layout): void
+    {
+        $filter = $layout === 'side-by-side'
+            ? '[0:v]scale=360:-2,setsar=1,pad=360:640:(ow-iw)/2:(oh-ih)/2[left];'.
+                '[1:v]scale=360:-2,setsar=1,pad=360:640:(ow-iw)/2:(oh-ih)/2[right];'.
+                '[left][right]hstack=inputs=2[v];'.
+                '[0:a]volume=0.5[a0];[1:a]volume=1.0[a1];[a0][a1]amix=inputs=2:duration=shortest[a]'
+            : '[0:v]scale=-2:960:force_original_aspect_ratio=decrease,'.
+                'pad=1080:960:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1[top];'.
+                '[1:v]scale=-2:960:force_original_aspect_ratio=decrease,'.
+                'pad=1080:960:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1[bottom];'.
+                '[top][bottom]vstack=inputs=2[v];'.
+                '[0:a]volume=0.5[a0];[1:a]volume=1.0[a1];[a0][a1]amix=inputs=2:duration=shortest[a]';
+
+        $cmd = implode(' ', [
+            escapeshellarg((string) config('laravel-ffmpeg.ffmpeg.binaries', 'ffmpeg')),
+            '-y',
+            '-i', escapeshellarg($originalPath),
+            '-i', escapeshellarg($responsePath),
+            '-filter_complex', escapeshellarg($filter),
+            '-map', escapeshellarg('[v]'),
+            '-map', escapeshellarg('[a]'),
+            '-c:v', 'libx264',
+            '-c:a', 'aac',
+            '-b:a', '128k',
             '-preset', 'slow',
             '-crf', '23',
             '-pix_fmt', 'yuv420p',
             '-movflags', '+faststart',
             '-ac', '2',
+            '-shortest',
+            escapeshellarg($outputPath),
         ]);
 
-        if ($layout === 'side-by-side') {
-            $media1 = FFMpeg::fromDisk($disk)->open($originalVideoPath);
-            $media2 = FFMpeg::fromDisk($disk)->open($responseVideoPath);
-
-            $video1 = $media1->getVideoStream();
-            $video2 = $media2->getVideoStream();
-
-            $width1 = $video1->get('width');
-            $height1 = $video1->get('height');
-            $width2 = $video2->get('width');
-            $height2 = $video2->get('height');
-
-            $scaledHeight1 = (int) round(360 * ($height1 / $width1) / 2) * 2;
-            $scaledHeight2 = (int) round(360 * ($height2 / $width2) / 2) * 2;
-
-            $maxHeight = max($scaledHeight1, $scaledHeight2);
-
-            $exporter = FFMpeg::fromDisk($disk)
-                ->open([$originalVideoPath, $responseVideoPath])
-                ->export()
-                ->addFilter('[0:v]', "scale=360:-2,setsar=1,pad=360:{$maxHeight}:(ow-iw)/2:(oh-ih)/2", '[left]')
-                ->addFilter('[1:v]', "scale=360:-2,setsar=1,pad=360:{$maxHeight}:(ow-iw)/2:(oh-ih)/2", '[right]')
-                ->addFilter('[left][right]', 'hstack=inputs=2', '[v]')
-                ->addFilter('[0:a]', 'volume=0.5', '[a0]')
-                ->addFilter('[1:a]', 'volume=1.0', '[a1]')
-                ->addFilter('[a0][a1]', 'amix=inputs=2:duration=shortest', '[a]');
-        } else {
-            $targetWidth = 1080;
-            $targetHeight = 1920;
-            $halfHeight = 960;
-
-            $exporter = FFMpeg::fromDisk($disk)
-                ->open([$originalVideoPath, $responseVideoPath])
-                ->export()
-                ->addFilter(
-                    '[0:v]',
-                    "scale=-2:{$halfHeight}:force_original_aspect_ratio=decrease,".
-                    "pad={$targetWidth}:{$halfHeight}:(ow-iw)/2:(oh-ih)/2:color=black,".
-                    'setsar=1',
-                    '[top]'
-                )
-                ->addFilter(
-                    '[1:v]',
-                    "scale=-2:{$halfHeight}:force_original_aspect_ratio=decrease,".
-                    "pad={$targetWidth}:{$halfHeight}:(ow-iw)/2:(oh-ih)/2:color=black,".
-                    'setsar=1',
-                    '[bottom]'
-                )
-                ->addFilter('[top][bottom]', 'vstack=inputs=2', '[v]')
-                ->addFilter('[0:a]', 'volume=0.5', '[a0]')
-                ->addFilter('[1:a]', 'volume=1.0', '[a1]')
-                ->addFilter('[a0][a1]', 'amix=inputs=2:duration=shortest', '[a]');
+        $result = Process::timeout(600)->run($cmd);
+        if ($result->failed()) {
+            throw new \Exception('FFmpeg duet composition failed: '.$result->errorOutput());
         }
-
-        // @phpstan-ignore-next-line
-        $exporter->addFormatOutputMapping(
-            $format,
-            Media::make($disk, $outputPath),
-            ['[v]', '[a]']
-        )
-            ->withVisibility('public')
-            ->save();
-
-        return ['duration' => $exporter->getDurationInSeconds()];
     }
 
-    /**
-     * Handle a job failure.
-     */
+    private function duration(string $path): int
+    {
+        $cmd = implode(' ', [
+            escapeshellarg((string) config('laravel-ffmpeg.ffprobe.binaries', 'ffprobe')),
+            '-v', 'error',
+            '-show_entries', 'format=duration',
+            '-of', 'default=noprint_wrappers=1:nokey=1',
+            escapeshellarg($path),
+        ]);
+
+        $result = Process::timeout(60)->run($cmd);
+        if ($result->failed()) {
+            return 0;
+        }
+
+        return max(0, (int) round((float) trim($result->output())));
+    }
+
+    private function cleanupDirectory(string $dir): void
+    {
+        $files = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($dir, \FilesystemIterator::SKIP_DOTS),
+            \RecursiveIteratorIterator::CHILD_FIRST
+        );
+
+        foreach ($files as $file) {
+            $file->isDir() ? rmdir($file->getRealPath()) : unlink($file->getRealPath());
+        }
+
+        rmdir($dir);
+    }
+
     public function failed(\Throwable $exception): void
     {
         Log::error("Duet composition job failed permanently for duet ID: {$this->video->id}", [

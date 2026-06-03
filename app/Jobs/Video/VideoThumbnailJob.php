@@ -2,6 +2,7 @@
 
 namespace App\Jobs\Video;
 
+use App\Services\BunnyStorageService;
 use App\Services\VideoService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -10,9 +11,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\Middleware\WithoutOverlapping;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Str;
-use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class VideoThumbnailJob implements ShouldQueue
 {
@@ -56,15 +56,17 @@ class VideoThumbnailJob implements ShouldQueue
         }
 
         try {
-            if (! Storage::disk('s3')->exists($video->vid)) {
-                throw new \Exception('Video file not found on S3: '.$video->vid);
+            $storage = app(BunnyStorageService::class);
+
+            if (! $storage->exists($video->vid)) {
+                throw new \Exception('Video file not found in storage: '.$video->vid);
             }
 
             $ext = pathinfo($video->vid, PATHINFO_EXTENSION);
             $randomStr = Str::random(8);
             $thumb = str_replace('.'.$ext, '_thumb_'.$randomStr.'.jpg', $video->vid);
 
-            if (Storage::disk('s3')->exists($thumb)) {
+            if ($storage->exists($thumb)) {
                 $video->thumbnail_path = $thumb;
                 $video->has_thumb = true;
                 $video->save();
@@ -73,24 +75,35 @@ class VideoThumbnailJob implements ShouldQueue
                 return;
             }
 
-            $indexSec = 0;
+            $tmpInput = $storage->downloadToTemp($video->vid, 'video-thumb-input-');
+            $tmpThumb = tempnam(sys_get_temp_dir(), 'video-thumb-output-').'.jpg';
 
-            $media = FFMpeg::fromDisk('s3')
-                ->open($video->vid)
-                ->getFrameFromSeconds($indexSec)
-                ->export()
-                ->toDisk('s3')
-                ->withVisibility('public')
-                ->save($thumb);
+            try {
+                $cmd = implode(' ', [
+                    escapeshellarg((string) config('laravel-ffmpeg.ffmpeg.binaries', 'ffmpeg')),
+                    '-y',
+                    '-ss', '0',
+                    '-i', escapeshellarg($tmpInput),
+                    '-frames:v', '1',
+                    '-q:v', '2',
+                    escapeshellarg($tmpThumb),
+                ]);
 
-            $media->cleanupTemporaryFiles();
+                $result = Process::timeout(120)->run($cmd);
+                if ($result->failed()) {
+                    throw new \Exception('FFmpeg thumbnail generation failed: '.$result->errorOutput());
+                }
 
-            // @phpstan-ignore-next-line
-            if (! Storage::disk('s3')->exists($thumb)) {
-                throw new \Exception('Thumbnail was not created on S3');
+                $storage->putFile($thumb, $tmpThumb, 'image/jpeg');
+            } finally {
+                @unlink($tmpInput);
+                @unlink($tmpThumb);
             }
 
-            // @phpstan-ignore-next-line
+            if (! $storage->exists($thumb)) {
+                throw new \Exception('Thumbnail was not created in storage');
+            }
+
             $video->thumbnail_path = $thumb;
             $video->has_thumb = true;
             $video->save();
