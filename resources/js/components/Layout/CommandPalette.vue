@@ -476,18 +476,6 @@ const slashCommands = [
         badgeClass: 'bg-primary/10 text-primary',
         keywords: ['instances', 'fediverse', 'activitypub']
     },
-    {
-        id: 'cmd-starter-kits',
-        title: '/starterkits',
-        description: 'Manage starter kits',
-        icon: StarIcon,
-        iconBg: 'bg-primary/10 dark:bg-primary/20',
-        iconColor: 'text-primary',
-        action: () => router.push('/admin/starterkits'),
-        badge: 'Command',
-        badgeClass: 'bg-primary/10 text-primary',
-        keywords: ['kits', 'curated', 'onboarding']
-    }
 ]
 
 const navCommands = [
@@ -588,17 +576,6 @@ const navCommands = [
         iconColor: 'text-primary',
         action: () => router.push('/admin/videos'),
         keywords: ['content', 'media', 'loops'],
-        group: 'Navigation'
-    },
-    {
-        id: 'starter-kits',
-        title: 'Starter Kits',
-        description: 'Manage starter kits',
-        icon: StarIcon,
-        iconBg: 'bg-orange-100 dark:bg-orange-900/50',
-        iconColor: 'text-orange-600 dark:text-orange-400',
-        action: () => router.push('/admin/starterkits'),
-        keywords: ['curated', 'onboarding', 'kits'],
         group: 'Navigation'
     },
     {

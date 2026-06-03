@@ -161,7 +161,7 @@
                                     See more →
                                 </button>
                             </div>
-                            <VideosGrid :videos="searchResults.videos.slice(0, 12)" />
+                            <VideosGrid :videos="searchResults.videos.slice(0, 12)" :query="searchQuery" />
                         </section>
 
                         <section v-if="searchResults.hashtags?.length > 0">
@@ -223,6 +223,7 @@
                         <VideosGrid
                             v-if="searchResults.videos?.length > 0"
                             :videos="searchResults.videos"
+                            :query="searchQuery"
                         />
                         <div v-else-if="!pendingVideo && !loading" class="text-center py-12">
                             <div class="text-gray-500 dark:text-gray-400 mb-4 text-sm">

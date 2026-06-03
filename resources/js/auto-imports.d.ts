@@ -199,6 +199,7 @@ declare global {
   const useEventBus: typeof import('@vueuse/core').useEventBus
   const useEventListener: typeof import('@vueuse/core').useEventListener
   const useEventSource: typeof import('@vueuse/core').useEventSource
+  const useExploreFeed: typeof import('./composables/useExploreFeed.js').useExploreFeed
   const useExploreStore: typeof import('./stores/explore.js').useExploreStore
   const useEyeDropper: typeof import('@vueuse/core').useEyeDropper
   const useFavicon: typeof import('@vueuse/core').useFavicon
@@ -288,6 +289,7 @@ declare global {
   const useScriptTag: typeof import('@vueuse/core').useScriptTag
   const useScroll: typeof import('@vueuse/core').useScroll
   const useScrollLock: typeof import('@vueuse/core').useScrollLock
+  const useSearchFeed: typeof import('./composables/useSearchFeed.js').useSearchFeed
   const useSearchStore: typeof import('./stores/search.js').useSearchStore
   const useSeoMeta: typeof import('@unhead/vue').useSeoMeta
   const useSessionStorage: typeof import('@vueuse/core').useSessionStorage
@@ -305,6 +307,7 @@ declare global {
   const useSuggestedAccounts: typeof import('./composables/useSuggestedAccounts.js').useSuggestedAccounts
   const useSupported: typeof import('@vueuse/core').useSupported
   const useSwipe: typeof import('@vueuse/core').useSwipe
+  const useTagFeed: typeof import('./composables/useTagFeed.js').useTagFeed
   const useTagFeedStore: typeof import('./stores/tagFeed.js').useTagFeedStore
   const useTemplateRef: typeof import('vue').useTemplateRef
   const useTemplateRefsList: typeof import('@vueuse/core').useTemplateRefsList
@@ -562,6 +565,7 @@ declare module 'vue' {
     readonly useEventBus: UnwrapRef<typeof import('@vueuse/core')['useEventBus']>
     readonly useEventListener: UnwrapRef<typeof import('@vueuse/core')['useEventListener']>
     readonly useEventSource: UnwrapRef<typeof import('@vueuse/core')['useEventSource']>
+    readonly useExploreFeed: UnwrapRef<typeof import('./composables/useExploreFeed.js')['useExploreFeed']>
     readonly useExploreStore: UnwrapRef<typeof import('./stores/explore.js')['useExploreStore']>
     readonly useEyeDropper: UnwrapRef<typeof import('@vueuse/core')['useEyeDropper']>
     readonly useFavicon: UnwrapRef<typeof import('@vueuse/core')['useFavicon']>
@@ -651,6 +655,7 @@ declare module 'vue' {
     readonly useScriptTag: UnwrapRef<typeof import('@vueuse/core')['useScriptTag']>
     readonly useScroll: UnwrapRef<typeof import('@vueuse/core')['useScroll']>
     readonly useScrollLock: UnwrapRef<typeof import('@vueuse/core')['useScrollLock']>
+    readonly useSearchFeed: UnwrapRef<typeof import('./composables/useSearchFeed.js')['useSearchFeed']>
     readonly useSearchStore: UnwrapRef<typeof import('./stores/search.js')['useSearchStore']>
     readonly useSeoMeta: UnwrapRef<typeof import('@unhead/vue')['useSeoMeta']>
     readonly useSessionStorage: UnwrapRef<typeof import('@vueuse/core')['useSessionStorage']>
@@ -668,6 +673,7 @@ declare module 'vue' {
     readonly useSuggestedAccounts: UnwrapRef<typeof import('./composables/useSuggestedAccounts.js')['useSuggestedAccounts']>
     readonly useSupported: UnwrapRef<typeof import('@vueuse/core')['useSupported']>
     readonly useSwipe: UnwrapRef<typeof import('@vueuse/core')['useSwipe']>
+    readonly useTagFeed: UnwrapRef<typeof import('./composables/useTagFeed.js')['useTagFeed']>
     readonly useTagFeedStore: UnwrapRef<typeof import('./stores/tagFeed.js')['useTagFeedStore']>
     readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
     readonly useTemplateRefsList: UnwrapRef<typeof import('@vueuse/core')['useTemplateRefsList']>

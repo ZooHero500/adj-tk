@@ -80,8 +80,7 @@ const tabs = [
     { value: 'top', label: 'Top' },
     { value: 'users', label: 'Users' },
     { value: 'videos', label: 'Videos' },
-    { value: 'tags', label: 'Tags' },
-    { value: 'starter_kits', label: 'Starter Kits' }
+    { value: 'tags', label: 'Tags' }
 ]
 
 const handleSearch = () => {

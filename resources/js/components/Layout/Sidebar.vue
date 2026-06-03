@@ -479,14 +479,14 @@ const mainLinks = computed(() => {
             })
         }
 
-        if (appConfig.starterKits) {
-            links.splice(4, 0, {
-                id: 'starterKits',
-                name: t('common.starterKits'),
-                path: `/starter-kits`,
-                icon: 'bx bx-book-add'
-            })
-        }
+        // if (appConfig.starterKits) {
+        //     links.splice(4, 0, {
+        //         id: 'starterKits',
+        //         name: t('common.starterKits'),
+        //         path: `/starter-kits`,
+        //         icon: 'bx bx-book-add'
+        //     })
+        // }
 
         const userCustomPages = filterNavItemsByLocation('side_menu_user')
         const allCustomPages = filterNavItemsByLocation('side_menu_all')
@@ -519,14 +519,14 @@ const mainLinks = computed(() => {
             }
         ]
 
-        if (appConfig.starterKits) {
-            links.push({
-                id: 'starterKits',
-                name: t('common.starterKits'),
-                path: `/starter-kits`,
-                icon: 'bx bx-book-add'
-            })
-        }
+        // if (appConfig.starterKits) {
+        //     links.push({
+        //         id: 'starterKits',
+        //         name: t('common.starterKits'),
+        //         path: `/starter-kits`,
+        //         icon: 'bx bx-book-add'
+        //     })
+        // }
 
         const guestCustomPages = filterNavItemsByLocation('side_menu_guest')
         const allCustomPages = filterNavItemsByLocation('side_menu_all')
@@ -650,11 +650,6 @@ const handleLoginClick = () => {
 }
 
 const handleJoinClick = () => {
-    if (appConfig.registration_mode === 'curated') {
-        closeMobileDrawer()
-        router.push('/auth/curated')
-        return
-    }
     authStore.openAuthModal('register')
     closeMobileDrawer()
 }

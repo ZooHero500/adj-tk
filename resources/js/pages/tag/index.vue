@@ -18,7 +18,7 @@
                     >
                         <router-link
                             v-for="video in feed"
-                            :to="`/v/${video.hid}`"
+                            :to="`/tag/${id}/v/${video.hid}`"
                             :key="video.id"
                             class="group cursor-pointer"
                         >
@@ -45,14 +45,6 @@
                                     </span>
                                 </div>
 
-                                <div class="absolute top-3 right-3">
-                                    <span
-                                        class="bg-black/10 backdrop-blur-sm px-2 py-1 rounded-full flex gap-1.5 items-center text-white text-xs font-medium"
-                                    >
-                                        <ChatBubbleOvalLeftIcon class="h-4 w-4" />
-                                        {{ formatNumber(video.comments) }}
-                                    </span>
-                                </div>
 
                                 <div class="absolute bottom-0 left-0 right-0 p-3">
                                     <div
@@ -126,7 +118,7 @@
 <script setup>
 import { onMounted, onUnmounted, inject, ref, watch, nextTick } from 'vue'
 import { storeToRefs } from 'pinia'
-import { HeartIcon, ChatBubbleOvalLeftIcon } from '@heroicons/vue/24/outline'
+import { HeartIcon } from '@heroicons/vue/24/outline'
 import { useRouter, useRoute } from 'vue-router'
 import { useUtils } from '@/composables/useUtils'
 import GuestAuthPromptModal from '@/components/Tag/GuestAuthPromptModal.vue'

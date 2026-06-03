@@ -32,7 +32,7 @@
                     >
                         <router-link
                             v-for="video in currentVideos"
-                            :to="`/v/${video.hid}?by=${video.account.username}`"
+                            :to="`/explore/v/${video.hid}?tag=${activeHashtag?.name || ''}`"
                             :key="video.id"
                             class="group cursor-pointer"
                         >
@@ -56,15 +56,6 @@
                                     >
                                         <HeartIcon class="h-4 w-4" />
                                         {{ formatNumber(video.likes) }}
-                                    </span>
-                                </div>
-
-                                <div class="absolute top-3 right-3">
-                                    <span
-                                        class="bg-black/10 backdrop-blur-sm px-2 py-1 rounded-full flex gap-1.5 items-center text-white text-xs font-medium"
-                                    >
-                                        <ChatBubbleOvalLeftIcon class="h-4 w-4" />
-                                        {{ formatNumber(video.comments || 0) }}
                                     </span>
                                 </div>
 
@@ -140,7 +131,7 @@
 <script setup>
 import { onMounted, onUnmounted, inject, ref, watch, nextTick } from 'vue'
 import { storeToRefs } from 'pinia'
-import { HeartIcon, ChatBubbleOvalLeftIcon } from '@heroicons/vue/24/outline'
+import { HeartIcon } from '@heroicons/vue/24/outline'
 import { useUtils } from '@/composables/useUtils'
 import GuestAuthPromptModal from '@/components/Tag/GuestAuthPromptModal.vue'
 import ExploreHeader from '@/components/Explore/ExploreHeader.vue'

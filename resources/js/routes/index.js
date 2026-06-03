@@ -38,11 +38,17 @@ const router = createRouter({
             meta: { requiresAuth: false }
         },
         {
-            path: '/intents/follow',
-            name: 'followIntent',
-            component: () => import('~/pages/intents/follow.vue'),
-            meta: { requiresAuth: false }
+            path: '/explore/v/:videoId',
+            name: 'exploreVideoFeed',
+            component: () => import('~/pages/explore/video.vue'),
+            meta: { requiresAuth: false, params: true }
         },
+        // {
+        //     path: '/intents/follow',
+        //     name: 'followIntent',
+        //     component: () => import('~/pages/intents/follow.vue'),
+        //     meta: { requiresAuth: false }
+        // },
         {
             path: '/notifications/system/:id/permalink',
             name: 'notificationSystemPermalink',
@@ -68,77 +74,83 @@ const router = createRouter({
             meta: { requiresAuth: true }
         },
         {
-            path: '/starter-kits',
-            name: 'starterKitsLandingPage',
-            component: () => import('~/pages/starterKits/index.vue'),
-            meta: { requiresAuth: false }
-        },
-        {
-            path: '/starter-kits/about',
-            name: 'starterKitsAboutPage',
-            component: () => import('~/pages/starterKits/about.vue'),
-            meta: { requiresAuth: false }
-        },
-        {
-            path: '/starter-kits/faq',
-            name: 'starterKitsFAQPage',
-            component: () => import('~/pages/starterKits/faq.vue'),
-            meta: { requiresAuth: false }
-        },
-        {
-            path: '/starter-kits/browse',
-            name: 'starterKitsBrowsePage',
-            component: () => import('~/pages/starterKits/browse.vue'),
-            meta: { requiresAuth: false }
-        },
-        {
-            path: '/starter-kits/hashtag/:tag',
-            name: 'starterKitsHashtagPage',
-            component: () => import('~/pages/starterKits/hashtag.vue'),
-            meta: { requiresAuth: false }
-        },
-        {
-            path: '/starter-kits/my-kits',
-            name: 'starterKitsMyKitsPage',
-            component: () => import('~/pages/starterKits/my-kits.vue'),
-            meta: { requiresAuth: true }
-        },
-        {
-            path: '/starter-kits/joined-kits',
-            name: 'starterKitsJoinedKitsPage',
-            component: () => import('~/pages/starterKits/joined-kits.vue'),
-            meta: { requiresAuth: true }
-        },
-        {
-            path: '/starter-kits/create',
-            name: 'starterKitsCreatePage',
-            component: () => import('~/pages/starterKits/create.vue'),
-            meta: { requiresAuth: true }
-        },
-        {
-            path: '/starter-kits/:id/:slug/edit',
-            name: 'starterKitsEditPage',
-            component: () => import('~/pages/starterKits/edit.vue'),
+            path: '/search/v/:videoId',
+            name: 'searchVideoFeed',
+            component: () => import('~/pages/search/video.vue'),
             meta: { requiresAuth: true, params: true }
         },
-        {
-            path: '/starter-kits/:id/:slug/review',
-            name: 'starterKitsReviewPage',
-            component: () => import('~/pages/starterKits/review.vue'),
-            meta: { requiresAuth: true, params: true }
-        },
-        {
-            path: '/starter-kits/:id/:slug',
-            name: 'starterKitsPage',
-            component: () => import('~/pages/starterKits/show.vue'),
-            meta: { requiresAuth: false, params: true }
-        },
-        {
-            path: '/invite/:id',
-            name: 'invitePage',
-            component: () => import('~/pages/invite/index.vue'),
-            meta: { requiresAuth: false, params: true }
-        },
+        // {
+        //     path: '/starter-kits',
+        //     name: 'starterKitsLandingPage',
+        //     component: () => import('~/pages/starterKits/index.vue'),
+        //     meta: { requiresAuth: false }
+        // },
+        // {
+        //     path: '/starter-kits/about',
+        //     name: 'starterKitsAboutPage',
+        //     component: () => import('~/pages/starterKits/about.vue'),
+        //     meta: { requiresAuth: false }
+        // },
+        // {
+        //     path: '/starter-kits/faq',
+        //     name: 'starterKitsFAQPage',
+        //     component: () => import('~/pages/starterKits/faq.vue'),
+        //     meta: { requiresAuth: false }
+        // },
+        // {
+        //     path: '/starter-kits/browse',
+        //     name: 'starterKitsBrowsePage',
+        //     component: () => import('~/pages/starterKits/browse.vue'),
+        //     meta: { requiresAuth: false }
+        // },
+        // {
+        //     path: '/starter-kits/hashtag/:tag',
+        //     name: 'starterKitsHashtagPage',
+        //     component: () => import('~/pages/starterKits/hashtag.vue'),
+        //     meta: { requiresAuth: false }
+        // },
+        // {
+        //     path: '/starter-kits/my-kits',
+        //     name: 'starterKitsMyKitsPage',
+        //     component: () => import('~/pages/starterKits/my-kits.vue'),
+        //     meta: { requiresAuth: true }
+        // },
+        // {
+        //     path: '/starter-kits/joined-kits',
+        //     name: 'starterKitsJoinedKitsPage',
+        //     component: () => import('~/pages/starterKits/joined-kits.vue'),
+        //     meta: { requiresAuth: true }
+        // },
+        // {
+        //     path: '/starter-kits/create',
+        //     name: 'starterKitsCreatePage',
+        //     component: () => import('~/pages/starterKits/create.vue'),
+        //     meta: { requiresAuth: true }
+        // },
+        // {
+        //     path: '/starter-kits/:id/:slug/edit',
+        //     name: 'starterKitsEditPage',
+        //     component: () => import('~/pages/starterKits/edit.vue'),
+        //     meta: { requiresAuth: true, params: true }
+        // },
+        // {
+        //     path: '/starter-kits/:id/:slug/review',
+        //     name: 'starterKitsReviewPage',
+        //     component: () => import('~/pages/starterKits/review.vue'),
+        //     meta: { requiresAuth: true, params: true }
+        // },
+        // {
+        //     path: '/starter-kits/:id/:slug',
+        //     name: 'starterKitsPage',
+        //     component: () => import('~/pages/starterKits/show.vue'),
+        //     meta: { requiresAuth: false, params: true }
+        // },
+        // {
+        //     path: '/invite/:id',
+        //     name: 'invitePage',
+        //     component: () => import('~/pages/invite/index.vue'),
+        //     meta: { requiresAuth: false, params: true }
+        // },
         {
             path: '/v/:id',
             name: 'videoPage',
@@ -152,11 +164,17 @@ const router = createRouter({
             meta: { requiresAuth: false, params: true }
         },
         {
-            path: '/sounds/:id',
-            name: 'soundsPage',
-            component: () => import('~/pages/sounds/index.vue'),
-            meta: { requiresAuth: true, params: true }
+            path: '/tag/:id/v/:videoId',
+            name: 'tagVideoFeed',
+            component: () => import('~/pages/tag/video.vue'),
+            meta: { requiresAuth: false, params: true }
         },
+        // {
+        //     path: '/sounds/:id',
+        //     name: 'soundsPage',
+        //     component: () => import('~/pages/sounds/index.vue'),
+        //     meta: { requiresAuth: true, params: true }
+        // },
         {
             path: '/@:username/v/:videoId',
             name: 'profileVideoFeed',
@@ -169,24 +187,24 @@ const router = createRouter({
             component: () => import('~/pages/profile/index.vue'),
             meta: { requiresAuth: false }
         },
-        {
-            path: '/auth/curated',
-            name: 'curatedOnboardingPage',
-            component: () => import('~/pages/auth/CuratedOnboarding/register.vue'),
-            meta: { requiresAuth: false }
-        },
-        {
-            path: '/auth/curated/verify/email',
-            name: 'curatedOnboardingVerifyEmailPage',
-            component: () => import('~/pages/auth/CuratedOnboarding/verify-email.vue'),
-            meta: { requiresAuth: false }
-        },
-        {
-            path: '/auth/curated/complete',
-            name: 'curatedOnboardingCompletePage',
-            component: () => import('~/pages/auth/CuratedOnboarding/complete.vue'),
-            meta: { requiresAuth: false }
-        },
+        // {
+        //     path: '/auth/curated',
+        //     name: 'curatedOnboardingPage',
+        //     component: () => import('~/pages/auth/CuratedOnboarding/register.vue'),
+        //     meta: { requiresAuth: false }
+        // },
+        // {
+        //     path: '/auth/curated/verify/email',
+        //     name: 'curatedOnboardingVerifyEmailPage',
+        //     component: () => import('~/pages/auth/CuratedOnboarding/verify-email.vue'),
+        //     meta: { requiresAuth: false }
+        // },
+        // {
+        //     path: '/auth/curated/complete',
+        //     name: 'curatedOnboardingCompletePage',
+        //     component: () => import('~/pages/auth/CuratedOnboarding/complete.vue'),
+        //     meta: { requiresAuth: false }
+        // },
         {
             path: '/about',
             name: 'About',
@@ -347,12 +365,12 @@ const router = createRouter({
             component: () => import('~/pages/auth/register.vue'),
             meta: { requiresAuth: false }
         },
-        {
-            path: '/auth/app/register',
-            name: 'appRegister',
-            component: () => import('~/pages/auth/app-register.vue'),
-            meta: { requiresAuth: false }
-        },
+        // {
+        //     path: '/auth/app/register',
+        //     name: 'appRegister',
+        //     component: () => import('~/pages/auth/app-register.vue'),
+        //     meta: { requiresAuth: false }
+        // },
         {
             path: '/dashboard',
             redirect: '/dashboard/account'
